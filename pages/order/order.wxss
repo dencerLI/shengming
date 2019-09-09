@@ -1,0 +1,116 @@
+/* pages/order/order.wxss */
+.addressgo{width: 100%; height: 100rpx; border-bottom: 1px solid #ccc;box-sizing: border-box;}
+.addressgo text{ float: left; font-size: 30rpx; color:#333;height: 100rpx; line-height: 100rpx; margin-left: 24rpx; }
+.addressgo .mark{ float: left; width: 34rpx; height: 34rpx; margin-top: 33rpx; margin-left: 30rpx;}
+.isgo{ float: right; width: 60rpx; height: 60rpx;margin-right: 10rpx; margin-top: 20rpx;}
+.contleft{ float: left; width: 246rpx; height: 260rpx;}
+.contleft image{width: 100%;height: 100%;}
+.contright{ float: left; width: 504rpx; height: 260rpx;}
+.content{ border-bottom: 1px solid #ccc; box-sizing: border-box; height: auto; overflow: hidden;}
+.title{ font-size: 24rpx; color: #333;  margin-left: 12rpx; margin-top: 30rpx;}
+.company{ font-size: 22rpx; color: #999999; margin: 30rpx 0 0 12rpx; font-weight: 600;}
+.numall{height: auto; overflow: hidden; margin-top: 90rpx;}
+.numleft{ float: left; margin-left: 12rpx; font-size: 26rpx; color: #333333;}
+.numright{ float: right; margin-right: 30rpx; color: #999999; font-size: 22rpx;}
+.fslist{ height: 80rpx; border-bottom: 1px solid #ccc;box-sizing: border-box;}
+.wx{ float: left; width: 40rpx; height: 34rpx; margin:23rpx 0 0 30rpx; }
+.fslist .textme{ font-size: 26rpx; color: #333; margin-left: 33rpx; height: 80rpx; line-height: 80rpx;}
+.yes{ float: right; width:60rpx; height: 60rpx; margin: 10rpx 16rpx 0 0;}
+.xin{ float: left; width: 37rpx; height: 32rpx; margin:24rpx 0 0 30rpx; }
+.total{ margin-top: 35rpx; height: auto; overflow: hidden;}
+.total view{ float: right; margin-right: 30rpx; color: #333333; font-size: 30rpx;}
+.select_box{
+  width:220rpx;
+  height:60rpx;
+  float: right;
+   margin-top: 10rpx;
+  position: relative;
+}
+.select_box .select{
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+ 
+}
+.select_box .select .select_text{
+  font-size: 22rpx;
+  color: #999999;
+  line-height: 60rpx;
+  flex: 1;
+   text-align: center;
+}
+.select_box .select .select_img{
+  width: 40rpx;
+  height: 60rpx;
+  display: block;
+  transition:transform 0.3s;
+}
+.select_box .select .select_img_rotate{
+  transform:rotate(90deg); 
+}
+.select_box .option_box{
+  position: absolute;
+  top: calc(100% - 1px);
+  width: 180rpx;
+  box-sizing: border-box;
+  height: 0;
+  overflow-y: auto;
+  background: #fff;
+  transition: height 0.3s;
+  border-left:1px solid #efefef;
+  border-right:1px solid #efefef;
+  
+}
+.select_box .option_box .option{
+  display: block;
+  line-height: 60rpx; 
+  font-size: 22rpx;
+  /* border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+  padding: 10rpx; */
+   text-align: center;
+  color: #999999;
+
+}
+
+
+/* 修改默认样式 */
+checkbox{
+  width: 24rpx; /* 背景的宽 */
+  height: 28rpx; /* 背景的高 */
+
+}
+checkbox .wx-checkbox-input,radio .wx-radio-input {
+  border-radius:4rpx; /* 圆角 */
+  width: 24rpx; /* 背景的宽 */
+  height: 24rpx; /* 背景的高 */
+  background: #fff;
+   box-sizing: border-box;
+}
+
+/* 修改checked样式 */
+radio .wx-radio-input.wx-radio-input-checked::before,
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+ color: #333;
+ font-size: 28rpx;
+ /* width: 28rpx;
+  height: 28rpx; */
+ /* background: #ff6633; */
+}
+
+.istong{ height: auto; overflow: hidden; margin-top: 34rpx;}
+.istong checkbox-group{ float: left; margin-left: 30rpx;line-height: 24rpx;}
+.tiao{ float: left;line-height: 24rpx; margin-top: 4rpx;}
+.istong text{ float: left; margin-left: 8rpx; font-size: 22rpx;}
+.cor{ color: #999999;}
+.tiaoyue{text-decoration:underline;}
+.bot{ position: absolute;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #999999; color: #FEFEFE;font-size: 30rpx; text-align: center; line-height: 100rpx;}
+.taost{  position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3);z-index: 99;}
+.taost1{  position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); overflow: auto;z-index: 99;}
+.treaty{ background: #fff; width: 690rpx; height: 290rpx; position: absolute; top: 50%; left: 50%; margin-top: -145rpx; margin-left: -345rpx;}
+.treaty1{ background: #fff; width: 690rpx; height: auto; position: absolute; top: 10%; left: 50%;  margin-left: -345rpx;}
+.istitle{ width: 100%; text-align: center; font-size: 26rpx; color: #333; margin: 30rpx 0;}
+.iscon{font-size: 22rpx; color: #333; width: 628rpx; margin: 0px auto; text-indent: 50rpx; line-height: 34rpx;}
+.xbt{font-size: 22rpx; color: #333; width: 628rpx; margin: 0px auto;  line-height: 34rpx;}

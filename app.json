@@ -1,0 +1,59 @@
+{
+  "pages": [
+    "pages/meWallet/meWallet",
+    "pages/meAssets/meAssets",
+    "pages/me/me",
+    "pages/index/index",
+    "pages/administration/administration",
+    "pages/setup/setup",
+    "pages/order/order",
+    "pages/content/content",
+    "pages/logs/logs",
+    "pages/hotarea/hotarea"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "生命之里",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#888888",
+    "selectedColor": "#fff",
+    "borderStyle": "white",
+    "backgroundColor": "#030000",
+    "list": [
+      {
+        "selectedIconPath": "images/shouye.png",
+        "iconPath": "images/shouye1.png",
+        "pagePath": "pages/index/index",
+        "text": "主页"
+      },
+      {
+        "selectedIconPath": "images/requ.png",
+        "iconPath": "images/requ.png",
+        "pagePath": "pages/hotarea/hotarea",
+        "text": "热区"
+      },
+      {
+        "selectedIconPath": "images/shequ.png",
+        "iconPath": "images/shequ.png",
+        "pagePath": "pages/hotarea/hotarea",
+        "text": "社区"
+      },
+      {
+        "selectedIconPath": "images/me1.png",
+        "iconPath": "images/me.png",
+        "pagePath": "pages/me/me",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序调起位置请授权"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,24 @@
+<!--pages/administration/administration.wxml-->
+<view class="adminlist">
+  <view class="padding30">
+    <view class="mansession">
+      <text class="manleft">收货人： 入鸡蛋</text>
+      <text class="manright">17611110801</text>
+    </view>
+    <view class="manaddress">
+      北京市朝阳区六里屯
+    </view>
+    <view class="operation">
+      <checkbox-group bindchange="checkboxChange">
+        <label class="checkbox" wx:for="{{items}}" wx:key="key">
+          <checkbox value="{{item.name}}" checked="{{item.checked}}" />
+        </label>
+      </checkbox-group>
+      <text class="address">默认地址</text>
+      
+      <text class="del">删除</text>
+      <text class="edit">编辑</text>
+    </view>
+  </view>
+</view>
+<view class="bot">确认支付</view>

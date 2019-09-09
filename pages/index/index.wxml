@@ -1,0 +1,49 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+<view class='sp-nav' style="height:{{height}};">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image data-myindex="{{index}}" src="{{item.url}}" class="slide-image" catchtap="iscont" />
+        </swiper-item>
+      </block>
+    </swiper>
+
+  <view class="dots"> 
+      <block wx:for="{{imgUrls}}" wx:key="unique"> 
+        <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view> 
+      </block> 
+    </view>
+    <view class="bottom-fixed">
+        <view class="botitem">
+           <view>
+              <image class="banyuan" src="../../images/liwu.png"></image>
+               <image class="wenzi" src="../../images/lesong.png"></image>
+           </view>
+        </view>
+        <view class="botitem">
+            <view>
+              <image class="banyuan" src="../../images/shandian.png"></image>
+               <image class="wenzi" src="../../images/dingshui.png"></image>
+            </view>
+        </view>
+        <view class="botitem">
+          <view>
+            <image class="banyuan" src="../../images/jinzi.png"></image>
+            <image class="wenzi" src="../../images/shuipiao.png"></image>
+          </view>
+        </view>
+    </view>
+</view>
+<view class="buider">asdadadadasdad</view>

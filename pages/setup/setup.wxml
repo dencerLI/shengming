@@ -1,0 +1,24 @@
+<!--pages/setup/setup.wxml-->
+<view class="top">
+   <image></image>
+   <text>昵称</text>
+</view>
+<view class="sessionlist">
+   <view class="name">昵称</view>
+   <input value="啊啊啊啊"></input>
+</view>
+<view class="sessionlist">
+   <view class="name">手机号</view>
+   <input value="15726675555"></input>
+</view>
+<view class="sessionlist">
+   <view class="name">常用地址</view>
+   <view class="addlist">
+   <input value="{{selectData[index]}}"></input>
+    <view class='option_box' style='height:{{selectShow?(selectData.length*60):0}}rpx;'>
+        <text class='option' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+    </view>
+   </view>
+   <image src="../../images/xiala.png" catchtap='selectTap'></image>
+</view>
+<view class="bot">保存</view>

@@ -1,0 +1,16 @@
+/* pages/meAssets/meAssets.wxss */
+page{background: #f9f3f3}
+.top30{ margin-top: 30rpx;}
+.top10{ margin-top: 10rpx;}
+.zclist{ background: #fff; height: 140rpx;}
+.zcleft{ float: left; margin-left: 30rpx; margin-top: 30rpx; text-align: center;}
+.zcleft .qb{  width: 44rpx; height: 43rpx;}
+.zcleft .jf{  width: 46rpx; height: 43rpx;}
+.zcleft .hd{  width: 44rpx; height: 41rpx;}
+.zcleft text{ display: block; text-align: center; font-size: 26rpx; color: #333; margin-top: 10rpx;}
+.zcright{ float: right; margin-right: 30rpx; width: 414rpx; height: 140rpx;}
+.zcright .cha{ float: right; width:89rpx; height: 44rpx; line-height: 44rpx;border-radius: 2rpx; font-size: 22rpx; color: #fff; background: #000; text-align: center; margin-top: 48rpx; }
+.zcright .yue{ float: left; font-size: 22rpx; color: #333; margin-top: 40rpx;}
+.yue .ti{ display: block;}
+.yue .yu{  display: block; margin-top: 18rpx;}
+.jifen{ float: left; height: 140rpx; line-height: 140rpx; font-size: 22rpx; color: #000}

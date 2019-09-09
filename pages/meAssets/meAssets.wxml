@@ -1,0 +1,40 @@
+<!--pages/meAssets/meAssets.wxml-->
+<view class="zclist top30">
+    <view class="zcleft">
+       <image class="qb" src="../../images/qianbao.png"></image>
+       <text>我的钱包</text>
+    </view>
+    <view class="zcright">
+        <view class="yue">
+           <text class="ti">可提现 ￥10</text>
+           <text class="yu">余额 20</text>
+        </view>
+        <view class="cha">查看</view>
+    </view>
+</view>
+<view class="zclist top10">
+    <view class="zcleft">
+       <image class="jf" src="../../images/jifen.png"></image>
+       <text>我的积分</text>
+    </view>
+    <view class="zcright">
+        <view class="jifen">
+           <text>余额 20</text>
+        </view>
+        <view class="cha">兑换</view>
+    </view>
+</view>
+
+<view class="zclist top10">
+    <view class="zcleft">
+       <image class="hd" src="../../images/hudong.png"></image>
+       <text>我的互动</text>
+    </view>
+    <view class="zcright">
+        <view class="jifen">
+           
+           <text>余额 20</text>
+        </view>
+        <view class="cha">查看</view>
+    </view>
+</view>

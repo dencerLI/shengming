@@ -1,0 +1,38 @@
+/* pages/administration/administration.wxss */
+.adminlist{ height: 190rpx; border-bottom: 1px solid #e8e8e8; }
+.padding30{ padding: 30rpx;}
+.mansession{ height: auto;overflow: hidden;font-size: 22rpx; color: #333;}
+.manleft{ float: left;}
+.manright{float: right;}
+.manaddress{ font-size: 26rpx; color: #333333; margin-top: 29rpx;}
+
+
+/* 修改默认样式 */
+checkbox{
+  width: 26rpx; /* 背景的宽 */
+  height: 30rpx; /* 背景的高 */
+
+}
+checkbox .wx-checkbox-input,radio .wx-radio-input {
+  border-radius:50%; /* 圆角 */
+  width: 26rpx; /* 背景的宽 */
+  height: 26rpx; /* 背景的高 */
+  background: #fff;
+   box-sizing: border-box;
+}
+
+/* 修改checked样式 */
+radio .wx-radio-input.wx-radio-input-checked::before,
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+ color: #333;
+ font-size: 28rpx;
+ /* width: 28rpx;
+  height: 28rpx; */
+ /* background: #ff6633; */
+}
+.operation{ height: 30rpx; font-size: 22rpx; color: #333; margin-top: 30rpx;}
+.operation checkbox-group{float: left;}
+.address{ float: left; margin-left: 22rpx; margin-top: 2rpx;}
+.del{ float: right; margin-top: 2rpx;}
+.edit{ float: right; margin-right: 88rpx; margin-top: 2rpx;}
+.bot{ position: absolute;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #050001; color: #FEFEFE;font-size: 30rpx; text-align: center; line-height: 100rpx;}

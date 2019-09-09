@@ -1,0 +1,36 @@
+<!--pages/meWallet/meWallet.wxml-->
+<view class="srall">
+    <image class="logo" src="../../images/qblogo.png"></image>
+    <text class="title">总收入</text>
+    <text class="title">￥100</text>
+    <view class="zj">
+      <view class="zjleft">可提现余额：100.00</view>
+      <view class="zjright">账户冻结资金：54.00</view>
+    </view>
+</view>
+<view class="tx">
+   <view class="txleft">
+     <text class="bt">可提现余额</text>
+     <text class="jine">￥100</text>
+     <view class="txbtn">提现</view>
+   </view>
+   <view class="txright">
+      <text class="bt">冻结账户资金</text>
+     <text class="jine">￥100</text>
+     <view class="txbtn">提现</view>
+   </view>
+</view>
+<view class="isalert">冻结账户如何提现：当冻结账户资金满54.00元可转到可提现余额进行提现。</view>
+
+<view class="newslist">
+   <view class="news">
+       <text class="isdate">2019年8月15日微信提现</text>
+       <text class="money">￥100</text>
+       <text class="state">已到账</text>
+   </view>
+   <view class="news">
+       <text class="isdate">2019年8月20日充值</text>
+       <text class="money">￥100000</text>
+       <text class="state">已到账</text>
+   </view>
+</view>

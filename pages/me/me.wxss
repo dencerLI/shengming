@@ -1,0 +1,19 @@
+/* pages/me/me.wxss */
+.top{ height: 300rpx; padding-top: 26rpx; width: 100%; border-bottom:1px solid #e5e5e5; position: relative; }
+.top .isimg{ display: block; margin: 0px auto; border: 1px solid #333; width: 120rpx; height: 120rpx; border-radius: 50%; }
+.top .isbg{ position: absolute; top: 0; left: 0; width: 100%; height: 100%;z-index: -1;}
+.top .nicheng{ text-align: center; width: 100%; display: block; font-size: 30rpx; color: #fff; margin-top: 30rpx;}
+.top .xiu{ text-align: center; width: 160rpx; display: block; font-size: 26rpx; color: #fff;  margin: 0px auto;margin-top: 26rpx;}
+.sessionlist{ height: 84rpx; border-bottom: 1px solid #e5e5e5; box-sizing: border-box;}
+.name{ float: left; width: 235rpx; font-size: 26rpx; color: #333; height: 84rpx; line-height: 84rpx; text-indent: 30rpx;}
+.sessionlist text{ width: 265rpx; float: left; height: 84rpx; font-size: 26rpx; color: #999999; }
+.bot{ position: absolute;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #000; color: #FEFEFE;font-size: 30rpx; text-align: center; line-height: 100rpx;}
+/* .sessionlist image{ float: right; width: 60rpx; height: 60rpx; margin-top: 10rpx; margin-right: 15rpx;} */
+.listall{ height: auto; overflow: hidden; margin-top: 24rpx; border-top: 1px solid #e5e5e5;}
+.dd{ float: left; width: 27rpx; height: 30rpx; margin-top: 27rpx; margin-left: 30rpx;}
+.zc{ float: left; width: 31rpx; height: 29rpx; margin-top: 27rpx; margin-left: 30rpx;}
+.sp{ float: left; width: 33rpx; height: 27rpx; margin-top: 28rpx; margin-left: 30rpx;}
+.hy{ float: left; width: 31rpx; height: 30rpx; margin-top: 27rpx; margin-left: 30rpx;}
+.dz{ float: left; width: 35rpx; height: 27rpx; margin-top: 28rpx; margin-left: 30rpx;}
+.btn{ float: right; margin-right: 30rpx; height: 84rpx;}
+.btn image{ width: 18rpx; height: 31rpx; margin-top: 27.5rpx;}
