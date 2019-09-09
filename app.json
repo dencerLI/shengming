@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/me/me",
     "pages/meWallet/meWallet",
     "pages/meAssets/meAssets",
-    "pages/me/me",
-    "pages/index/index",
+    
+   
     "pages/administration/administration",
     "pages/setup/setup",
     "pages/order/order",

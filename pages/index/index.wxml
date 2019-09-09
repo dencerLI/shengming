@@ -46,4 +46,26 @@
         </view>
     </view>
 </view>
-<view class="buider">asdadadadasdad</view>
+<view class="buider">
+ <view class="buiderleft">
+    <image src="../../images/indexleft.png"></image>
+ </view>
+ <view class="buiderright">
+    <image src="../../images/indexright.png"></image>
+ </view>
+</view>
+<view class="pushtitle">
+    健康推送
+</view>
+<view class="pushlist">
+   <view class="push">
+      <view class="pushleft">
+         <image src="../../images/55.png"></image>
+      </view>
+      <view class="pushright">
+           <text class="pushname">苏打水-克东</text>
+           <text class="pushBt">扼制自由基/促进新陈代谢/预防三高</text>
+           <text class="pushmoney">￥11.1</text>
+      </view>
+   </view>
+</view>

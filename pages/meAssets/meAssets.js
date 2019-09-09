@@ -18,6 +18,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    gowallet:function(){
+      wx.navigateTo({
+        url: '../meWallet/meWallet',
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    }
   }
 })

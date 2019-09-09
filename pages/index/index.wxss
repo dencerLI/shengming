@@ -53,7 +53,7 @@ swiper image{ width: 100% !important; height:100% !important; }
   background: #000000; 
 }
 .bottom-fixed{ width: 690rpx; height: 160rpx; border-top-left-radius: 50rpx;border-top-right-radius: 50rpx; background:rgba(255,255,255,0.5); position: absolute; bottom: 0; left: 50%; margin-left: -345rpx;  display:flex;
-        text-align: center;}
+        text-align: center;box-shadow:0px 10px 12px 4px rgba(4,0,0,0.2);}
 .botitem{ flex: 1;}
 .botitem view{ width: 63rpx; border: 1px solid #333; border-radius: 63rpx; margin: 0px auto; margin-top: 15rpx; padding-bottom: 10rpx;}
 .botitem .banyuan{ width: 63rpx; height: 63rpx;}
@@ -65,3 +65,17 @@ font-family:PingFang SC;
 color:rgba(0,0,0,1);
 display:inline-block;
 }
+.buider{ height: auto; overflow: hidden; margin-top: 30rpx;}
+.buiderleft{ width: 329rpx; height: 329rpx; float: left; margin-left: 30rpx;}
+.buiderleft image{ width: 100%; height: 100%; border: none;}
+.buiderright{ width: 329rpx; height: 329rpx; float: right; margin-right: 30rpx;}
+.buiderright image{ width: 100%; height: 100%; border: none;}
+.pushtitle{font-size: 30rpx; color: #333; text-align: center;padding: 30rpx 0; border-top: 1px solid #e5e5e5; margin-top: 30rpx;}
+.pushlist{ height: auto;overflow: hidden;}
+.push{ height: 280rpx;}
+.pushleft{ float: left; height: 236rpx;width: 236rpx; margin: 22rpx 0 0 30rpx;}
+.pushleft image{ width: 100%; height: 100%;border: none;}
+.pushright{ float: left;height: 236rpx; width: 400rpx; margin-left: 50rpx;}
+.pushname{ font-size: 26rpx; color: #333; display: block; height: 26rpx; line-height: 26rpx; margin-top: 117rpx;}
+.pushBt{ font-size: 22rpx; color: #666666; display: block; height: 22rpx; line-height: 22rpx; margin-top: 17rpx;}
+.pushmoney{font-size: 26rpx; color: #333; display: block; height: 26rpx; line-height: 26rpx; margin-top:17rpx;}

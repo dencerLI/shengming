@@ -9,7 +9,7 @@
            <text class="ti">可提现 ￥10</text>
            <text class="yu">余额 20</text>
         </view>
-        <view class="cha">查看</view>
+        <view class="cha" bindtap="gowallet">查看</view>
     </view>
 </view>
 <view class="zclist top10">
