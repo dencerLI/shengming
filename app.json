@@ -1,17 +1,21 @@
 {
   "pages": [
+    "pages/community/community",
     "pages/index/index",
+    "pages/orderall/orderall",
     "pages/me/me",
+    "pages/waterTicket/waterTicket",
     "pages/meWallet/meWallet",
     "pages/meAssets/meAssets",
-    
-   
+    "pages/Interaction/Interaction",
+    "pages/hot/hot",
     "pages/administration/administration",
     "pages/setup/setup",
     "pages/order/order",
     "pages/content/content",
     "pages/logs/logs",
-    "pages/hotarea/hotarea"
+    "pages/hotarea/hotarea",
+    "pages/shopdetail/shopdetail"
     
   ],
   "window": {
@@ -33,15 +37,15 @@
         "text": "主页"
       },
       {
-        "selectedIconPath": "images/requ.png",
+        "selectedIconPath": "images/requ1.png",
         "iconPath": "images/requ.png",
-        "pagePath": "pages/hotarea/hotarea",
-        "text": "热区"
+        "pagePath": "pages/hot/hot",
+        "text": "热点"
       },
       {
-        "selectedIconPath": "images/shequ.png",
+        "selectedIconPath": "images/shequ1.png",
         "iconPath": "images/shequ.png",
-        "pagePath": "pages/hotarea/hotarea",
+        "pagePath": "pages/community/community",
         "text": "社区"
       },
       {

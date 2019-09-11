@@ -34,3 +34,11 @@
        <text class="state">已到账</text>
    </view>
 </view>
+<view class="istaost">
+   <view class="taostCon">
+       <text class="taosttitle">提现规则</text>
+       <text class="taostC">每个用户每天只能提现一次，每次不超过¥300元，（超额可线下申请），积分不满100分则不予以体现。</text>
+       <view class="taostbtn">确定</view>
+   </view>
+</view>
+<view class="bot">充值</view>

@@ -1,0 +1,145 @@
+<!--pages/orderall/orderall.wxml-->
+<view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">
+    <text>全部</text>
+    </view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab"> <text>待支付</text></view>
+    <view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab"> <text>待收货</text></view>
+    <view class="swiper-tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="clickTab"> <text>已完成</text></view>
+  </view>
+   <!--全部-->
+  <view class = "{{currentTab == 0 ? 'show':'hidden'}}" >
+    <scroll-view>
+       <view class="noorder" wx:if="{{order==0}}">
+        <image src="../../images/noorder.png"></image>
+        <text>还没有订单</text>
+        <view class="gwbtn">去购物</view>
+       </view>
+       <view class="yesorder" wx:else>
+          <view class="dingdan">
+             <text class="ddleft">订单编号：100001011</text> <text class="ddright">待付款</text>
+          </view>
+          <view class="ddcon">
+             <view class="conleft"></view>
+             <view class="conright">
+                <text class="conrightBt">天然小分子软包装水5000毫升</text>
+                <view class="conrightGg">
+                   <text class="ggleft">默认规格</text>
+                   <text class="ggright">x1</text>
+                </view>
+             </view>
+          </view>
+
+          <view class="money">
+             <text>应付： ¥19.8</text>
+             
+             <view class="fkbtn">立即付款</view>
+             <view class="qxbtn">取消订单</view>
+          </view>
+       </view>
+    </scroll-view>
+  </view>
+  <!--全部-->
+   <!--待付款-->
+  <view class = "{{currentTab == 1 ? 'show':'hidden'}}" >
+    <scroll-view>
+      <view class="noorder" wx:if="{{daiorder==0}}">
+        <image src="../../images/noorder.png"></image>
+        <text>还没有订单</text>
+        <view class="gwbtn">去购物</view>
+       </view>
+       <view class="yesorder" wx:else>
+          <view class="dingdan">
+             <text class="ddleft">订单编号：100001011</text> <text class="ddright">待付款</text>
+          </view>
+          <view class="ddcon">
+             <view class="conleft"></view>
+             <view class="conright">
+                <text class="conrightBt">天然小分子软包装水5000毫升</text>
+                <view class="conrightGg">
+                   <text class="ggleft">默认规格</text>
+                   <text class="ggright">x1</text>
+                </view>
+             </view>
+          </view>
+
+          <view class="money">
+             <text>应付： ¥19.8</text>
+             
+             <view class="fkbtn">立即付款</view>
+             <view class="qxbtn">取消订单</view>
+          </view>
+       </view>
+    </scroll-view>
+  </view>
+  <!--待付款-->
+   <!--待收货-->
+  <view class = "{{currentTab == 2 ? 'show':'hidden'}}">
+    <scroll-view>
+      <view class="noorder" wx:if="{{shouorder==0}}">
+        <image src="../../images/noorder.png"></image>
+        <text>还没有订单</text>
+        <view class="gwbtn">去购物</view>
+       </view>
+       <view class="yesorder" wx:else>
+          <view class="dingdan">
+             <text class="ddleft">订单编号：100001011</text> <text class="ddright">待收货</text>
+          </view>
+          <view class="ddcon">
+             <view class="conleft"></view>
+             <view class="conright">
+                <text class="conrightBt">天然小分子软包装水5000毫升</text>
+                <view class="conrightGg">
+                   <text class="ggleft">默认规格</text>
+                   <text class="ggright">x1</text>
+                </view>
+             </view>
+          </view>
+
+          <view class="money">
+             <text>应付： ¥19.8</text>
+             
+             <view class="fkbtn qrbtn">确认收货</view>
+             <view class="qxbtn">取消订单</view>
+          </view>
+       </view>
+    </scroll-view>
+  </view>
+  
+  <!--待收货-->
+   <!--已完成-->
+<view class = "{{currentTab == 3 ? 'show':'hidden'}}">
+    <scroll-view>
+       <view class="noorder" wx:if="{{shouorder==0}}">
+        <image src="../../images/noorder.png"></image>
+        <text>还没有订单</text>
+        <view class="gwbtn">去购物</view>
+       </view>
+       <view class="yesorder" wx:else>
+          <view class="dingdan">
+             <text class="ddleft">订单编号：100001011</text> <text class="ddright">已完成</text>
+          </view>
+          <view class="ddcon">
+             <view class="conleft"></view>
+             <view class="conright">
+                <text class="conrightBt">天然小分子软包装水5000毫升</text>
+                <view class="conrightGg">
+                   <text class="ggleft">默认规格</text>
+                   <text class="ggright">x1</text>
+                </view>
+             </view>
+          </view>
+
+          <view class="money">
+             <text>应付： ¥19.8</text>
+             
+             
+             <view class="qxbtn wan">取消订单</view>
+          </view>
+       </view>
+    </scroll-view>
+  </view>
+ <!--已完成-->
+  <!-- <view class="tuikuan">
+     <view>退款原因</view>
+  </view> -->

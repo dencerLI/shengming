@@ -1,0 +1,62 @@
+/* pages/orderall/orderall.wxss */
+.about_page{
+  /* margin: 0 10px; */
+}
+.swiper-tab{
+    width: 100%;
+    /* border-bottom: 2rpx solid #ccc; */
+    text-align: center;
+    height: 102rpx;
+    line-height: 102rpx;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 16px;
+}
+.swiper-tab-item{
+    width: 25%; 
+
+     font-size: 30rpx;
+     color: #333;
+}
+.swiper-tab-item text{  padding-bottom: 8rpx; }
+.active text{
+  
+    /* border-bottom: 4rpx solid #F65959; */
+    border-bottom: 2px solid #333;
+}
+.juzhong{
+  margin: 0 auto;
+}
+.domain{
+  background-color: #fff;
+  height: 100%;
+  margin:0 10px;
+}
+.show{
+  display: block;
+}
+.hidden{
+  display: none;
+}
+.noorder{ text-align:  center;}
+.noorder image{width: 78rpx; height: 88rpx; margin-top: 340rpx;}
+.noorder text{ display: block; width: 100%; height: 22rpx; line-height: 22rpx; color: #999; margin-top: 23rpx;}
+.noorder .gwbtn{ width: 186rpx; height: 70rpx; line-height: 70rpx; font-size: 30rpx; color: #fff; background: #000;margin: 0px auto; margin-top: 100rpx;}
+.yesorder{ height: auto;overflow: hidden;}
+.dingdan{ margin-top: 28rpx; height: auto;overflow: hidden;}
+.ddleft{ float: left;font-size: 22rpx; color: #666;margin-left: 22rpx;}
+.ddright{ float: right; font-size: 22rpx; color: #ff0000; margin-right: 30rpx;}
+.ddcon{ height: auto;overflow: hidden; margin-top: 30rpx;}
+.conleft{ float: left;width: 100rpx; height: 100rpx; background: #333; margin-left: 30rpx;}
+.conright{ float: right; width: 590rpx;}
+.conrightBt{ color: #333; font-size: 26rpx;}
+.conrightGg{ height: auto;overflow: hidden; margin-top: 30rpx;}
+.ggleft{color: #666666; font-size: 20rpx; float: left;}
+.ggright{color: #666666; font-size: 20rpx; float: right; margin-right: 60rpx; }
+.money{ height: 37rpx; margin-top: 22rpx;}
+.money text{ font-size: 22rpx; color: #666666; float:  left;height: 37rpx; line-height: 37rpx; margin-left: 30rpx;}
+.fkbtn{ float: right; width: 117rpx; height: 37rpx; line-height: 37rpx; background: #E67200; color: #fff; font-size: 22rpx; text-align: center; margin-right: 30rpx;}
+.qxbtn{font-size: 22rpx; color: #666666; float: right;height: 37rpx; line-height: 37rpx;margin-right: 30rpx;}
+.qrbtn{ background: #000;}

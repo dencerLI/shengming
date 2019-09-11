@@ -24,6 +24,7 @@ Page({
     interval: 4000,
     duration: 800,
     swiperCurrent: 0,  
+    datalist:[]
   }, swiperChange(e) {
     let current = e.detail.current;
     // console.log(current, '轮播图')
@@ -40,32 +41,32 @@ Page({
     })
   },
   onLoad: function () {
-    // if (app.globalData.userInfo) {
-    //   this.setData({
-    //     userInfo: app.globalData.userInfo,
-    //     hasUserInfo: true
-    //   })
-    // } else if (this.data.canIUse){
-    //   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-    //   // 所以此处加入 callback 以防止这种情况
-    //   app.userInfoReadyCallback = res => {
-    //     this.setData({
-    //       userInfo: res.userInfo,
-    //       hasUserInfo: true
-    //     })
-    //   }
-    // } else {
-    //   // 在没有 open-type=getUserInfo 版本的兼容处理
-    //   wx.getUserInfo({
-    //     success: res => {
-    //       app.globalData.userInfo = res.userInfo
-    //       this.setData({
-    //         userInfo: res.userInfo,
-    //         hasUserInfo: true
-    //       })
-    //     }
-    //   })
-    // }
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse){
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
     console.log(wx.getSystemInfoSync().windowHeight)
     this.setData({
       height: wx.getSystemInfoSync().windowHeight+"px",
@@ -98,6 +99,25 @@ Page({
       url: '../content/content?index='+myindex
       //  url: '../logs/logs'
     })
+  },
+  tslist: function () {
+    var that = this;
+    wx.request({
+      url: app.globalData.allUrl + 'api/banner/index_goods_list',
+      method: "POST",//指定请求方式，默认get
+      data:'' ,
+      header: {
+        //默认值'Content-Type': 'application/json'
+        'content-type': 'application/x-www-form-urlencoded' //post
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          datalist: res.data.data
+        })
+      }
+    });
+
   }
   ,
   getUserInfo: function(e) {
@@ -110,6 +130,18 @@ Page({
   },
   onReady: function (){
     this.banner();
+    this.tslist();
+  },
+  godetail:function(){
+    wx.navigateTo({
+      url: '../shopdetail/shopdetail',
+    })
+
+  },
+  fenxiang: function () {
+    wx.navigateTo({
+      url: '../fenxiang/fenxiang',
+    })
 
   }
 })

@@ -1,0 +1,2 @@
+<!--pages/fenxiang/fenxiang.wxml-->
+<image src="{{imgurl}}" mode="widthFix"></image>

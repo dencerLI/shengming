@@ -27,7 +27,7 @@
     </view>
     <view class="bottom-fixed">
         <view class="botitem">
-           <view>
+           <view bindtap="fenxiang">
               <image class="banyuan" src="../../images/liwu.png"></image>
                <image class="wenzi" src="../../images/lesong.png"></image>
            </view>
@@ -58,14 +58,18 @@
     健康推送
 </view>
 <view class="pushlist">
-   <view class="push">
+   <view class="push" wx:for="{{datalist}}" bindtap="godetail">
       <view class="pushleft">
-         <image src="../../images/55.png"></image>
+         <image src="{{item.index_pic_url}}"></image>
       </view>
       <view class="pushright">
-           <text class="pushname">苏打水-克东</text>
-           <text class="pushBt">扼制自由基/促进新陈代谢/预防三高</text>
-           <text class="pushmoney">￥11.1</text>
+           <text class="pushname">{{item.name}}</text>
+           <text class="pushBt">{{item.label}}</text>
+           <text class="pushmoney">￥{{item.price}}</text>
       </view>
    </view>
+</view>
+
+<view class="golist">
+    <text>更多新品 敬请期待</text>
 </view>

@@ -1,0 +1,35 @@
+<!--pages/community/community.wxml-->
+<view class="contentv top30">天然小分子水</view>
+<view class="topimg top30">
+  <image></image>
+</view>
+<view class="top30 bt"><text>天苏打水改善酸碱性</text></view>
+
+<view class="jinru top60">
+   <image></image>
+</view>
+
+<view class="contentv top60">管家服务明星</view>
+
+<view class="scrol top30"></view>
+
+<view class="tiaofu top30">
+  <image></image>
+</view>
+
+
+<view class="contentv top60">附近的水机</view>
+
+<view class="isbotm top30">
+  <image src="../../images/sqbanner1.png"></image>
+</view>
+
+<view class="section section_gap">
+  <view class="section__title">horizontal scroll</view>
+  <scroll-view class="scroll-view_H" scroll-x style="width: 100%;height: 200px;">
+    <view id="green" class="scroll-view-item_H bc_green"></view>
+    <view id="red"  class="scroll-view-item_H bc_red"></view>
+    <view id="yellow" class="scroll-view-item_H bc_yellow"></view>
+    <view id="blue" class="scroll-view-item_H bc_blue"></view>
+  </scroll-view>
+</view>

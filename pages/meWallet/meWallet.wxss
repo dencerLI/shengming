@@ -25,3 +25,11 @@ font-weight:400; display: block; width: 100%; text-align: center; height: 26rpx;
 .jine{font-size:30rpx;
 font-weight:400; display: block; width: 100%; text-align: center; height: 30rpx; line-height: 30rpx; margin-top: 20rpx;}
 .txbtn{ width: 120rpx; height: 60rpx; line-height: 60rpx; font-size: 26rpx; background: #000; color: #fff; text-align: center; margin: 0px auto; margin-top: 24rpx;}
+
+.bot{ position: absolute;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #000000; color: #fff;font-size: 34rpx; text-align: center; line-height: 100rpx;}
+.istaost{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3);}
+.taostCon{width: 454rpx; height: 309rpx; background: #fff; position: absolute; top: 50%; left: 50%; margin-left: -227rpx; margin-top: -155rpx;box-shadow:0px 10px 16px 0px rgba(4,0,0,0.11);
+border-radius: 2rpx;}
+.taosttitle{ display: block;font-size:30rpx; height: 30rpx; line-height: 30rpx; margin-top: 26rpx; color: #333; text-align: center; width: 100%;}
+.taostC{font-size: 22rpx; line-height: 30rpx; color: #333; display: block; width: 390rpx; margin: 0px auto; margin-top:36rpx; }
+.taostbtn{width: 116rpx; height: 57rpx; line-height: 57rpx; text-align: center; font-size: 22rpx; margin: 0px auto; background: #000; color: #fff; margin-top: 32rpx;}

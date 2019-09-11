@@ -21,7 +21,7 @@
         <view class="jifen">
            <text>余额 20</text>
         </view>
-        <view class="cha">兑换</view>
+        <!-- <view class="cha">兑换</view> -->
     </view>
 </view>
 
@@ -35,6 +35,21 @@
            
            <text>余额 20</text>
         </view>
+        <view class="cha" bindtap="hudong">查看</view>
+    </view>
+</view>
+
+<view class="zclist top10">
+    <view class="zcleft">
+       <image class="quan" src="../../images/quan.png"></image>
+       <text> 抵用券</text>
+    </view>
+    <view class="zcright">
+        <view class="jifen">
+           
+           <text>1张</text>
+        </view>
         <view class="cha">查看</view>
     </view>
 </view>
+<view class="bot">充值</view>

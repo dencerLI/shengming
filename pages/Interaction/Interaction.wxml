@@ -1,0 +1,18 @@
+<!--pages/Interaction/Interaction.wxml-->
+<view class="namelist">
+  <view class="nameall">
+    <view class="nameaauto">
+      <view class="names" wx:for="{{datalist}}">
+        <image src="{{item.src}}"></image>
+        <text class="nicheng">{{item.name}}</text>
+        <text class="istime">08:02</text>
+      </view>
+      <view class="names1">
+         <view>
+         <image src="../../images/jia.png"></image>
+         </view>
+        
+      </view>
+    </view>
+  </view>
+</view>

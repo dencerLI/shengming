@@ -1,0 +1,3 @@
+<!--pages/shopdetail/shopdetail.wxml-->
+<image src="{{imgurl}}" mode="widthFix"></image>
+<view class="bot" bindtap="order">购买</view>

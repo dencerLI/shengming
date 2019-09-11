@@ -1,0 +1,31 @@
+/* pages/community/community.wxss */
+.top30{ margin-top: 30rpx;}
+.top60{ margin-top: 60rpx;}
+.contentv{ display: block; width: 100%; text-align: center; height: 30rpx; line-height: 30rpx; color: #333;font-size: 30rpx;}
+.topimg{padding: 0 30rpx;}
+.topimg image{ width: 100%; height: 200rpx; background: #333;}
+.bt{ font-size: 26rpx; color: #333;  height: 26rpx; line-height: 26rpx; }
+.bt text{ float: left; width: 270rpx; margin-left: 60rpx;overflow:hidden; 
+    text-overflow:ellipsis;
+    white-space:nowrap;}
+    .jinru{ height: 300rpx;}
+    .jinru image{ height: 300rpx; width: 100%; background: #333;}
+    .bot{ position: absolute;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #000000; color: #fff;font-size: 34rpx; text-align: center; line-height: 100rpx;}
+    .scrol{
+      
+    }
+    .tiaofu{ height: 160rpx;}
+    .tiaofu image{ height: 100%; width: 100%; background: #333;}
+    .isbotm{
+       height: 300rpx;
+    }
+    .isbotm image{ width: 100%; height: 100%;}
+ .hor {
+  display: flex;
+  flex-direction: row;
+  width: 600rpx;
+}
+    .bc_green{ background: green; display: inline-block;}
+    .bc_red{ background: red; display: inline-block;}
+    .bc_yellow{background: yellow; display: inline-block;}
+    .bc_blue{ background: blue; display: inline-block;}

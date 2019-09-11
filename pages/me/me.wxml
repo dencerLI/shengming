@@ -1,28 +1,34 @@
 <!--pages/me/me.wxml-->
 <view class="top">
-   <image class="isimg"></image>
+   <image class="isimg" src="../../images/tximg/1.png"></image>
    <text class="nicheng">昵称</text>
-   <text class="xiu">修改个人信息</text>
+   <text class="xiu" bindtap="xiugai">修改个人信息</text>
    <image class="isbg" src="../../images/mebg.png"></image>
 </view>
 <view class="listall">
-<view class="sessionlist">
+<view class="sessionlist" bindtap="dingdan">
+   <view class="sessionleft">
    <image class="dd" src="../../images/dd.png"></image>
+   </view>
    <view class="name">全部订单</view>
    <view class="btn">
     <image src="../../images/go2.png"></image>
    </view>
 </view>
 <view class="sessionlist" bindtap="zc">
+   <view class="sessionleft">
    <image class="zc" src="../../images/zc.png"></image>
+   </view>
    <view class="name">我的资产</view>
    <view class="btn">
     <image src="../../images/go2.png"></image>
    </view>
 </view>
 
-<view class="sessionlist">
+<view class="sessionlist" bindtap="sp">
+   <view class="sessionleft">
    <image class="sp" src="../../images/sp.png"></image>
+   </view>
    <view class="name">我的水票</view>
    <view class="btn">
     <image src="../../images/go2.png"></image>
@@ -30,7 +36,9 @@
 </view>
 
 <view class="sessionlist">
+    <view class="sessionleft"> 
    <image class="hy" src="../../images/hy.png"></image>
+   </view>
    <view class="name">会员服务</view>
    <view class="btn">
     <image src="../../images/go2.png"></image>
@@ -38,7 +46,9 @@
 </view>
 
 <view class="sessionlist">
+   <view class="sessionleft">
    <image class="dz" src="../../images/dz.png"></image>
+   </view>
    <view class="name">地址管理</view>
    <view class="btn">
     <image src="../../images/go2.png"></image>

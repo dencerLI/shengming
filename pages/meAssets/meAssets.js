@@ -25,6 +25,14 @@ Component({
         fail: function(res) {},
         complete: function(res) {},
       })
+    },
+    hudong: function () {
+      wx.navigateTo({
+        url: '../Interaction/Interaction',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
     }
   }
 })

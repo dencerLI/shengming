@@ -3,10 +3,11 @@ page{background: #f9f3f3}
 .top30{ margin-top: 30rpx;}
 .top10{ margin-top: 10rpx;}
 .zclist{ background: #fff; height: 140rpx;}
-.zcleft{ float: left; margin-left: 30rpx; margin-top: 30rpx; text-align: center;}
+.zcleft{ float: left; margin-left: 30rpx; margin-top: 30rpx; text-align: center; width: 110rpx;}
 .zcleft .qb{  width: 44rpx; height: 43rpx;}
 .zcleft .jf{  width: 46rpx; height: 43rpx;}
 .zcleft .hd{  width: 44rpx; height: 41rpx;}
+.zcleft .quan{  width: 64rpx; height: 40rpx;}
 .zcleft text{ display: block; text-align: center; font-size: 26rpx; color: #333; margin-top: 10rpx;}
 .zcright{ float: right; margin-right: 30rpx; width: 414rpx; height: 140rpx;}
 .zcright .cha{ float: right; width:89rpx; height: 44rpx; line-height: 44rpx;border-radius: 2rpx; font-size: 22rpx; color: #fff; background: #000; text-align: center; margin-top: 48rpx; }
@@ -14,3 +15,4 @@ page{background: #f9f3f3}
 .yue .ti{ display: block;}
 .yue .yu{  display: block; margin-top: 18rpx;}
 .jifen{ float: left; height: 140rpx; line-height: 140rpx; font-size: 22rpx; color: #000}
+.bot{ position: absolute;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #000000; color: #fff;font-size: 34rpx; text-align: center; line-height: 100rpx;}

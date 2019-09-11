@@ -1,0 +1,30 @@
+<!--pages/hot/hot.wxml-->
+<view class="title">
+  <image src="../../images/rq/gonggao.png"></image> <text>系统公告: 热烈庆祝北京地区13个代理商加盟</text>
+</view>
+<view class="rbanner">
+   <image src="../../images/rq/rbanner.png"></image>
+</view>
+
+<view class="fgt">生命之里网络覆盖图</view>
+<view class="fgtname">
+   <image src="../../images/rq/dt.png"></image>
+</view>
+<view class="fgt">用户管家数据统计图</view>
+
+<view class="statistics">
+
+  <view class="statlist">
+     <image src="../../images/rq/hb2.png"></image>
+  </view>
+  <view class="statlist">
+     <image src="../../images/rq/hb.png"></image>
+  </view>
+  <view class="statlist">
+     <image src="../../images/rq/hb1.png"></image>
+  </view>
+</view>
+
+<view class="golist">
+     <view class="gobtn">更多<image src="../../images/rq/gengduo.png"></image></view>
+</view>

@@ -1,0 +1,3 @@
+/* pages/shopdetail/shopdetail.wxss */
+ image{ width: 100%; height: auto;}
+     .bot{ position: fixed;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #000000; color: #fff;font-size: 34rpx; text-align: center; line-height: 100rpx;}

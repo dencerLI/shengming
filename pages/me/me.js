@@ -22,6 +22,21 @@ Component({
        wx.navigateTo({
          url: '../meAssets/meAssets',
        })
-     }
+     },
+    sp: function () {
+      wx.navigateTo({
+        url: '../waterTicket/waterTicket',
+      })
+    },
+    xiugai: function () {
+      wx.navigateTo({
+        url: '../setup/setup',
+      })
+    },
+    dingdan: function () {
+      wx.navigateTo({
+        url: '../orderall/orderall',
+      })
+    }
   }
 })
