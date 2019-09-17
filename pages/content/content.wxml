@@ -1,2 +1,4 @@
 <!--pages/content/content.wxml-->
-<text>pages/content/content.wxml</text>
+<view class="iscon" wx:for="{{imglist}}">
+<image src="{{item}}" mode="widthFix"></image>
+</view>

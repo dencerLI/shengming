@@ -1,6 +1,6 @@
 <!--pages/myindex/myindex.wxml-->
 
-<view class="container">
+<!-- <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -11,4 +11,27 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+</view> -->
+
+<view class="toplogo">
+<image src="../../images/smlogo.png"></image>
 </view>
+<view class="contentv">生命之里 申请获得以下权限：</view>
+<view class="hq">
+  获取你的公开信息（昵称、头像等）
+</view>
+
+<view class="contentt">用于更好的提供以下服务</view>
+
+<view class="fuwu">
+<view class="jifen">
+ <image src="../../images/smjf.png"></image>
+ <text>积分兑换好礼</text>
+</view>
+<view class="huiyuan">
+ <image src="../../images/smhy.png"></image>
+ <text>会员制度折扣</text>
+</view>
+</view>
+
+<button class="shouquan"  open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权 </button>

@@ -1,0 +1,49 @@
+<!--pages/water/water.wxml-->
+<view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">
+    <text>苏打水套餐</text>
+    </view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab"> <text>天然水套餐</text></view>
+    
+  </view>
+  <view class="incon" >
+<view class = "{{currentTab == 0 ? 'show':'hidden'}}" >
+    <scroll-view>
+        <view class="tc" wx:for="{{tclist}}">
+           <view class="tcleft">
+              <image></image>
+           </view>
+           <view class="tcright">
+              <text class="tcbt">{{item.name}}</text>
+              <text class="tcsl">数量：{{item.sl}}</text>
+              
+            <view class="cont">
+             <text class="jian">¥1679</text><text class="huo">活动价：¥699</text>
+            </view>
+              <view class="di" wx:if='{{item.yes=="true"}}'>
+                 
+                 <image class="add" src="../../images/add.png"></image>
+                 <view class="con">1</view>
+                 <image class="reduce" src="../../images/reduce.png"></image>
+              </view>
+              <view class="di" wx:else>
+                 
+                 <image class="add" src="../../images/add1.png"></image>
+                 <view class="con1">1</view>
+                 <image class="reduce" src="../../images/reduce1.png"></image>
+              </view>
+           </view>
+        </view>
+    </scroll-view>
+  </view>
+  <!--全部-->
+   <!--待付款-->
+  <view class = "{{currentTab == 1 ? 'show':'hidden'}}" >
+    <scroll-view>
+      
+    </scroll-view>
+  </view>
+  <!--待付款-->
+</view>
+
+<view class="bot" bindtap="order">立即购买</view>

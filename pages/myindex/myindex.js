@@ -16,6 +16,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    if (wx.getStorageSync('yes') == 'YES'){
+      wx.switchTab({
+        url: '../index/index',
+      })
+    }
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -46,12 +51,61 @@ Page({
     
   },
   getUserInfo: function (e) {
+    var that=this;
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+  
+    wx.showToast({
+      title: '成功授权',
     })
+    if (wx.getStorageSync('yes')=='NO'){
+    wx.request({
+      url: app.globalData.allUrl+'api/user/add_user',
+      data: {
+        "openid": wx.getStorageSync('openid'),
+        "nickname": e.detail.userInfo.nickName,
+        "language": e.detail.userInfo.language,
+        "city": e.detail.userInfo.city,
+        "province": e.detail.userInfo.province,
+        "country": e.detail.userInfo.country,
+        "gender": e.detail.userInfo.gender,
+        "avatarUrl": e.detail.userInfo.avatarUrl
+      },
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        console.log(res)
+        if (res.data!=""&&res.data!=null&&res.data!=undefined){
+          wx.showToast({
+             title: '插入成功',
+          })
+          that.setData({
+            userInfo: e.detail.userInfo,
+            hasUserInfo: true
+          })
+          wx.switchTab({
+            url: '../index/index',
+          })
+        }
+        //mYMaulTwPY1JBjbfyQ+dkA==
+
+      },
+      fail: function (err) {
+        console.log(err);
+        wx.showToast({
+          title: '插入失败',
+        })
+      }
+
+    })
+    }else{
+
+      wx.switchTab({
+        url: '../index/index',
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

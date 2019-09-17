@@ -1,5 +1,5 @@
 <!--pages/order/order.wxml-->
-<view class="addressgo">
+<view class="addressgo" bindtap="address">
    <image class="mark" src="../../images/tan.png"></image><text>请填写您的地址</text><image class="isgo" src="../../images/go1.png"></image>
 </view>
 <view class="content">

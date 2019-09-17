@@ -1,1 +1,3 @@
 /* pages/content/content.wxss */
+.iscon{width: 100%;}
+.iscon image{ width: 100%;}

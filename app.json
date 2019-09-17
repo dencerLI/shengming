@@ -1,9 +1,17 @@
 {
   "pages": [
-    "pages/community/community",
+    "pages/shopdetail/shopdetail",
+    "pages/myindex/myindex",
     "pages/index/index",
+    "pages/session/session",
+   
+    "pages/water/water",
+      "pages/me/me",
+    
+    "pages/community/community",
+    
     "pages/orderall/orderall",
-    "pages/me/me",
+  
     "pages/waterTicket/waterTicket",
     "pages/meWallet/meWallet",
     "pages/meAssets/meAssets",
@@ -14,8 +22,8 @@
     "pages/order/order",
     "pages/content/content",
     "pages/logs/logs",
-    "pages/hotarea/hotarea",
-    "pages/shopdetail/shopdetail"
+    "pages/hotarea/hotarea"
+    
     
   ],
   "window": {

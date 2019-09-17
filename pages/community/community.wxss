@@ -11,21 +11,36 @@
     .jinru{ height: 300rpx;}
     .jinru image{ height: 300rpx; width: 100%; background: #333;}
     .bot{ position: absolute;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #000000; color: #fff;font-size: 34rpx; text-align: center; line-height: 100rpx;}
-    .scrol{
-      
-    }
-    .tiaofu{ height: 160rpx;}
+    /*  */
+    .tiaofu{ height: 590rpx;}
     .tiaofu image{ height: 100%; width: 100%; background: #333;}
     .isbotm{
        height: 300rpx;
     }
     .isbotm image{ width: 100%; height: 100%;}
- .hor {
-  display: flex;
-  flex-direction: row;
-  width: 600rpx;
+scroll-view {
+  width: 100%;
+  white-space: nowrap;
+}
+ 
+.item-content {
+  width: 324rpx;
+  height: 190rpx;
+  display: inline-block;
+  border: 1rpx solid gray;
+  
+   margin-right: 10rpx;
 }
     .bc_green{ background: green; display: inline-block;}
     .bc_red{ background: red; display: inline-block;}
     .bc_yellow{background: yellow; display: inline-block;}
     .bc_blue{ background: blue; display: inline-block;}
+    .itemleft{ float: left; width: 100rpx; height: 100%; margin-left: 30rpx;text-align: center;}
+    .itemleft image{ width: 100rpx; height: 100rpx; border-radius: 50%; margin-top: 30rpx;}
+    .itemleft .title{ color: #333; font-size: 22rpx; height: 22rpx; line-height: 22rpx; margin-top: 8rpx;}
+    .itemright{ float: right; width: 175rpx; height: 100%;}
+    .users{ font-size: 20rpx; height: 20rpx; line-height: 20rpx; color: #333; display: block; width: 100%; margin-top: 40rpx;}
+    .ming{font-size: 20rpx; height: 20rpx; line-height: 20rpx; color: #333;display: block; width: 100%; margin-top: 26rpx;}
+    .shou{font-size: 20rpx; height: 20rpx; line-height: 20rpx; color: #FF0000;display: block; width: 100%; margin-top: 26rpx;}
+    /* .ming text{ font-size: 20rpx; color: #ff0000;} */
+    .su{ color: #FF0000;}

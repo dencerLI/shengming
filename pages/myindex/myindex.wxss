@@ -19,3 +19,17 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.toplogo{ height: auto;overflow: hidden; text-align: center; margin-top: 110rpx;}
+.toplogo image{ width: 83rpx; height: 83rpx;}
+.contentv{ width: 100%; text-align: center; font-size: 30rpx; color: #333; margin-top: 70rpx;}
+.hq{ font-size: 26rpx;color: #999; text-align: center; height: 80rpx; line-height: 80rpx; margin-top: 70rpx; border-top: 1rpx solid #e5e5e5; border-bottom: 1rpx solid #e5e5e5;}
+.contentt{width: 100%; text-align: center; font-size: 30rpx; color: #333; margin-top: 130rpx;}
+.fuwu{ height: auto; overflow: hidden; margin-top: 62rpx;}
+.jifen{ float: left;  margin-left: 108rpx; text-align: center;}
+.jifen image{width: 88rpx; height: 76rpx;}
+.jifen text{font-size: 22rpx; height: 22rpx; line-height: 22rpx; color: #333; display: block; margin-top: 20rpx;}
+.huiyuan{ float: right;  margin-right: 108rpx; text-align: center;}
+.huiyuan image{width: 89rpx; height: 76rpx;}
+.huiyuan text{font-size: 22rpx; height: 22rpx; line-height: 22rpx; color: #333; display: block; margin-top: 20rpx;}
+.shouquan{ width: 530rpx;height: 80rpx; line-height: 80rpx; margin: 0px auto; margin-top: 200rpx; text-align: center; font-size: 34rpx; color: #fff; background:#1dab1b; }

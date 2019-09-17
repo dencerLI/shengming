@@ -20,7 +20,7 @@ App({
             // 发送 res.code 到后台换取 openId, sessionKey, unionId
             console.log(res)
             wx.request({
-              url: 'https://www.huadupeisong.com/users/wx/onlogin',
+              url: 'http://47.105.112.194/user/login/login',
               data: {
                 "code": res.code
               },
@@ -32,9 +32,16 @@ App({
                 console.log(res)
                 wx.setStorageSync('session', res.data.session_key);
                 wx.setStorageSync('openid', res.data.openid);
+                wx.setStorageSync('yes', res.data.login);
+                wx.setStorageSync('uid', res.data.uid);
+                // if (res.data.login == 'YES'){
+                //      wx.switchTab({
+                //               url: '../index/index',
+                //        })
+                //  }
 
                 //mYMaulTwPY1JBjbfyQ+dkA==
-
+                
               },
 
             })

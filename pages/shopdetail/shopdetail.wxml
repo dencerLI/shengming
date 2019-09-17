@@ -1,3 +1,25 @@
 <!--pages/shopdetail/shopdetail.wxml-->
-<image src="{{imgurl}}" mode="widthFix"></image>
+<view class="iscon" wx:for="{{imglist}}">
+<image src="{{item}}" mode="widthFix"></image>
+</view>
+<view class="botme"></view>
 <view class="bot" bindtap="order">购买</view>
+
+<view class="taost">
+   <view class="taostcon">
+       <view class="taostleft"></view>
+       <view class="taostright">
+          <text class="title">天然小分子软包装水</text>
+          <text class="zl">5000毫升</text>
+          <text class="xg">本产品每天限购6件</text>
+          <text class="jg">¥ 19.8</text>
+          <view class="jiajian">
+         
+             <view class="jjcon">
+               <view class="jia" bindtap="jia">+</view><input class="con" value="{{val}}"></input><view class="jian" bindtap="jian">-</view>
+             </view>
+              <view class="shu">数量</view>
+          </view>
+       </view>
+   </view>
+</view>

@@ -62,6 +62,12 @@ Component({
     },
     kong: function () {
       
+    },
+    address:function(){
+
+      wx.navigateTo({
+        url: '../administration/administration',
+      })
     }
   }
 })

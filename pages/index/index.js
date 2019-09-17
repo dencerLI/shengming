@@ -11,12 +11,16 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     "imgUrls": [{
+      id: 1,
       "url": "../../images/banner1.png"
     }, {
+        id: 1,
         "url": "../../images/banner3.png"
     }, {
+        id: 1,
         "url": "../../images/banner1.png"
     }, {
+        id: 1,
         "url": "../../images/banner1.png"
       }],
     indicatorDots: false,
@@ -93,10 +97,10 @@ Page({
    
   },
   iscont:function(e){
-    console.log(e.currentTarget.dataset.myindex)
-    let myindex = e.currentTarget.dataset.myindex;
+    console.log(e.currentTarget.dataset.id)
+    let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../content/content?index='+myindex
+      url: '../content/content?id=' + id
       //  url: '../logs/logs'
     })
   },
@@ -118,6 +122,11 @@ Page({
       }
     });
 
+  },
+  sp: function () {
+    wx.navigateTo({
+      url: '../waterTicket/waterTicket',
+    })
   }
   ,
   getUserInfo: function(e) {
@@ -132,9 +141,12 @@ Page({
     this.banner();
     this.tslist();
   },
-  godetail:function(){
+  godetail:function(e){
+    console.log(e.currentTarget.dataset.id)
+    var id = e.currentTarget.dataset.id;
+    var table = e.currentTarget.dataset.table;
     wx.navigateTo({
-      url: '../shopdetail/shopdetail',
+      url: '../shopdetail/shopdetail?table='+table+'&id='+id,
     })
 
   },
@@ -142,6 +154,10 @@ Page({
     wx.navigateTo({
       url: '../fenxiang/fenxiang',
     })
-
+  },
+  dingshui: function () {
+    wx.navigateTo({
+      url: '../water/water',
+    })
   }
 })

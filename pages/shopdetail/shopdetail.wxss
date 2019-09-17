@@ -1,3 +1,23 @@
 /* pages/shopdetail/shopdetail.wxss */
- image{ width: 100%; height: auto;}
-     .bot{ position: fixed;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #000000; color: #fff;font-size: 34rpx; text-align: center; line-height: 100rpx;}
+.iscon{width: 100%;}
+.iscon image{ width: 100%;}
+     .bot{ position: fixed;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #Ff9703; color: #fff;font-size: 34rpx; text-align: center; line-height: 100rpx;z-index: 99;}
+     .botme{ width: 100%; height: 100rpx;}
+     .taost{ position: fixed; top: 0;left: 0; width: 100%;height: 100%; background: rgba(0, 0,0, 0.5);}
+     .taostcon{ position: absolute; width: 100%; bottom: 100rpx; height: 334rpx; background: #fff;}
+     .taostleft{width:200rpx;
+height:200rpx;
+background:rgba(0,0,0,1);
+border:1px solid rgba(5,0,1,1);
+border-radius:2px; float: left; margin: 30rpx 0 0 30rpx;}
+.taostright{width: 487rpx; float: right; height:334rpx; }
+.title{display: block; font-size: 26rpx; height: 26rpx; line-height: 26rpx; margin-top: 30rpx; color: #333333;}
+.zl{display: block; font-size: 22rpx; height: 22rpx; line-height: 22rpx; margin-top: 30rpx; color: #999999;}
+.xg{display: block; font-size: 22rpx; height: 22rpx; line-height: 22rpx; margin-top: 26rpx; color: #C79D0D;}
+.jg{display: block; font-size: 26rpx; height: 26rpx; line-height: 26rpx; margin-top: 26rpx; color: #333333;}
+.jiajian{ height: auto;overflow: hidden; margin-top: 33rpx;}
+.jjcon{ float: right; margin-right: 35rpx;}
+.jian{ float: right; width: 44rpx; height: 44rpx;border: 1px solid #333; text-align: center; }
+.jia{ float: right; width: 44rpx; height: 44rpx;border: 1px solid #333; text-align: center;}
+.con{ float: right;width: 80rpx; height: 44rpx; border-top: 1px solid #333;border-bottom: 1px solid #333;text-align: center;}
+.shu{ float: right; margin-right: 34rpx; font-size: 26rpx; height: 44rpx; line-height: 44rpx;}

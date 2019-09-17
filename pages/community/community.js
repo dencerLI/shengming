@@ -6,8 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    toView: 'red',
-    scrollTop: 100
+    list: [{ title: "题目1", content: "内容1" },
+    { title: "题目2", content: "内容2" },
+    { title: "题目3", content: "内容3" },
+    { title: "题目4", content: "内容4" }],
+    imglist1:'http://47.105.112.194/uploads/images/shequ/sq_3.png',
+    imglist2: 'http://47.105.112.194/uploads/images/shequ/sq_4.png',
+    imglist3: 'http://47.105.112.194/uploads/images/shequ/sq_1.png',
+    imglist4: 'http://47.105.112.194/uploads/images/shequ/sq_2.png',
   },
 
   /**

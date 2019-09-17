@@ -15,7 +15,7 @@
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
       <block wx:for="{{imgUrls}}">
         <swiper-item>
-          <image data-myindex="{{index}}" src="{{item.url}}" class="slide-image" catchtap="iscont" />
+          <image data-myindex="{{index}}" data-id="{{item.id}}" src="{{item.url}}" class="slide-image" catchtap="iscont" />
         </swiper-item>
       </block>
     </swiper>
@@ -33,13 +33,13 @@
            </view>
         </view>
         <view class="botitem">
-            <view>
+            <view bindtap="dingshui">
               <image class="banyuan" src="../../images/shandian.png"></image>
                <image class="wenzi" src="../../images/dingshui.png"></image>
             </view>
         </view>
         <view class="botitem">
-          <view>
+          <view bindtap="sp">
             <image class="banyuan" src="../../images/jinzi.png"></image>
             <image class="wenzi" src="../../images/shuipiao.png"></image>
           </view>
@@ -58,7 +58,7 @@
     健康推送
 </view>
 <view class="pushlist">
-   <view class="push" wx:for="{{datalist}}" bindtap="godetail">
+   <view class="push" wx:for="{{datalist}}" data-table="{{item.table}}" data-id="{{item.id}}" bindtap="godetail">
       <view class="pushleft">
          <image src="{{item.index_pic_url}}"></image>
       </view>

@@ -1,10 +1,10 @@
 /* pages/administration/administration.wxss */
 .adminlist{ height: 190rpx; border-bottom: 1px solid #e8e8e8; }
 .padding30{ padding: 30rpx;}
-.mansession{ height: auto;overflow: hidden;font-size: 22rpx; color: #333;}
+.mansession{ font-size: 22rpx; color: #333;height: 22rpx; line-height: 22rpx;}
 .manleft{ float: left;}
 .manright{float: right;}
-.manaddress{ font-size: 26rpx; color: #333333; margin-top: 29rpx;}
+.manaddress{ font-size: 26rpx; color: #333333; margin-top: 29rpx;height: 26rpx; line-height: 26rpx;}
 
 
 /* 修改默认样式 */

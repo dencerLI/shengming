@@ -1,35 +1,46 @@
 <!--pages/community/community.wxml-->
 <view class="contentv top30">天然小分子水</view>
 <view class="topimg top30">
-  <image></image>
+  <image src="{{imglist1}}"></image>
 </view>
 <view class="top30 bt"><text>天苏打水改善酸碱性</text></view>
 
 <view class="jinru top60">
-   <image></image>
+   <image src="{{imglist2}}"></image>
 </view>
 
 <view class="contentv top60">管家服务明星</view>
 
-<view class="scrol top30"></view>
+<view class="scrol top30">
+<!-- <view class="container"> -->
+  <scroll-view scroll-x="true">
+    <view class="item-content" wx:for="{{list}}" wx:for-item="item">
+    <view class="itemleft">
+        <image src="../../images/tximg/1.png"></image>
+        <view class="title">{{item.title}}</view>
+    </view>
+      <view class="itemright">
+         <text class="users">服务500家用户</text>
+         <view class="ming">朝阳区第<text class="su">1</text>名</view>
+         <text class="shou">上月收入9850元</text>
+      </view>
+     
+    </view>
+  </scroll-view>
+<!-- </view> -->
+</view>
 
 <view class="tiaofu top30">
-  <image></image>
+  <image src="{{imglist3}}"></image>
 </view>
 
 
-<view class="contentv top60">附近的水机</view>
+<view class="contentv top60" style="display:none;">附近的水机</view>
 
 <view class="isbotm top30">
-  <image src="../../images/sqbanner1.png"></image>
+  <image src="{{imglist4}}"></image>
 </view>
 
-<view class="section section_gap">
-  <view class="section__title">horizontal scroll</view>
-  <scroll-view class="scroll-view_H" scroll-x style="width: 100%;height: 200px;">
-    <view id="green" class="scroll-view-item_H bc_green"></view>
-    <view id="red"  class="scroll-view-item_H bc_red"></view>
-    <view id="yellow" class="scroll-view-item_H bc_yellow"></view>
-    <view id="blue" class="scroll-view-item_H bc_blue"></view>
-  </scroll-view>
-</view>
+
+
+
