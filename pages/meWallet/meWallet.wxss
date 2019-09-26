@@ -15,7 +15,7 @@ border-radius:2px;}
 .isalert{
    font-size: 22rpx; color: #999; padding: 0 30rpx; margin-top: 30rpx;
 }
-.newslist{ height: auto; overflow: hidden; margin-top: 30rpx; border-top: 1px solid #e5e5e5;}
+.newslist{ height: auto; overflow: hidden; margin-top: 30rpx; border-top: 1px solid #e5e5e5; padding-bottom: 100rpx;}
 .news{ height: 80rpx; border-bottom: 1px solid #e5e5e5; line-height: 80rpx; box-sizing: border-box; font-size: 22rpx; color: #333;}
 .isdate{ float: left; width: 318rpx; margin-left: 30rpx;}
 .money{ float: left;}

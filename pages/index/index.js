@@ -152,7 +152,7 @@ Page({
   },
   fenxiang: function () {
     wx.navigateTo({
-      url: '../fenxiang/fenxiang',
+      url: '../share/share',
     })
   },
   dingshui: function () {

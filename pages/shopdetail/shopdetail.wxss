@@ -1,7 +1,8 @@
 /* pages/shopdetail/shopdetail.wxss */
-.iscon{width: 100%;}
-.iscon image{ width: 100%;}
-     .bot{ position: fixed;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #Ff9703; color: #fff;font-size: 34rpx; text-align: center; line-height: 100rpx;z-index: 99;}
+.iscon{padding: 0 30rpx 400rpx 30rpx;}
+/* .iscon image{ width: 100%;} */
+     .bot{ position: fixed;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #Ff9703; color: #fff;font-size: 34rpx; text-align: center; line-height: 100rpx;}
+     .bot1{ position: fixed;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #Ff9703; color: #fff;font-size: 34rpx; text-align: center; line-height: 100rpx;z-index: 99;}
      .botme{ width: 100%; height: 100rpx;}
      .taost{ position: fixed; top: 0;left: 0; width: 100%;height: 100%; background: rgba(0, 0,0, 0.5);}
      .taostcon{ position: absolute; width: 100%; bottom: 100rpx; height: 334rpx; background: #fff;}
@@ -17,7 +18,18 @@ border-radius:2px; float: left; margin: 30rpx 0 0 30rpx;}
 .jg{display: block; font-size: 26rpx; height: 26rpx; line-height: 26rpx; margin-top: 26rpx; color: #333333;}
 .jiajian{ height: auto;overflow: hidden; margin-top: 33rpx;}
 .jjcon{ float: right; margin-right: 35rpx;}
-.jian{ float: right; width: 44rpx; height: 44rpx;border: 1px solid #333; text-align: center; }
-.jia{ float: right; width: 44rpx; height: 44rpx;border: 1px solid #333; text-align: center;}
-.con{ float: right;width: 80rpx; height: 44rpx; border-top: 1px solid #333;border-bottom: 1px solid #333;text-align: center;}
+.jian{ float: right; width: 60rpx; height: 60rpx;line-height: 60rpx;border: 1px solid #333; text-align: center; }
+.jia{ float: right; width: 60rpx; height: 60rpx;line-height: 60rpx;border: 1px solid #333; text-align: center;}
+.con{ float: right;width: 80rpx; height: 60rpx;line-height: 60rpx; font-size: 26rpx; border-top: 1px solid #333;border-bottom: 1px solid #333;text-align: center;}
 .shu{ float: right; margin-right: 34rpx; font-size: 26rpx; height: 44rpx; line-height: 44rpx;}
+.logo{ height: 600rpx; width: 100%; background: #333;}
+.contitle{font-size: 30rpx; color: #333; height: 30rpx; line-height: 30rpx; margin-top: 34rpx;}
+.conbt{ font-size: 26rpx; color: #666666; margin-top: 30rpx;}
+.bianjia{ margin-top: 30rpx;}
+.canshu{ margin-top: 40rpx; height: 30rpx; line-height: 30rpx;}
+.canshu text{ font-size: 30rpx; color: #333;}
+.canshu image{ float: left; width:32rpx; height: 30rpx; margin-right: 30rpx;}
+.cancon{font-size: 22rpx;height: 22rpx; line-height: 22rpx; color: #333; margin-top: 30rpx;}
+.canleft{ float: left;}
+.canright{float: right; width: 200rpx;}
+.cancon1{font-size: 22rpx;height: 22rpx; line-height: 30rpx; color: #333; margin-top: 30rpx;}

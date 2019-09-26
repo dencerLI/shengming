@@ -12,8 +12,12 @@ Component({
    * 组件的初始数据
    */
   data: {
-    imglist:[],
-    val:1
+    alldata:'',
+    val:1,
+    dis:'none',
+    id:'',
+    table:'',
+    intlist:''
   },
 
   /**
@@ -21,10 +25,23 @@ Component({
    */
   methods: {
      order:function(){
-       wx.navigateTo({
-         url: '../order/order',
-       })
+       let that=this;
+       that.setData({dis:"block"});
+       
+      //  wx.navigateTo({
+      //    url: '../order/order',
+      //  })
      },
+    isorder: function () {
+      let that = this;
+      var id=that.data.id;
+      var table = that.data.table;
+      var uid = wx.getStorageSync('uid');
+      var num = that.data.val;
+       wx.navigateTo({
+         url: '../order/order?id=' + id + '&table=' + table +'&userid='+uid+'&num='+num,
+       })
+    },
     iscont: function (table,id) {
       var that = this;
       wx.request({
@@ -36,9 +53,12 @@ Component({
           'content-type': 'application/x-www-form-urlencoded' //post
         },
         success: function (res) {
-          console.log(res.data.data.url)
+          console.log(res.data)
           that.setData({
-            imglist: res.data.data.url
+            alldata: res.data.data,
+            id: res.data.data.id,
+            table: res.data.data.table,
+            intlist: res.data.data
           })
         }
       });
@@ -60,7 +80,13 @@ Component({
     onLoad: function (options) {
       console.log(options.id)
       let that = this;
-      that.iscont(options.table,options.id);
+      
+      that.setData({ id: options.id, table: options.table})
+    },
+    onShow: function () {
+
+      let that = this;
+      that.iscont(that.data.table, that.data.id);
     }
 
   }

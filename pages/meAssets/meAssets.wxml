@@ -6,8 +6,8 @@
     </view>
     <view class="zcright">
         <view class="yue">
-           <text class="ti">可提现 ￥10</text>
-           <text class="yu">余额 20</text>
+           <text class="ti">可提现 ￥{{moneydata.money}}</text>
+           <text class="yu">余额 {{moneydata.ice_money}}</text>
         </view>
         <view class="cha" bindtap="gowallet">查看</view>
     </view>

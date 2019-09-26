@@ -14,8 +14,17 @@
 .numright{ float: right; margin-right: 30rpx; color: #999999; font-size: 22rpx;}
 .fslist{ height: 80rpx; border-bottom: 1px solid #ccc;box-sizing: border-box;}
 .wx{ float: left; width: 40rpx; height: 34rpx; margin:23rpx 0 0 30rpx; }
-.fslist .textme{ font-size: 26rpx; color: #333; margin-left: 33rpx; height: 80rpx; line-height: 80rpx;}
-.yes{ float: right; width:60rpx; height: 60rpx; margin: 10rpx 16rpx 0 0;}
+.yue{ float: left; width: 30rpx; height: 38rpx; margin:23rpx 0 0 30rpx; }
+.wei{ float: left; width: 35rpx; height: 35rpx; margin:23rpx 0 0 30rpx; }
+.yi{ float: right; width: 37rpx; height: 36rpx; margin:22rpx 25rpx 0 0rpx; }
+.fslist .textme{ float: left; font-size: 26rpx; color: #333; margin-left: 33rpx; height: 80rpx; line-height: 80rpx;}
+.fslist .textme1{ float: right; font-size: 26rpx; color: #333; margin-right: 25rpx; height: 80rpx; line-height: 80rpx;}
+.fslist .istext{ float: left; font-size: 26rpx; color: #333; margin-left: 150rpx; height: 80rpx; line-height: 80rpx;}
+.fslist .istext1{ float: left; font-size: 26rpx; color: #333; margin-left: 25rpx; height: 80rpx; line-height: 80rpx;}
+.fslist .istext2{ float: right; font-size: 26rpx; color: #333; margin-right: 25rpx; height: 80rpx; line-height: 80rpx;}
+.yes{ float: right; width:60rpx; height: 60rpx; margin: 14rpx 16rpx 0 0;}
+.no{ float: left; width:60rpx; height: 60rpx; margin: 14rpx 16rpx 0 25rpx;}
+.no1{ float: right; width:60rpx; height: 60rpx; margin: 14rpx 16rpx 0 25rpx;}
 .xin{ float: left; width: 37rpx; height: 32rpx; margin:24rpx 0 0 30rpx; }
 .total{ margin-top: 35rpx; height: auto; overflow: hidden;}
 .total view{ float: right; margin-right: 30rpx; color: #333333; font-size: 30rpx;}
@@ -106,7 +115,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
 .istong text{ float: left; margin-left: 8rpx; font-size: 22rpx;}
 .cor{ color: #999999;}
 .tiaoyue{text-decoration:underline;}
-.bot{ position: absolute;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #999999; color: #FEFEFE;font-size: 30rpx; text-align: center; line-height: 100rpx;}
+.bot{ position: absolute;bottom: 0; right: 0; width: 100%; height: 100rpx; color: #FEFEFE;font-size: 30rpx; text-align: center; line-height: 100rpx;}
 .taost{  position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3);z-index: 99;}
 .taost1{  position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); overflow: auto;z-index: 99;}
 .treaty{ background: #fff; width: 690rpx; height: 290rpx; position: absolute; top: 50%; left: 50%; margin-top: -145rpx; margin-left: -345rpx;}
@@ -114,3 +123,34 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
 .istitle{ width: 100%; text-align: center; font-size: 26rpx; color: #333; margin: 30rpx 0;}
 .iscon{font-size: 22rpx; color: #333; width: 628rpx; margin: 0px auto; text-indent: 50rpx; line-height: 34rpx;}
 .xbt{font-size: 22rpx; color: #333; width: 628rpx; margin: 0px auto;  line-height: 34rpx;}
+
+
+/* .radio-group {
+    border-bottom: 1px solid #ddd;
+}
+.radio {
+    display: block;
+    border-top: 1px solid #ddd;
+    padding: 5px;
+} */
+
+.tishi{   
+  width: 100%; display:flex;
+ justify-content:center;
+align-items:center; font-size: 22rpx; color: #999; height: 35rpx; line-height: 35rpx; margin-top: 35rpx;}
+.tishi image{ width: 35rpx; height: 35rpx; margin-right: 25rpx; }
+.tishi text{}
+.showtaost{position: fixed; top: 0;left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3);z-index: 100;}
+.showcon{ height: 960rpx; width: 100%; background: #fff; position: absolute; bottom: 0; left:0;}
+.showtitle{
+   font-size: 34rpx; width: 100%; text-align: center; height: 34rpx; line-height: 34rpx; color: #333; margin-top: 42rpx;
+}
+.showimg{ height: auto; overflow: hidden; text-align: center; margin-top: 66rpx;}
+.showimg image{ width: 272rpx; height: 290rpx;}
+.dd{ margin-top: 54rpx; height: auto; overflow: hidden;}
+.dd text{ margin-left: 105rpx; font-size: 22rpx; color: #666; margin-top: 30rpx; display: block; height: 22rpx; line-height: 22rpx;}
+.btnlist{ height: 55rpx; margin-top: 120rpx;}
+.qsbtn{ float: left; width: 154rpx; height: 55rpx; background: #333; color: #fff; font-size: 22rpx; text-align: center; line-height: 55rpx;margin-left: 140rpx;}
+.sybtn{ width: 154rpx; height: 55rpx; background: #fff; color: #333; font-size: 22rpx; text-align: center; line-height: 55rpx; border: 1px solid #333; box-sizing: border-box; float: right; margin-right: 140rpx;}
+.hideimg{ height: 80rpx; text-align: center; margin-top: 110rpx; width: 100%;}
+.hideimg image{width: 73rpx; height: 80rpx;}

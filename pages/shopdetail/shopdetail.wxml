@@ -1,22 +1,37 @@
 <!--pages/shopdetail/shopdetail.wxml-->
-<view class="iscon" wx:for="{{imglist}}">
-<image src="{{item}}" mode="widthFix"></image>
+
+<!-- <image src="{{item}}" mode="widthFix"></image> -->
+<image src="{{alldata.detail_url[0]}}" class="logo"></image>
+<view class="iscon">
+<view class="contitle">{{alldata.name}}</view>
+<view class="conbt">{{alldata.label}}</view>
+<view class="bianjia" wx:if="{{alldata.sale_price!=null}}"><text style="color:#333;font-size:26rpx;text-decoration:line-through;">¥ {{alldata.normal_price}}</text><text style="color:#FF0000;font-size:30rpx;margin-left:30rpx;">¥ {{alldata.sale_price}}</text></view>
+
+<view class="bianjia" wx:else><text style="color:#333;font-size:26rpx;">¥ {{alldata.normal_price}}</text></view>
+<view class="canshu"><image src="../../images/cansu.png"></image><text>产品参数</text></view>
+<view class="cancon"><text class="canleft">商 品 名：{{alldata.name}}</text><text class="canright">规 格：5000毫升</text></view>
+<view class="cancon"><text class="canleft">生产厂家：{{alldata.producer}}</text><text class="canright">保质期：36个月</text></view>
+<view class="cancon"><text class="canleft">生 产 地：{{alldata.place}}</text><text class="canright">类 型：{{alldata.rem}}</text></view>
+<view class="cancon"><text class="canleft">标 签：{{alldata.label}}</text></view>
+<view class="cancon1"><text class="canleft">介      绍：取水源地在，这水怎么好怎么好，PH值为0.17，身体细胞
+能快速吸收</text></view>
 </view>
 <view class="botme"></view>
 <view class="bot" bindtap="order">购买</view>
-
-<view class="taost">
+<view class="bot1" bindtap="isorder" style="display:{{dis}}">确认订单</view>
+<view class="taost" style="display:{{dis}}" bindtap="close">
    <view class="taostcon">
        <view class="taostleft"></view>
        <view class="taostright">
-          <text class="title">天然小分子软包装水</text>
-          <text class="zl">5000毫升</text>
-          <text class="xg">本产品每天限购6件</text>
-          <text class="jg">¥ 19.8</text>
+          <text class="title">{{intlist.name}}</text>
+          <text class="zl">{{intlist.rem}}</text>
+          <text class="xg"></text>
+          <text class="jg" wx:if="{{intlist.sale_price==null}}">¥{{intlist.normal_price}}</text>
+          <text class="jg" wx:else>¥{{intlist.sale_price}}</text>
           <view class="jiajian">
          
              <view class="jjcon">
-               <view class="jia" bindtap="jia">+</view><input class="con" value="{{val}}"></input><view class="jian" bindtap="jian">-</view>
+               <view class="jia" bindtap="jia">+</view><view class="con" disabled="disabled">{{val}}</view><view class="jian" bindtap="jian">-</view>
              </view>
               <view class="shu">数量</view>
           </view>

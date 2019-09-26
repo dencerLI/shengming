@@ -1,0 +1,17 @@
+/* pages/investment/investment.wxss */
+.intm{width: 100%; }
+.bttop{ display: block; width: 692rpx; margin: 0px auto; margin-top: 30rpx;}
+.tw{ width: 686rpx;  font-size: 26rpx;color: #000; height: 26rpx; margin: 0px auto;  margin-top: 24rpx; margin-bottom: 70rpx; line-height: 40rpx;}
+.tap{display: block; width: 656rpx; margin: 0px auto;}
+.pricetap{display: block; width: 698rpx; margin: 0px auto;}
+.priceimg{display: block; width: 688rpx; margin: 0px auto;}
+.dbt{font-size: 34rpx; color: #333; text-align: center; margin: 25rpx 0;}
+.zidong{ display: block; width: 641rpx; margin: 0px auto; margin-top: 70rpx;}
+.guanli{ display: block; width: 691rpx; margin: 0px auto; margin-top: 30rpx;}
+.shouyi{ display: block; width: 719rpx;  float: right; margin-top: 30rpx;}
+.bodabtn{ width: 253rpx; height: 100rpx; text-align: center; line-height: 100rpx; color: #fff; font-size: 30rpx;background: #E67200;
+  margin: 0px auto;
+}
+.overcon{ height: auto;overflow: hidden;}
+.dianhua{ margin-top: 60rpx; height: 30rpx;line-height: 30rpx; font-size: 26rpx; text-align: center; padding-bottom: 200rpx;}
+.dianhua text{ font-size: 30rpx; color: #ff0000; margin-left: 30rpx;}

@@ -1,0 +1,23 @@
+<!--pages/deliverWater/deliverWater.wxml-->
+<view class="istop">
+   <image src="../../images/sslogo.png"></image>
+</view>
+<view class="spcon">
+   <view class="sptop">
+      <image></image> <text class="name">hahah</text> <text class="bt">送您一袋天然苏打水</text>
+   </view>
+   <view class="spcenter">
+       <image src="../../images/guozhi.png" class="guozhi"></image>
+       <image src="../../images/song.png" class="song"></image>
+   </view>
+   <view class="spbot">
+     <text class="botTil">天然小分子水5000毫升</text>
+     <view class="iscon">
+     <view class="botright">
+        <text class="rightname">生命之里</text>
+        <text class="rightprice">￥19.8</text>
+     </view>
+     <view class="spbtn">立即领取</view>
+     </view>
+   </view>
+</view>

@@ -3,34 +3,35 @@
 <view class="tx">
    <view class="txleft">
      <text class="bt">可使用的水票</text>
-     <text class="jine">100</text>
+     <text class="jine">{{shui.user_ticket.count}}</text>
      <view class="txbtn">去使用</view>
    </view>
    <view class="txright">
       <text class="bt">可分享的水票</text>
-     <text class="jine">100</text>
+     <text class="jine">{{shui.share_ticket.count}}</text>
      <view class="txbtn">去分享</view>
    </view>
 </view>
 
 <view class="newslist">
-   <view class="news">
-       <text class="isdate">来自好友（如寄啊）的赠送</text>
+   <view class="news" wx:for="{{shui.share_relation}}">
+       <view wx:if="{{item.type=='shared'}}">
+       <view class="isdate">来自好友（<text>{{item.nickname.nickname}}</text>）的赠送</view>
        <text class="state">+1</text>
+       </view>
+       <view wx:else>
+         <view class="isdate">您赠送给好友（<text>{{item.nickname.nickname}}</text>）一袋水</view>
+         <text class="state state1" wx:if="{{item.status==0}}">已领取</text>
+         <text class="state" wx:elif="{{item.status==1}}">未领取</text>
+       </view>
    </view>
-   <view class="news">
-       <text class="isdate">您赠送给好友（卡夫卡）一袋水</text>
-       <text class="state state1">已领取</text>
-   </view>
-   <view class="news">
-       <text class="isdate">您赠送给好友（卡夫卡）一袋水</text>
-       <text class="state">未领取</text>
-   </view>
+  
+   
 </view>
-<view class="istaost">
+<view class="istaost" style="display:{{indis}}">
    <view class="taostCon">
        <text class="taosttitle">好友（卡夫卡）赠送您一张水票</text>
       
-       <view class="taostbtn">确定</view>
+       <view class="taostbtn" bindtap="shui">确定</view>
    </view>
 </view>

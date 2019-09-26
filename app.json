@@ -1,13 +1,16 @@
 {
   "pages": [
-    "pages/shopdetail/shopdetail",
+    
     "pages/myindex/myindex",
+    "pages/share/share",
+    "pages/investment/investment",
+    "pages/deliverWater/deliverWater",
+    "pages/address/address",
     "pages/index/index",
     "pages/session/session",
-   
+    "pages/shopdetail/shopdetail",
     "pages/water/water",
-      "pages/me/me",
-    
+    "pages/me/me",
     "pages/community/community",
     
     "pages/orderall/orderall",

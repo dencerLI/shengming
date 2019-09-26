@@ -1,0 +1,32 @@
+<!--pages/share/share.wxml-->
+<image class="bglogo" style="height:{{height}}" src=""></image>
+<swiper class='swiperClass' autoplay="{{autoplay}}" indicator-color="#a39f99" indicator-active-color="#f49641" indicator-dots="{{indicatorDots}}" interval="2000" duration="1000" previous-margin="120rpx" next-margin="120rpx" circular bindchange="bindchange" style='height: {{swiperHeight}}px'>
+<block wx:for="{{tpl}}" wx:key="{{index}}">
+<swiper-item>
+<image src="{{item.pic_url}}" class="slide-image {{swiperIndex == index ? 'active' : 'quiet'}}" mode='aspectFill'>
+</image>
+</swiper-item>
+</block>
+</swiper>
+<view class="inbot">
+  <view class="wxfx">
+    <image src="../../images/fenx.png"></image>
+    <text>分享好友</text>
+    <button open-type='share'></button>
+  </view>
+  <view class="wxfx1" catchtap="saveToPhone">
+    <image src="../../images/baoc.png"></image>
+    <text>保存相册</text>
+  </view>
+</view>
+
+<view class="ui-toast-box" style="display:{{isShowToast}}">
+    <view class="ui-toast-content dir-top main-justify">
+        <view class="ui-content">
+            <view class="cell-title">温馨提示</view>
+            <view class="cell-content">要保存图片请去设置允许访问相册</view>
+        </view>
+        <button open-type="openSetting"
+                bindopensetting='getSetting'>确定</button>
+    </view>
+</view>

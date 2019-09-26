@@ -1,0 +1,28 @@
+/* pages/deliverWater/deliverWater.wxss */
+page{ background: #e6fcff;}
+.istop{width:690rpx;
+height:87rpx;
+box-shadow:0px 10px 16px 0px rgba(6,0,1,0.15);
+ margin: 0px auto;border-bottom-left-radius: 40rpx; border-bottom-right-radius: 40rpx; text-align: center;}
+ .istop image{ width: 340rpx; height: 60rpx; margin-top: 13.5rpx;}
+ .spcenter{ width: 630rpx; height: 630rpx; margin: 0px auto;border-radius: 10rpx; position: relative;box-shadow:0px 10px 16px 0px rgba(230,252,255,0.15);}
+ .sptop{ height: 90rpx;}
+ .sptop image{ width: 60rpx; height: 60rpx; float: left; margin-left: 85rpx; background: #333; border-radius: 50%; margin-top: 15rpx;}
+ .spcon{width: 690rpx; margin: 0px auto; background: #fff; border-radius: 10rpx; margin-top:60rpx; }
+ .name{ float: left; font-size: 26rpx;color: #333;  margin-left: 10rpx; line-height: 90rpx;}
+ .bt{ float: left; font-size: 30rpx; line-height: 90rpx; color: #F19F00; margin-left: 25rpx;}
+ .guozhi{ display: block; margin: 0px auto; width: 283rpx; height: 562rpx;}
+ .song{width: 348rpx; height: 343rpx; position: absolute; top: 280rpx; left:290rpx;}
+ .spbot{ margin-top: 37rpx;}
+ .botTil{font-size: 26rpx; color: #333333;}
+ .botright{ width: 180rpx; float: left;}
+ .rightname{ font-size: 26rpx;color: #F19F00; height: 26rpx; line-height: 26rpx;}
+ .rightprice{font-size: 26rpx;color: #F10000; height: 26rpx; line-height: 26rpx;margin-top: 20rpx;}
+ .spbtn{float:left;width:220rpx;
+height:72rpx;
+ line-height: 72rpx;
+  text-align: center;
+  color: #fff;
+background:rgba(250,146,11,1);box-shadow:0px 0px 6px 4px rgba(0,0,0,0.15);
+border-radius:2rpx; font-size: 26rpx; margin-top: 22rpx;}
+.iscon{ height: 154rpx;  margin-top: 25rpx;}

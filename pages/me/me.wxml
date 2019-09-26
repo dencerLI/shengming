@@ -1,7 +1,7 @@
 <!--pages/me/me.wxml-->
 <view class="top">
-   <image class="isimg" src="../../images/tximg/1.png"></image>
-   <text class="nicheng">昵称</text>
+   <image class="isimg" src="{{geren.avatarUrl}}"></image>
+   <text class="nicheng">{{geren.nickname}}</text>
    <text class="xiu" bindtap="xiugai">修改个人信息</text>
    <image class="isbg" src="../../images/mebg.png"></image>
 </view>

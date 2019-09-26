@@ -16,6 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    
     if (wx.getStorageSync('yes') == 'YES'){
       wx.switchTab({
         url: '../index/index',

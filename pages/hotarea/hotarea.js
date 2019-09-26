@@ -153,7 +153,29 @@ Component({
         mapWidth: mapWidth,
         mapHeight: mapHeight
       })
-    }
+      // this.distance(117.252418, 40.213515, 117.247926, 40.213515)//测试两坐标距离500m
+    },
+    distance: function (la1, lo1, la2, lo2) {
+
+      var La1 = la1 * Math.PI / 180.0;
+
+      var La2 = la2 * Math.PI / 180.0;
+
+      var La3 = La1 - La2;
+
+      var Lb3 = lo1 * Math.PI / 180.0 - lo2 * Math.PI / 180.0;
+
+      var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(La3 / 2), 2) + Math.cos(La1) * Math.cos(La2) * Math.pow(Math.sin(Lb3 / 2), 2)));
+
+      s = s * 6378.137;//地球半径
+
+      s = Math.round(s * 10000) / 10000;
+
+       console.log("计算结果", s*1000+"m")
+
+      return s
+
+    },
     
 
   }

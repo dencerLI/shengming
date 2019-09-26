@@ -65,7 +65,8 @@
       <view class="pushright">
            <text class="pushname">{{item.name}}</text>
            <text class="pushBt">{{item.label}}</text>
-           <text class="pushmoney">￥{{item.price}}</text>
+           <view class="pushmoney" wx:if="{{item.sale_price!=null}}"><text style='color:#FF6F10;text-decoration:line-through;'>￥{{item.normal_price}}</text><text style="margin-left:30rpx;">￥{{item.sale_price}}</text></view>
+           <view wx:else><text class="pushmoney">￥{{item.normal_price}}</text></view>
       </view>
    </view>
 </view>
