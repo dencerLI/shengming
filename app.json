@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/sweepcode1/sweepcode1",
+    
     "pages/myindex/myindex",
-   
+   "pages/sweepcode1/sweepcode1",
     "pages/sweepcode/sweepcode",
     "pages/guanjia/guanjia",
    

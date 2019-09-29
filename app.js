@@ -36,12 +36,12 @@ App({
                 wx.setStorageSync('openid', res.data.openid);
                 wx.setStorageSync('yes', res.data.login);
                 wx.setStorageSync('uid', res.data.uid);
-                wx.showToast({
-                  title: res.data.uid.toString(),
-                  icon: 'none',
-                  duration: 2500,
-                  mask: true
-                })
+                // wx.showToast({
+                //   title: res.data.uid.toString(),
+                //   icon: 'none',
+                //   duration: 2500,
+                //   mask: true
+                // })
                 // if (res.data.login == 'YES'){
                 //      wx.switchTab({
                 //               url: '../index/index',
