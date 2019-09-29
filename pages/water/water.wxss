@@ -16,6 +16,11 @@
       background: #fff;
       z-index: 99;
 }
+.weikaifang{
+   text-align: center;
+    font-size: 36rpx;
+     color: #333;
+}
 .swiper-tab-item{
     width: 50%; 
 

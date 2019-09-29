@@ -1,0 +1,78 @@
+<!--pages/sweepcode1/sweepcode1.wxml-->
+<view class="isbanner">
+  <image></image>
+</view>
+
+<view class="cont">
+  <text class="name">苏打水 8000毫升</text>
+  <text class="price">¥19.8</text>
+</view>
+<view class="btnlist">
+  <view class="leftbtn">天然苏打水</view>
+  <view class="rightbtn">天然水</view>
+</view>
+
+<view class="spzf">
+  <image class="pp" src="../../images/zhifubg.png"></image>
+  <view wx:if="{{tian==0}}">
+    <view class="spleft">
+      <image class="leftimg" src="../../images/spp.png"></image>
+      <text>水票</text>
+    </view>
+    <view class="spright">
+      <label class="fr font checked-lable yes" data-val="1" catchtap='checkedTap1'>
+        <radio checked="{{checked1}}" color='#deab8a' />
+      </label>
+    </view>
+
+    <view class="spcenter">
+      <text class="top">抵扣方式</text>
+      <text class="shui">还剩6张</text>
+    </view>
+
+  </view>
+  <view wx:else>
+    <view class="dikou">抵扣方式</view>
+    <view class="nocon">
+
+      <view class="noconleft">
+        <view class="conleft">
+          <image src="../../images/wx1.png"></image>
+          <text>余额</text>
+        </view>
+        <label class="fr font checked-lable yes" data-val="1" catchtap='checkedTap2'>
+          <radio checked="{{checked2}}" color='#deab8a' />
+        </label>
+      </view>
+
+      <view class="noconright">
+        <view class="conleft">
+          <image src="../../images/qb1.png"></image>
+          <text>余额</text>
+        </view>
+        <label class="fr font checked-lable yes" data-val="1" catchtap='checkedTap3'>
+          <radio checked="{{checked3}}" color='#deab8a' />
+        </label>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<view class="isbot"></view>
+<view class="bot">
+  <view class="botleft">
+    <image src="../../images/shouye1.png"></image>
+    <text>去首页</text>
+  </view>
+
+
+
+  <view class="botright">
+    购买
+  </view>
+
+  <view class="botcenter">
+    应付：￥0.00
+  </view>
+</view>

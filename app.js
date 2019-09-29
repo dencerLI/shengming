@@ -4,6 +4,8 @@ App({
     // 展示本地存储能力
     var that = this;
     var logs = wx.getStorageSync('logs') || []
+
+    
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
@@ -34,6 +36,12 @@ App({
                 wx.setStorageSync('openid', res.data.openid);
                 wx.setStorageSync('yes', res.data.login);
                 wx.setStorageSync('uid', res.data.uid);
+                wx.showToast({
+                  title: res.data.uid.toString(),
+                  icon: 'none',
+                  duration: 2500,
+                  mask: true
+                })
                 // if (res.data.login == 'YES'){
                 //      wx.switchTab({
                 //               url: '../index/index',

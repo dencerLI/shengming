@@ -3,38 +3,87 @@
 <!-- <image src="{{item}}" mode="widthFix"></image> -->
 <image src="{{alldata.detail_url[0]}}" class="logo"></image>
 <view class="iscon">
-<view class="contitle">{{alldata.name}}</view>
-<view class="conbt">{{alldata.label}}</view>
-<view class="bianjia" wx:if="{{alldata.sale_price!=null}}"><text style="color:#333;font-size:26rpx;text-decoration:line-through;">¥ {{alldata.normal_price}}</text><text style="color:#FF0000;font-size:30rpx;margin-left:30rpx;">¥ {{alldata.sale_price}}</text></view>
+  <view class="contitle">{{alldata.name}}</view>
+   <view wx:if="{{nuu!=''&&nuu!=null&&nuu!=undefined}}">
+   
+   </view>
+  <view wx:else>
+  <view class="conbt">{{alldata.label}}</view>
 
-<view class="bianjia" wx:else><text style="color:#333;font-size:26rpx;">¥ {{alldata.normal_price}}</text></view>
-<view class="canshu"><image src="../../images/cansu.png"></image><text>产品参数</text></view>
-<view class="cancon"><text class="canleft">商 品 名：{{alldata.name}}</text><text class="canright">规 格：5000毫升</text></view>
-<view class="cancon"><text class="canleft">生产厂家：{{alldata.producer}}</text><text class="canright">保质期：36个月</text></view>
-<view class="cancon"><text class="canleft">生 产 地：{{alldata.place}}</text><text class="canright">类 型：{{alldata.rem}}</text></view>
-<view class="cancon"><text class="canleft">标 签：{{alldata.label}}</text></view>
-<view class="cancon1"><text class="canleft">介      绍：取水源地在，这水怎么好怎么好，PH值为0.17，身体细胞
-能快速吸收</text></view>
+  <view class="bianjia" wx:if="{{alldata.sale_price!=null}}">
+    <text style="color:#333;font-size:26rpx;text-decoration:line-through;">¥ {{alldata.normal_price}}</text>
+    <text style="color:#FF0000;font-size:30rpx;margin-left:30rpx;">¥ {{alldata.sale_price}}</text>
+  </view>
+
+  <view class="bianjia" wx:else>
+    <text style="color:#333;font-size:26rpx;">¥ {{alldata.normal_price}}</text>
+  </view>
+  <view class="canshu">
+    <image src="../../images/cansu.png"></image>
+    <text>产品参数</text>
+  </view>
+ 
+  <view class="cancon">
+    <text class="canleft">商 品 名：{{alldata.name}}</text>
+    <text class="canright">规 格：5000毫升</text>
+  </view>
+  <view class="cancon">
+    <text class="canleft">生产厂家：{{alldata.producer}}</text>
+    <text class="canright">保质期：36个月</text>
+  </view>
+  <view class="cancon">
+    <text class="canleft">生 产 地：{{alldata.place}}</text>
+    <text class="canright">类 型：{{alldata.rem}}</text>
+  </view>
+  <view class="cancon">
+    <text class="canleft">标 签：{{alldata.label}}</text>
+  </view>
+  <view class="cancon1">
+    <text class="canleft">介      绍：取水源地在，这水怎么好怎么好，PH值为0.17，身体细胞
+能快速吸收</text>
+  </view>
+  </view>
 </view>
 <view class="botme"></view>
 <view class="bot" bindtap="order">购买</view>
 <view class="bot1" bindtap="isorder" style="display:{{dis}}">确认订单</view>
 <view class="taost" style="display:{{dis}}" bindtap="close">
-   <view class="taostcon">
-       <view class="taostleft"></view>
-       <view class="taostright">
-          <text class="title">{{intlist.name}}</text>
-          <text class="zl">{{intlist.rem}}</text>
-          <text class="xg"></text>
-          <text class="jg" wx:if="{{intlist.sale_price==null}}">¥{{intlist.normal_price}}</text>
-          <text class="jg" wx:else>¥{{intlist.sale_price}}</text>
-          <view class="jiajian">
-         
-             <view class="jjcon">
-               <view class="jia" bindtap="jia">+</view><view class="con" disabled="disabled">{{val}}</view><view class="jian" bindtap="jian">-</view>
-             </view>
-              <view class="shu">数量</view>
+  <view class="taostcon" catchtap="jinzhi">
+    <view class="taostleft"></view>
+    <view class="taostright">
+      <view wx:if='{{alldata.p_type==1||alldata.p_type==2||alldata.p_type==3||alldata.p_type==9}}'>
+        <view class="taoz" style="display:{{qie1}}">
+          <view class="imbt">5000毫升</view>
+          <view class="taotop">
+            <view class="leftbtn {{class1}}" data-zhi="12" data-val="1" catchtap="shuiji">12袋水+水机</view>
+            <view class="rightbtn {{class2}}" data-zhi="35" data-val="2" catchtap="shuiji">35袋水</view>
           </view>
-       </view>
-   </view>
+          <view class="taotop">
+            <view class="leftbtn {{class3}}" data-zhi="天然水" data-val="3" catchtap="shuiji">天然水</view>
+            <view class="rightbtn {{class4}}" data-zhi="苏打水" data-val="4" catchtap="shuiji">苏打水</view>
+          </view>
+        </view>
+        <view class="jiage">
+          <text>￥{{alldata.price}}</text>
+        </view>
+      </view>
+      <view wx:else>
+        <text class="title" style="display:{{qie}}">{{intlist.name}}</text>
+        <text class="zl" style="display:{{qie}}">{{intlist.rem}}</text>
+        <text class="xg" style="display:{{qie}}"></text>
+        <text class="jg" style="display:{{qie}}" wx:if="{{intlist.sale_price==null}}">¥{{intlist.normal_price}}</text>
+        <text class="jg" style="display:{{qie}}" wx:else>¥{{intlist.sale_price}}</text>
+
+        <view class="jiajian">
+
+          <view class="jjcon">
+            <view class="jia" bindtap="jia">+</view>
+            <view class="con" disabled="disabled">{{val}}</view>
+            <view class="jian" bindtap="jian">-</view>
+          </view>
+          <view class="shu">数量</view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

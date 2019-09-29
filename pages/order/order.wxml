@@ -14,8 +14,12 @@
     <view class="title">{{goods.name}}</view>
     <view class="company">{{goods.rem}}</view>
     <view class="numall">
+      <view class="numleft" wx:if="{{laican.ptype==1||laican.ptype==2||laican.ptype==3||laican.ptype==9}}">￥{{goods.price}}</view>
+      <view wx:else>
       <view class="numleft" wx:if="{{goods.sale_price==null}}">￥{{goods.normal_price}}</view>
       <view class="numleft" wx:else>￥{{goods.sale_price}}</view>
+      </view>
+      
       <view class="numright">数量 x {{laican.num}}</view>
     </view>
   </view>
@@ -37,9 +41,9 @@
    </label>
 </view>
 
-<view class="fslist">
+<view class="fslist" wx:if="{{laican.ptype==1||laican.ptype==2||laican.ptype==3}}">
   <image class="wei" src="{{checked2==false?'../../images/weixuan.png':'../../images/wei1.png'}}"></image>
-  <text class="textme">积分抵扣</text>
+  <text class="textme">积分抵扣{{chaxun.point_type}}</text>
   <text class="istext1">{{chaxun.point}}</text>
  <label class="fr font checked-lable no" data-val="0" catchtap='checkedTap2'>
    <radio checked="{{checked2}}" color='#deab8a' />
@@ -71,11 +75,17 @@
  <image src="../../images/tanhao.png"></image><text>余额不足时可使用微信支付，同时可抵扣账户余额</text>
 </view>
 <view class="total">
-  <view>
+<view wx:if="{{laican.ptype==1||laican.ptype==2||laican.ptype==3||laican.ptype==9}}">
+    总计
+   
+    <text >￥{{laican.num*goods.price}}</text>
+  </view>
+  <view wx:else>
     总计
     <text wx:if="{{goods.sale_price==null}}">￥{{laican.num*goods.normal_price}}</text>
     <text wx:else>￥{{laican.num*goods.sale_price}}</text>
   </view>
+  
 </view>
 <view class="total">
   <view>

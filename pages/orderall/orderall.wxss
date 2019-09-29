@@ -60,3 +60,4 @@
 .fkbtn{ float: right; width: 117rpx; height: 37rpx; line-height: 37rpx; background: #E67200; color: #fff; font-size: 22rpx; text-align: center; margin-right: 30rpx;}
 .qxbtn{font-size: 22rpx; color: #666666; float: right;height: 37rpx; line-height: 37rpx;margin-right: 30rpx;}
 .qrbtn{ background: #000;}
+.isbot{ height: 200rpx;}

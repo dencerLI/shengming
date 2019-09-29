@@ -1,7 +1,11 @@
 {
   "pages": [
-    
+    "pages/sweepcode1/sweepcode1",
     "pages/myindex/myindex",
+   
+    "pages/sweepcode/sweepcode",
+    "pages/guanjia/guanjia",
+   
     "pages/share/share",
     "pages/investment/investment",
     "pages/deliverWater/deliverWater",

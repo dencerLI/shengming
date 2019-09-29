@@ -28,7 +28,10 @@ Page({
     interval: 4000,
     duration: 800,
     swiperCurrent: 0,  
-    datalist:[]
+    datalist:[],
+    iscont:'',
+    iscont1: '',
+    yx:"none"
   }, swiperChange(e) {
     let current = e.detail.current;
     // console.log(current, '轮播图')
@@ -37,14 +40,58 @@ Page({
       swiperCurrent: current,
     })
   },
- 
+  guanbi:function(){
+    this.setData({ yx: "none"})
+  },
+  guanjia:function(){
+    wx.navigateTo({
+      url: '../package/package'
+    })
+  },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
+  lesong:function(){
+    var that = this;
+    wx.request({
+      url: app.globalData.allUrl + 'api/banner/index_left_active',
+      method: "POST",//指定请求方式，默认get
+      data: '',
+      header: {
+        //默认值'Content-Type': 'application/json'
+        'content-type': 'application/x-www-form-urlencoded' //post
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          iscont: res.data.data
+        })
+      }
+    });
+  },
+  lesong1: function () {
+    var that = this;
+    wx.request({
+      url: app.globalData.allUrl + 'api/banner/index_right_active',
+      method: "POST",//指定请求方式，默认get
+      data: '',
+      header: {
+        //默认值'Content-Type': 'application/json'
+        'content-type': 'application/x-www-form-urlencoded' //post
+      },
+      success: function (res) {
+        console.log(res.data)
+        that.setData({
+          iscont1: res.data.data
+        })
+      }
+    });
+  },
   onLoad: function () {
+    //  this.getLocation();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -140,6 +187,8 @@ Page({
   onReady: function (){
     this.banner();
     this.tslist();
+    this.lesong();
+    this.lesong1();
   },
   godetail:function(e){
     console.log(e.currentTarget.dataset.id)
@@ -149,6 +198,14 @@ Page({
       url: '../shopdetail/shopdetail?table='+table+'&id='+id,
     })
 
+  },
+  godetail1: function (e) {
+    console.log(e.currentTarget.dataset.id)
+    var id = e.currentTarget.dataset.id;
+    
+    wx.navigateTo({
+      url: '../shopdetail/shopdetail?id=' + id + '&nuu=yes',
+    })
   },
   fenxiang: function () {
     wx.navigateTo({

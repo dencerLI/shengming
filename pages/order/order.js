@@ -42,7 +42,9 @@ Component({
     yedk: 0,
     noyes:'none',
     addressid:'',
-    orderme:''
+    orderme:'',
+    zhi:'',
+    zhi1:''
   },
   /**
    * 组件的方法列表
@@ -272,6 +274,37 @@ Component({
           })
         }
       });
+    }, addressselect1: function (mydata) {
+      var that = this;
+      wx.request({
+        url: app.globalData.allUrl + 'api/goods/combo_add_nums',
+        method: "POST", //指定请求方式，默认get
+        data: mydata,
+        header: {
+          //默认值'Content-Type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded' //post
+        },
+        success: function (res) {
+          console.log(res.data)
+          // if (that.data.address1 != '' && that.data.address1 != null && that.data.address1 != undefined) {
+          //   var dizhi = that.data.address1;
+          // } else {
+          var dizhi = res.data.data.address;
+          // }
+          // if (res.data.data.goods.sale_price == null) {
+          var qian = res.data.data.goods.price * that.data.laican.num
+          // } else {
+          //   var qian = res.data.data.goods.sale_price * that.data.laican.num
+          // }
+          that.setData({
+            address: dizhi,
+            goods: res.data.data.goods,
+            yfk: qian,
+            yfk1: qian,
+            addressid: res.data.data.address.id
+          })
+        }
+      });
     },
     zhifu: function(mydata) {
       wx.showLoading({
@@ -448,7 +481,53 @@ Component({
     successme:function(orderid,yfk,jfdk,yhqdk,yedk){
       var that = this;
       console.log(orderid);
-      console.log({
+      var hk = that.data.laican;
+        if (that.data.laican.ptype == 1 || that.data.laican.ptype == 2 || that.data.laican.ptype == 3 || that.data.laican.ptype == 9){
+        if (hk.zhi1 =="天然水"){
+          var yodata = {
+            'uid': wx.getStorageSync('uid'),
+            'phone': '15726675520',
+            'p_type': that.data.goods.p_type,
+            'p_id': that.data.laican.id,
+            'bag_id': '',
+            'bottle_id': '',
+            'e_id': '',
+            'wx_order_id': orderid,
+            'cost_wx': yfk,
+            'cost_balance': yedk,
+            'cost_point': jfdk,
+            'cost_cash': yhqdk,
+            'address_id': that.data.addressid,
+            'point_type': that.data.chaxun.point_type,
+            'sold_num': hk.zhi,
+            'sold_soda_num': '',
+            'is_ticket': that.data.goods.ticket_type,
+            'price': that.data.yfk1
+          }
+        } else if (hk.zhi1 == "苏打水"){
+          var yodata = {
+            'uid': wx.getStorageSync('uid'),
+            'phone': '15726675520',
+            'p_type': that.data.goods.p_type,
+            'p_id': that.data.laican.id,
+            'bag_id': '',
+            'bottle_id': '',
+            'e_id': '',
+            'wx_order_id': orderid,
+            'cost_wx': yfk,
+            'cost_balance': yedk,
+            'cost_point': jfdk,
+            'cost_cash': yhqdk,
+            'address_id': that.data.addressid,
+            'point_type': that.data.chaxun.point_type,
+            'sold_num': '',
+            'sold_soda_num': hk.zhi,
+            'is_ticket': that.data.goods.ticket_type,
+            'price': that.data.yfk1
+          }
+        }
+      }else{
+      var yodata = {
         'uid': wx.getStorageSync('uid'),
         'phone': '15726675520',
         'p_type': that.data.goods.p_type,
@@ -467,31 +546,13 @@ Component({
         'sold_soda_num': '',
         'is_ticket': that.data.goods.ticket_type,
         'price': that.data.yfk1
-      })
-      
+      }
+      console.log(yodata)
+      }
       wx.request({
         url: app.globalData.allUrl + 'api/buys/suc_order',
         method: "POST", //指定请求方式，默认get
-        data: {
-          'uid': wx.getStorageSync('uid'),
-          'phone': '15726675520',
-          'p_type': that.data.goods.p_type,
-          'p_id': that.data.laican.id,
-          'bag_id': '',
-          'bottle_id': '',
-          'e_id': '',
-          'wx_order_id': orderid,
-          'cost_wx': yfk,
-          'cost_balance': yedk,
-          'cost_point': jfdk,
-          'cost_cash': yhqdk,
-          'address_id': that.data.addressid,
-          'point_type': that.data.chaxun.point_type,
-          'sold_num': '',
-          'sold_soda_num': '',
-          'is_ticket': that.data.goods.ticket_type,
-          'price': that.data.yfk1
-        },
+        data: yodata,
         header: {
           //默认值'Content-Type': 'application/json'
           'content-type': 'application/x-www-form-urlencoded' //post
@@ -568,23 +629,34 @@ Component({
       console.log(op)
       let that = this;
       // that.addressselect(op);
-      that.setData({
-        laican: op
-      });
+      if (op.table != '' && op.table != null && op.table != undefined && op.table != "undefined"){
+        var xinop={"id":op.id,"num":op.num,"table":op.table,"userid":op.userid}
+        that.setData({
+          laican: op
+        });
+        that.addressselect(xinop);
+      }else{
+        var xinop = { "id": op.id, "userid": op.userid }
+        that.setData({
+          laican: op,
+        });
+        that.addressselect1(xinop);
+      }
+      
       console.log(that.data.address1)
-      that.addressselect(that.data.laican);
+      
     },
     onReady: function() {
       let that = this;
       console.log(that.data.address1)
-      
+      that.jifen();
     },
     onShow: function() {
 
       let that = this;
       console.log(that.data.laican);
       console.log(that.data.address1);
-      that.jifen();
+      
     }
   }
 })

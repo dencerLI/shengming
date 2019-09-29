@@ -33,3 +33,11 @@ border-radius:2px; float: left; margin: 30rpx 0 0 30rpx;}
 .canleft{ float: left;}
 .canright{float: right; width: 200rpx;}
 .cancon1{font-size: 22rpx;height: 22rpx; line-height: 30rpx; color: #333; margin-top: 30rpx;}
+.taoz{ height: auto;overflow: hidden;}
+.taotop{ height: 50rpx; margin-top: 20rpx;}
+.leftbtn{font-size: 20rpx; text-align: center; line-height: 50rpx; border-radius: 5rpx;float: left; width: 128rpx; height: 50rpx; border: 1px solid #333; box-sizing: border-box;}
+.rightbtn{ font-size: 20rpx; text-align: center; line-height: 50rpx; border-radius: 5rpx; float: right; width: 128rpx; height: 50rpx; border: 1px solid #333; box-sizing: border-box; margin-right: 30rpx;}
+.imbt{ font-size: 22rpx; color: #999; height: 22rpx; line-height: 22rpx; margin-top: 25rpx;}
+.jiage{ height: 30rpx; line-height: 30rpx; font-size: 30rpx; color: #333; margin-top: 20rpx;}
+.hei{ background: #fff; color: #333;}
+.hei1{ background: #333; color: #fff;}

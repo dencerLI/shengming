@@ -1,0 +1,14 @@
+<!--pages/sweepcode/sweepcode.wxml-->
+<view class="isbanner">
+<image></image>
+</view>
+<view class="yanz">请验证手机号</view>
+<view class="yzts">为确认本人领水请输入您的手机号进行验证</view>
+<view class="iscon">
+<text>手机号</text><input placeholder="请输入手机号" placeholder-class="placeclass"></input>
+</view>
+<view class="iscon">
+<text>验证码</text><input placeholder="请输入验证码" placeholder-class="placeclass"></input>
+</view>
+
+<view class="bot" >确认</view>

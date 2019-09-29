@@ -1,0 +1,3 @@
+/* pages/guanjia/guanjia.wxss */
+image{ width: 100%;}
+.shouyi{ font-size: 34rpx; color: #333; text-align: center; width: 100%; margin-top: 60rpx;padding-bottom: 30rpx;}

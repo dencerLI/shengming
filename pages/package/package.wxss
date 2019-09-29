@@ -1,0 +1,12 @@
+/* pages/package/package.wxss */
+image{ width: 100%;}
+.rightbtn{
+   position: fixed;
+   top: 955rpx; right: 20rpx;
+   width: 80rpx;
+    
+}
+.rightbtn image{ width: 80rpx; height: 88rpx;}
+.rightbtn text{display: block; width: 100%; text-align: center;font-size: 22rpx; color: #fff;}
+.mbtn{ height: auto;overflow: hidden; position:relative;}
+.fxbtn{ position: absolute; top: 1520rpx; right: 85rpx; width: 250rpx; height: 80rpx; }

@@ -4,12 +4,12 @@
    <view class="txleft">
      <text class="bt">可使用的水票</text>
      <text class="jine">{{shui.user_ticket.count}}</text>
-     <view class="txbtn">去使用</view>
+     <view class="txbtn" bindtap="shiy">去使用</view>
    </view>
    <view class="txright">
       <text class="bt">可分享的水票</text>
      <text class="jine">{{shui.share_ticket.count}}</text>
-     <view class="txbtn">去分享</view>
+     <view class="txbtn" bindtap="fenx">去分享</view>
    </view>
 </view>
 

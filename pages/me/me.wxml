@@ -35,7 +35,7 @@
    </view>
 </view>
 
-<view class="sessionlist">
+<!-- <view class="sessionlist">
     <view class="sessionleft"> 
    <image class="hy" src="../../images/hy.png"></image>
    </view>
@@ -43,7 +43,7 @@
    <view class="btn">
     <image src="../../images/go2.png"></image>
    </view>
-</view>
+</view> -->
 
 <view class="sessionlist">
    <view class="sessionleft">

@@ -11,6 +11,11 @@
     <text class="user-motto">{{motto}}</text>
   </view>
 </view> -->
+<view class="xtaost" style="display:{{yx}}">
+   <image class="guanbi" bindtap="guanbi" src="../../images/guanbi.png"></image>
+   <image class="xrl" bindtap="guanjia" src="../../images/xrld.png"></image>
+</view>
+<image class="libao" bindtap="guanjia" src="../../images/libao.png"></image>
 <view class='sp-nav' style="height:{{height}};">
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
       <block wx:for="{{imgUrls}}">
@@ -47,11 +52,11 @@
     </view>
 </view>
 <view class="buider">
- <view class="buiderleft">
-    <image src="../../images/indexleft.png"></image>
+ <view class="buiderleft" data-id="{{iscont.id}}" bindtap="godetail1">
+    <image src="{{iscont.index_pic_url}}"></image>
  </view>
- <view class="buiderright">
-    <image src="../../images/indexright.png"></image>
+ <view class="buiderright" data-id="{{iscont1.id}}" bindtap="godetail1">
+    <image src="{{iscont1.index_pic_url}}"></image>
  </view>
 </view>
 <view class="pushtitle">

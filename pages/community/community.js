@@ -14,8 +14,36 @@ Page({
     imglist2: 'http://47.105.112.194/uploads/images/shequ/sq_4.png',
     imglist3: 'http://47.105.112.194/uploads/images/shequ/sq_1.png',
     imglist4: 'http://47.105.112.194/uploads/images/shequ/sq_2.png',
+    longitude: 113.324520,
+    latitude: 23.099994,
+    markers: [{
+      id: 0,
+      iconPath: "../../images/icon_cur_position.png",
+      latitude: 23.099994,
+      longitude: 113.324520,
+      width: 50,
+      height: 50
+    }]
   },
-
+  map: function () {
+    var that = this;
+    wx.getLocation({
+      type: "wgs84",
+      success: function (res) {
+        var latitude = res.latitude;
+        var longitude = res.longitude;
+        //console.log(res.latitude);
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude,
+          markers: [{
+            latitude: res.latitude,
+            longitude: res.longitude
+          }]
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -34,7 +62,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.map();
   },
 
   /**
