@@ -11,6 +11,7 @@ height:200rpx;
 background:rgba(0,0,0,1);
 border:1px solid rgba(5,0,1,1);
 border-radius:2px; float: left; margin: 30rpx 0 0 30rpx;}
+.taostleft image{ width: 100%; height: 100%;}
 .taostright{width: 487rpx; float: right; height:334rpx; }
 .title{display: block; font-size: 26rpx; height: 26rpx; line-height: 26rpx; margin-top: 30rpx; color: #333333;}
 .zl{display: block; font-size: 22rpx; height: 22rpx; line-height: 22rpx; margin-top: 30rpx; color: #999999;}

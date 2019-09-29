@@ -49,7 +49,7 @@
 <view class="bot1" bindtap="isorder" style="display:{{dis}}">确认订单</view>
 <view class="taost" style="display:{{dis}}" bindtap="close">
   <view class="taostcon" catchtap="jinzhi">
-    <view class="taostleft"></view>
+    <view class="taostleft"> <image src="http://47.105.112.194/uploads/images/goods/fam_1.png"></image></view>
     <view class="taostright">
       <view wx:if='{{alldata.p_type==1||alldata.p_type==2||alldata.p_type==3||alldata.p_type==9}}'>
         <view class="taoz" style="display:{{qie1}}">
