@@ -57,7 +57,7 @@
 
     <view class="ists">邀请好友助力可加快速度在您的呼叫点附近安装水机</view>
     <view class="go">
-        <view class="goleft">
+        <view class="goleft" bindtap="goindex">
            <image src="http://47.105.112.194/images/goindex.png"></image>
            <text>返回首页</text>
         </view>

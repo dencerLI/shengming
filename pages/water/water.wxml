@@ -9,16 +9,19 @@
   <view class="incon" >
 <view class = "{{currentTab == 0 ? 'show':'hidden'}}" >
     <scroll-view>
-        <view class="tc" wx:for="{{tclist}}">
+        <view class="tc" wx:for="{{shui}}">
            <view class="tcleft">
-              <image></image>
+              <image src="{{item.index_pic}}"></image>
            </view>
            <view class="tcright">
               <text class="tcbt">{{item.name}}</text>
-              <text class="tcsl">数量：{{item.sl}}</text>
+              <text class="tcsl">数量：{{item.lable}}</text>
               
-            <view class="cont">
-             <text class="jian">¥1679</text><text class="huo">活动价：¥699</text>
+            <view class="cont" wx:if="{{item.normal_price>0}}">
+             <text class="jian">¥{{item.price}}</text><text class="huo">活动价：¥{{item.price}}</text>
+            </view>
+            <view class="cont" wx:else>
+             <text class="jian1">¥{{item.price}}</text>
             </view>
               <view class="di" wx:if='{{item.yes=="true"}}'>
                  

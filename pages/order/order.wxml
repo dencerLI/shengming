@@ -43,7 +43,7 @@
 
 <view class="fslist" wx:if="{{laican.ptype==1||laican.ptype==2||laican.ptype==3}}">
   <image class="wei" src="{{checked2==false?'http://47.105.112.194/images/weixuan.png':'http://47.105.112.194/images/wei1.png'}}"></image>
-  <text class="textme">积分抵扣{{chaxun.point_type}}</text>
+  <text class="textme">积分抵扣</text>
   <text class="istext1">{{chaxun.point}}</text>
  <label class="fr font checked-lable no" data-val="0" catchtap='checkedTap2'>
    <radio checked="{{checked2}}" color='#deab8a' />

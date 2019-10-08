@@ -57,6 +57,10 @@ Component({
 
       var ol=hi/m*100+'%';
       that.setData({iswidth:ol})
+    },goindex: function () {
+      wx.switchTab({
+        url: '../index/index',
+      })
     },
     onShow: function () {
       this.map();

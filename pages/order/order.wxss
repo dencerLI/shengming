@@ -16,15 +16,15 @@
 .wx{ float: left; width: 40rpx; height: 34rpx; margin:23rpx 0 0 30rpx; }
 .yue{ float: left; width: 30rpx; height: 38rpx; margin:23rpx 0 0 30rpx; }
 .wei{ float: left; width: 35rpx; height: 35rpx; margin:23rpx 0 0 30rpx; }
-.yi{ float: right; width: 37rpx; height: 36rpx; margin:22rpx 25rpx 0 0rpx; }
+.yi{ float: right; width: 37rpx; height: 36rpx; margin:22rpx 20rpx 0 0rpx; }
 .fslist .textme{ float: left; font-size: 26rpx; color: #333; margin-left: 33rpx; height: 80rpx; line-height: 80rpx;}
 .fslist .textme1{ float: right; font-size: 26rpx; color: #333; margin-right: 25rpx; height: 80rpx; line-height: 80rpx;}
 .fslist .istext{ float: left; font-size: 26rpx; color: #333; margin-left: 150rpx; height: 80rpx; line-height: 80rpx;}
 .fslist .istext1{ float: left; font-size: 26rpx; color: #333; margin-left: 25rpx; height: 80rpx; line-height: 80rpx;}
 .fslist .istext2{ float: right; font-size: 26rpx; color: #333; margin-right: 25rpx; height: 80rpx; line-height: 80rpx;}
-.yes{ float: right; width:60rpx; height: 60rpx; margin: 14rpx 16rpx 0 0;}
-.no{ float: left; width:60rpx; height: 60rpx; margin: 14rpx 16rpx 0 25rpx;}
-.no1{ float: right; width:60rpx; height: 60rpx; margin: 14rpx 16rpx 0 25rpx;}
+.yes{ float: right; width:60rpx; height: 60rpx; margin: 16rpx 16rpx 0 0;}
+.no{ float: left; width:60rpx; height: 60rpx; margin: 16rpx 16rpx 0 25rpx;}
+.no1{ float: right; width:60rpx; height: 60rpx; margin: 16rpx 16rpx 0 25rpx;}
 .xin{ float: left; width: 37rpx; height: 32rpx; margin:24rpx 0 0 30rpx; }
 .total{ margin-top: 35rpx; height: auto; overflow: hidden;}
 .total view{ float: right; margin-right: 30rpx; color: #333333; font-size: 30rpx;}

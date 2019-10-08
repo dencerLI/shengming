@@ -19,7 +19,7 @@
     <view class="noorder" wx:if="{{order==0}}">
       <image src="http://47.105.112.194/images/noorder.png"></image>
       <text>还没有订单</text>
-      <view class="gwbtn">去购物</view>
+      <!-- <view class="gwbtn" bindtap="goshop">去购物</view> -->
     </view>
     <view class="yesorder" wx:else>
       <view wx:for="{{meorder}}">
@@ -121,7 +121,7 @@
     <view class="noorder" wx:if="{{shouorder==0}}">
       <image src="http://47.105.112.194/images/noorder.png"></image>
       <text>还没有订单</text>
-      <view class="gwbtn">去购物</view>
+      <!-- <view class="gwbtn" bindtap="goshop">去购物</view> -->
     </view>
     <view class="yesorder" wx:else>
       <view wx:for="{{meorder}}">
@@ -159,7 +159,7 @@
     <view class="noorder" wx:if="{{wanorder==0}}">
       <image src="http://47.105.112.194/images/noorder.png"></image>
       <text>还没有订单</text>
-      <view class="gwbtn">去购物</view>
+      <!-- <view class="gwbtn" bindtap="goshop">去购物</view> -->
     </view>
     <view class="yesorder" wx:else>
       <view wx:for="{{meorder}}">
