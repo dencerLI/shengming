@@ -5,7 +5,7 @@
 </view>
 <view class="top30 bt"><text>天苏打水改善酸碱性</text></view>
 
-<view class="jinru top60">
+<view class="jinru top60" >
    <image src="{{imglist2}}"></image>
 </view>
 
@@ -16,13 +16,13 @@
   <scroll-view scroll-x="true">
     <view class="item-content" wx:for="{{list}}" wx:for-item="item">
     <view class="itemleft">
-        <image src="../../images/tximg/1.png"></image>
+        <image src="{{item.imgurl}}"></image>
         <view class="title">{{item.title}}</view>
     </view>
       <view class="itemright">
          <text class="users">服务500家用户</text>
-         <view class="ming">朝阳区第<text class="su">1</text>名</view>
-         <text class="shou">上月收入9850元</text>
+         <view class="ming">朝阳区第<text class="su">{{item.n}}</text>名</view>
+         <text class="shou">上月收入{{item.shouru}}元</text>
       </view>
      
     </view>
@@ -30,15 +30,15 @@
 <!-- </view> -->
 </view>
 
-<view class="tiaofu top30">
+<view class="tiaofu top30" bindtap="gotem">
   <image src="{{imglist3}}"></image>
 </view>
 
 
-<view class="contentv top60" style="display:none;">附近的水机</view>
+<view class="contentv top60" >附近的水机</view>
 
-<view class="isbotm top30">
- <map id="map" longitude="{{longitude}}" latitude=" {{latitude}}" markers="{{markers}}" scale="13" show-location style="width: 100%; height: 100%;"></map>
+<view class="isbotm top30" >
+ <map id="map" catchtap="gomap" longitude="{{longitude}}" latitude=" {{latitude}}" markers="{{markers}}" scale="13" show-location style="width: 100%; height: 100%;"></map>
   <!-- {{longitude}} -->
 </view>
 

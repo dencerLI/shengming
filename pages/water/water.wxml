@@ -22,15 +22,15 @@
             </view>
               <view class="di" wx:if='{{item.yes=="true"}}'>
                  
-                 <image class="add" src="../../images/add.png"></image>
+                 <image class="add" src="http://47.105.112.194/images/add.png"></image>
                  <view class="con">1</view>
-                 <image class="reduce" src="../../images/reduce.png"></image>
+                 <image class="reduce" src="http://47.105.112.194/images/reduce.png"></image>
               </view>
               <view class="di" wx:else>
                  
-                 <image class="add" src="../../images/add1.png"></image>
+                 <image class="add" src="http://47.105.112.194/images/add1.png"></image>
                  <view class="con1">1</view>
-                 <image class="reduce" src="../../images/reduce1.png"></image>
+                 <image class="reduce" src="http://47.105.112.194/images/reduce1.png"></image>
               </view>
            </view>
         </view>

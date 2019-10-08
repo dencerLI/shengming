@@ -1,14 +1,14 @@
 <!--pages/deliverWater/deliverWater.wxml-->
 <view class="istop">
-   <image src="../../images/sslogo.png"></image>
+   <image src="http://47.105.112.194/images/sslogo.png"></image>
 </view>
 <view class="spcon">
    <view class="sptop">
       <image></image> <text class="name">hahah</text> <text class="bt">送您一袋天然苏打水</text>
    </view>
    <view class="spcenter">
-       <image src="../../images/guozhi.png" class="guozhi"></image>
-       <image src="../../images/song.png" class="song"></image>
+       <image src="http://47.105.112.194/images/guozhi.png" class="guozhi"></image>
+       <image src="http://47.105.112.194/images/song.png" class="song"></image>
    </view>
    <view class="spbot">
      <text class="botTil">天然小分子水5000毫升</text>

@@ -1,0 +1,39 @@
+<!--pages/Apply/Apply.wxml-->
+<view class="border30">
+<view class="tc">
+   <image src="http://47.105.112.194/images/tc3.png"></image>
+</view>
+<view class="srlist">
+   <view class="name">
+      <input type="text" placeholder="输入申请人姓名" placeholder-class="isname"></input>
+   </view>
+   <view class="name">
+      <input type="text" placeholder="输入手机号" placeholder-class="isname"></input>
+   </view>
+   <view class="name">
+      <input type="text" placeholder="验证码" placeholder-class="isname"></input>
+      <view class="yzm" style="color:{{iscolor}}">获取验证码</view>
+   </view>
+   <view class="ty">
+    <label class="fr font checked-lable no1" data-val="0" catchtap='checkedTap3'>
+       <radio checked="{{checked3}}" color='#E65C10' />
+    </label>
+    <text>同意管家管理服务协议书</text>
+   </view>
+</view>
+</view>
+<view class="bot" data-check="{{checked3}}" style="background:{{back}}" bindtap="applygo">提交申请</view>
+
+<view class="Success" style="display:{{isnone}}">
+
+   <image class="suimg" src="http://47.105.112.194/images/success.png"></image>
+   <view class="tz">我们将在5个工作日内通知您结果</view>
+   <view class="isreturn">
+      <view class="qu" bindtap="goindex">
+        <image src="http://47.105.112.194/images/shouye.png"></image>
+        <text>去首页</text>
+      </view>
+
+      <view class="fan">自动返回<text class="second">{{second}}</text>s</view>
+   </view>
+</view>

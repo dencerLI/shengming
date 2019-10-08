@@ -36,6 +36,11 @@ Component({
           }
         });
       },
+      goapp:function(){
+          wx.navigateTo({
+            url: '../Apply/Apply',
+       })
+      },
       onReady:function(){
         this.tplist();
       }

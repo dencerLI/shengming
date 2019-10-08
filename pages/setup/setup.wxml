@@ -19,6 +19,6 @@
         <text class='option' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
     </view>
    </view>
-   <image src="../../images/xiala.png" catchtap='selectTap'></image>
+   <image src="http://47.105.112.194/images/xiala.png" catchtap='selectTap'></image>
 </view>
 <view class="bot">保存</view>

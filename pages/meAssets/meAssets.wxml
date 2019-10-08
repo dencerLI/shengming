@@ -1,7 +1,7 @@
 <!--pages/meAssets/meAssets.wxml-->
 <view class="zclist top30">
     <view class="zcleft">
-       <image class="qb" src="../../images/qianbao.png"></image>
+       <image class="qb" src="http://47.105.112.194/images/qianbao.png"></image>
        <text>我的钱包</text>
     </view>
     <view class="zcright">
@@ -14,7 +14,7 @@
 </view>
 <view class="zclist top10">
     <view class="zcleft">
-       <image class="jf" src="../../images/jifen.png"></image>
+       <image class="jf" src="http://47.105.112.194/images/jifen.png"></image>
        <text>我的积分</text>
     </view>
     <view class="zcright">
@@ -27,7 +27,7 @@
 
 <view class="zclist top10">
     <view class="zcleft">
-       <image class="hd" src="../../images/hudong.png"></image>
+       <image class="hd" src="http://47.105.112.194/images/hudong.png"></image>
        <text>我的互动</text>
     </view>
     <view class="zcright">
@@ -41,7 +41,7 @@
 
 <view class="zclist top10">
     <view class="zcleft">
-       <image class="quan" src="../../images/quan.png"></image>
+       <image class="quan" src="http://47.105.112.194/images/quan.png"></image>
        <text> 抵用券</text>
     </view>
     <view class="zcright">

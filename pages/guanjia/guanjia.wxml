@@ -3,3 +3,5 @@
 <view class="shouyi">五大收益</view>
 
 <image wx:for="{{mydata.data.list}}" src="{{item.url}}" mode="widthFix"></image>
+
+<image class="xuan" src="http://47.105.112.194/images/chengwei.png" bindtap="goapp"></image>

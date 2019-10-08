@@ -1,17 +1,17 @@
 <!--pages/investment/investment.wxml-->
 <!-- <image></image> -->
-<image class="bttop" src="../../images/zhaoshang/bttop.png" mode="widthFix"></image>
-<image class="intm" src="../../images/zhaoshang/nono.png" mode="widthFix"></image>
+<image class="bttop" src="http://47.105.112.194/uploads/images/zs/logo.png" mode="widthFix"></image>
+<image class="intm" src="http://47.105.112.194/uploads/images/zs/shuiji.png" mode="widthFix"></image>
 <view class="tw">随着全民生活水平提高，健康意识增强，对于饮用水质量更加重视。</view>
-<image class="tap" src="../../images/zhaoshang/tap.png" mode="widthFix"></image>
+<image class="tap" src="http://47.105.112.194/uploads/images/zs/map.png" mode="widthFix"></image>
 <view class="tw">全国运输物流网络发达，生命之里全国528个仓储点分布全国20个省。</view>
-<image class="pricetap" src="../../images/zhaoshang/pricetap.png" mode="widthFix"></image>
+<image class="pricetap" src="http://47.105.112.194/uploads/images/zs/team.png" mode="widthFix"></image>
 <view class="dbt">2019年加盟者收益图</view>
-<image class="priceimg" src="../../images/zhaoshang/priceimg.png" mode="widthFix"></image>
-<image class="zidong" src="../../images/zhaoshang/zidong.png" mode="widthFix"></image>
-<image class="guanli" src="../../images/zhaoshang/guangli.png" mode="widthFix"></image>
+<image class="priceimg" src="http://47.105.112.194/uploads/images/zs/list.png" mode="widthFix"></image>
+<image class="zidong" src="http://47.105.112.194/uploads/images/zs/auto.png" mode="widthFix"></image>
+<image class="guanli" src="http://47.105.112.194/uploads/images/zs/crm.png" mode="widthFix"></image>
 <view class="overcon">
-<image class="shouyi" src="../../images/zhaoshang/shouyi.png" mode="widthFix"></image>
+<image class="shouyi" src="http://47.105.112.194/uploads/images/zs/data.png" mode="widthFix"></image>
 </view>
 <view class="bodabtn">立即拨打</view>
 

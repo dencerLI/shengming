@@ -19,7 +19,7 @@
     <text style="color:#333;font-size:26rpx;">¥ {{alldata.normal_price}}</text>
   </view>
   <view class="canshu">
-    <image src="../../images/cansu.png"></image>
+    <image src="http://47.105.112.194/images/cansu.png"></image>
     <text>产品参数</text>
   </view>
  
@@ -49,18 +49,18 @@
 <view class="bot1" bindtap="isorder" style="display:{{dis}}">确认订单</view>
 <view class="taost" style="display:{{dis}}" bindtap="close">
   <view class="taostcon" catchtap="jinzhi">
-    <view class="taostleft"> <image src="http://47.105.112.194/uploads/images/goods/fam_1.png"></image></view>
+    <view class="taostleft"> <image src="{{endt[0].index_pic}}"></image></view>
     <view class="taostright">
       <view wx:if='{{alldata.p_type==1||alldata.p_type==2||alldata.p_type==3||alldata.p_type==9}}'>
         <view class="taoz" style="display:{{qie1}}">
           <view class="imbt">5000毫升</view>
           <view class="taotop">
-            <view class="leftbtn {{class1}}" data-zhi="12" data-val="1" catchtap="shuiji">12袋水+水机</view>
-            <view class="rightbtn {{class2}}" data-zhi="35" data-val="2" catchtap="shuiji">35袋水</view>
+            <view class="leftbtn {{class1}}" data-zhi="{{endt[0].b_num}}" data-val="1" catchtap="shuiji">{{endt[0].name}}</view>
+            <view wx:if='{{alldata.p_type==1||alldata.p_type==2||alldata.p_type==3}}' class="rightbtn {{class2}}" data-zhi="{{endt[1].b_num}}" data-val="2" catchtap="shuiji">{{endt[1].name}}</view>
           </view>
           <view class="taotop">
             <view class="leftbtn {{class3}}" data-zhi="天然水" data-val="3" catchtap="shuiji">天然水</view>
-            <view class="rightbtn {{class4}}" data-zhi="苏打水" data-val="4" catchtap="shuiji">苏打水</view>
+            <view wx:if='{{alldata.p_type==1||alldata.p_type==2||alldata.p_type==3}}' class="rightbtn {{class4}}" data-zhi="苏打水" data-val="4" catchtap="shuiji">苏打水</view>
           </view>
         </view>
         <view class="jiage">

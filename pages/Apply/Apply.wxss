@@ -1,0 +1,42 @@
+/* pages/Apply/Apply.wxss */
+.border30{ padding: 30rpx; height: auto; overflow: hidden;}
+.tc{ width: 100%;height: 400rpx;}
+.tc image{ width: 100%; height: 100%;}
+.srlist{ height: auto; overflow: hidden; margin-top: 60rpx;}
+.name{ width: 100%; height: 120rpx; border-bottom: 1px solid #e5e5e5;}
+.name input{ height: 120rpx; width: 400rpx; float: left; margin-left: 30rpx;}
+.isname{font-size: 26rpx; color: #999;}
+.yzm{ float: right; font-size: 22rpx; height: 120rpx; line-height: 120rpx;  margin-right: 30rpx;}
+.no1{ width: 40rpx; height: 40rpx; float:  left;}
+.ty{ margin-top: 60rpx; height: auto; overflow: hidden;}
+/* 修改默认样式 */
+
+radio .wx-radio-input {
+  /* border-radius:4rpx; 圆角 */
+  width: 30rpx; /* 背景的宽 */
+  height: 30rpx; /* 背景的高 */
+  background: #fff;
+   box-sizing: border-box;
+}
+
+/* 修改checked样式 */
+radio .wx-radio-input.wx-radio-input-checked::before,
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+ color: #333;
+ font-size: 18rpx;
+ /* width: 28rpx;
+  height: 28rpx; */
+ /* background: #ff6633; */
+}
+
+.ty text{ float: left; margin-left: 30rpx; font-size: 22rpx; height: 22rpx; line-height: 22rpx; color: #666666;  margin-top: 15rpx;}
+.bot{ position: absolute;bottom: 0; right: 0; width: 100%; height: 100rpx; color: #FEFEFE;font-size: 30rpx; text-align: center; line-height: 100rpx;}
+.Success{ position: fixed;top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 99;}
+.suimg{ display: block; width: 670rpx; height: 578rpx; margin: 0px auto; margin-top:260rpx; }
+.tz{ font-size: 26rpx; color: #fff; width: 100%; text-align: center; margin-top: 77rpx; height: 26rpx; line-height: 26rpx;}
+.isreturn{ height: auto; overflow: hidden; margin-top: 76rpx;}
+.qu{ float: left; text-align: center; margin-left: 156rpx;}
+.qu image{ width: 44rpx; height: 44rpx;}
+.qu text{ display: block; font-size: 22rpx; color: #fff;}
+.fan{ float: right;font-size: 22rpx; color: #fff; margin-right: 126rpx; margin-top: 33rpx;}
+.fan text{ margin: 0 10rpx;}

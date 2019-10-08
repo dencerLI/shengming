@@ -4,6 +4,6 @@
 <view class="fxbtn" bindtap="fx"></view>
 </view>
 <view class="rightbtn" bindtap="fx">
-<image src="../../images/fxan.png"></image>
+<image src="http://47.105.112.194/images/fxan.png"></image>
 <text>分享</text>
 </view>

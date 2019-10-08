@@ -1,10 +1,10 @@
 <!--pages/order/order.wxml-->
 <view class="addressgo" bindtap="address">
-  <image class="mark" src="../../images/tan.png"></image>
+  <image class="mark" src="http://47.105.112.194/images/tan.png"></image>
   <text wx:if="{{address==null&&address1==''}}">请填写您的地址</text>
   <text wx:elif="{{address1!=''}}">{{address1}}</text>
   <text wx:else>{{address.city}}{{address.area}}{{address.detail_add}}</text>
-  <image class="isgo" src="../../images/go1.png"></image>
+  <image class="isgo" src="http://47.105.112.194/images/go1.png"></image>
 </view>
 <view class="content">
   <view class="contleft">
@@ -25,7 +25,7 @@
   </view>
 </view>
 <!-- <view class="fslist">
-  <image class="wx" src="../../images/wx.png"></image>
+  <image class="wx" src="http://47.105.112.194/images/wx.png"></image>
   <text class="textme">微信支付</text>
   <label class="fr font checked-lable yes" data-val="0" catchtap='checkedTap'>
    <radio checked="{{checked}}" color='#deab8a' />
@@ -33,7 +33,7 @@
 </view> -->
 
 <view class="fslist">
-  <image class="wx" src="../../images/yue.png"></image>
+  <image class="wx" src="http://47.105.112.194/images/yue.png"></image>
   <text class="textme">余额抵扣</text>
   <text class="istext">￥{{chaxun.balance}}</text>
   <label class="fr font checked-lable yes" data-val="1" catchtap='checkedTap1'>
@@ -42,7 +42,7 @@
 </view>
 
 <view class="fslist" wx:if="{{laican.ptype==1||laican.ptype==2||laican.ptype==3}}">
-  <image class="wei" src="{{checked2==false?'../../images/weixuan.png':'../../images/wei1.png'}}"></image>
+  <image class="wei" src="{{checked2==false?'http://47.105.112.194/images/weixuan.png':'http://47.105.112.194/images/wei1.png'}}"></image>
   <text class="textme">积分抵扣{{chaxun.point_type}}</text>
   <text class="istext1">{{chaxun.point}}</text>
  <label class="fr font checked-lable no" data-val="0" catchtap='checkedTap2'>
@@ -54,16 +54,16 @@
    </label>
   <text class="istext2 ">{{chaxun.new_cash}}张</text>
   <text class="textme1">优惠券抵扣</text>
-  <image class="yi" src="{{checked3==false?'../../images/yi1.png':'../../images/yixuan.png'}}"></image>
+  <image class="yi" src="{{checked3==false?'http://47.105.112.194/images/yi1.png':'http://47.105.112.194/images/yixuan.png'}}"></image>
 </view>
 
 <view class="fslist">
-  <image class="xin" src="../../images/xin.png"></image>
+  <image class="xin" src="http://47.105.112.194/images/xin.png"></image>
   <text class="textme">喜欢生命之里的理由</text>
   <view class='select_box'>
     <view class='select' catchtap='selectTap'>
       <text class='select_text'>{{selectData[index]}}</text>
-      <image class='select_img {{selectShow&&"select_img_rotate"}}' src='../../images/go.png' background-size="contain"></image>
+      <image class='select_img {{selectShow&&"select_img_rotate"}}' src='http://47.105.112.194/images/go.png' background-size="contain"></image>
     </view>
     <view class='option_box' style='height:{{selectShow?(selectData.length*60):0}}rpx;'>
       <text class='option' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
@@ -72,7 +72,7 @@
 </view>
 
 <view class="tishi">
- <image src="../../images/tanhao.png"></image><text>余额不足时可使用微信支付，同时可抵扣账户余额</text>
+ <image src="http://47.105.112.194/images/tanhao.png"></image><text>余额不足时可使用微信支付，同时可抵扣账户余额</text>
 </view>
 <view class="total">
 <view wx:if="{{laican.ptype==1||laican.ptype==2||laican.ptype==3||laican.ptype==9}}">
@@ -218,7 +218,7 @@
    <view class="showcon">
        <view class="showtitle">支付成功</view>
        <view class="showimg">
-          <image src="../../images/zfcg.png"></image>
+          <image src="http://47.105.112.194/images/zfcg.png"></image>
        </view>
        <view class="dd">
         <text>订单编号：{{orderme}}</text>
@@ -230,7 +230,7 @@
            <view class="sybtn" bindtap="goindex">去首页</view>
        </view>
        <!-- <view class="hideimg">
-         <image src="../../images/xia.png" bindtap="yinc"></image>
+         <image src="http://47.105.112.194/images/xia.png" bindtap="yinc"></image>
        </view> -->
    </view>
 </view>

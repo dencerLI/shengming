@@ -1,11 +1,13 @@
 {
   "pages": [
-    
     "pages/myindex/myindex",
-   "pages/sweepcode1/sweepcode1",
+    "pages/call/call",
+    "pages/Exhibition/Exhibition",
+    "pages/Apply/Apply",
+    
+    "pages/sweepcode1/sweepcode1",
     "pages/sweepcode/sweepcode",
     "pages/guanjia/guanjia",
-   
     "pages/share/share",
     "pages/investment/investment",
     "pages/deliverWater/deliverWater",
@@ -16,9 +18,7 @@
     "pages/water/water",
     "pages/me/me",
     "pages/community/community",
-    
     "pages/orderall/orderall",
-  
     "pages/waterTicket/waterTicket",
     "pages/meWallet/meWallet",
     "pages/meAssets/meAssets",
@@ -30,8 +30,7 @@
     "pages/content/content",
     "pages/logs/logs",
     "pages/hotarea/hotarea"
-    
-    
+  
   ],
   "window": {
     "backgroundTextStyle": "light",

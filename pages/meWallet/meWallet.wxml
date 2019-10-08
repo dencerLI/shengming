@@ -1,6 +1,6 @@
 <!--pages/meWallet/meWallet.wxml-->
 <view class="srall">
-    <image class="logo" src="../../images/qblogo.png"></image>
+    <image class="logo" src="http://47.105.112.194/images/qblogo.png"></image>
     <text class="title">总收入</text>
     <text class="title">￥{{moneydata.money+moneydata.ice_money}}</text>
     <view class="zj">

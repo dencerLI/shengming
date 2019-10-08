@@ -10,12 +10,12 @@
 </swiper>
 <view class="inbot">
   <view class="wxfx">
-    <image src="../../images/fenx.png"></image>
+    <image src="http://47.105.112.194/images/fenx.png"></image>
     <text>分享好友</text>
     <button open-type='share'></button>
   </view>
   <view class="wxfx1" catchtap="saveToPhone">
-    <image src="../../images/baoc.png"></image>
+    <image src="http://47.105.112.194/images/baoc.png"></image>
     <text>保存相册</text>
   </view>
 </view>

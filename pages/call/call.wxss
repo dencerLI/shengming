@@ -1,0 +1,57 @@
+/* pages/call/call.wxss */
+.ismap{ width: 100%; height: 400rpx;}
+.isbt{ font-size: 30rpx; color: #333; width: 100%; text-align: center; height: 30rpx; line-height: 30rpx; margin-top: 30rpx;}
+.isbt image{ width: 100%; height: 100%;}
+.call{ height: 80rpx; line-height: 80rpx; border-bottom: 1px solid #e5e5e5;}
+.call image{ float:  left; width: 22rpx; height: 30rpx; margin-left: 30rpx;margin-top: 25rpx;}
+.context{ float: left; font-size: 26rpx; color: #333; margin-left: 45rpx; }
+.gobtn{width:72rpx;
+height:42rpx;
+ line-height: 42rpx;
+  text-align: center;
+background:rgba(0,0,0,1);
+ float: right;
+border-radius:2px;
+color: #fff;
+font-size: 20rpx;
+ margin-right: 30rpx;
+ margin-top: 19rpx;
+}
+.calllist{ border-top: 1px solid #e5e5e5; margin-top: 30rpx;}
+.ts{ font-size: 20rpx; width: 100%; text-align: center; color: #666666; margin-top: 397rpx;}
+.ts image{ width: 24rpx; height: 21rpx;}
+.bot{ position: absolute;bottom: 0; right: 0; width: 100%; height: 100rpx; color: #FEFEFE;font-size: 30rpx; text-align: center; line-height: 100rpx;}
+
+
+.alert{position: fixed;top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 99;}
+.alertcon{ width:570rpx; height: 456rpx; background: #fff; position: absolute; top: 50%; margin-top:-228rpx; left: 50%; margin-left: -285rpx; border-radius: 2rpx; }
+.contop{ width: 100%; height: 126rpx; border-bottom: 1px solid #e5e5e5; box-sizing: border-box; text-align: center; }
+.contop image{width: 86rpx; height: 78rpx; margin-top: 33rpx;}
+.con{ width: 447rpx;margin: 0px auto; font-size: 22rpx;  line-height: 35rpx; margin-top: 20rpx;}
+.conbtn{ width: 312rpx; height: 80rpx; line-height: 80rpx; margin: 0px auto; background: #000; color: #fff; text-align: center; margin-top: 34rpx;}
+.wxts{ font-size: 24rpx; height: 24rpx; line-height: 24rpx; text-align: center; color: #FF7800; width: 100%; margin-top: 33rpx;}
+.show{position: fixed;top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 99;}
+.showcon{ width:100%; height: 805rpx; background: #fff; position: absolute; bottom: 0; margin-top:-228rpx; left: 0; }
+.showtop{ margin-top: 76rpx; height: auto; text-align: center;}
+.showtop image{ width: 88rpx; height: 80rpx;}
+.showconts{ margin-top: 44rpx; font-size: 34rpx; display: block; height: 34rpx; line-height: 34rpx;}
+.showts{ margin-top: 84rpx; font-size: 20rpx;height: 20rpx; line-height: 20rpx; margin-left: 136rpx;}
+.renshu{
+   margin-top: 10rpx;
+    height: 20rpx;
+    line-height: 20rpx;
+    overflow: hidden;
+}
+.renshu image{ float: left; width: 20rpx; height: 20rpx; margin-left: 210rpx; margin-top: 3rpx;}
+.renshu view{ float: left; font-size: 20rpx; color: #333; margin-left: 10rpx;}
+.jindu{ width: 396rpx; height: 35rpx; background: #eee; margin: 0px auto; margin-top: 10rpx; border-radius: 35rpx; position: relative;overflow: hidden;}
+.jindu1{ position: absolute; top: 0; left: 0; background: #333; height: 35rpx;}
+.sl{  font-size: 20rpx;height: 20rpx; line-height: 20rpx;  color: #333; float: right; margin-right: 180rpx; margin-top: 10rpx;}
+.ists{ margin-top: 116rpx; font-size: 26rpx; height: 26rpx; line-height: 26rpx; color:#FF8A01; text-align: center; width: 100%;}
+.go{ height: auto;overflow: hidden; margin-top: 80rpx;}
+.goleft{ float: left; text-align: center; margin-left: 137rpx;}
+.goleft image{ width: 75rpx; height: 75rpx;}
+.goleft text{ font-size: 26rpx; color: #999999; display: block;margin-top: 23rpx;}
+.goright{ float: right; text-align: center; margin-right: 112rpx;}
+.goright image{ width: 88rpx; height: 58rpx; margin-top: 17rpx;}
+.goright text{ font-size: 26rpx; color: #FF8A01; display: block; margin-top: 23rpx;}

@@ -21,12 +21,13 @@ Component({
     qie:'block',
     qie1:"block",
     class1:'hei',
-    class2: 'hei1',
+    class2: 'hei',
     class3: 'hei',
-    class4: 'hei1',
+    class4: 'hei',
     zhi:'35',
     zhi1:'苏打水',
-    nuu:''
+    nuu:'',
+    endt:''
   },
 
   /**
@@ -41,11 +42,46 @@ Component({
       //    url: '../order/order',
       //  })
      },
+     suda:function(id,type){
+       var that = this;
+       wx.request({
+         url: app.globalData.allUrl + 'api/goods/combo_detail',
+         method: "POST",//指定请求方式，默认get
+         data: { "type_id": id, "b_type": type },
+         header: {
+           //默认值'Content-Type': 'application/json'
+           'content-type': 'application/x-www-form-urlencoded' //post
+         },
+         success: function (res) {
+           console.log(res.data)
+           if(type==0){
+             var hk="苏打水";
+             var heiha="hei1";
+             var heiha1 = "hei";
+           }
+           if (type == 1) {
+             var hk = "天然水";
+             var heiha = "hei";
+             var heiha1 = "hei1";
+           }
+           that.setData({
+             endt: res.data.data,
+             zhi1:hk,
+             zhi: res.data.data[0].b_num,
+             class1: 'hei1',
+             class2: 'hei',
+             class3: heiha1,
+             class4: heiha,
+           })
+         }
+       });
+     },
     shuiji:function(e){
       let that=this;
       console.log(e.currentTarget.dataset.val)
       let onbtn = e.currentTarget.dataset.val;
       let text = e.currentTarget.dataset.zhi;
+      var isid = that.data.alldata.p_type;
       if(onbtn=="1"){
          that.setData({
             class1:'hei1',
@@ -69,6 +105,13 @@ Component({
           class4: 'hei',
           zhi1: text
         })
+        if (that.data.alldata.p_type == 1 || that.data.alldata.p_type == 2 || that.data.alldata.p_type == 3) {
+          that.suda(1, 1)
+        }
+        if (that.data.alldata.p_type == 9) {
+          that.suda(2, 1)
+        }
+       
       }
 
       if (onbtn == "4") {
@@ -77,6 +120,12 @@ Component({
           class3: 'hei',
           zhi1: text
         })
+        if (that.data.alldata.p_type == 1 || that.data.alldata.p_type == 2 || that.data.alldata.p_type == 3) {
+          that.suda(1, 0)
+        }
+        if (that.data.alldata.p_type == 9) {
+          that.suda(2, 0)
+        }
       }
     },
     jinzhi:function(){
@@ -137,6 +186,12 @@ Component({
             table: res.data.data.table,
             intlist: res.data.data
           })
+          if (res.data.data.p_type == 1 || res.data.data.p_type == 2 || res.data.data.p_type == 3) {
+            that.suda(1, 1)
+          }
+          if (res.data.data.p_type == 9) {
+            that.suda(2, 1)
+          }
         }
       });
     },
@@ -169,6 +224,8 @@ Component({
       let that = this;
       if (that.data.nuu != '' && that.data.nuu != null && that.data.nuu != undefined){
         that.iscont1(that.data.id);
+        
+       
       }else{
         that.iscont(that.data.table, that.data.id);
       }

@@ -18,6 +18,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    zhaoshang: function() {
+      wx.navigateTo({
+        url: "../investment/investment",
+      })
+    },
+    shuju: function() {
+      wx.navigateTo({
+        url: "../Exhibition/Exhibition",
+      })
+    }
   }
 })

@@ -6,10 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [{ title: "题目1", content: "内容1" },
-    { title: "题目2", content: "内容2" },
-    { title: "题目3", content: "内容3" },
-    { title: "题目4", content: "内容4" }],
+    list: [{n:1, title: "周大福", shouru: 13338, imgurl:"http://47.105.112.194/uploads/images/strward/headimg/head_1.png" },
+      { n: 2,title: "马化腾", shouru: 8962, imgurl: "http://47.105.112.194/uploads/images/strward/headimg/head_2.png" },
+      { n: 3,title: "丁三石", shouru: 7641, imgurl: "http://47.105.112.194/uploads/images/strward/headimg/head_3.png" },
+       ],
     imglist1:'http://47.105.112.194/uploads/images/shequ/sq_3.png',
     imglist2: 'http://47.105.112.194/uploads/images/shequ/sq_4.png',
     imglist3: 'http://47.105.112.194/uploads/images/shequ/sq_1.png',
@@ -42,6 +42,21 @@ Page({
           }]
         })
       }
+    })
+  },
+  zhaoshang:function(){
+    wx.navigateTo({
+      url: '../investment/investment',
+    })
+  },
+  gotem: function () {
+    wx.navigateTo({
+      url: '../guanjia/guanjia',
+    })
+  },
+  gomap: function () {
+    wx.navigateTo({
+      url: '../call/call',
     })
   },
   /**

@@ -1,0 +1,33 @@
+<!--pages/Exhibition/Exhibition.wxml-->
+<!--pages/water/water.wxml-->
+<view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">
+    <text>全国人均饮水</text>
+    </view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab"> <text>生命之里覆盖</text></view>
+    
+  </view>
+  <view class="incon" >
+<view class = "{{currentTab == 0 ? 'show':'hidden'}}" >
+    <scroll-view>
+        <view class="border102">
+          <image src="http://47.105.112.194/images/1.png"></image>
+          <image src="http://47.105.112.194/images/2.png"></image>
+          <image src="http://47.105.112.194/images/3.png"></image>
+          <image src="http://47.105.112.194/images/4.png"></image>
+        </view>
+    </scroll-view>
+  </view>
+  <!--全部-->
+   <!--待付款-->
+  <view class = "{{currentTab == 1 ? 'show':'hidden'}}" >
+    <scroll-view>
+      <view class="weikaifang">
+      暂未开放
+      </view>
+    </scroll-view>
+  </view>
+  <!--待付款-->
+</view>
+
+<!-- <view class="bot" bindtap="order">立即购买</view> -->
