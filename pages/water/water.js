@@ -51,6 +51,13 @@ Component({
         }
       });
     },
+    gomai:function(e){
+      console.log(e.currentTarget.dataset.id)
+      var id = e.currentTarget.dataset.id;
+      wx.navigateTo({
+        url: '../shopdetail/shopdetail?id=' + id + '&nuu=yes',
+      })
+    },
     onLoad:function(){
       this.setData({
         height: wx.getSystemInfoSync().windowHeight + "px",
@@ -58,7 +65,7 @@ Component({
       })
     },
     onShow: function () {
-      this.shui(699)
+      this.shui('')
     }
   }
 })

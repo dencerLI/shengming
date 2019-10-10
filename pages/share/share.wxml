@@ -12,7 +12,7 @@
   <view class="wxfx">
     <image src="http://47.105.112.194/images/fenx.png"></image>
     <text>分享好友</text>
-    <button open-type='share'></button>
+    <button wx:if='{{medata.num>=0}}' open-type='share'></button>
   </view>
   <view class="wxfx1" catchtap="saveToPhone">
     <image src="http://47.105.112.194/images/baoc.png"></image>

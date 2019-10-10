@@ -63,8 +63,20 @@
             <view wx:if='{{alldata.p_type==1||alldata.p_type==2||alldata.p_type==3}}' class="rightbtn {{class4}}" data-zhi="苏打水" data-val="4" catchtap="shuiji">苏打水</view>
           </view>
         </view>
+        <view class="gn">
         <view class="jiage">
-          <text>￥{{alldata.price}}</text>
+          <text>￥{{yuan}}</text>
+        </view>
+        <view class="leftbtn {{mai}}" data-val="{{mval}}" bindtap="goumai" >+购乐送大使</view>
+        </view>
+        <view class="jiajian">
+
+          <view class="jjcon">
+            <view class="jia" bindtap="jia">+</view>
+            <view class="con" disabled="disabled">{{val}}</view>
+            <view class="jian" bindtap="jian">-</view>
+          </view>
+          <view class="shu">数量</view>
         </view>
       </view>
       <view wx:else>

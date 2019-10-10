@@ -9,7 +9,7 @@
   <view class="incon" >
 <view class = "{{currentTab == 0 ? 'show':'hidden'}}" >
     <scroll-view>
-        <view class="tc" wx:for="{{shui}}">
+        <view class="tc" wx:for="{{shui}}" data-id="{{item.id}}" bindtap="gomai">
            <view class="tcleft">
               <image src="{{item.index_pic}}"></image>
            </view>
@@ -23,7 +23,7 @@
             <view class="cont" wx:else>
              <text class="jian1">¥{{item.price}}</text>
             </view>
-              <view class="di" wx:if='{{item.yes=="true"}}'>
+              <!-- <view class="di" wx:if='{{item.yes=="true"}}'>
                  
                  <image class="add" src="http://47.105.112.194/images/add.png"></image>
                  <view class="con">1</view>
@@ -34,7 +34,7 @@
                  <image class="add" src="http://47.105.112.194/images/add1.png"></image>
                  <view class="con1">1</view>
                  <image class="reduce" src="http://47.105.112.194/images/reduce1.png"></image>
-              </view>
+              </view> -->
            </view>
         </view>
     </scroll-view>
@@ -51,4 +51,4 @@
   <!--待付款-->
 </view>
 
-<view class="bot" bindtap="order">立即购买</view>
+<!-- <view class="bot" bindtap="order">立即购买</view> -->

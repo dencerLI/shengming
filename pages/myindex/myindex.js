@@ -16,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    
+    console.log(wx.getStorageSync('yes'))
     if (wx.getStorageSync('yes') == 'YES'){
       wx.switchTab({
         url: '../index/index',
@@ -79,9 +79,9 @@ Page({
       success: function (res) {
         console.log(res)
         if (res.data!=""&&res.data!=null&&res.data!=undefined){
-          wx.showToast({
-             title: '插入成功',
-          })
+          // wx.showToast({
+          //    title: '插入成功',
+          // })
           that.setData({
             userInfo: e.detail.userInfo,
             hasUserInfo: true

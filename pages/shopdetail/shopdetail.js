@@ -13,6 +13,8 @@ Component({
    */
   data: {
     alldata:'',
+    yuan: '',
+    yuan1: '',
     val:1,
     dis:'none',
     id:'',
@@ -27,7 +29,9 @@ Component({
     zhi:'35',
     zhi1:'苏打水',
     nuu:'',
-    endt:''
+    endt:'',
+    mai:'hei',
+    mval:0
   },
 
   /**
@@ -41,7 +45,19 @@ Component({
       //  wx.navigateTo({
       //    url: '../order/order',
       //  })
-     },
+    }, goumai:function(e){
+      var that=this;
+      var val = e.currentTarget.dataset.val;
+      var all = that.data.yuan;
+      var all1 = that.data.yuan1;
+
+      if(val==0){
+          // all.price = all.price + val;
+        that.setData({ mval: 98, mai: "hei1", yuan: all1+98})
+      }else{
+        that.setData({ mval: 0, mai: "hei", yuan: all1})
+      }
+    },
      suda:function(id,type){
        var that = this;
        wx.request({
@@ -144,8 +160,10 @@ Component({
       var num = that.data.val;
       var zhi=that.data.zhi;
       var zhi1 = that.data.zhi1;
+      var mval = that.data.mval;
+      var isval = that.data.yuan;
        wx.navigateTo({
-         url: '../order/order?id=' + id + '&table=' + table + '&userid=' + uid + '&num=' + num + '&zhi=' + zhi + '&zhi1=' + zhi1 + '&ptype=' + that.data.alldata.p_type,
+         url: '../order/order?id=' + id + '&table=' + table + '&userid=' + uid + '&num=' + num + '&zhi=' + zhi + '&zhi1=' + zhi1 + '&ptype=' + that.data.alldata.p_type + '&mval=' + mval + '&isval=' + isval ,
        })
     },
     iscont: function (table,id) {
@@ -162,6 +180,8 @@ Component({
           console.log(res.data)
           that.setData({
             alldata: res.data.data,
+            yuan: res.data.data.price,
+            yuan1: res.data.data.price,
             id: res.data.data.id,
             table: res.data.data.table,
             intlist: res.data.data
@@ -182,6 +202,8 @@ Component({
           console.log(res.data)
           that.setData({
             alldata: res.data.data,
+            yuan: res.data.data.price,
+            yuan1: res.data.data.price,
             id: res.data.data.id,
             table: res.data.data.table,
             intlist: res.data.data
@@ -218,17 +240,15 @@ Component({
       }else{
         that.setData({ id: options.id, table: options.table})
       }
-    },
-    onShow: function () {
-
-      let that = this;
-      if (that.data.nuu != '' && that.data.nuu != null && that.data.nuu != undefined){
+      if (that.data.nuu != '' && that.data.nuu != null && that.data.nuu != undefined) {
         that.iscont1(that.data.id);
-        
-       
-      }else{
+      } else {
         that.iscont(that.data.table, that.data.id);
       }
+    },
+    onShow: function () {
+      let that = this;
+      
     }
 
   }

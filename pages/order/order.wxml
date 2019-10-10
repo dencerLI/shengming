@@ -13,11 +13,21 @@
   <view class="contright">
     <view class="title">{{goods.name}}</view>
     <view class="company">{{goods.rem}}</view>
-    <view class="numall">
+    <view class="numall" wx:if="{{laican.isval==0}}">
       <view class="numleft" wx:if="{{laican.ptype==1||laican.ptype==2||laican.ptype==3||laican.ptype==9}}">￥{{goods.price}}</view>
       <view wx:else>
       <view class="numleft" wx:if="{{goods.sale_price==null}}">￥{{goods.normal_price}}</view>
       <view class="numleft" wx:else>￥{{goods.sale_price}}</view>
+      </view>
+      
+      <view class="numright">数量 x {{laican.num}}</view>
+    </view>
+
+    <view class="numall" wx:else>
+      <view class="numleft" wx:if="{{laican.ptype==1||laican.ptype==2||laican.ptype==3||laican.ptype==9}}">￥{{laican.isval}}</view>
+      <view wx:else>
+      <view class="numleft" wx:if="{{goods.sale_price==null}}">￥{{goods.normal_price}}</view>
+      <view class="numleft" wx:else>￥{{laican.isval}}</view>
       </view>
       
       <view class="numright">数量 x {{laican.num}}</view>
@@ -75,15 +85,22 @@
  <image src="http://47.105.112.194/images/tanhao.png"></image><text>余额不足时可使用微信支付，同时可抵扣账户余额</text>
 </view>
 <view class="total">
-<view wx:if="{{laican.ptype==1||laican.ptype==2||laican.ptype==3||laican.ptype==9}}">
+ <view wx:if="{{laican.ptype==1||laican.ptype==2||laican.ptype==3||laican.ptype==9}}">
     总计
    
-    <text >￥{{laican.num*goods.price}}</text>
+    <text wx:if="{{laican.isval==0}}" >￥{{laican.num*goods.price}}</text>
+    <text wx:else >￥{{laican.num*laican.isval}}</text>
   </view>
   <view wx:else>
     总计
+    <view wx:if="{{laican.isval==0}}">
     <text wx:if="{{goods.sale_price==null}}">￥{{laican.num*goods.normal_price}}</text>
-    <text wx:else>￥{{laican.num*goods.sale_price}}</text>
+    <text wx:else>￥{{laican.num*goods.price}}</text>
+    </view>
+    <view wx:else>
+    <text wx:if="{{goods.sale_price==null}}">￥{{laican.num*goods.normal_price}}</text>
+    <text wx:else>￥{{laican.num*laican.isval}}</text>
+    </view>
   </view>
   
 </view>

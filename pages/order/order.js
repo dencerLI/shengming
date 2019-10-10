@@ -292,7 +292,12 @@ Component({
           var dizhi = res.data.data.address;
           // }
           // if (res.data.data.goods.sale_price == null) {
-          var qian = res.data.data.goods.price * that.data.laican.num
+          if (that.data.laican.isval!=0){
+            var qian = that.data.laican.isval * that.data.laican.num
+          }else{
+            var qian = res.data.data.goods.price * that.data.laican.num
+          }
+          console.log(qian)
           // } else {
           //   var qian = res.data.data.goods.sale_price * that.data.laican.num
           // }
@@ -482,12 +487,19 @@ Component({
       var that = this;
       console.log(orderid);
       var hk = that.data.laican;
+      
         if (that.data.laican.ptype == 1 || that.data.laican.ptype == 2 || that.data.laican.ptype == 3 || that.data.laican.ptype == 9){
         if (hk.zhi1 =="天然水"){
+          if (hk.mval == 98) {
+            var type1 = 3;
+          }else{
+            var type1 = that.data.goods.p_type;
+          }
+          
           var yodata = {
             'uid': wx.getStorageSync('uid'),
             'phone': '15726675520',
-            'p_type': that.data.goods.p_type,
+            'p_type': type1,
             'p_id': that.data.laican.id,
             'bag_id': '',
             'bottle_id': '',
@@ -505,10 +517,15 @@ Component({
             'price': that.data.yfk1
           }
         } else if (hk.zhi1 == "苏打水"){
+          if (hk.mval == 98) {
+            var type1 = 3;
+          } else {
+            var type1 = that.data.goods.p_type;
+          }
           var yodata = {
             'uid': wx.getStorageSync('uid'),
             'phone': '15726675520',
-            'p_type': that.data.goods.p_type,
+            'p_type': type1,
             'p_id': that.data.laican.id,
             'bag_id': '',
             'bottle_id': '',

@@ -20,6 +20,7 @@ Component({
     swiperIndex: 0, //这里不写第一次启动展示的时候会有问题
     indicatorDots: false,
     autoplay: false,
+    medata:''
   },
 
   /**
@@ -28,6 +29,10 @@ Component({
   methods: {
     onShareAppMessage: function () {
       var that=this;
+      // console.log(that.data.medata.num)
+      // if (that.data.medata.num>=0){
+      //   return;
+      // }
       return {
         imageUrl: that.data.tpl[that.data.swiperIndex].pic_url,
         title: that.data.tpl[that.data.swiperIndex].title,
@@ -97,7 +102,8 @@ Component({
         success: function (res) {
           console.log(res.data)
           that.setData({
-            tpl: res.data.tpl
+            tpl: res.data.tpl,
+            medata: res.data.ticket
           })
         }
       });
