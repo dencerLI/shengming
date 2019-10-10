@@ -13,8 +13,8 @@ Component({
    */
   data: {
     alldata:'',
-    yuan: '',
-    yuan1: '',
+    yuan: 0,
+    yuan1: 0,
     val:1,
     dis:'none',
     id:'',
@@ -162,6 +162,7 @@ Component({
       var zhi1 = that.data.zhi1;
       var mval = that.data.mval;
       var isval = that.data.yuan;
+      console.log(that.data)
        wx.navigateTo({
          url: '../order/order?id=' + id + '&table=' + table + '&userid=' + uid + '&num=' + num + '&zhi=' + zhi + '&zhi1=' + zhi1 + '&ptype=' + that.data.alldata.p_type + '&mval=' + mval + '&isval=' + isval ,
        })
@@ -180,8 +181,8 @@ Component({
           console.log(res.data)
           that.setData({
             alldata: res.data.data,
-            yuan: res.data.data.price,
-            yuan1: res.data.data.price,
+            yuan: 0,
+            yuan1: 0,
             id: res.data.data.id,
             table: res.data.data.table,
             intlist: res.data.data
