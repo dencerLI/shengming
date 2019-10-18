@@ -23,19 +23,23 @@ Component({
     value: [0, 0, 0],
     values: [0, 0, 0],
     condition: false,
-    iscolor:"#999",
-    myname:'',
-    myphone:'',
-    myjie:'',
+    iscolor: "#999",
+    myname: '',
+    myphone: '',
+    myjie: '',
     myyzm: '',
-    onoff:'off'
+    onoff: 'off',
+    hyzm: '获取验证码',
+    second: 60,
+    myonoff: 'on',
+    jishiqi:''
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    bindChange: function (e) {
+    bindChange: function(e) {
       //console.log(e);
       var val = e.detail.value
       var t = this.data.values;
@@ -93,12 +97,84 @@ Component({
 
 
     },
-    open: function () {
+    yzm: function() {
+      var that = this;
+      if (that.data.myonoff == "off") {
+        return;
+      }
+      var phone = that.data.myphone;
+      if (that.validatemobile(phone) == false) {
+        return;
+      }
+      that.data.jishiqi = setInterval(function() {
+        var second = that.data.second;
+        if (second > 0) {
+          var second1 = second - 1;
+          console.log(second1)
+          that.setData({
+            second: second1,
+            myonoff: 'off',
+            hyzm: second1 + 's'
+          })
+        } else {
+          that.setData({
+            hyzm: '获取验证码',
+            myonoff: 'on',
+          })
+          clearInterval(that.data.jishiqi);
+        }
+      }, 1000)
+
+      wx.showLoading({
+        title: '加载中...',
+        mask: true
+      });
+      //添加地址
+      wx.request({
+        url: app.globalData.allUrl + 'api/tool/send_msg',
+        method: "POST", //指定请求方式，默认get
+        data: {
+
+          "phone": phone,
+          "remark": 4,
+
+        },
+        header: {
+          //默认值'Content-Type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded' //post
+        },
+        success: function(res) {
+          console.log(res.data)
+          wx.hideLoading()
+          if (res.data.status == '0') {
+            wx.showToast({
+              title: '获取验证码成功',
+              icon: 'none',
+              duration: 1500,
+              mask: true
+            })
+
+
+          }
+          // that.setData({
+          //   addlist: res.data.data
+          // })
+        }
+      });
+    },
+    open: function() {
       this.setData({
         condition: !this.data.condition
       })
+    },onShow:function(){
+      var that=this;
+      clearInterval(that.data.jishiqi);
+    }, onUnload() {
+      // 页面卸载清除计时器
+      var that = this;
+      clearInterval(that.data.jishiqi);
     },
-    onLoad: function () {
+    onLoad: function() {
       console.log("onLoad");
       var that = this;
 
@@ -135,9 +211,9 @@ Component({
 
 
     },
-    isname:function(e){
+    isname: function(e) {
       console.log(e.detail.value)
-      if(this.isNumber(e.detail.value)==true){
+      if (this.isNumber(e.detail.value) == true) {
         wx.showToast({
           title: '姓名不能为数字',
           icon: 'none',
@@ -145,67 +221,109 @@ Component({
         })
         return;
       }
-      this.setData({ myname: e.detail.value})
-      console.log(this.data.myname + '--' + this.data.myphone + '--' + this.data.myjie)
-      if (this.data.myname != '' && this.data.myphone != '' && this.data.myjie != '' && this.data.myyzm != '' ){
-        this.setData({iscolor:'#333',onoff:'on'})
-      }else{
-        this.setData({ iscolor: '#999', onoff: 'off' })
-      }
-    },
-    isphone: function (e) {
-      console.log(e.detail.value)
-      this.setData({ myphone: e.detail.value })
-      console.log(this.data.myname + '--' + this.data.myphone + '--' + this.data.myjie)
-      if (this.data.myname != '' && this.data.myphone != '' && this.data.myjie != '' && this.data.myyzm != '' ) {
-        this.setData({ iscolor: '#333', onoff: 'on' })
-      } else {
-        this.setData({ iscolor: '#999', onoff: 'off' })
-      }
-    },
-    isjie: function (e) {
-      console.log(e.detail.value)
-      this.setData({ myjie: e.detail.value })
-      console.log(this.data.myname + '--' + this.data.myphone + '--' + this.data.myjie)
-      if (this.data.myname != '' && this.data.myphone != '' && this.data.myjie != '' && this.data.myyzm != '' ) {
-        this.setData({ iscolor: '#333', onoff: 'on' })
-      } else {
-        this.setData({ iscolor: '#999', onoff: 'off' })
-      }
-    },isyzm: function (e) {
-      console.log(e.detail.value)
-      this.setData({ myyzm: e.detail.value })
+      this.setData({
+        myname: e.detail.value
+      })
       console.log(this.data.myname + '--' + this.data.myphone + '--' + this.data.myjie)
       if (this.data.myname != '' && this.data.myphone != '' && this.data.myjie != '' && this.data.myyzm != '') {
-        this.setData({ iscolor: '#333', onoff: 'on' })
+        this.setData({
+          iscolor: '#333',
+          onoff: 'on'
+        })
       } else {
-        this.setData({ iscolor: '#999', onoff: 'off' })
+        this.setData({
+          iscolor: '#999',
+          onoff: 'off'
+        })
       }
-    },  isNumber: function(val) {
+    },
+    isphone: function(e) {
+      console.log(e.detail.value)
+      this.setData({
+        myphone: e.detail.value
+      })
+      console.log(this.data.myname + '--' + this.data.myphone + '--' + this.data.myjie)
+      if (this.data.myname != '' && this.data.myphone != '' && this.data.myjie != '' && this.data.myyzm != '') {
+        this.setData({
+          iscolor: '#333',
+          onoff: 'on'
+        })
+      } else {
+        this.setData({
+          iscolor: '#999',
+          onoff: 'off'
+        })
+      }
+    },
+    isjie: function(e) {
+      console.log(e.detail.value)
+      this.setData({
+        myjie: e.detail.value
+      })
+      console.log(this.data.myname + '--' + this.data.myphone + '--' + this.data.myjie)
+      if (this.data.myname != '' && this.data.myphone != '' && this.data.myjie != '' && this.data.myyzm != '') {
+        this.setData({
+          iscolor: '#333',
+          onoff: 'on'
+        })
+      } else {
+        this.setData({
+          iscolor: '#999',
+          onoff: 'off'
+        })
+      }
+    },
+    isyzm: function(e) {
+      console.log(e.detail.value)
+      this.setData({
+        myyzm: e.detail.value
+      })
+      console.log(this.data.myname + '--' + this.data.myphone + '--' + this.data.myjie)
+      if (this.data.myname != '' && this.data.myphone != '' && this.data.myjie != '' && this.data.myyzm != '') {
+        this.setData({
+          iscolor: '#333',
+          onoff: 'on'
+        })
+      } else {
+        this.setData({
+          iscolor: '#999',
+          onoff: 'off'
+        })
+      }
+    },
+     isNumber: function(val) {
 
-          var regPos = /^\d+(\.\d+)?$/; //非负浮点数
+          
+      var  regPos = /^\d+(\.\d+)?$/;  //非负浮点数
 
-          var regNeg = /^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$/; //负浮点数
+          
+      var  regNeg = /^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$/;  //负浮点数
 
-          if(regPos.test(val) || regNeg.test(val)) {
+          
+      if (regPos.test(val) || regNeg.test(val)) {
 
-          return  true;
+                
+        return  true;
 
-        } else  {
+                
+      } 
+      else  {
 
-          return  false;
+                
+        return  false;
 
-        }
+                
+      }
 
-    }
-,
-    validatemobile: function (mobile) {
+          
+    },
+    validatemobile: function(mobile) {
       if (mobile.length == 0) {
         wx.showToast({
           title: '请输入手机号！',
           icon: 'none',
           duration: 1500,
-          mask: true 
+          mask: true
         })
         return false;
       }
@@ -214,7 +332,7 @@ Component({
           title: '手机号长度有误！',
           icon: 'none',
           duration: 1500,
-          mask: true 
+          mask: true
         })
         return false;
       }
@@ -224,19 +342,19 @@ Component({
           title: '手机号有误！',
           icon: 'none',
           duration: 1500,
-          mask: true 
+          mask: true
         })
         return false;
       }
       return true;
     },
-    address:function(e){
+    address: function(e) {
       console.log(e)
-      if (e.currentTarget.dataset.val=="off"){
+      if (e.currentTarget.dataset.val == "off") {
         return;
       }
-      var that=this;
-      var name=that.data.myname;
+      var that = this;
+      var name = that.data.myname;
       var phone = that.data.myphone;
       var jie = that.data.myjie;
       var yzm = that.data.myyzm;
@@ -249,24 +367,24 @@ Component({
           title: '姓名不能为数字',
           icon: 'none',
           duration: 1500,
-          mask: true 
-        })
-        return;
-      }
-      if (that.validatemobile(phone)==false){
-         return;
-      }
-      if(yzm!='1111'){
-        wx.showToast({
-          title: '验证码不正确',
-          icon: 'none',
-          duration: 1500,
           mask: true
         })
         return;
       }
+      if (that.validatemobile(phone) == false) {
+        return;
+      }
+      // if(yzm!='1111'){
+      //   wx.showToast({
+      //     title: '验证码不正确',
+      //     icon: 'none',
+      //     duration: 1500,
+      //     mask: true
+      //   })
+      //   return;
+      // }
 
-      if (jie=='') {
+      if (jie == '') {
         wx.showToast({
           title: '请填写具体门牌号地址',
           icon: 'none',
@@ -276,51 +394,85 @@ Component({
         return;
       }
       wx.showLoading({
-        title: '加载中...',
+        title: '校验中...',
         mask: true
       });
-      //添加地址
+      //检验地址
       wx.request({
-        url: app.globalData.allUrl + 'api/user/add_address',
-        method: "POST",//指定请求方式，默认get
-        data: { 
-          "userid": wx.getStorageSync('uid'),
-          "phone":phone, 
-          "province": province,
-          "city": city,
-          "area": county,
-          "detail_add": jie,
-          "get_time": '',
-          },
+        url: app.globalData.allUrl + 'api/tool/vali_code',
+        method: "POST", //指定请求方式，默认get
+        data: {
+          "phone": phone,
+          "code": yzm,
+        },
         header: {
           //默认值'Content-Type': 'application/json'
           'content-type': 'application/x-www-form-urlencoded' //post
         },
-        success: function (res) {
+        success: function(res) {
           console.log(res.data)
           wx.hideLoading()
-          if(res.data.suc=='查询成功'){
+          if (res.data.status == '0') {//验证码校验成功执行
+            wx.showLoading({
+              title: '加载中...',
+              mask: true
+            });
+            //添加地址
+            wx.request({
+              url: app.globalData.allUrl + 'api/user/add_address',
+              method: "POST", //指定请求方式，默认get
+              data: {
+                "userid": wx.getStorageSync('uid'),
+                "phone": phone,
+                "province": province,
+                "city": city,
+                "area": county,
+                "detail_add": jie,
+                "get_time": '',
+              },
+              header: {
+                //默认值'Content-Type': 'application/json'
+                'content-type': 'application/x-www-form-urlencoded' //post
+              },
+              success: function (res) {
+                console.log(res.data)
+                wx.hideLoading()
+                if (res.data.suc == '查询成功') {
+                  wx.showToast({
+                    title: '添加地址成功',
+                    icon: 'none',
+                    duration: 1500,
+                    mask: true
+                  })
+                  let pages = getCurrentPages();
+                  let prevPage = pages[pages.length - 2];
+                  // prevPage.setData({
+                  //   address1: [e.detail.value[0].split(",")[0]],
+                  //   addressid: e.detail.value[0].split(",")[1]
+                  // })
+                  wx.navigateBack({
+                    delta: 1,
+                  })
+                }
+                // that.setData({
+                //   addlist: res.data.data
+                // })
+              }
+            });
+
+
+          } else {
             wx.showToast({
-              title: '添加地址成功',
+              title: '验证码不正确',
               icon: 'none',
               duration: 1500,
               mask: true
             })
-            let pages = getCurrentPages();
-            let prevPage = pages[pages.length - 2];
-            // prevPage.setData({
-            //   address1: [e.detail.value[0].split(",")[0]],
-            //   addressid: e.detail.value[0].split(",")[1]
-            // })
-            wx.navigateBack({
-              delta: 1,
-            })
           }
-          // that.setData({
-          //   addlist: res.data.data
-          // })
+          
         }
       });
+     
 
     }
   }

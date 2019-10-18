@@ -1,7 +1,9 @@
 <!--pages/shopdetail/shopdetail.wxml-->
 
 <!-- <image src="{{item}}" mode="widthFix"></image> -->
-<image src="{{alldata.detail_url[0]}}" class="logo"></image>
+<image wx:if='{{alldata.p_type==1||alldata.p_type==2||alldata.p_type==3}}' src="http://47.105.112.194/uploads/images/combo/right_active.png" class="logo"></image>
+<image wx:elif='{{alldata.p_type==9}}' src="http://47.105.112.194/uploads/images/combo/left_active.png" class="logo"></image>
+<image src="{{alldata.detail_url[0]}}" class="logo" wx:else></image>
 <view class="iscon">
   <view class="contitle">{{alldata.name}}</view>
    <view wx:if="{{nuu!=''&&nuu!=null&&nuu!=undefined}}">

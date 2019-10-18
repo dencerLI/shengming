@@ -12,7 +12,9 @@ Component({
    * 组件的初始数据
    */
   data: {
-    moneydata:''
+    moneydata:'',
+    len:0,
+    mydata:''
   },
 
   /**
@@ -52,9 +54,57 @@ Component({
           })
         }
       });
+    }, hudonglength: function () {
+      //添加地址
+      var that = this;
+      wx.showLoading({
+        title: '正在加载...'
+      });
+      wx.request({
+        url: app.globalData.allUrl + 'api/my/my_shares',
+        method: "POST",//指定请求方式，默认get
+        data: { "uid": wx.getStorageSync('uid') },
+        header: {
+          //默认值'Content-Type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded' //post
+        },
+        success: function (res) {
+          console.log(res.data)
+          wx.hideLoading()
+
+          that.setData({
+            len: res.data.length
+          })
+        }
+      });
+    }, zichan: function () {
+      //添加地址
+      var that = this;
+      wx.showLoading({
+        title: '正在加载...'
+      });
+      wx.request({
+        url: app.globalData.allUrl + 'api/my/my_res',
+        method: "POST",//指定请求方式，默认get
+        data: { "uid": wx.getStorageSync('uid') },
+        header: {
+          //默认值'Content-Type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded' //post
+        },
+        success: function (res) {
+          console.log(res.data)
+          wx.hideLoading()
+
+          that.setData({
+            mydata: res.data
+          })
+        }
+      });
     },
-    onReady:function(){
+    onShow:function(){
       this.iscon();
+      this.hudonglength();
+      this.zichan();
     }
   }
 })

@@ -42,8 +42,8 @@
 
           <view class="money">
             <text>应付： ¥{{item.order.price}}</text>
-            <view class="fkbtn qrbtn">确认收货</view>
-            <view class="qxbtn">取消订单</view>
+            <view class="fkbtn qrbtn" data-id="{{item.order.id}}" bindtap="goyes">确认收货</view>
+            <!-- <view class="qxbtn">取消订单</view> -->
           </view>
         </view>
         <!-- 待收货 -->
@@ -67,7 +67,7 @@
 
         <view class="money">
           <text>应付： ¥{{item.order.price}}</text>
-          <view class="qxbtn wan">取消订单</view>
+          <!-- <view class="qxbtn wan">取消订单</view> -->
         </view>
 
         </view>
@@ -143,8 +143,8 @@
         <view class="money">
           <text>应付： ¥{{item.order.price}}</text>
 
-          <view class="fkbtn qrbtn">确认收货</view>
-          <view class="qxbtn">取消订单</view>
+          <view class="fkbtn qrbtn" data-id="{{item.order.id}}" bindtap="goyes">确认收货</view>
+          <!-- <view class="qxbtn">取消订单</view> -->
         </view>
 
       </view>
@@ -182,7 +182,7 @@
           <text>应付： ¥{{item.order.price}}</text>
 
 
-          <view class="qxbtn wan">取消订单</view>
+          <!-- <view class="qxbtn wan">取消订单</view> -->
         </view>
 
       </view>

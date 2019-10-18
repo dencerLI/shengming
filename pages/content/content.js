@@ -13,7 +13,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    imglist: []
+    imglist: [],
+    myid:''
   },
   
   /**
@@ -37,10 +38,17 @@ Component({
           })
         }
       });
+    },gomai:function(e){
+      console.log(e.currentTarget.dataset.id)
+      let id = e.currentTarget.dataset.id;
+      wx.navigateTo({
+        url: '../shopdetail/shopdetail?id=' + id + '&nuu=yes',
+      })
     },
     onLoad: function (options) {
       console.log(options.id)
       let that=this;
+      that.setData({ myid: options.id})
       that.iscont(options.id);
     }
   }

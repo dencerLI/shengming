@@ -1,5 +1,6 @@
 /* pages/administration/administration.wxss */
-.adminlist{ height: 190rpx; border-bottom: 1px solid #e8e8e8; }
+.adminlist{ height: auto; overflow: hidden; padding-bottom: 100rpx; }
+.ad1{ height: 190rpx; border-bottom: 1px solid #e8e8e8;}
 .padding30{ padding: 30rpx;}
 .mansession{ font-size: 22rpx; color: #333;height: 22rpx; line-height: 22rpx;}
 .manleft{ float: left;}
@@ -35,4 +36,4 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
 .address{ float: left; margin-left: 22rpx; margin-top: 2rpx;}
 .del{ float: right; margin-top: 2rpx;}
 .edit{ float: right; margin-right: 88rpx; margin-top: 2rpx;}
-.bot{ position: absolute;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #050001; color: #FEFEFE;font-size: 30rpx; text-align: center; line-height: 100rpx;}
+.bot{ position: fixed;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #050001; color: #FEFEFE;font-size: 30rpx; text-align: center; line-height: 100rpx;}

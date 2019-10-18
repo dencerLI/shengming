@@ -2,17 +2,21 @@
 
 <view class="tx">
    <view class="txleft">
-     <text class="bt">可使用的水票</text>
-     <text class="jine">{{shui.user_ticket.count}}</text>
+     <text class="bt">天然苏打水</text>
+     <text class="jine">{{shui.user_soda_ticket.count}}</text>
      <view class="txbtn" bindtap="shiy">去使用</view>
    </view>
    <view class="txright">
-      <text class="bt">可分享的水票</text>
-     <text class="jine">{{shui.share_ticket.count}}</text>
-     <view class="txbtn" bindtap="fenx">去分享</view>
+      <text class="bt">天然饮用水</text>
+     <text class="jine">{{shui.user_ticket.count}}</text>
+     <view class="txbtn" bindtap="shiy">去使用</view>
    </view>
 </view>
-
+<view class="ke">
+     <text class="bt" style="margin-top:60rpx;">可分享的水票</text>
+     <text class="jine">{{shui.share_ticket.count}}</text>
+     <view class="txbtn" bindtap="fenx">去分享</view>
+</view>
 <view class="newslist">
    <view class="news" wx:for="{{shui.share_relation}}">
        <view wx:if="{{item.type=='shared'}}">
@@ -34,4 +38,9 @@
       
        <view class="taostbtn" bindtap="shui">确定</view>
    </view>
+</view>
+
+<view class="isbotm top30" style="display:none;" >
+ <map id="map" catchtap="gomap" longitude="{{longitude}}" latitude=" {{latitude}}" markers="{{markers}}" scale="13" show-location style="width: 100%; height: 100%;"></map>
+  
 </view>

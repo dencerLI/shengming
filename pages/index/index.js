@@ -33,7 +33,109 @@ Page({
     datalist:[],
     iscont:'',
     iscont1: '',
-    yx:"none"
+    yx:"none",
+    longitude: 113.324520,
+    latitude: 23.099994,
+    markers: [{
+      id: 0,
+      iconPath: "../../images/icon_cur_position.png",
+      latitude: 23.099994,
+      longitude: 113.324520,
+      width: 50,
+      height: 50
+    }]
+  }, map: function () {
+    var that = this;
+    wx.getLocation({
+      type: "wgs84",
+      success: function (res) {
+        var latitude = res.latitude;
+        var longitude = res.longitude;
+        console.log(res);
+        console.log(res.longitude);
+        that.shouquan(res.latitude, res.longitude)
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude,
+          markers: [{
+            latitude: res.latitude,
+            longitude: res.longitude
+          }]
+        })
+
+      }
+    })
+  },
+  shouquan: function (a, b) {
+    //添加地址
+    wx.showLoading({
+      title: '上传地理位置中...'
+    });
+    wx.request({
+      url: app.globalData.allUrl + 'api/user/add_location',
+      method: "POST",//指定请求方式，默认get
+      data: { "uid": wx.getStorageSync('uid'), "location": a + ',' + b },
+      header: {
+        //默认值'Content-Type': 'application/json'
+        'content-type': 'application/x-www-form-urlencoded' //post
+      },
+      success: function (res) {
+        console.log(res.data)
+        wx.hideLoading()
+
+        // that.setData({
+        //   addlist: res.data.data
+        // })
+      }
+    });
+  },
+  goshouquan: function () {
+    var that = this;
+    wx.getSetting({
+      success: (res) => {
+        console.log(res);
+        console.log(res.authSetting['scope.userLocation']);
+        if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) {//非初始化进入该页面,且未授权
+          wx.showModal({
+            title: '是否授权当前位置',
+            content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
+            success: function (res) {
+              if (res.cancel) {
+                console.info("1授权失败返回数据");
+
+              } else if (res.confirm) {
+                //village_LBS(that);
+                wx.openSetting({
+                  success: function (data) {
+                    console.log(data);
+                    if (data.authSetting["scope.userLocation"] == true) {
+                      wx.showToast({
+                        title: '授权成功',
+                        icon: 'success',
+                        duration: 5000
+                      })
+                      //再次授权，调用getLocationt的API
+                      that.map();
+                    } else {
+                      wx.showToast({
+                        title: '授权失败',
+                        icon: 'success',
+                        duration: 5000
+                      })
+                    }
+                  }
+                })
+              }
+            }
+          })
+        } else if (res.authSetting['scope.userLocation'] == undefined) {//初始化进入
+          // village_LBS(that);
+          that.map();
+        } else {
+          that.map();
+        }
+      }
+    })
   }, swiperChange(e) {
     let current = e.detail.current;
     // console.log(current, '轮播图')
@@ -125,6 +227,9 @@ Page({
       height: wx.getSystemInfoSync().windowHeight+"px",
       width: wx.getSystemInfoSync().windowWidth
     })
+  }, onShow: function () {
+
+    this.goshouquan();
   },
   banner:function(){
     var that = this;

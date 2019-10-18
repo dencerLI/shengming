@@ -95,7 +95,7 @@
     总计
     <view wx:if="{{laican.isval==0}}">
     <text wx:if="{{goods.sale_price==null}}">￥{{laican.num*goods.normal_price}}</text>
-    <text wx:else>￥{{laican.num*goods.price}}</text>
+    <text wx:else>￥{{laican.num*goods.sale_price}}</text>
     </view>
     <view wx:else>
     <text wx:if="{{goods.sale_price==null}}">￥{{laican.num*goods.normal_price}}</text>

@@ -7,9 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [{n:1, title: "周大福", shouru: 13338, imgurl:"http://47.105.112.194/uploads/images/strward/headimg/head_1.png" },
-      { n: 2,title: "马化腾", shouru: 8962, imgurl: "http://47.105.112.194/uploads/images/strward/headimg/head_2.png" },
-      { n: 3,title: "丁三石", shouru: 7641, imgurl: "http://47.105.112.194/uploads/images/strward/headimg/head_3.png" },
+    list: [{n:1, title: "张建", shouru: 13338, imgurl:"http://47.105.112.194/uploads/images/strward/headimg/head_1.png" },
+      { n: 2,title: "毛宇", shouru: 8962, imgurl: "http://47.105.112.194/uploads/images/strward/headimg/head_2.png" },
+      { n: 3,title: "刘基", shouru: 7641, imgurl: "http://47.105.112.194/uploads/images/strward/headimg/head_3.png" },
        ],
     imglist1:'http://47.105.112.194/uploads/images/shequ/sq_3.png',
     imglist2: 'http://47.105.112.194/uploads/images/shequ/sq_4.png',
@@ -128,6 +128,8 @@ Page({
           })
         } else if (res.authSetting['scope.userLocation'] == undefined) {//初始化进入
           // village_LBS(that);
+          that.map();
+        } else {
           that.map();
         }
       }

@@ -1,6 +1,6 @@
 <!--pages/administration/administration.wxml-->
 <view class="adminlist">
-  <view class="padding30" wx:for="{{addlist}}">
+  <view class="ad1" class="padding30" wx:for="{{addlist}}">
     <view class="mansession">
       <text class="manleft">收货人： 入鸡蛋</text>
       <text class="manright">{{item.phone}}</text>

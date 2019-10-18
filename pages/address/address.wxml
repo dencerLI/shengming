@@ -6,7 +6,7 @@
 <view class="ren">
   <text>手机号码</text>
   <input class="name" type="number" placeholder="请填您的手机号码" bindinput="isphone" placeholder-class="names"></input>
-  <view class="hqbtn" bindtap="yzm">获取验证码</view>
+  <view class="hqbtn" bindtap="yzm">{{hyzm}}</view>
 </view>
 <view class="ren isname">
   <text>验 证 码</text>

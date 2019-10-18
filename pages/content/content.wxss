@@ -1,3 +1,7 @@
 /* pages/content/content.wxss */
-.iscon{width: 100%;}
+.iscon{width: 100%; position: relative;}
 .iscon image{ width: 100%;}
+.leftbtn{ position: absolute; top: 1498rpx; height: 70rpx; width: 310rpx; left: 54rpx;  }
+.rightbtn{ position: absolute; top: 1498rpx; height: 70rpx; width: 310rpx; right: 52rpx;  }
+.leftbtn1{ position: absolute; top: 2264rpx; height: 92rpx; width: 244rpx; left: 77rpx;  }
+.rightbtn1{ position: absolute; top: 2264rpx; height: 92rpx; width: 244rpx; right: 74rpx; }

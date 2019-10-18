@@ -1,4 +1,5 @@
 // pages/Interaction/Interaction.js
+const app = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -19,5 +20,37 @@ Component({
    */
   methods: {
 
+    hudong: function () {
+      //添加地址
+      var that=this;
+      wx.showLoading({
+        title: '正在加载...'
+      });
+      wx.request({
+        url: app.globalData.allUrl + 'api/my/my_shares',
+        method: "POST",//指定请求方式，默认get
+        data: { "uid": wx.getStorageSync('uid') },
+        header: {
+          //默认值'Content-Type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded' //post
+        },
+        success: function (res) {
+          console.log(res.data)
+          wx.hideLoading()
+
+          that.setData({
+            datalist: res.data
+          })
+        }
+      });
+    },
+    fenxiang: function () {
+      wx.navigateTo({
+        url: '../share/share',
+      })
+    },
+    onShow:function(){
+      this.hudong();
+    }
   }
 })

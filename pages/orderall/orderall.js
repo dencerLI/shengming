@@ -17,7 +17,8 @@ Component({
     daiorder:1,
     shouorder: 1,
     wanorder: 1,
-    meorder:''
+    meorder:'',
+    istype:''
   },
 
   /**
@@ -73,6 +74,50 @@ Component({
           }
           if (type == '2') {
             that.setData({ meorder: res.data, wanorder: res.data.length })
+          }
+        }
+      });
+    },goyes:function(e){
+      console.log(e.currentTarget.dataset.id)
+      var that = this;
+      wx.request({
+        url: app.globalData.allUrl + 'api/my/sure_order',
+        method: "POST", //指定请求方式，默认get
+        data: { "order_id": e.currentTarget.dataset.id },
+        header: {
+          //默认值'Content-Type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded' //post
+        },
+        success: function (res) {
+          console.log(res.data)
+          if (res.data.res=="1"){
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 1500,
+            mask: true
+          })
+            if (that.data.currentTab == 0) {
+              that.allorder('');
+            }
+            if (that.data.currentTab == 1) {
+              that.allorder('0');
+            }
+            if (that.data.currentTab == 2) {
+              that.allorder('1');
+            }
+            if (that.data.currentTab == 3) {
+              that.allorder('2');
+            }
+           
+           
+          }else{
+            wx.showToast({
+              title: "确认失败！",
+              icon: 'none',
+              duration: 1500,
+              mask: true
+            })
           }
         }
       });
