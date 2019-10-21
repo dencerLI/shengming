@@ -22,7 +22,7 @@ App({
             // 发送 res.code 到后台换取 openId, sessionKey, unionId
             console.log(res)
             wx.request({
-              url: 'http://47.105.112.194/user/login/login',
+              url: 'https://onmylive.com/user/login/login',
               data: {
                 "code": res.code
               },

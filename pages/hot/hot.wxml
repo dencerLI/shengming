@@ -1,30 +1,30 @@
 <!--pages/hot/hot.wxml-->
 <view class="title">
-  <image src="http://47.105.112.194/images/rq/gonggao.png"></image> <text>系统公告: 热烈庆祝北京地区13个代理商加盟</text>
+  <image src="https://onmylive.com/images/rq/gonggao.png"></image> <text>系统公告: 热烈庆祝北京地区13个代理商加盟</text>
 </view>
 <view class="rbanner" bindtap="zhaoshang">
-   <image src="http://47.105.112.194/uploads/images/redian/WechatIMG46.png"></image>
+   <image src="https://onmylive.com/uploads/images/redian/WechatIMG46.png"></image>
 </view>
 
 <view class="fgt">生命之里网络覆盖图</view>
 <view class="fgtname" bindtap="zhaoshang">
-   <image src="http://47.105.112.194/images/rq/dt.png"></image>
+   <image src="https://onmylive.com/images/rq/dt.png"></image>
 </view>
 <view class="fgt">用户管家数据统计图</view>
 
 <view class="statistics" bindtap="shuju">
 
   <view class="statlist">
-     <image src="http://47.105.112.194/images/rq/hb2.png"></image>
+     <image src="https://onmylive.com/images/rq/hb2.png"></image>
   </view>
   <view class="statlist">
-     <image src="http://47.105.112.194/images/rq/hb.png"></image>
+     <image src="https://onmylive.com/images/rq/hb.png"></image>
   </view>
   <view class="statlist">
-     <image src="http://47.105.112.194/images/rq/hb1.png"></image>
+     <image src="https://onmylive.com/images/rq/hb1.png"></image>
   </view>
 </view>
 
 <view class="golist">
-     <view class="gobtn">更多<image src="http://47.105.112.194/images/rq/gengduo.png"></image></view>
+     <view class="gobtn">更多<image src="https://onmylive.com/images/rq/gengduo.png"></image></view>
 </view>

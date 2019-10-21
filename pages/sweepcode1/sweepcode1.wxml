@@ -13,10 +13,10 @@
 </view>
 
 <view class="spzf">
-  <image class="pp" src="http://47.105.112.194/images/zhifubg.png"></image>
+  <image class="pp" src="https://onmylive.com/images/zhifubg.png"></image>
   <view wx:if="{{tian==0}}">
     <view class="spleft">
-      <image class="leftimg" src="http://47.105.112.194/images/spp.png"></image>
+      <image class="leftimg" src="https://onmylive.com/images/spp.png"></image>
       <text>水票</text>
     </view>
     <view class="spright">
@@ -37,7 +37,7 @@
 
       <view class="noconleft">
         <view class="conleft">
-          <image src="http://47.105.112.194/images/wx1.png"></image>
+          <image src="https://onmylive.com/images/wx1.png"></image>
           <text>余额</text>
         </view>
         <label class="fr font checked-lable yes" data-val="1" catchtap='checkedTap2'>
@@ -47,7 +47,7 @@
 
       <view class="noconright">
         <view class="conleft">
-          <image src="http://47.105.112.194/images/qb1.png"></image>
+          <image src="https://onmylive.com/images/qb1.png"></image>
           <text>余额</text>
         </view>
         <label class="fr font checked-lable yes" data-val="1" catchtap='checkedTap3'>
@@ -62,7 +62,7 @@
 <view class="isbot"></view>
 <view class="bot">
   <view class="botleft">
-    <image src="http://47.105.112.194/images/shouye1.png"></image>
+    <image src="https://onmylive.com/images/shouye1.png"></image>
     <text>去首页</text>
   </view>
 

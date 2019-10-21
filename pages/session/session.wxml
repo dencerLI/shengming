@@ -2,7 +2,7 @@
 <view class="sessionlist">
     <view class="session">
        <view class="sleft">
-           <image src="http://47.105.112.194/images/tximg/1.png"></image>
+           <image src="https://onmylive.com/images/tximg/1.png"></image>
            <view class="yuan"></view>
        </view>
        <view class="sright">
@@ -19,7 +19,7 @@
 
 <view class="istaost">
    <view class="taostCon">
-      <image class="close" src="http://47.105.112.194/images/close.png"></image>
+      <image class="close" src="https://onmylive.com/images/close.png"></image>
       <text class="xt">系统消息</text>
       <text class="ts">您赠送给（刘小苗）的水券由于超过三天未领取已退回您的账户</text>
       <view class="taostbtn">去查看</view>

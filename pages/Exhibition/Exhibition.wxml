@@ -11,10 +11,10 @@
 <view class = "{{currentTab == 0 ? 'show':'hidden'}}" >
     <scroll-view>
         <view class="border102">
-          <image src="http://47.105.112.194/images/1.png"></image>
-          <image src="http://47.105.112.194/images/2.png"></image>
-          <image src="http://47.105.112.194/images/3.png"></image>
-          <image src="http://47.105.112.194/images/4.png"></image>
+          <image src="https://onmylive.com/images/1.png"></image>
+          <image src="https://onmylive.com/images/2.png"></image>
+          <image src="https://onmylive.com/images/3.png"></image>
+          <image src="https://onmylive.com/images/4.png"></image>
         </view>
     </scroll-view>
   </view>

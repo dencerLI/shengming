@@ -1,9 +1,9 @@
 <!--pages/package/package.wxml-->
 <view class="mbtn">
-<image src="http://47.105.112.194/uploads/images/user/new_user.jpg" mode="widthFix"></image>
+<image src="https://onmylive.com/uploads/images/user/new_user.jpg" mode="widthFix"></image>
 <view class="fxbtn" bindtap="fx"></view>
 </view>
 <view class="rightbtn" bindtap="fx">
-<image src="http://47.105.112.194/images/fxan.png"></image>
+<image src="https://onmylive.com/images/fxan.png"></image>
 <text>分享</text>
 </view>

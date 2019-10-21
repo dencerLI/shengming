@@ -1,7 +1,7 @@
 <!--pages/Apply/Apply.wxml-->
 <view class="border30">
 <view class="tc">
-   <image src="http://47.105.112.194/images/tc3.png"></image>
+   <image src="https://onmylive.com/images/tc3.png"></image>
 </view>
 <view class="srlist">
    <view class="name">
@@ -30,11 +30,11 @@
 
 <view class="Success" style="display:{{isnone}}">
 
-   <image class="suimg" src="http://47.105.112.194/images/success.png"></image>
+   <image class="suimg" src="https://onmylive.com/images/success.png"></image>
    <view class="tz">我们将在5个工作日内通知您结果</view>
    <view class="isreturn">
       <view class="qu" bindtap="goindex">
-        <image src="http://47.105.112.194/images/shouye.png"></image>
+        <image src="https://onmylive.com/images/shouye.png"></image>
         <text>去首页</text>
       </view>
 

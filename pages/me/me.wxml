@@ -3,55 +3,55 @@
    <image class="isimg" src="{{geren.avatarUrl}}"></image>
    <text class="nicheng">{{geren.nickname}}</text>
    <text class="xiu" >{{geren.identity}}</text>
-   <image class="isbg" src="http://47.105.112.194/images/mebg.png"></image>
+   <image class="isbg" src="https://onmylive.com/images/mebg.png"></image>
 </view>
 <view class="listall">
 <view class="sessionlist" bindtap="dingdan">
    <view class="sessionleft">
-   <image class="dd" src="http://47.105.112.194/images/dd.png"></image>
+   <image class="dd" src="https://onmylive.com/images/dd.png"></image>
    </view>
    <view class="name">全部订单</view>
    <view class="btn">
-    <image src="http://47.105.112.194/images/go2.png"></image>
+    <image src="https://onmylive.com/images/go2.png"></image>
    </view>
 </view>
 <view class="sessionlist" bindtap="zc">
    <view class="sessionleft">
-   <image class="zc" src="http://47.105.112.194/images/zc.png"></image>
+   <image class="zc" src="https://onmylive.com/images/zc.png"></image>
    </view>
    <view class="name">我的资产</view>
    <view class="btn">
-    <image src="http://47.105.112.194/images/go2.png"></image>
+    <image src="https://onmylive.com/images/go2.png"></image>
    </view>
 </view>
 
 <view class="sessionlist" bindtap="sp">
    <view class="sessionleft">
-   <image class="sp" src="http://47.105.112.194/images/sp.png"></image>
+   <image class="sp" src="https://onmylive.com/images/sp.png"></image>
    </view>
    <view class="name">我的水票</view>
    <view class="btn">
-    <image src="http://47.105.112.194/images/go2.png"></image>
+    <image src="https://onmylive.com/images/go2.png"></image>
    </view>
 </view>
 
 <!-- <view class="sessionlist">
     <view class="sessionleft"> 
-   <image class="hy" src="http://47.105.112.194/images/hy.png"></image>
+   <image class="hy" src="https://onmylive.com/images/hy.png"></image>
    </view>
    <view class="name">会员服务</view>
    <view class="btn">
-    <image src="http://47.105.112.194/images/go2.png"></image>
+    <image src="https://onmylive.com/images/go2.png"></image>
    </view>
 </view> -->
 
 <!-- <view class="sessionlist">
    <view class="sessionleft">
-   <image class="dz" src="http://47.105.112.194/images/dz.png"></image>
+   <image class="dz" src="https://onmylive.com/images/dz.png"></image>
    </view>
    <view class="name">地址管理</view>
    <view class="btn">
-    <image src="http://47.105.112.194/images/go2.png"></image>
+    <image src="https://onmylive.com/images/go2.png"></image>
    </view>
 </view> -->
 </view>

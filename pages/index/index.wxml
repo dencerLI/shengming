@@ -13,10 +13,10 @@
 </view> -->
  <map id="map" catchtap="gomap" longitude="{{longitude}}" latitude=" {{latitude}}" markers="{{markers}}" scale="13" show-location style="width: 100%; height: 100%; display:none;"></map>
 <view class="xtaost" style="display:{{yx}}">
-   <image class="guanbi" bindtap="guanbi" src="http://47.105.112.194/images/guanbi.png"></image>
-   <image class="xrl" bindtap="guanjia" src="http://47.105.112.194/images/xrld.png"></image>
+   <image class="guanbi" bindtap="guanbi" src="https://onmylive.com/images/guanbi.png"></image>
+   <image class="xrl" bindtap="guanjia" src="https://onmylive.com/images/xrld.png"></image>
 </view>
-<image class="libao" bindtap="guanjia" src="http://47.105.112.194/images/libao.png"></image>
+<image class="libao" bindtap="guanjia" src="https://onmylive.com/images/libao.png"></image>
 <view class='sp-nav' style="height:{{height}};">
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
       <block wx:for="{{imgUrls}}">
@@ -34,20 +34,20 @@
     <view class="bottom-fixed">
         <view class="botitem">
            <view bindtap="fenxiang">
-              <image class="banyuan" src="http://47.105.112.194/images/liwu.png"></image>
-               <image class="wenzi" src="http://47.105.112.194/images/lesong.png"></image>
+              <image class="banyuan" src="https://onmylive.com/images/liwu.png"></image>
+               <image class="wenzi" src="https://onmylive.com/images/lesong.png"></image>
            </view>
         </view>
         <view class="botitem">
             <view bindtap="dingshui">
-              <image class="banyuan" src="http://47.105.112.194/images/shandian.png"></image>
-               <image class="wenzi" src="http://47.105.112.194/images/dingshui.png"></image>
+              <image class="banyuan" src="https://onmylive.com/images/shandian.png"></image>
+               <image class="wenzi" src="https://onmylive.com/images/dingshui.png"></image>
             </view>
         </view>
         <view class="botitem">
           <view bindtap="sp">
-            <image class="banyuan" src="http://47.105.112.194/images/jinzi.png"></image>
-            <image class="wenzi" src="http://47.105.112.194/images/shuipiao.png"></image>
+            <image class="banyuan" src="https://onmylive.com/images/jinzi.png"></image>
+            <image class="wenzi" src="https://onmylive.com/images/shuipiao.png"></image>
           </view>
         </view>
     </view>

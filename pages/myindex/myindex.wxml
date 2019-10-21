@@ -16,7 +16,7 @@
 
 
 <view class="toplogo">
-<image src="http://47.105.112.194/images/smlogo.png"></image>
+<image src="https://onmylive.com/images/smlogo.png"></image>
 </view>
 <view class="contentv">生命之里 申请获得以下权限：</view>
 <view class="hq">
@@ -27,11 +27,11 @@
 
 <view class="fuwu">
 <view class="jifen">
- <image src="http://47.105.112.194/images/smjf.png"></image>
+ <image src="https://onmylive.com/images/smjf.png"></image>
  <text>积分兑换好礼</text>
 </view>
 <view class="huiyuan">
- <image src="http://47.105.112.194/images/smhy.png"></image>
+ <image src="https://onmylive.com/images/smhy.png"></image>
  <text>会员制度折扣</text>
 </view>
 </view>
