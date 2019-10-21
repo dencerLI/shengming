@@ -17,6 +17,7 @@ radio .wx-radio-input {
   height: 30rpx; /* 背景的高 */
   background: #fff;
    box-sizing: border-box;
+   margin-top: -10rpx;
 }
 
 /* 修改checked样式 */
@@ -30,7 +31,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
 }
 
 .ty text{ float: left; margin-left: 30rpx; font-size: 22rpx; height: 22rpx; line-height: 22rpx; color: #666666;  margin-top: 15rpx;}
-.bot{ position: absolute;bottom: 0; right: 0; width: 100%; height: 100rpx; color: #FEFEFE;font-size: 30rpx; text-align: center; line-height: 100rpx;}
+.bot{ position: fixed;bottom: 0; right: 0; width: 100%; height: 100rpx; color: #FEFEFE;font-size: 30rpx; text-align: center; line-height: 100rpx;}
 .Success{ position: fixed;top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 99;}
 .suimg{ display: block; width: 670rpx; height: 578rpx; margin: 0px auto; margin-top:260rpx; }
 .tz{ font-size: 26rpx; color: #fff; width: 100%; text-align: center; margin-top: 77rpx; height: 26rpx; line-height: 26rpx;}

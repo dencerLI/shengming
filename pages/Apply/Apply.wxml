@@ -25,6 +25,7 @@
    </view>
 </view>
 </view>
+<view style="height:100rpx;"></view>
 <view class="bot" data-check="{{checked3}}" style="background:{{back}}" bindtap="applygo">提交申请</view>
 
 <view class="Success" style="display:{{isnone}}">

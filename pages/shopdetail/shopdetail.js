@@ -45,6 +45,11 @@ Component({
       //  wx.navigateTo({
       //    url: '../order/order',
       //  })
+    },iskan:function(){
+      wx.navigateTo({
+        url: '../content/content?id=3'
+        //  url: '../logs/logs'
+      })
     }, goumai:function(e){
       var that=this;
       var val = e.currentTarget.dataset.val;

@@ -21,7 +21,7 @@
 </view>
 <!-- <view class="bot" wx:if="{{dian.length<=0}}" data-check="{{checked3}}" style="background:{{back}}" bindtap="applygo">创建呼叫点</view> -->
 
-<view class="alert" wx:if="{{dian.length<=0}}">
+<view class="alert" wx:if="{{dian.length<=0}}" style="display:{{missblock}}">
   <view class="alertcon">
     <view class="contop">
       <image src="http://47.105.112.194/images/daxiao.png"></image>

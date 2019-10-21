@@ -24,7 +24,8 @@ Component({
     yes: "yes",
     iswidth: '0%',
     innone: 'none',
-    dian: []
+    dian: [],
+    missblock:'none'
   },
 
   /**
@@ -99,12 +100,14 @@ Component({
           if (res.data.length > 0) {
             that.setData({
               dian: res.data,
-              yes: 'yes'
+              yes: 'yes',
+              missblock:'block'
             })
           } else {
             that.setData({
               dian: res.data,
-              yes: 'no'
+              yes: 'no',
+              missblock: 'none'
             })
           }
 

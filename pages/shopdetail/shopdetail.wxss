@@ -43,3 +43,4 @@ border-radius:2px; float: left; margin: 30rpx 0 0 30rpx;}
 .hei{ background: #fff; color: #333;}
 .hei1{ background: #333; color: #fff;}
 .gn{ height: auto; overflow: hidden; margin-top: 20rpx;}
+.chakan{ font-size: 22rpx; color: #333; margin-left: 20rpx;}

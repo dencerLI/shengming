@@ -81,6 +81,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    allUrl:'http://47.105.112.194/'
+    allUrl:'https://onmylive.com/'
   }
 })

@@ -70,6 +70,7 @@
           <text>￥{{yuan}}</text>
         </view>
         <view class="leftbtn {{mai}}" data-val="{{mval}}" bindtap="goumai" >+购乐送大使</view>
+        <text class="chakan" bindtap="iskan">查看详情</text>
         </view>
         <view class="jiajian">
 
