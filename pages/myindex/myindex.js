@@ -55,11 +55,16 @@ Page({
     var that=this;
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
-  
+    if (e.detail.errMsg =='getUserInfo:ok'){
     wx.showToast({
       title: '成功授权',
+      icon: 'success',
+      duration: 5000,
+      mask: true  
     })
-    if (wx.getStorageSync('yes')=='NO'){
+   
+    console.log(wx.getStorageSync('yes'))
+    if (wx.getStorageSync('yes') == 'NO' || wx.getStorageSync('yes') == ''){
     wx.request({
       url: app.globalData.allUrl+'api/user/add_user',
       data: {
@@ -105,6 +110,15 @@ Page({
 
       wx.switchTab({
         url: '../index/index',
+      })
+    }
+
+    } else {
+      wx.showToast({
+        title: '授权失败',
+        icon: 'none',
+        duration: 5000,
+        mask: true
       })
     }
   },

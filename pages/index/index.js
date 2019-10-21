@@ -112,7 +112,8 @@ Page({
                       wx.showToast({
                         title: '授权成功',
                         icon: 'success',
-                        duration: 5000
+                        duration: 5000,
+                        mask: true  
                       })
                       //再次授权，调用getLocationt的API
                       that.map();
@@ -120,7 +121,8 @@ Page({
                       wx.showToast({
                         title: '授权失败',
                         icon: 'success',
-                        duration: 5000
+                        duration: 5000,
+                        mask: true  
                       })
                     }
                   }

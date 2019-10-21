@@ -101,7 +101,7 @@ Component({
           var yall = yfk1 - (yhq*10);
          
         }else{
-          yall = yfk1 ;
+          var yall = yfk1 ;
           
         }
         this.setData({
@@ -120,7 +120,7 @@ Component({
           yall = yfk1 - yue
         }
         if (yall < 0) {
-          yall = 0;
+          var yall = 0;
         }
         this.setData({
           "checked1":true,
@@ -148,7 +148,7 @@ Component({
           var yall = yfk1 - (jifen / 10)
         }
         if (yall < 0) {
-          yall = 0;
+          var yall = 0;
         }
         this.setData({
           "checked2": true,
@@ -270,8 +270,14 @@ Component({
             goods: res.data.data.goods,
             yfk:qian,
             yfk1: qian,
-            addressid: res.data.data.address.id
+           
           })
+          if (res.data.data.address != null) {
+            that.setData({ addressid: res.data.data.address.id })
+          } else {
+
+          }
+          console.log(that.data.yfk)
         }
       });
     }, addressselect1: function (mydata) {
@@ -305,9 +311,15 @@ Component({
             address: dizhi,
             goods: res.data.data.goods,
             yfk: qian,
-            yfk1: qian,
-            addressid: res.data.data.address.id
+            yfk1: qian
+            
           })
+          if(res.data.data.address!=null){
+            that.setData({ addressid: res.data.data.address.id})
+          }else{
+
+          }
+          console.log(that.data.yfk)
         }
       });
     },
@@ -325,6 +337,7 @@ Component({
       var yhq = this.data.chaxun.new_cash;
       var yfk = this.data.yfk;
       var yfk1 = this.data.yfk1;
+      console.log(yfk)
       console.log(ck1 + '--' + ck2 + '--' + ck3)
       if (ck1 == true && ck2 == true && ck3 == false) {//余额加积分
         if (yfk1 >= (jifen / 10)) {
@@ -468,6 +481,7 @@ Component({
               // })
               console.log(hi.package.split("=")[1])
               //向后台传参
+
               that.successme(hi.package.split("=")[1], that.data.yfk, that.data.jfdk, that.data.yhqdk, that.data.yedk);
             },
             fail(res) {
@@ -513,6 +527,7 @@ Component({
             'point_type': that.data.chaxun.point_type,
             'sold_num': hk.zhi,
             'sold_soda_num': '',
+            'nums': hk.num,
             'is_ticket': that.data.goods.ticket_type,
             'price': that.data.yfk1
           }
@@ -539,6 +554,7 @@ Component({
             'point_type': that.data.chaxun.point_type,
             'sold_num': '',
             'sold_soda_num': hk.zhi,
+            'nums': hk.num,
             'is_ticket': that.data.goods.ticket_type,
             'price': that.data.yfk1
           }
@@ -561,6 +577,7 @@ Component({
         'point_type': that.data.chaxun.point_type,
         'sold_num': '',
         'sold_soda_num': '',
+        'nums': hk.num,
         'is_ticket': that.data.goods.ticket_type,
         'price': that.data.yfk1
       }
@@ -577,9 +594,16 @@ Component({
         success: function (res) {
           console.log(res.data)
           // var hi = JSON.parse(res.data);
+          if (res.data == true){
           that.setData({
             noyes: "block"
           })
+          }else{
+            that.setData({
+              noyes: "none"
+            })
+          }
+
           // console.log(hi)
 
         }

@@ -19,6 +19,7 @@ Component({
    */
   methods: {
      fx:function(){
+       console.log("1111")
        wx.navigateTo({
          url: '../share/share'
        })
