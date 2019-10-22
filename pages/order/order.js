@@ -611,6 +611,9 @@ Component({
     },
     payment: function(e) {
       var that = this;
+      if (app.globalData.aid() == false) {
+        return;
+      }
       console.log(e.currentTarget.dataset.name)
       let name = e.currentTarget.dataset.name;
       if (name == "liang") { //去支付
@@ -690,11 +693,12 @@ Component({
     onReady: function() {
       let that = this;
       console.log(that.data.address1)
-      that.jifen();
+      
     },
     onShow: function() {
 
       let that = this;
+      that.jifen();
       console.log(that.data.laican);
       console.log(that.data.address1);
       

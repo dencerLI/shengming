@@ -51,23 +51,53 @@ Page({
     console.log(wx.getSystemInfoSync().windowHeight)
     
   },
+   denglu: function () {
+    var that = this;
+    console.log(wx.getStorageSync('code'))
+    wx.request({
+      url: 'https://onmylive.com/user/login/login',
+      data: {
+        "openid": wx.getStorageSync('openid'),
+        "code": ''
+      },
+      method: 'GET',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        console.log(res)
+        console.log(res)
+        // wx.setStorageSync('session', res.data.session_key);
+        // wx.setStorageSync('openid', res.data.openid);
+        wx.setStorageSync('yes', res.data.login);
+        wx.setStorageSync('uid', res.data.uid);
+        console.log(res.data.uid)
+
+        let pages = getCurrentPages();
+        let prevPage = pages[pages.length - 2];
+        // prevPage.setData({
+        //   address1: [e.detail.value[0].split(",")[0]],
+        //   addressid: e.detail.value[0].split(",")[1]
+        // })//这里为返回上一页所带的参数
+        wx.navigateBack({
+          delta: 1,
+        })
+      },
+
+    })
+  },
   getUserInfo: function (e) {
-    var that=this;
+    var that = this;
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
-    if (e.detail.errMsg =='getUserInfo:ok'){
-    wx.showToast({
-      title: '成功授权',
-      icon: 'success',
-      duration: 5000,
-      mask: true  
-    })
-   
-    console.log(wx.getStorageSync('yes'))
-    if (wx.getStorageSync('yes') == 'NO' || wx.getStorageSync('yes') == ''){
-    wx.request({
-      url: app.globalData.allUrl+'api/user/add_user',
-      data: {
+    if (e.detail.errMsg == 'getUserInfo:ok') {
+      wx.showToast({
+        title: '成功授权',
+        icon: 'success',
+        duration: 5000,
+        mask: true
+      })
+      var km = {
         "openid": wx.getStorageSync('openid'),
         "nickname": e.detail.userInfo.nickName,
         "language": e.detail.userInfo.language,
@@ -76,42 +106,57 @@ Page({
         "country": e.detail.userInfo.country,
         "gender": e.detail.userInfo.gender,
         "avatarUrl": e.detail.userInfo.avatarUrl
-      },
-      method: 'POST',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      success: function (res) {
-        console.log(res)
-        if (res.data!=""&&res.data!=null&&res.data!=undefined){
-          // wx.showToast({
-          //    title: '插入成功',
-          // })
-          that.setData({
-            userInfo: e.detail.userInfo,
-            hasUserInfo: true
-          })
-          wx.switchTab({
-            url: '../index/index',
-          })
-        }
-        //mYMaulTwPY1JBjbfyQ+dkA==
+      };
+      console.log(km);
+      console.log(wx.getStorageSync('yes'));
+      if (wx.getStorageSync('yes') == 'NO' || wx.getStorageSync('yes') == '') {
+        wx.request({
+          url: app.globalData.allUrl + 'api/user/add_user',
+          data: {
+            "openid": wx.getStorageSync('openid'),
+            "nickname": e.detail.userInfo.nickName,
+            "language": e.detail.userInfo.language,
+            "city": e.detail.userInfo.city,
+            "province": e.detail.userInfo.province,
+            "country": e.detail.userInfo.country,
+            "gender": e.detail.userInfo.gender,
+            "avatarUrl": e.detail.userInfo.avatarUrl
+          },
+          method: 'POST',
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          success: function (res) {
+            console.log(res)
+            if (res.data != "" && res.data != null && res.data != undefined) {
+              wx.showToast({
+                title: '插入成功',
+                icon: 'success',
+                duration: 5000,
+                mask: true
+              })
+              // that.setData({
+              //   userInfo: e.detail.userInfo,
+              //   hasUserInfo: true
+              // })
+              that.denglu();
 
-      },
-      fail: function (err) {
-        console.log(err);
-        wx.showToast({
-          title: '插入失败',
+            }
+            //mYMaulTwPY1JBjbfyQ+dkA==
+
+          },
+          fail: function (err) {
+            console.log(err);
+            wx.showToast({
+              title: '插入失败',
+            })
+          }
+
         })
+      } else {
+        console.log('11');
+        that.onShow();
       }
-
-    })
-    }else{
-
-      wx.switchTab({
-        url: '../index/index',
-      })
-    }
 
     } else {
       wx.showToast({

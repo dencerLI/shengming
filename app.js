@@ -84,6 +84,24 @@ App({
   },
   globalData: {
     userInfo: null,
+    aid:function(){
+      if (wx.getStorageSync('uid') == "" || wx.getStorageSync('uid') == null || wx.getStorageSync('uid') == undefined) {
+        wx.showToast({
+          title: '您还没有登录,马上为您跳转到登录页',
+          icon: 'none',
+          duration: 1500,
+          mask: true
+        })
+        setTimeout(function () {
+          wx.navigateTo({
+            url: '../myindex/myindex',
+          })
+        }, 2000)
+        return false;
+      }else{
+        return true;
+      }
+    },
     allUrl:'https://onmylive.com/'
   }
 })

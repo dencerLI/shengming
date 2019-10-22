@@ -34,6 +34,7 @@ Component({
   methods: {
     towater:function(){
       console.log(wx.getStorageSync('uid'))
+      // app.globalData.aid();
       var that = this;
       wx.request({
         url: app.globalData.allUrl + 'api/my/my_ticket',
@@ -52,10 +53,17 @@ Component({
       });
     },
     shiy:function(){
+      // app.globalData.aid();
+      if (app.globalData.aid()==false){
+        return;
+      }
       wx.navigateTo({
         url: '../call/call'
       })
     }, fenx: function () {
+      if (app.globalData.aid() == false) {
+        return;
+      }
       wx.navigateTo({
         url: '../share/share'
       })
@@ -70,13 +78,13 @@ Component({
       })
       if (wx.getStorageSync('uid') == '' || wx.getStorageSync('uid') == null || wx.getStorageSync('uid') == undefined ){
         wx.showToast({
-          title: '您还没有授权,马上为您跳转到授权页',
+          title: '您还没有登录,马上为您跳转到登录页',
           icon: 'none',
           duration: 1500,
           mask: true
         })
         setTimeout(function(){
-          wx.navigateTo({
+          wx.switchTab({
             url: '../myindex/myindex'　　// 页面 B
           })
         },2000)

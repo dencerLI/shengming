@@ -62,6 +62,9 @@ Component({
        
     },
     isadd:function(){
+      if (app.globalData.aid() == false) {
+        return;
+      }
       wx.navigateTo({
         url: '../address/address'　　// 页面 B
       })

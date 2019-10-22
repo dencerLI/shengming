@@ -48,6 +48,9 @@ Component({
       }
     },
     applygo: function() {
+      if (app.globalData.aid() == false) {
+        return;
+      }
       var that = this;
       var checked = this.data.checked3;
 
@@ -170,6 +173,9 @@ Component({
       }
     },
     yzm: function() {
+      if (app.globalData.aid() == false) {
+        return;
+      }
       var that = this;
       if (that.data.myonoff == "off") {
         return;
