@@ -51,7 +51,11 @@
 <view class="bot1" bindtap="isorder" style="display:{{dis}}">确认订单</view>
 <view class="taost" style="display:{{dis}}" bindtap="close">
   <view class="taostcon" catchtap="jinzhi">
-    <view class="taostleft"> <image src="{{endt[0].index_pic}}"></image></view>
+    <view class="taostleft">
+    <image wx:if='{{alldata.p_type==1||alldata.p_type==2||alldata.p_type==3}}' src="https://onmylive.com/uploads/images/combo/right_active.png" ></image>
+<image wx:elif='{{alldata.p_type==9}}' src="https://onmylive.com/uploads/images/combo/left_active.png" ></image>
+ <image wx:else src="{{alldata.detail_url[0]}}"></image>
+ </view>
     <view class="taostright">
       <view wx:if='{{alldata.p_type==1||alldata.p_type==2||alldata.p_type==3||alldata.p_type==9}}'>
         <view class="taoz" style="display:{{qie1}}">

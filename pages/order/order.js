@@ -196,7 +196,7 @@ Component({
       })
     }, gowater: function () {
       wx.navigateTo({
-        url: '../hotarea/hotarea'　　// 页面 A
+        url: '../call/call'　　// 页面 A
       })
     },
     checkboxChange: function(e) {

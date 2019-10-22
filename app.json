@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/myindex/myindex",
     "pages/call/call",
     "pages/Exhibition/Exhibition",
@@ -12,7 +13,7 @@
     "pages/investment/investment",
     "pages/deliverWater/deliverWater",
     "pages/address/address",
-    "pages/index/index",
+   
     "pages/session/session",
     "pages/shopdetail/shopdetail",
     "pages/water/water",

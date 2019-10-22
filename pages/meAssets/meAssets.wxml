@@ -6,8 +6,10 @@
     </view>
     <view class="zcright">
         <view class="yue">
-           <text class="ti">等值收益 ￥{{mydata.ice_money}}</text>
-           <text class="yu">余额 {{mydata.my_rem}}</text>
+           <text class="ti" wx:if="{{mydata!=''&&mydata!=null&&mydata!=undefined}}">等值收益 ￥{{mydata.ice_money}}</text>
+           <text class="ti" wx:else>等值收益 ￥0</text>
+           <text class="yu" wx:if="{{mydata!=''&&mydata!=null&&mydata!=undefined}}">余额 {{mydata.my_rem}}</text>
+           <text class="yu" wx:else>余额 0</text>
         </view>
         <view class="cha" bindtap="gowallet">查看</view>
     </view>
@@ -19,7 +21,8 @@
     </view>
     <view class="zcright">
         <view class="jifen">
-           <text>{{mydata.point}}</text>
+           <text wx:if="{{mydata!=''&&mydata!=null&&mydata!=undefined}}">{{mydata.point}}</text>
+           <text wx:else>{{mydata.point}}</text>
         </view>
         <!-- <view class="cha">兑换</view> -->
     </view>
@@ -47,7 +50,8 @@
     <view class="zcright">
         <view class="jifen">
            
-           <text>{{mydata.new_cash}}张</text>
+           <text wx:if="{{mydata!=''&&mydata!=null&&mydata!=undefined}}">{{mydata.new_cash}}张</text>
+           <text wx:else>0张</text>
         </view>
         <!-- <view class="cha">查看</view> -->
     </view>

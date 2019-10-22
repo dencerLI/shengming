@@ -2,7 +2,8 @@
 <view class="srall">
     <image class="logo" src="https://onmylive.com/images/qblogo.png"></image>
     <text class="title">总收入</text>
-    <text class="title">￥{{moneydata.money+moneydata.ice_money}}</text>
+    <text class="title" wx:if="{{moneydata!=''&&moneydata!=null&&moneydata!=undefined}}">￥{{moneydata.money+moneydata.ice_money}}</text>
+    <text class="title" wx:else>￥0</text>
     <view class="zj">
       <view class="zjleft">可提现余额：{{moneydata.money}}</view>
       <view class="zjright">账户冻结资金：{{moneydata.ice_money}}</view>
@@ -11,12 +12,14 @@
 <view class="tx">
    <view class="txleft">
      <text class="bt">可提现余额</text>
-     <text class="jine">￥{{moneydata.money}}</text>
+     <text class="jine" wx:if="{{moneydata!=''&&moneydata!=null&&moneydata!=undefined}}">￥{{moneydata.money}}</text>
+     <text class="jine" wx:else>￥0</text>
      <view class="txbtn">提现</view>
    </view>
    <view class="txright">
       <text class="bt">冻结账户资金</text>
-     <text class="jine">￥{{moneydata.ice_money}}</text>
+     <text class="jine" wx:if="{{moneydata!=''&&moneydata!=null&&moneydata!=undefined}}">￥{{moneydata.ice_money}}</text>
+     <text class="jine" wx:else>￥0</text>
      <view class="txbtn">提现</view>
    </view>
 </view>

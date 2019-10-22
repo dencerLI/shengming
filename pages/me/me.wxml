@@ -1,6 +1,7 @@
 <!--pages/me/me.wxml-->
 <view class="top">
-   <image class="isimg" src="{{geren.avatarUrl}}"></image>
+   <image class="isimg" wx:if="{{geren.avatarUrl}}" src="{{geren.avatarUrl}}"></image>
+   <button class="shouquan"  open-type="getUserInfo" bindgetuserinfo="getUserInfo" wx:else>登录</button>
    <text class="nicheng">{{geren.nickname}}</text>
    <text class="xiu" >{{geren.identity}}</text>
    <image class="isbg" src="https://onmylive.com/images/mebg.png"></image>

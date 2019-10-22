@@ -21,10 +21,12 @@ App({
           success: res => {
             // 发送 res.code 到后台换取 openId, sessionKey, unionId
             console.log(res)
+            wx.setStorageSync('code', res.code);
             wx.request({
               url: 'https://onmylive.com/user/login/login',
               data: {
-                "code": res.code
+                "code": res.code,
+                "openid":""
               },
               method: 'GET',
               header: {
@@ -36,6 +38,7 @@ App({
                 wx.setStorageSync('openid', res.data.openid);
                 wx.setStorageSync('yes', res.data.login);
                 wx.setStorageSync('uid', res.data.uid);
+                console.log(res.data.uid)
                 // wx.showToast({
                 //   title: res.data.uid.toString(),
                 //   icon: 'none',
