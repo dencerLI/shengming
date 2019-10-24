@@ -23,7 +23,7 @@
   <view class = "{{currentTab == 1 ? 'show':'hidden'}}" >
     <scroll-view>
       <view class="weikaifang">
-      暂未开放
+      <map id="myMap" style="width: 100%; height: 100%;" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" show-location  include-points="{{markers}}" bindmarkertap="toaddress"></map>
       </view>
     </scroll-view>
   </view>

@@ -45,7 +45,8 @@
 <view class="fslist">
   <image class="wx" src="https://onmylive.com/images/yue.png"></image>
   <text class="textme">余额抵扣</text>
-  <text class="istext">￥{{chaxun.balance}}</text>
+  <text class="istext" wx:if="{{chaxun.balance!=''&&chaxun.balance!=null&&chaxun.balance!=undefined}}">￥{{chaxun.balance}}</text>
+  <text class="istext" wx:else>￥0</text>
   <label class="fr font checked-lable yes" data-val="1" catchtap='checkedTap1'>
    <radio checked="{{checked1}}" color='#deab8a' />
    </label>
@@ -54,7 +55,8 @@
 <view class="fslist" wx:if="{{laican.ptype==1||laican.ptype==2||laican.ptype==3}}">
   <image class="wei" src="{{checked2==false?'https://onmylive.com/images/weixuan.png':'https://onmylive.com/images/wei1.png'}}"></image>
   <text class="textme">积分抵扣</text>
-  <text class="istext1">{{chaxun.point}}</text>
+  <text class="istext1" wx:if="{{chaxun.point!=''&&chaxun.point!=null&&chaxun.point!=undefined}}">{{chaxun.point}}</text>
+  <text class="istext1" wx:else>0</text>
  <label class="fr font checked-lable no" data-val="0" catchtap='checkedTap2'>
    <radio checked="{{checked2}}" color='#deab8a' />
    </label>
@@ -62,7 +64,8 @@
    <label class="fr font checked-lable no1" data-val="0" catchtap='checkedTap3'>
    <radio checked="{{checked3}}" color='#deab8a' />
    </label>
-  <text class="istext2 ">{{chaxun.new_cash}}张</text>
+  <text class="istext2 " wx:if="{{chaxun.new_cash!=''&&chaxun.new_cash!=null&&chaxun.new_cash!=undefined}}">{{chaxun.new_cash}}张</text>
+  <text class="istext2 " wx:else>0张</text>
   <text class="textme1">优惠券抵扣</text>
   <image class="yi" src="{{checked3==false?'https://onmylive.com/images/yi1.png':'https://onmylive.com/images/yixuan.png'}}"></image>
 </view>

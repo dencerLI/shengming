@@ -5,8 +5,10 @@
     <text class="title" wx:if="{{moneydata!=''&&moneydata!=null&&moneydata!=undefined}}">￥{{moneydata.money+moneydata.ice_money}}</text>
     <text class="title" wx:else>￥0</text>
     <view class="zj">
-      <view class="zjleft">可提现余额：{{moneydata.money}}</view>
-      <view class="zjright">账户冻结资金：{{moneydata.ice_money}}</view>
+      <view class="zjleft" wx:if="{{moneydata!=''&&moneydata!=null&&moneydata!=undefined}}">可提现余额：{{moneydata.money}}</view>
+      <view class="zjleft" wx:else>可提现余额：0</view>
+      <view class="zjright" wx:if="{{moneydata!=''&&moneydata!=null&&moneydata!=undefined}}">账户冻结资金：{{moneydata.ice_money}}</view>
+      <view class="zjright" wx:else>账户冻结资金：0</view>
     </view>
 </view>
 <view class="tx">
@@ -14,13 +16,13 @@
      <text class="bt">可提现余额</text>
      <text class="jine" wx:if="{{moneydata!=''&&moneydata!=null&&moneydata!=undefined}}">￥{{moneydata.money}}</text>
      <text class="jine" wx:else>￥0</text>
-     <view class="txbtn">提现</view>
+     <view class="txbtn" bindtap="gocash">提现</view>
    </view>
    <view class="txright">
       <text class="bt">冻结账户资金</text>
      <text class="jine" wx:if="{{moneydata!=''&&moneydata!=null&&moneydata!=undefined}}">￥{{moneydata.ice_money}}</text>
      <text class="jine" wx:else>￥0</text>
-     <view class="txbtn">提现</view>
+     <!-- <view class="txbtn">提现</view> -->
    </view>
 </view>
 <view class="isalert">冻结账户如何提现：当冻结账户资金满54.00元可转到可提现余额进行提现。</view>
@@ -45,3 +47,12 @@
    </view>
 </view>
 <!-- <view class="bot">充值</view> -->
+
+<view class="cashAlert" bindtap="close" style="display:{{end}}">
+   <view class="cashcon" catchtap="kong">
+       <view class="myinput">
+      <input type="number" bindinput="isphone" value="{{isinput}}"></input>
+      </view>
+      <view class="cashbtn" catchtap="ti">确认提现</view>
+   </view>
+</view>

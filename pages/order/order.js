@@ -442,7 +442,7 @@ Component({
         }
       }
       console.log("应付款为：" + that.data.yfk + "积分抵扣" + that.data.jfdk + "优惠券抵扣" + that.data.yhqdk + "余额抵扣" + that.data.yedk)
-      
+      mydata.price = that.data.yfk*100;
       // that.successme();
       // return;
       wx.request({

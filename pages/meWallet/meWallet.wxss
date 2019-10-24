@@ -33,3 +33,8 @@ border-radius: 2rpx;}
 .taosttitle{ display: block;font-size:30rpx; height: 30rpx; line-height: 30rpx; margin-top: 26rpx; color: #333; text-align: center; width: 100%;}
 .taostC{font-size: 22rpx; line-height: 30rpx; color: #333; display: block; width: 390rpx; margin: 0px auto; margin-top:36rpx; }
 .taostbtn{width: 116rpx; height: 57rpx; line-height: 57rpx; text-align: center; font-size: 22rpx; margin: 0px auto; background: #000; color: #fff; margin-top: 32rpx;}
+.cashAlert{ position: fixed; top: 0; left: 0; background: rgba(0, 0, 0, 0.5); width: 100%; height: 100%;}
+.cashcon{ width: 400rpx; height: 250rpx; position: absolute; top: 50%; left: 50%; margin-top: -125rpx; margin-left: -200rpx; background: #fff; border-radius: 10rpx;}
+.myinput{width: 300rpx; height: 60rpx;font-size: 22rpx; color: #333; margin: 0px auto; border: 1px solid #999; margin-top: 40rpx;}
+.myinput input{ margin-left: 20rpx; width: 280rpx; height: 60rpx; border: none;}
+.cashbtn{ width: 160rpx; height: 80rpx; line-height: 80rpx; font-size: 26rpx; background: #000; color: #fff; text-align: center; margin: 0px auto; margin-top: 24rpx;}

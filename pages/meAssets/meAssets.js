@@ -22,6 +22,9 @@ Component({
    */
   methods: {
     gowallet:function(){
+      if (app.globalData.aid() == false) {
+        return;
+      }
       wx.navigateTo({
         url: '../meWallet/meWallet',
         success: function(res) {},
@@ -30,6 +33,9 @@ Component({
       })
     },
     hudong: function () {
+      if (app.globalData.aid() == false) {
+        return;
+      }
       wx.navigateTo({
         url: '../Interaction/Interaction',
         success: function (res) { },

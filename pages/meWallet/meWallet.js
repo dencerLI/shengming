@@ -13,7 +13,9 @@ Component({
    */
   data: {
     moneydata: '',
-    isno:'none'
+    isno:'none',
+    end:"none",
+    isinput:''
   },
 
   /**
@@ -37,8 +39,87 @@ Component({
           })
         }
       });
+    },gocash:function(){
+           this.setData({end:"block"})
+    },close: function () {
+      this.setData({ end: "none" })
+    },kong: function () {
+     
+    }, isphone: function (e) {
+      var that = this;
+      console.log(e.detail.value)
+      // var isinput = that.data.isinput;
+      // var k = app.globalData.appnumber(e.detail.value);
+      // if (k == false && e.detail.value!=''){
+      //   that.setData({
+      //     isinput: isinput
+      //   })
+      // }else{
+      that.setData({
+        isinput: e.detail.value
+      })
+      // }
+    },ti: function () {
+      var that=this;
+      var isinput=that.data.isinput;
+      var k=app.globalData.appnumber(isinput);
+      console.log(k)
+      if (k == false || isinput<=0){
+        wx.showToast({
+          title: '提现金额错误',
+          icon: 'none',
+          duration: 5000,
+          mask: true
+        })
+        return;
+      }
+      console.log({ 'uid': wx.getStorageSync('uid'), 'balance': isinput * 100 })
+      wx.request({
+        url: app.globalData.allUrl + 'api/buys/pull_monney',
+        method: "POST",//指定请求方式，默认get
+        data: { 'uid': wx.getStorageSync('uid'), 'balance': isinput * 100, 'openid': wx.getStorageSync('openid') },
+        header: {
+          //默认值'Content-Type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded' //post
+        },
+        success: function (res) {
+          console.log(res)
+          if (res.data.result_code =="SUCCESS"){
+            wx.showToast({
+              title: '提现成功',
+              icon: 'none',
+              duration: 5000,
+              mask: true
+            })
+            that.close();
+            that.onShow();
+          } else if (res.data.result_code == "FAIL"){
+            wx.showToast({
+              title: res.data.err_code_des,
+              icon: 'none',
+              duration: 5000,
+              mask: true
+            })
+            that.close();
+            that.onShow();
+          }else{
+            wx.showToast({
+              title: '提现失败',
+              icon: 'none',
+              duration: 5000,
+              mask: true
+            })
+            that.close();
+            that.onShow();
+          }
+          // that.setData({
+          //   moneydata: res.data.data
+          // })
+
+        }
+      });
     },
-    onReady: function () {
+    onShow: function () {
       this.iscon();
     }
   }
