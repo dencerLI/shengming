@@ -1,10 +1,10 @@
 <!--pages/order/order.wxml-->
 <view class="addressgo" bindtap="address">
-  <image class="mark" src="https://onmylive.com/images/tan.png"></image>
+  <image class="mark" src="{{appUrl+'images/tan.png'}}"></image>
   <text wx:if="{{address==null&&address1==''}}">请填写您的地址</text>
   <text wx:elif="{{address1!=''}}">{{address1}}</text>
   <text wx:else>{{address.city}}{{address.area}}{{address.detail_add}}</text>
-  <image class="isgo" src="https://onmylive.com/images/go1.png"></image>
+  <image class="isgo" src="{{appUrl+'images/go1.png'}}"></image>
 </view>
 <view class="content">
   <view class="contleft">
@@ -43,7 +43,7 @@
 </view> -->
 
 <view class="fslist">
-  <image class="wx" src="https://onmylive.com/images/yue.png"></image>
+  <image class="wx" src="{{appUrl+'images/yue.png'}}"></image>
   <text class="textme">余额抵扣</text>
   <text class="istext" wx:if="{{chaxun.balance!=''&&chaxun.balance!=null&&chaxun.balance!=undefined}}">￥{{chaxun.balance}}</text>
   <text class="istext" wx:else>￥0</text>
@@ -53,7 +53,7 @@
 </view>
 
 <view class="fslist" wx:if="{{laican.ptype==1||laican.ptype==2||laican.ptype==3}}">
-  <image class="wei" src="{{checked2==false?'https://onmylive.com/images/weixuan.png':'https://onmylive.com/images/wei1.png'}}"></image>
+  <image class="wei" src="{{checked2==false?appUrl+'images/weixuan.png':appUrl+'images/wei1.png'}}"></image>
   <text class="textme">积分抵扣</text>
   <text class="istext1" wx:if="{{chaxun.point!=''&&chaxun.point!=null&&chaxun.point!=undefined}}">{{chaxun.point}}</text>
   <text class="istext1" wx:else>0</text>
@@ -67,16 +67,16 @@
   <text class="istext2 " wx:if="{{chaxun.new_cash!=''&&chaxun.new_cash!=null&&chaxun.new_cash!=undefined}}">{{chaxun.new_cash}}张</text>
   <text class="istext2 " wx:else>0张</text>
   <text class="textme1">优惠券抵扣</text>
-  <image class="yi" src="{{checked3==false?'https://onmylive.com/images/yi1.png':'https://onmylive.com/images/yixuan.png'}}"></image>
+  <image class="yi" src="{{checked3==false?appUrl+'images/yi1.png':appUrl+'images/yixuan.png'}}"></image>
 </view>
 
 <view class="fslist">
-  <image class="xin" src="https://onmylive.com/images/xin.png"></image>
+  <image class="xin" src="{{appUrl+'images/xin.png'}}"></image>
   <text class="textme">喜欢生命之里的理由</text>
   <view class='select_box'>
     <view class='select' catchtap='selectTap'>
       <text class='select_text'>{{selectData[index]}}</text>
-      <image class='select_img {{selectShow&&"select_img_rotate"}}' src='https://onmylive.com/images/go.png' background-size="contain"></image>
+      <image class='select_img {{selectShow&&"select_img_rotate"}}' src="{{appUrl+'images/go.png'}}" background-size="contain"></image>
     </view>
     <view class='option_box' style='height:{{selectShow?(selectData.length*60):0}}rpx;'>
       <text class='option' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
@@ -85,7 +85,7 @@
 </view>
 
 <view class="tishi">
- <image src="https://onmylive.com/images/tanhao.png"></image><text>余额不足时可使用微信支付，同时可抵扣账户余额</text>
+ <image src="{{appUrl+'images/tanhao.png'}}"></image><text>余额不足时可使用微信支付，同时可抵扣账户余额</text>
 </view>
 <view class="total">
  <view wx:if="{{laican.ptype==1||laican.ptype==2||laican.ptype==3||laican.ptype==9}}">
@@ -238,7 +238,7 @@
    <view class="showcon">
        <view class="showtitle">支付成功</view>
        <view class="showimg">
-          <image src="https://onmylive.com/images/zfcg.png"></image>
+          <image src="{{appUrl+'images/zfcg.png'}}"></image>
        </view>
        <view class="dd">
         <text>订单编号：{{orderme}}</text>

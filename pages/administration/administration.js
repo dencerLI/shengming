@@ -14,7 +14,8 @@ Component({
   data: {
      yes:'',
     id:'',
-    addlist:[]
+    addlist: [],
+    appUrl: app.globalData.allUrl
   },
 
   /**

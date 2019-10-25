@@ -31,7 +31,8 @@ Component({
     nuu:'',
     endt:'',
     mai:'hei',
-    mval:0
+    mval: 0,
+    appUrl: app.globalData.allUrl
   },
 
   /**

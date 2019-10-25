@@ -1,6 +1,6 @@
 <!--pages/meWallet/meWallet.wxml-->
 <view class="srall">
-    <image class="logo" src="https://onmylive.com/images/qblogo.png"></image>
+    <image class="logo" src="{{appUrl+'images/qblogo.png'}}"></image>
     <text class="title">总收入</text>
     <text class="title" wx:if="{{moneydata!=''&&moneydata!=null&&moneydata!=undefined}}">￥{{moneydata.money+moneydata.ice_money}}</text>
     <text class="title" wx:else>￥0</text>

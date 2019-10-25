@@ -15,7 +15,8 @@ Component({
     moneydata: '',
     isno:'none',
     end:"none",
-    isinput:''
+    isinput: '',
+    appUrl: app.globalData.allUrl
   },
 
   /**

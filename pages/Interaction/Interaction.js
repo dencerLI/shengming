@@ -12,7 +12,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    datalist: [{ "name": "大萨达所大多", "src": "../../images/tximg/1.png" }, { "name": "大萨达所大多", "src": "../../images/tximg/2.png" }, { "name": "大萨达所大多", "src": "../../images/tximg/3.png" }, { "name": "大萨达所大多", "src": "../../images/tximg/4.png" }, { "name": "大萨达所大多", "src": "../../images/tximg/5.png" }, { "name": "大萨达所大多", "src": "../../images/tximg/6.png" }, { "name": "大萨达所大多", "src": "../../images/tximg/7.png" }, { "name": "大萨达所大多", "src": "../../images/tximg/8.png" }]
+    datalist: [{ "name": "大萨达所大多", "src": "../../images/tximg/1.png" }, { "name": "大萨达所大多", "src": "../../images/tximg/2.png" }, { "name": "大萨达所大多", "src": "../../images/tximg/3.png" }, { "name": "大萨达所大多", "src": "../../images/tximg/4.png" }, { "name": "大萨达所大多", "src": "../../images/tximg/5.png" }, { "name": "大萨达所大多", "src": "../../images/tximg/6.png" }, { "name": "大萨达所大多", "src": "../../images/tximg/7.png" }, { "name": "大萨达所大多", "src": "../../images/tximg/8.png" }],
+    appUrl: app.globalData.allUrl
   },
 
   /**

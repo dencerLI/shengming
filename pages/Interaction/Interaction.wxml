@@ -9,7 +9,7 @@
       </view>
       <view class="names1" bindtap="fenxiang">
          <view>
-         <image src="https://onmylive.com/images/jia.png"></image>
+         <image src="{{appUrl+'images/jia.png'}}"></image>
          </view>
         
       </view>

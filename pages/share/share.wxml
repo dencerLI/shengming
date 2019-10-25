@@ -10,12 +10,12 @@
 </swiper>
 <view class="inbot">
   <view class="wxfx">
-    <image src="https://onmylive.com/images/fenx.png"></image>
+    <image src="{{appUrl+'images/fenx.png'}}"></image>
     <text>分享好友</text>
     <button wx:if='{{medata.num>=0}}' open-type='share'></button>
   </view>
   <view class="wxfx1" catchtap="saveToPhone">
-    <image src="https://onmylive.com/images/baoc.png"></image>
+    <image src="{{appUrl+'images/baoc.png'}}"></image>
     <text>保存相册</text>
   </view>
 </view>

@@ -25,7 +25,8 @@ Component({
     iswidth: '0%',
     innone: 'none',
     dian: [],
-    missblock:'none'
+    missblock:'none',
+    appUrl: app.globalData.allUrl
   },
 
   /**

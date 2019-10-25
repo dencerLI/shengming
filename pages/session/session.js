@@ -1,4 +1,5 @@
 // pages/session/session.js
+const app = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -11,7 +12,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    appUrl: app.globalData.allUrl
   },
 
   /**

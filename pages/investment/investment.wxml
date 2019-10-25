@@ -1,17 +1,17 @@
 <!--pages/investment/investment.wxml-->
 <!-- <image></image> -->
-<image class="bttop" src="https://onmylive.com/uploads/images/zs/logo.png" mode="widthFix"></image>
-<image class="intm" src="https://onmylive.com/uploads/images/zs/shuiji.png" mode="widthFix"></image>
+<image class="bttop" src="{{appUrl+'uploads/images/zs/logo.png'}}" mode="widthFix"></image>
+<image class="intm" src="{{appUrl+'uploads/images/zs/shuiji.png'}}" mode="widthFix"></image>
 <view class="tw">随着全民生活水平提高，健康意识增强，对于饮用水质量更加重视。</view>
-<image class="tap" src="https://onmylive.com/uploads/images/zs/map.png" mode="widthFix"></image>
+<image class="tap" src="{{appUrl+'uploads/images/zs/map.png'}}" mode="widthFix"></image>
 <view class="tw">全国运输物流网络发达，生命之里全国528个仓储点分布全国20个省。</view>
-<image class="pricetap" src="https://onmylive.com/uploads/images/zs/team.png" mode="widthFix"></image>
+<image class="pricetap" src="{{appUrl+'uploads/images/zs/team.png'}}" mode="widthFix"></image>
 <view class="dbt">2019年加盟者收益图</view>
-<image class="priceimg" src="https://onmylive.com/uploads/images/zs/list.png" mode="widthFix"></image>
-<image class="zidong" src="https://onmylive.com/uploads/images/zs/auto.png" mode="widthFix"></image>
-<image class="guanli" src="https://onmylive.com/uploads/images/zs/crm.png" mode="widthFix"></image>
+<image class="priceimg" src="{{appUrl+'uploads/images/zs/list.png'}}" mode="widthFix"></image>
+<image class="zidong" src="{{appUrl+'uploads/images/zs/auto.png'}}" mode="widthFix"></image>
+<image class="guanli" src="{{appUrl+'uploads/images/zs/crm.png'}}" mode="widthFix"></image>
 <view class="overcon">
-<image class="shouyi" src="https://onmylive.com/uploads/images/zs/data.png" mode="widthFix"></image>
+<image class="shouyi" src="{{appUrl+'uploads/images/zs/data.png'}}" mode="widthFix"></image>
 </view>
 <view class="bodabtn">立即拨打</view>
 

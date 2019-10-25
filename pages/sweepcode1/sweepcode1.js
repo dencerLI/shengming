@@ -1,4 +1,5 @@
 // pages/sweepcode1/sweepcode1.js
+const app = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -14,7 +15,8 @@ Component({
     checked1: false,
     checked2: false,
     checked3: false,
-    tian:1
+    tian: 1,
+    appUrl: app.globalData.allUrl
   },
 
   /**

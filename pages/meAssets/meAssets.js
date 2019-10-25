@@ -14,7 +14,8 @@ Component({
   data: {
     moneydata:'',
     len:0,
-    mydata:''
+    mydata: '',
+    appUrl: app.globalData.allUrl
   },
 
   /**

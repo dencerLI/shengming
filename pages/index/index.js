@@ -43,7 +43,8 @@ Page({
       longitude: 113.324520,
       width: 50,
       height: 50
-    }]
+    }],
+    appUrl: app.globalData.allUrl
   }, map: function () {
     var that = this;
     wx.getLocation({

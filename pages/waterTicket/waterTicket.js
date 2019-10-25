@@ -25,7 +25,8 @@ Component({
       width: 50,
       height: 50,
       isno:'no'
-    }]
+    }],
+    appUrl: app.globalData.allUrl
   },
 
   /**

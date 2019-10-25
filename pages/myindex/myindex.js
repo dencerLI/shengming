@@ -10,6 +10,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    appUrl: app.globalData.allUrl
   },
 
   /**

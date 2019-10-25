@@ -24,7 +24,8 @@ Component({
     hyzm: '获取验证码',
     secondR: 60,
     myonoff: 'on',
-    jishiqi1: ''
+    jishiqi1: '',
+    appUrl: app.globalData.allUrl
   },
 
   /**

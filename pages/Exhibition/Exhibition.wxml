@@ -11,10 +11,10 @@
 <view class = "{{currentTab == 0 ? 'show':'hidden'}}" >
     <scroll-view>
         <view class="border102">
-          <image src="https://onmylive.com/images/1.png"></image>
-          <image src="https://onmylive.com/images/2.png"></image>
-          <image src="https://onmylive.com/images/3.png"></image>
-          <image src="https://onmylive.com/images/4.png"></image>
+          <image src="{{appUrl+'images/1.png'}}"></image>
+          <image src="{{appUrl+'images/2.png'}}"></image>
+          <image src="{{appUrl+'images/3.png'}}"></image>
+          <image src="{{appUrl+'images/4.png'}}"></image>
         </view>
     </scroll-view>
   </view>
@@ -23,7 +23,9 @@
   <view class = "{{currentTab == 1 ? 'show':'hidden'}}" >
     <scroll-view>
       <view class="weikaifang">
+      <view class="ismap">
       <map id="myMap" style="width: 100%; height: 100%;" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" show-location  include-points="{{markers}}" bindmarkertap="toaddress"></map>
+      </view>
       </view>
     </scroll-view>
   </view>

@@ -14,7 +14,8 @@ Component({
    */
   data: {
     imglist: [],
-    myid:''
+    myid:'',
+    appUrl: app.globalData.allUrl
   },
   
   /**

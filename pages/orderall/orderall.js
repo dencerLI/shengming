@@ -18,7 +18,8 @@ Component({
     shouorder: 1,
     wanorder: 1,
     meorder:'',
-    istype:''
+    istype: '',
+    appUrl: app.globalData.allUrl
   },
 
   /**

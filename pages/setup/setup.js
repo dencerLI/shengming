@@ -1,4 +1,5 @@
 // pages/setup/setup.js
+const app = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -13,7 +14,8 @@ Component({
   data: {
     selectData:["东北二龙湖","北京三里屯"],
     selectShow: false,
-    index: 0
+    index: 0,
+    appUrl: app.globalData.allUrl
   },
 
   /**

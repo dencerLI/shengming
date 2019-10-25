@@ -44,7 +44,8 @@ Component({
     addressid:'',
     orderme:'',
     zhi:'',
-    zhi1:''
+    zhi1: '',
+    appUrl: app.globalData.allUrl
   },
   /**
    * 组件的方法列表

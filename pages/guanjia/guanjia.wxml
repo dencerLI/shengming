@@ -4,4 +4,4 @@
 
 <image wx:for="{{mydata.data.list}}" src="{{item.url}}" mode="widthFix"></image>
 
-<image class="xuan" src="https://onmylive.com/images/chengwei.png" bindtap="goapp"></image>
+<image class="xuan" src="{{appUrl+'images/chengwei.png'}}" bindtap="goapp"></image>

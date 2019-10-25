@@ -3,6 +3,7 @@
 var markers = []
 // 地图标记点的气泡
 var callout = []
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
@@ -96,7 +97,8 @@ Component({
       },
     ],
     mapWidth: '',
-    mapHeight: ''
+    mapHeight: '',
+    appUrl: app.globalData.allUrl
 
   },
 

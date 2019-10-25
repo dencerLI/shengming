@@ -4,55 +4,55 @@
    <view class="deng" bindtap="goshou" wx:else>登录</view>
    <text class="nicheng">{{geren.nickname}}</text>
    <text class="xiu" >{{geren.identity}}</text>
-   <image class="isbg" src="https://onmylive.com/images/mebg.png"></image>
+   <image class="isbg" src="{{appUrl+'images/mebg.png'}}"></image>
 </view>
 <view class="listall">
 <view class="sessionlist" bindtap="dingdan">
    <view class="sessionleft">
-   <image class="dd" src="https://onmylive.com/images/dd.png"></image>
+   <image class="dd" src="{{appUrl+'images/dd.png'}}"></image>
    </view>
    <view class="name">全部订单</view>
    <view class="btn">
-    <image src="https://onmylive.com/images/go2.png"></image>
+    <image src="{{appUrl+'images/go2.png'}}"></image>
    </view>
 </view>
 <view class="sessionlist" bindtap="zc">
    <view class="sessionleft">
-   <image class="zc" src="https://onmylive.com/images/zc.png"></image>
+   <image class="zc" src="{{appUrl+'images/zc.png'}}"></image>
    </view>
    <view class="name">我的资产</view>
    <view class="btn">
-    <image src="https://onmylive.com/images/go2.png"></image>
+    <image src="{{appUrl+'images/go2.png'}}"></image>
    </view>
 </view>
 
 <view class="sessionlist" bindtap="sp">
    <view class="sessionleft">
-   <image class="sp" src="https://onmylive.com/images/sp.png"></image>
+   <image class="sp" src="{{appUrl+'images/sp.png'}}"></image>
    </view>
    <view class="name">我的水票</view>
    <view class="btn">
-    <image src="https://onmylive.com/images/go2.png"></image>
+    <image src="{{appUrl+'images/go2.png'}}"></image>
    </view>
 </view>
 
 <!-- <view class="sessionlist">
     <view class="sessionleft"> 
-   <image class="hy" src="https://onmylive.com/images/hy.png"></image>
+   <image class="hy" src="{{appUrl+'images/hy.png'}}"></image>
    </view>
    <view class="name">会员服务</view>
    <view class="btn">
-    <image src="https://onmylive.com/images/go2.png"></image>
+    <image src="{{appUrl+'images/go2.png'}}"></image>
    </view>
 </view> -->
 
 <!-- <view class="sessionlist">
    <view class="sessionleft">
-   <image class="dz" src="https://onmylive.com/images/dz.png"></image>
+   <image class="dz" src="{{appUrl+'images/dz.png'}}"></image>
    </view>
    <view class="name">地址管理</view>
    <view class="btn">
-    <image src="https://onmylive.com/images/go2.png"></image>
+    <image src="{{appUrl+'images/go2.png'}}"></image>
    </view>
 </view> -->
 </view>
