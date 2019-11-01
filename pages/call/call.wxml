@@ -15,7 +15,7 @@
   </view>
  
 </view>
-<view class="ts" wx:if="{{dian.length<=0}}">附近的水机距离您太远？创建您附近的水机呼叫点！</view>
+<view class="ts" data-k="{{dian.length}}" wx:if="{{dian.length<=0}}">附近的水机距离您太远？创建您附近的水机呼叫点！</view>
 <view class="ts" wx:else>一人创建、多人响应。造福一方百姓
   <image src="{{appUrl+'images/xiao.png'}}"></image>
 </view>
@@ -24,7 +24,7 @@
 <view class="alert" wx:if="{{dian.length<=0}}" style="display:{{missblock}}">
   <view class="alertcon">
     <view class="contop">
-      <image src="{{appUrl+'images/daxiao.png'}}"></image>
+      <image src="{{appUrl+'images/daxiao.png'+isupload}}"></image>
     </view>
     <view class="con">附近暂无人呼叫，您可创建呼叫点当您的呼叫点响应人数达到90人后我们将为该呼叫点安装水机。</view>
     <view class="conbtn" bindtap="applygo">创建呼叫点</view>
@@ -36,12 +36,12 @@
 <view class="show" style="display:{{innone}}">
   <view class="showcon">
     <view class="showtop">
-      <image src="{{appUrl+'images/chenggong.png'}}"></image>
+      <image src="{{appUrl+'images/chenggong.png'+isupload}}"></image>
 
       <view class="showconts">呼叫成功</view>
     </view>
 
-    <view class="showts">当前区域呼叫人数</view>
+    <!-- <view class="showts">当前区域呼叫人数</view>
     <view class="renshu">
       <image src="{{appUrl+'images/ren.png'}}"></image>
       <view>1人</view>
@@ -50,18 +50,18 @@
       <view class="jindu1" style="width:{{iswidth}}"></view>
       
     </view>
-    <view class="sl">100人</view>
+    <view class="sl">100人</view> -->
 
     <view class="ists">邀请好友助力可加快速度在您的呼叫点附近安装水机</view>
     <view class="go">
         <view class="goleft" bindtap="goindex">
-           <image src="{{appUrl+'images/goindex.png'}}"></image>
+           <image src="{{appUrl+'images/goindex.png'+isupload}}"></image>
            <text>返回首页</text>
         </view>
-        <!-- <view class="goright">
-           <image src="{{appUrl+'images/fenxiang2.png'}}"></image>
+        <view class="goright" bindtap="goshare">
+           <image src="{{appUrl+'images/fenxiang2.png'+isupload}}"></image>
            <text>邀请好友助力</text>
-        </view> -->
+        </view>
     </view>
   </view>
 

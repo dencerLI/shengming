@@ -26,7 +26,8 @@ Component({
     innone: 'none',
     dian: [],
     missblock:'none',
-    appUrl: app.globalData.allUrl
+    appUrl: app.globalData.allUrl,
+    isupload: "?" + Math.random() / 9999
   },
 
   /**
@@ -80,6 +81,10 @@ Component({
       wx.switchTab({
         url: '../index/index',
       })
+    }, goshare: function () {
+      wx.navigateTo({
+        url: '../share/share',
+      })
     },
     hujiao: function(a, b) { //查看附近呼叫点
       console.log(a + '-' + b)
@@ -98,7 +103,7 @@ Component({
         success: function(res) {
           console.log(res.data)
           // wx.hideLoading()
-          if (res.data.length > 0) {
+          if (res.data.length <= 0) {
             that.setData({
               dian: res.data,
               yes: 'yes',

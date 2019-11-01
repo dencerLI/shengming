@@ -30,21 +30,24 @@
             <text class="ddright">待收货</text>
           </view>
           <view class="ddcon">
-            <view class="conleft"></view>
+            <view class="conleft">
+              <image src="{{item.product.index_pic_url}}"></image>
+            </view>
             <view class="conright">
               <text class="conrightBt">{{item.product.name}}</text>
               <view class="conrightGg">
                 <text class="ggleft">{{item.product.label}}</text>
                 <text class="ggright">x{{item.order.nums}}</text>
               </view>
-            </view>
-          </view>
-
-          <view class="money">
-            <text>应付： ¥{{item.order.price}}</text>
+              <view class="money">
+            <text>实付： ¥{{item.order.price}}</text>
             <view class="fkbtn qrbtn" data-id="{{item.order.id}}" bindtap="goyes">确认收货</view>
             <!-- <view class="qxbtn">取消订单</view> -->
           </view>
+            </view>
+          </view>
+
+          
         </view>
         <!-- 待收货 -->
 
@@ -55,20 +58,23 @@
           <text class="ddright">已完成</text>
         </view>
         <view class="ddcon">
-          <view class="conleft"></view>
+          <view class="conleft">
+           <image src="{{item.product.index_pic_url}}"></image>
+          </view>
           <view class="conright">
             <text class="conrightBt">{{item.product.name}}</text>
             <view class="conrightGg">
               <text class="ggleft">{{item.product.label}}</text>
               <text class="ggright">x{{item.order.nums}}</text>
             </view>
+             <view class="money">
+          <text>实付： ¥{{item.order.price}}</text>
+          <!-- <view class="qxbtn wan">取消订单</view> -->
+        </view>
           </view>
         </view>
 
-        <view class="money">
-          <text>应付： ¥{{item.order.price}}</text>
-          <!-- <view class="qxbtn wan">取消订单</view> -->
-        </view>
+       
 
         </view>
         <!-- 已完成 -->
@@ -93,7 +99,9 @@
         <text class="ddright">待付款</text>
       </view>
       <view class="ddcon">
-        <view class="conleft"></view>
+        <view class="conleft">
+         <image src="{{item.product.index_pic_url}}"></image>
+        </view>
         <view class="conright">
           <text class="conrightBt">天然小分子软包装水5000毫升</text>
           <view class="conrightGg">
@@ -104,7 +112,7 @@
       </view>
 
       <view class="money">
-        <text>应付： ¥19.8</text>
+        <text>实付： ¥19.8</text>
 
         <view class="fkbtn">立即付款</view>
         <view class="qxbtn">取消订单</view>
@@ -130,22 +138,25 @@
           <text class="ddright">待收货</text>
         </view>
         <view class="ddcon">
-          <view class="conleft"></view>
+          <view class="conleft">
+           <image src="{{item.product.index_pic_url}}"></image>
+          </view>
           <view class="conright">
             <text class="conrightBt">{{item.product.name}}</text>
             <view class="conrightGg">
               <text class="ggleft">{{item.product.label}}</text>
               <text class="ggright">x{{item.order.nums}}</text>
             </view>
-          </view>
-        </view>
-
-        <view class="money">
-          <text>应付： ¥{{item.order.price}}</text>
+            <view class="money">
+          <text>实付： ¥{{item.order.price}}</text>
 
           <view class="fkbtn qrbtn" data-id="{{item.order.id}}" bindtap="goyes">确认收货</view>
           <!-- <view class="qxbtn">取消订单</view> -->
         </view>
+          </view>
+        </view>
+
+        
 
       </view>
     </view>
@@ -168,22 +179,25 @@
           <text class="ddright">已完成</text>
         </view>
         <view class="ddcon">
-          <view class="conleft"></view>
+          <view class="conleft">
+           <image src="{{item.product.index_pic_url}}"></image>
+          </view>
           <view class="conright">
              <text class="conrightBt">{{item.product.name}}</text>
             <view class="conrightGg">
               <text class="ggleft">{{item.product.label}}</text>
               <text class="ggright">x{{item.order.nums}}</text>
             </view>
-          </view>
-        </view>
-
-        <view class="money">
-          <text>应付： ¥{{item.order.price}}</text>
+            <view class="money">
+          <text>实付： ¥{{item.order.price}}</text>
 
 
           <!-- <view class="qxbtn wan">取消订单</view> -->
         </view>
+          </view>
+        </view>
+
+        
 
       </view>
     </view>

@@ -44,7 +44,8 @@ Page({
       width: 50,
       height: 50
     }],
-    appUrl: app.globalData.allUrl
+    appUrl: app.globalData.allUrl,
+    isupload: "?" + Math.random() / 9999
   }, map: function () {
     var that = this;
     wx.getLocation({
@@ -318,6 +319,9 @@ Page({
     })
   },
   fenxiang: function () {
+    if (app.globalData.aid() == false) {
+      return;
+    }
     wx.navigateTo({
       url: '../share/share',
     })

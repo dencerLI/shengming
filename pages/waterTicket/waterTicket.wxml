@@ -2,24 +2,27 @@
 
 <view class="tx">
    <view class="txleft">
-     <text class="bt">天然苏打水</text>
-     <text class="jine" wx:if="{{shui.user_soda_ticket.count!=''&&shui.user_soda_ticket.count!=null&&shui.user_soda_ticket.count!=undefined}}">{{shui.user_soda_ticket.count}}</text>
+   <image src="{{appUrl+'uploads/images/ticket/ticket_hu.png'}}"></image>
+     <text class="bt">可分享的水票</text>
+     <text class="jine" wx:if="{{shui.share_ticket.count!=''&&shui.share_ticket.count!=null&&shui.share_ticket.count!=undefined}}">{{shui.share_ticket.count}}</text>
      <text class="jine" wx:else>0</text>
-     <view class="txbtn" bindtap="shiy">去使用</view>
+     <view class="txbtn" bindtap="fenx">去分享</view>
    </view>
    <view class="txright">
+   <image src="{{appUrl+'uploads/images/share/rose.png'}}"></image>
       <text class="bt">天然饮用水</text>
      <text class="jine" wx:if="{{shui.user_ticket.count!=''&&shui.user_ticket.count!=null&&shui.user_ticket.count!=undefined}}">{{shui.user_ticket.count}}</text>
      <text class="jine" wx:else>0</text>
      <view class="txbtn" bindtap="shiy">去使用</view>
    </view>
 </view>
-<view class="ke">
+<!-- <view class="ke">
+ <image src="{{appUrl+'uploads/images/ticket/ticket_yun.png'}}"></image>
      <text class="bt" style="margin-top:60rpx;">可分享的水票</text>
      <text class="jine" wx:if="{{shui.share_ticket.count!=''&&shui.share_ticket.count!=null&&shui.share_ticket.count!=undefined}}">{{shui.share_ticket.count}}</text>
      <text class="jine" wx:else>0</text>
      <view class="txbtn" bindtap="fenx">去分享</view>
-</view>
+</view> -->
 <view class="newslist">
    <view class="news" wx:for="{{shui.share_relation}}">
        <view wx:if="{{item.type=='shared'}}">
@@ -36,13 +39,15 @@
    
 </view>
 <view class="istaost" style="display:{{indis}}">
+
    <view class="taostCon">
-       <text class="taosttitle">好友（卡夫卡）赠送您一张水票</text>
+   <image class="bgimg" src="{{appUrl+'uploads/images/ticket/ticket.png'}}"></image>
+       <text class="taosttitle">好友（{{shui.share_user.nickname.nickname}}）赠送您一张水票</text>
       
-       <view class="taostbtn" bindtap="shui">确定</view>
+       <view class="taostbtn" bindtap="shui">领取</view>
    </view>
 </view>
-
+<view class="bot" bindtap="goindex">返回首页</view>
 <view class="isbotm top30" style="display:none;" >
  <map id="map" catchtap="gomap" longitude="{{longitude}}" latitude=" {{latitude}}" markers="{{markers}}" scale="13" show-location style="width: 100%; height: 100%;"></map>
   

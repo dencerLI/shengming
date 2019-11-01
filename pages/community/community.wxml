@@ -1,5 +1,5 @@
 <!--pages/community/community.wxml-->
-<view class="contentv top30">天然小分子水</view>
+<!-- <view class="contentv top30">天然小分子水</view>
 <view class="topimg top30">
   <image src="{{imglist1}}"></image>
 </view>
@@ -7,7 +7,7 @@
 
 <view class="jinru top60" >
    <image src="{{imglist2}}"></image>
-</view>
+</view> -->
 
 <view class="contentv top60">管家服务明星</view>
 

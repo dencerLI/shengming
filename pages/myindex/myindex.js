@@ -18,11 +18,11 @@ Page({
    */
   onLoad: function () {
     console.log(wx.getStorageSync('yes'))
-    if (wx.getStorageSync('yes') == 'YES'){
-      wx.switchTab({
-        url: '../index/index',
-      })
-    }
+    // if (wx.getStorageSync('yes') == 'YES'){
+    //   wx.switchTab({
+    //     url: '../index/index',
+    //   })
+    // }
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -57,6 +57,7 @@ Page({
     console.log(wx.getStorageSync('code'))
     wx.request({
       url: 'https://onmylive.com/user/login/login',
+      // url: 'http://47.105.112.194/user/login/login',
       data: {
         "openid": wx.getStorageSync('openid'),
         "code": ''
@@ -89,6 +90,22 @@ Page({
   },
   getUserInfo: function (e) {
     var that = this;
+    wx.showLoading({
+      title: '载入openid中...',
+    })
+    if (wx.getStorageSync('openid') != '' && wx.getStorageSync('openid') != null && wx.getStorageSync('openid') != undefined) {
+
+      wx.hideLoading();
+    } else {
+      console.log(app.globalData.op)
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.opCallback = op => {
+          if (app.globalData.op == "" || app.globalData.op == null && app.globalData.op == undefined) {
+            return;
+          } 
+      }
+    }
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     if (e.detail.errMsg == 'getUserInfo:ok') {
@@ -112,7 +129,8 @@ Page({
       console.log(wx.getStorageSync('yes'));
       if (wx.getStorageSync('yes') == 'NO' || wx.getStorageSync('yes') == '') {
         wx.request({
-          url: app.globalData.allUrl + 'api/user/add_user',
+          url: 'https://onmylive.com/api/user/add_user',
+          // url:'http://47.105.112.194/api/user/add_user',
           data: {
             "openid": wx.getStorageSync('openid'),
             "nickname": e.detail.userInfo.nickName,
@@ -179,7 +197,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**

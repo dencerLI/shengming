@@ -4,7 +4,7 @@
    <view class="deng" bindtap="goshou" wx:else>登录</view>
    <text class="nicheng">{{geren.nickname}}</text>
    <text class="xiu" >{{geren.identity}}</text>
-   <image class="isbg" src="{{appUrl+'images/mebg.png'}}"></image>
+   <image class="isbg" src="{{appUrl+'images/mebg.png'+isupload}}"></image>
 </view>
 <view class="listall">
 <view class="sessionlist" bindtap="dingdan">
@@ -35,7 +35,15 @@
     <image src="{{appUrl+'images/go2.png'}}"></image>
    </view>
 </view>
-
+<view class="sessionlist" bindtap="lingshui">
+   <view class="sessionleft">
+   <image class="sp" src="{{appUrl+'images/sp.png'}}"></image>
+   </view>
+   <view class="name">去领水</view>
+   <view class="btn">
+    <image src="{{appUrl+'images/go2.png'}}"></image>
+   </view>
+</view>
 <!-- <view class="sessionlist">
     <view class="sessionleft"> 
    <image class="hy" src="{{appUrl+'images/hy.png'}}"></image>
@@ -56,3 +64,5 @@
    </view>
 </view> -->
 </view>
+<view class="bot" bindtap="popConfirm">管家管理后台链接</view>
+<text class="istext">点击按钮复制弹窗中的链接</text>

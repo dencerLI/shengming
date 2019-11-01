@@ -14,7 +14,8 @@
 </view>
 <view class="ren">
   <text>选择地区</text>
-  <input class="name" placeholder="选择" placeholder-class="names" value="{{province}}-{{city}}-{{county}}" focus="{{focus}}" bindfocus="open" />
+  <!-- <input class="name" placeholder="选择" placeholder-class="names" value="{{province}}-{{city}}-{{county}}" focus="{{focus}}" bindfocus="open" /> -->
+  <view class="dianji" bindtap="open">{{province}}-{{city}}-{{county}}</view>
 </view>
 <view class="ren">
   <text>详细地址</text>

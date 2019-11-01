@@ -5,10 +5,11 @@
 <view class="yanz">请验证手机号</view>
 <view class="yzts">为确认本人领水请输入您的手机号进行验证</view>
 <view class="iscon">
-<text>手机号</text><input placeholder="请输入手机号" placeholder-class="placeclass"></input>
+<text>手机号</text><input type="number" bindinput="isphone" value="{{phone}}" placeholder="请输入手机号" placeholder-class="placeclass"></input>
 </view>
-<view class="iscon">
-<text>验证码</text><input placeholder="请输入验证码" placeholder-class="placeclass"></input>
+<view class="iscon1">
+<text>验证码</text><input placeholder="请输入验证码" value="{{yzm}}" placeholder-class="placeclass"></input>
+<view class="yzm" style="color:{{iscolor}}" bindtap="yzm">{{hyzm}}</view>
 </view>
 
-<view class="bot" >确认</view>
+<view class="bot" bindtap="applygo" >确认</view>

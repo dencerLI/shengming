@@ -17,13 +17,28 @@ Component({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    appUrl: app.globalData.allUrl
+    appUrl: app.globalData.allUrl,
+    isupload: "?" + Math.random() / 9999
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+
+    popConfirm: function () {
+      wx.showModal({
+        title: '建议电脑端手机验证登录',
+        content: 'http://47.105.112.194:8002/admin.html',
+        success: function (res) {
+          if (res.confirm) {
+            console.log('点击确认回调')
+          } else {
+            console.log('点击取消回调')
+          }
+        }
+      })
+    },
      zc:function(){
        wx.navigateTo({
          url: '../meAssets/meAssets',
@@ -32,6 +47,10 @@ Component({
     sp: function () {
       wx.navigateTo({
         url: '../waterTicket/waterTicket',
+      })
+    },lingshui: function () {
+      wx.navigateTo({
+        url: '../sweepcode1/sweepcode1',
       })
     },
     xiugai: function () {

@@ -1,13 +1,13 @@
 /* pages/Interaction/Interaction.wxss */
 .namelist{ padding: 0 30rpx;}
 .nameall{ width: 100%; height: auto;overflow: hidden;}
-.names{ float: left; width: 88rpx; margin-left: 63rpx; margin-top: 30rpx;}
-.names image{ width: 88rpx; height: 88rpx; background: #333;}
+.names{ float: left; width: 120rpx; margin-left: 63rpx; margin-top: 30rpx;}
+.names image{ width: 120rpx; height: 120rpx; background: #333;}
 .nicheng{ display: block; font-size: 22rpx; height: 22rpx; line-height: 22rpx; color: #333; margin-top: 12rpx; width: 100%; text-align: center;overflow:hidden; 
     text-overflow:ellipsis;
     white-space:nowrap;  }
 .istime{display: block;font-size: 22rpx;height: 22rpx; line-height: 22rpx; color: #333; margin-top: 6rpx;width: 100%; text-align: center;}
 .nameaauto{ width: 755rpx; height: auto; overflow: hidden;  margin-left: -63rpx;}
-.names1{ float: left; width: 88rpx; margin-left: 63rpx; margin-top: 30rpx;}
-.names1 view{ width: 88rpx; height: 88rpx; background: #333;}
-.names1 image{ width: 37rpx; height: 37rpx; margin-top: 25.5rpx; margin-left: 25.5rpx;}
+.names1{ float: left; width: 120rpx; margin-left: 63rpx; margin-top: 30rpx;}
+.names1 view{ width: 120rpx; height: 120rpx; background: #333;}
+.names1 image{ width: 37rpx; height: 37rpx; margin-top: 41.5rpx; margin-left: 41.5rpx;}

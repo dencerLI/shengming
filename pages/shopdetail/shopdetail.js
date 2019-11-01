@@ -32,7 +32,8 @@ Component({
     endt:'',
     mai:'hei',
     mval: 0,
-    appUrl: app.globalData.allUrl
+    appUrl: app.globalData.allUrl,
+    isupload: "?" + Math.random() / 9999
   },
 
   /**

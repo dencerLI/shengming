@@ -21,7 +21,8 @@ Component({
     indicatorDots: false,
     autoplay: false,
     medata: '',
-    appUrl: app.globalData.allUrl
+    appUrl: app.globalData.allUrl,
+    isupload:"?"+ Math.random() / 9999
   },
 
   /**
@@ -56,7 +57,8 @@ Component({
     },
     saveToPhone() {
       var that=this;
-      var imgSrc = "http://yijiao.oss-cn-qingdao.aliyuncs.com/images/http://tmp/wx1b4e5e756cd48af1.o6zAJsws4grEQvYrWTjBigy-6QaU.0llhudiKSF2V955a1c48350d9328ef064b4d36d12746.jpg"
+      console.log(that.data.tpl[that.data.swiperIndex].pic_url)
+      var imgSrc = that.data.tpl[that.data.swiperIndex].pic_url
       wx.downloadFile({
         url: imgSrc,
         success: function (res) {

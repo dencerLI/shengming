@@ -2,6 +2,7 @@
 <view class="title">
   <image src="{{appUrl+'images/rq/gonggao.png'}}"></image> <text>系统公告: 热烈庆祝北京地区13个代理商加盟</text>
 </view>
+<view class="fgt">生命之里说</view>
 <view class="rbanner" bindtap="zhaoshang">
    <image src="{{appUrl+'uploads/images/redian/WechatIMG46.png'}}"></image>
 </view>

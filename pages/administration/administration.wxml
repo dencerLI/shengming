@@ -2,7 +2,7 @@
 <view class="adminlist">
   <view class="ad1" class="padding30" wx:for="{{addlist}}">
     <view class="mansession">
-      <text class="manleft">收货人： 入鸡蛋</text>
+      <text class="manleft">收货人：{{item.name}}</text>
       <text class="manright">{{item.phone}}</text>
     </view>
     <view class="manaddress">
@@ -16,8 +16,8 @@
       </checkbox-group>
       <text class="address">收货地址</text>
       
-       <text class="del">删除</text>
-       <text class="edit">编辑</text>
+       <!-- <text class="del">删除</text>
+       <text class="edit">编辑</text> -->
     </view>
   </view>
 </view>

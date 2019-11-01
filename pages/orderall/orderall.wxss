@@ -49,15 +49,17 @@
 .ddleft{ float: left;font-size: 22rpx; color: #666;margin-left: 22rpx;}
 .ddright{ float: right; font-size: 22rpx; color: #ff0000; margin-right: 30rpx;}
 .ddcon{ height: auto;overflow: hidden; margin-top: 30rpx;}
-.conleft{ float: left;width: 100rpx; height: 100rpx; background: #333; margin-left: 30rpx;}
-.conright{ float: right; width: 590rpx;}
-.conrightBt{ color: #333; font-size: 26rpx;}
-.conrightGg{ height: auto;overflow: hidden; margin-top: 30rpx;}
-.ggleft{color: #666666; font-size: 20rpx; float: left;}
-.ggright{color: #666666; font-size: 20rpx; float: right; margin-right: 60rpx; }
-.money{ height: 37rpx; margin-top: 22rpx;}
-.money text{ font-size: 22rpx; color: #666666; float:  left;height: 37rpx; line-height: 37rpx; margin-left: 30rpx;}
-.fkbtn{ float: right; width: 117rpx; height: 37rpx; line-height: 37rpx; background: #E67200; color: #fff; font-size: 22rpx; text-align: center; margin-right: 30rpx;}
+.conleft{ float: left;width: 220rpx; height: 220rpx; background: #333; margin-left: 30rpx;}
+.conleft image{ width: 100%; height: 100%;}
+
+.conright{ float: right; width: 470rpx;}
+.conrightBt{ color: #333; font-size: 26rpx; height: 26rpx;line-height: 26rpx;}
+.conrightGg{ height: 26rpx;line-height: 26rpx; margin-top: 30rpx;}
+.ggleft{color: #666666; font-size: 26rpx; float: left;}
+.ggright{color: #666666; font-size: 26rpx; float: right; margin-right: 60rpx; }
+.money{ height: 70rpx; margin-top: 22rpx;}
+.money text{ font-size: 22rpx; color: #666666; float:  left;height: 70rpx; line-height: 70rpx; margin-left: 30rpx;}
+.fkbtn{ float: right; width: 173rpx; height: 70rpx; line-height: 70rpx; background: #E67200; color: #fff; font-size: 26rpx; text-align: center; margin-right: 30rpx; border-radius: 10rpx; }
 .qxbtn{font-size: 22rpx; color: #666666; float: right;height: 37rpx; line-height: 37rpx;margin-right: 30rpx;}
 .qrbtn{ background: #000;}
 .isbot{ height: 200rpx;}

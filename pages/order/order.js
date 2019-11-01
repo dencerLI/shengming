@@ -32,7 +32,7 @@ Component({
     goods: '',
     laican: '',
     isname: 'liang',
-    iscolor: "#Ff9703",
+    iscolor: "#ef5126",
     aa: '0',
     yfk:0,
     chaxun:'',
@@ -45,7 +45,8 @@ Component({
     orderme:'',
     zhi:'',
     zhi1: '',
-    appUrl: app.globalData.allUrl
+    appUrl: app.globalData.allUrl,
+    wo: 'none'
   },
   /**
    * 组件的方法列表
@@ -213,7 +214,7 @@ Component({
       } else {
         this.setData({
           isname: 'liang',
-          iscolor: "#Ff9703"
+          iscolor: "#ef5126"
         })
       }
 
@@ -325,10 +326,7 @@ Component({
       });
     },
     zhifu: function(mydata) {
-      wx.showLoading({
-        title: '支付跳转中...',
-        mask: true
-      });
+      
       var that = this;
       var ck1 = that.data.checked1;
       var ck2 = that.data.checked2;
@@ -444,8 +442,15 @@ Component({
       }
       console.log("应付款为：" + that.data.yfk + "积分抵扣" + that.data.jfdk + "优惠券抵扣" + that.data.yhqdk + "余额抵扣" + that.data.yedk)
       mydata.price = that.data.yfk*100;
+      if (that.data.yfk==0){
+        that.successme('', that.data.yfk, that.data.jfdk, that.data.yhqdk, that.data.yedk);
+      }else{
       // that.successme();
       // return;
+        wx.showLoading({
+          title: '支付跳转中...',
+          mask: true
+        });
       wx.request({
         url: app.globalData.allUrl + 'api/buys/buy',
         method: "POST", //指定请求方式，默认get
@@ -463,9 +468,7 @@ Component({
           console.log(hi)
           // return;
           that.setData({ orderme: hi.package.split("=")[1]})
-          if(that.data.yfk==0||that.data.yfk=='0'){//如果应付款金额为0那就直接进入订单
-            that.successme(hi.package.split("=")[1], that.data.yfk, that.data.jfdk, that.data.yhqdk, that.data.yedk);
-          }else{
+          
           wx.requestPayment({
             timeStamp: hi.timeStamp,
             nonceStr: hi.nonceStr,
@@ -494,13 +497,14 @@ Component({
               })
             }
           })
-          }
+          
         }
       });
+      }
     },
     successme:function(orderid,yfk,jfdk,yhqdk,yedk){
       var that = this;
-      console.log(orderid);
+      console.log(orderid + '---' + yfk + '---' + jfdk + '---' + yhqdk + '---' +yedk);
       var hk = that.data.laican;
       
         if (that.data.laican.ptype == 1 || that.data.laican.ptype == 2 || that.data.laican.ptype == 3 || that.data.laican.ptype == 9){
@@ -513,7 +517,7 @@ Component({
           
           var yodata = {
             'uid': wx.getStorageSync('uid'),
-            'phone': '15726675520',
+            'phone': '',
             'p_type': type1,
             'p_id': that.data.laican.id,
             'bag_id': '',
@@ -540,7 +544,7 @@ Component({
           }
           var yodata = {
             'uid': wx.getStorageSync('uid'),
-            'phone': '15726675520',
+            'phone': '',
             'p_type': type1,
             'p_id': that.data.laican.id,
             'bag_id': '',
@@ -560,10 +564,79 @@ Component({
             'price': that.data.yfk1
           }
         }
-      }else{
+        } else if (that.data.goods.p_type==7){
+          var yodata = {
+            'uid': wx.getStorageSync('uid'),
+            'phone': '',
+            'p_type': that.data.goods.p_type,
+            'p_id': that.data.laican.id,
+            'bag_id': '',
+            'bottle_id': that.data.laican.id,
+            'e_id': '',
+            'wx_order_id': orderid,
+            'cost_wx': yfk,
+            'cost_balance': yedk,
+            'cost_point': jfdk,
+            'cost_cash': yhqdk,
+            'address_id': that.data.addressid,
+            'point_type': that.data.chaxun.point_type,
+            'sold_num': hk.num,
+            'sold_soda_num': '',
+            'nums': hk.num,
+            'is_ticket': that.data.goods.ticket_type,
+            'price': that.data.yfk1
+          }
+          console.log(yodata)
+        } else if (that.data.goods.p_type == 6) {
+          var yodata = {
+            'uid': wx.getStorageSync('uid'),
+            'phone': '',
+            'p_type': that.data.goods.p_type,
+            'p_id': that.data.laican.id,
+            'bag_id': that.data.laican.id,
+            'bottle_id': '',
+            'e_id': '',
+            'wx_order_id': orderid,
+            'cost_wx': yfk,
+            'cost_balance': yedk,
+            'cost_point': jfdk,
+            'cost_cash': yhqdk,
+            'address_id': that.data.addressid,
+            'point_type': that.data.chaxun.point_type,
+            'sold_num': hk.num,
+            'sold_soda_num': '',
+            'nums': hk.num,
+            'is_ticket': that.data.goods.ticket_type,
+            'price': that.data.yfk1
+          }
+          console.log(yodata)
+        } else if (that.data.goods.p_type == 8) {
+          var yodata = {
+            'uid': wx.getStorageSync('uid'),
+            'phone': '',
+            'p_type': that.data.goods.p_type,
+            'p_id': that.data.laican.id,
+            'bag_id': '',
+            'bottle_id': '',
+            'e_id': that.data.laican.id,
+            'wx_order_id': orderid,
+            'cost_wx': yfk,
+            'cost_balance': yedk,
+            'cost_point': jfdk,
+            'cost_cash': yhqdk,
+            'address_id': that.data.addressid,
+            'point_type': that.data.chaxun.point_type,
+            'sold_num': hk.num,
+            'sold_soda_num': '',
+            'nums': hk.num,
+            'is_ticket': that.data.goods.ticket_type,
+            'price': that.data.yfk1
+          }
+          console.log(yodata)
+        }else{
       var yodata = {
         'uid': wx.getStorageSync('uid'),
-        'phone': '15726675520',
+        'phone': '',
         'p_type': that.data.goods.p_type,
         'p_id': that.data.laican.id,
         'bag_id': '',
@@ -576,7 +649,7 @@ Component({
         'cost_cash': yhqdk,
         'address_id': that.data.addressid,
         'point_type': that.data.chaxun.point_type,
-        'sold_num': '',
+        'sold_num': hk.num,
         'sold_soda_num': '',
         'nums': hk.num,
         'is_ticket': that.data.goods.ticket_type,
@@ -595,6 +668,7 @@ Component({
         success: function (res) {
           console.log(res.data)
           // var hi = JSON.parse(res.data);
+          that.setData({ wo: "none" })
           if (res.data == true){
           that.setData({
             noyes: "block"
@@ -602,6 +676,12 @@ Component({
           }else{
             that.setData({
               noyes: "none"
+            })
+            wx.showToast({
+              title: "操作失败！请阅读规则或重新尝试",
+              icon: 'none', //如果要纯文本，不要icon，将值设为'none'
+              mask: true,
+              duration: 5000
             })
           }
 
@@ -613,6 +693,11 @@ Component({
     payment: function(e) {
       var that = this;
       if (app.globalData.aid() == false) {
+        return;
+      }
+      if (e.currentTarget.dataset.kong == "none") {
+        that.setData({ wo: "block" })
+      } else {
         return;
       }
       console.log(e.currentTarget.dataset.name)
@@ -633,6 +718,7 @@ Component({
             mask: true,
             duration: 2000
           })
+          that.setData({ wo: "none" })
         }
       } else {
         wx.showToast({
@@ -642,6 +728,7 @@ Component({
           mask: true //是否有透明蒙层，默认为false 
 
         })
+        that.setData({ wo: "none" })
       }
       // this.setData({
       //   mou1: 'block'

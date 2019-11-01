@@ -41,7 +41,9 @@ Component({
         }
       });
     },gocash:function(){
-           this.setData({end:"block"})
+           this.setData({isno:"block"})
+    }, gotixian: function () {
+      this.setData({ end: "block", isno: "none" })
     },close: function () {
       this.setData({ end: "none" })
     },kong: function () {
@@ -65,7 +67,7 @@ Component({
       var isinput=that.data.isinput;
       var k=app.globalData.appnumber(isinput);
       console.log(k)
-      if (k == false || isinput<=0){
+      if (k == false || isinput < 2 || isinput > 100){
         wx.showToast({
           title: '提现金额错误',
           icon: 'none',
@@ -74,11 +76,12 @@ Component({
         })
         return;
       }
-      console.log({ 'uid': wx.getStorageSync('uid'), 'balance': isinput * 100 })
+      
+      console.log({ 'uid': wx.getStorageSync('uid'), 'balance': isinput * 0.85  * 100 })
       wx.request({
         url: app.globalData.allUrl + 'api/buys/pull_monney',
         method: "POST",//指定请求方式，默认get
-        data: { 'uid': wx.getStorageSync('uid'), 'balance': isinput * 100, 'openid': wx.getStorageSync('openid') },
+        data: { 'uid': wx.getStorageSync('uid'), 'balance': isinput * 0.85 * 100, 'openid': wx.getStorageSync('openid') },
         header: {
           //默认值'Content-Type': 'application/json'
           'content-type': 'application/x-www-form-urlencoded' //post

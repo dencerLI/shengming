@@ -53,6 +53,11 @@ Component({
         }
       });
     },
+    goindex:function(){
+      wx.switchTab({
+        url: '../index/index',
+      })
+    },
     shiy:function(){
       // app.globalData.aid();
       if (app.globalData.aid()==false){
@@ -85,8 +90,8 @@ Component({
           mask: true
         })
         setTimeout(function(){
-          wx.switchTab({
-            url: '../myindex/myindex'　　// 页面 B
+          wx.navigateTo({
+            url: '../myindex/myindex',
           })
         },2000)
         
@@ -104,14 +109,19 @@ Component({
           title: '领取中...',
           mask: true
         });
+        var hkl = {
+          "user_id": wx.getStorageSync('uid'),
+          "share_id": wx.getStorageSync('share_id'),
+          "location": that.data.longitude + "," + that.data.latitude
+        };
+        console.log(hkl)
       wx.request({
         url: app.globalData.allUrl + 'api/share/ca_use_ticket',
         method: "POST",//指定请求方式，默认get
         data: {
           "user_id": wx.getStorageSync('uid'),
           "share_id": wx.getStorageSync('share_id'),
-          "location": that.data.longitude + "," + that.data.latitude
-            
+          "location": that.data.longitude + "," + that.data.latitude   
         },
         header: {
           //默认值'Content-Type': 'application/json'
@@ -128,7 +138,17 @@ Component({
               mask: true
             })
             that.setData({ indis:'none'})
+            that.onShow();
           } else if (res.data.res == 0) {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none',
+              duration: 1500,
+              mask: true
+            })
+            that.setData({ indis: 'none' })
+            
+          }else{
             wx.showToast({
               title: res.data.msg,
               icon: 'none',

@@ -5,7 +5,11 @@ page{background-color: #F6F6F6;}
 .yanz{font-size: 30rpx; height: 30rpx; line-height: 30rpx;  text-align: center;  margin-top: 50rpx;}
 .yzts{font-size: 20rpx; height: 20rpx; line-height: 20rpx;  text-align: center;  margin-top: 40rpx; color: #999;}
 .iscon{width: 630rpx; height: 80rpx; margin: 0px auto; margin-top: 60rpx; background: #fff;}
-.iscon text{ float: left; width: 220rpx; margin-left: 30rpx; height: 80rpx; line-height: 80rpx; font-size: 26rpx; color: #999;}
-.iscon input{ font-size: 26rpx;color: #333;height: 80rpx; line-height: 80rpx;width: 380rpx;}
+.iscon1{width: 630rpx; height: 80rpx; margin: 0px auto; margin-top: 60rpx; background: #fff;}
+.iscon text{ float: left; width: 120rpx; margin-left: 30rpx; height: 80rpx; line-height: 80rpx; font-size: 26rpx; color: #999;}
+.iscon1 text{ float: left; width: 120rpx; margin-left: 30rpx; height: 80rpx; line-height: 80rpx; font-size: 26rpx; color: #999;}
+.iscon input{float: left;  font-size: 26rpx;color: #333;height: 80rpx; line-height: 80rpx;width: 380rpx;}
+.iscon1 input{float: left; font-size: 26rpx;color: #333;height: 80rpx; line-height: 80rpx;width: 280rpx;}
+.iscon1 .yzm{float: left; font-size: 26rpx;color: #333;height: 80rpx; line-height: 80rpx;width: 200rpx;}
 .placeclass{font-size: 26rpx;color: #999;}
 .bot{ position: absolute;bottom: 0; right: 0; width: 100%; height: 100rpx; color: #FEFEFE;font-size: 30rpx; text-align: center; line-height: 100rpx; background: #333;}

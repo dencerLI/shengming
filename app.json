@@ -1,13 +1,15 @@
 {
   "pages": [
+    
     "pages/index/index",
     "pages/myindex/myindex",
     "pages/call/call",
     "pages/Exhibition/Exhibition",
     "pages/Apply/Apply",
-    
     "pages/sweepcode1/sweepcode1",
     "pages/sweepcode/sweepcode",
+  
+    
     "pages/guanjia/guanjia",
     "pages/share/share",
     "pages/investment/investment",
@@ -35,15 +37,15 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#000",
+    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "生命之里",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#888888",
-    "selectedColor": "#fff",
-    "borderStyle": "white",
-    "backgroundColor": "#030000",
+    "color": "#333333",
+    "selectedColor": "#F91C65",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
     "list": [
       {
         "selectedIconPath": "images/shouye.png",

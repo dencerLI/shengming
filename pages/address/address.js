@@ -33,7 +33,8 @@ Component({
     second: 60,
     myonoff: 'on',
     jishiqi: '',
-    appUrl: app.globalData.allUrl
+    appUrl: app.globalData.allUrl,
+    focus:false
   },
 
   /**
@@ -228,7 +229,7 @@ Component({
       console.log(this.data.myname + '--' + this.data.myphone + '--' + this.data.myjie)
       if (this.data.myname != '' && this.data.myphone != '' && this.data.myjie != '' && this.data.myyzm != '') {
         this.setData({
-          iscolor: '#333',
+          iscolor: '#ef5126',
           onoff: 'on'
         })
       } else {
@@ -246,7 +247,7 @@ Component({
       console.log(this.data.myname + '--' + this.data.myphone + '--' + this.data.myjie)
       if (this.data.myname != '' && this.data.myphone != '' && this.data.myjie != '' && this.data.myyzm != '') {
         this.setData({
-          iscolor: '#333',
+          iscolor: '#ef5126',
           onoff: 'on'
         })
       } else {
@@ -264,7 +265,7 @@ Component({
       console.log(this.data.myname + '--' + this.data.myphone + '--' + this.data.myjie)
       if (this.data.myname != '' && this.data.myphone != '' && this.data.myjie != '' && this.data.myyzm != '') {
         this.setData({
-          iscolor: '#333',
+          iscolor: '#ef5126',
           onoff: 'on'
         })
       } else {
@@ -282,7 +283,7 @@ Component({
       console.log(this.data.myname + '--' + this.data.myphone + '--' + this.data.myjie)
       if (this.data.myname != '' && this.data.myphone != '' && this.data.myjie != '' && this.data.myyzm != '') {
         this.setData({
-          iscolor: '#333',
+          iscolor: '#ef5126',
           onoff: 'on'
         })
       } else {

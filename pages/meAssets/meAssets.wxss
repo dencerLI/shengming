@@ -10,7 +10,7 @@ page{background: #f9f3f3}
 .zcleft .quan{  width: 64rpx; height: 40rpx;}
 .zcleft text{ display: block; text-align: center; font-size: 26rpx; color: #333; margin-top: 10rpx;}
 .zcright{ float: right; margin-right: 30rpx; width: 414rpx; height: 140rpx;}
-.zcright .cha{ float: right; width:89rpx; height: 44rpx; line-height: 44rpx;border-radius: 2rpx; font-size: 22rpx; color: #fff; background: #000; text-align: center; margin-top: 48rpx; }
+.zcright .cha{ float: right; width:124rpx; height: 70rpx; line-height: 70rpx;border-radius: 10rpx; font-size: 26rpx; color: #fff; background: #ef5126; text-align: center; margin-top: 48rpx; }
 .zcright .yue{ float: left; font-size: 22rpx; color: #333; margin-top: 40rpx;}
 .yue .ti{ display: block;}
 .yue .yu{  display: block; margin-top: 18rpx;}

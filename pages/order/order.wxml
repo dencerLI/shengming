@@ -54,7 +54,7 @@
 
 <view class="fslist" wx:if="{{laican.ptype==1||laican.ptype==2||laican.ptype==3}}">
   <image class="wei" src="{{checked2==false?appUrl+'images/weixuan.png':appUrl+'images/wei1.png'}}"></image>
-  <text class="textme">积分抵扣</text>
+  <text class="textme">可用积分</text>
   <text class="istext1" wx:if="{{chaxun.point!=''&&chaxun.point!=null&&chaxun.point!=undefined}}">{{chaxun.point}}</text>
   <text class="istext1" wx:else>0</text>
  <label class="fr font checked-lable no" data-val="0" catchtap='checkedTap2'>
@@ -254,4 +254,4 @@
        </view> -->
    </view>
 </view>
-<view data-name="{{isname}}" class="bot" style="background:{{iscolor}}" bindtap="payment">确认支付</view>
+<view data-name="{{isname}}" data-kong="{{wo}}" class="bot"  style="background:{{iscolor}}" bindtap="payment">确认支付</view>

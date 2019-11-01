@@ -13,15 +13,15 @@
 </view> -->
  <map id="map" catchtap="gomap" longitude="{{longitude}}" latitude=" {{latitude}}" markers="{{markers}}" scale="13" show-location style="width: 100%; height: 100%; display:none;"></map>
 <view class="xtaost" style="display:{{yx}}">
-   <image class="guanbi" bindtap="guanbi" src="{{appUrl+'images/guanbi.png'}}"></image>
-   <image class="xrl" bindtap="guanjia" src="{{appUrl+'images/xrld.png'}}"></image>
+   <image class="guanbi" bindtap="guanbi" src="{{appUrl+'images/guanbi.png'+isupload}}"></image>
+   <image class="xrl" bindtap="guanjia" src="{{appUrl+'images/xrld.png'+isupload}}"></image>
 </view>
-<image class="libao" bindtap="guanjia" src="{{appUrl+'images/libao.png'}}"></image>
+<image class="libao" bindtap="guanjia" src="{{appUrl+'images/libao.png'+isupload}}"></image>
 <view class='sp-nav' style="height:{{height}};">
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
       <block wx:for="{{imgUrls}}">
         <swiper-item>
-          <image data-myindex="{{index}}" data-id="{{item.id}}" src="{{item.url}}" class="slide-image" catchtap="iscont" />
+          <image data-myindex="{{index}}" data-id="{{item.id}}" src="{{item.url+isupload}}" class="slide-image" catchtap="iscont" />
         </swiper-item>
       </block>
     </swiper>
@@ -33,31 +33,31 @@
     </view>
     <view class="bottom-fixed">
         <view class="botitem">
-           <view bindtap="fenxiang">
-              <image class="banyuan" src="{{appUrl+'images/liwu.png'}}"></image>
-               <image class="wenzi" src="{{appUrl+'images/lesong.png'}}"></image>
+           <view bindtap="fenxiang" style="border:1px solid #fe5f88;">
+              <image class="banyuan" src="{{appUrl+'images/liwu.png'+isupload}}"></image>
+               <image class="wenzi" src="{{appUrl+'images/lesong.png'+isupload}}"></image>
            </view>
         </view>
         <view class="botitem">
-            <view bindtap="dingshui">
-              <image class="banyuan" src="{{appUrl+'images/shandian.png'}}"></image>
-               <image class="wenzi" src="{{appUrl+'images/dingshui.png'}}"></image>
+            <view bindtap="dingshui" style="border:1px solid #f99e4c;">
+              <image class="banyuan" src="{{appUrl+'images/shandian.png'+isupload}}"></image>
+               <image class="wenzi" src="{{appUrl+'images/dingshui.png'+isupload}}"></image>
             </view>
         </view>
         <view class="botitem">
-          <view bindtap="sp">
-            <image class="banyuan" src="{{appUrl+'images/jinzi.png'}}"></image>
-            <image class="wenzi" src="{{appUrl+'images/shuipiao.png'}}"></image>
+          <view bindtap="sp" style="border:1px solid #4ec9fd;">
+            <image class="banyuan" src="{{appUrl+'images/jinzi.png'+isupload}}"></image>
+            <image class="wenzi" src="{{appUrl+'images/shuipiao.png'+isupload}}"></image>
           </view>
         </view>
     </view>
 </view>
 <view class="buider">
  <view class="buiderleft" data-id="{{iscont.id}}" bindtap="godetail1">
-    <image src="{{iscont.index_pic_url}}"></image>
+    <image src="{{iscont.index_pic_url+isupload}}"></image>
  </view>
  <view class="buiderright" data-id="{{iscont1.id}}" bindtap="godetail1">
-    <image src="{{iscont1.index_pic_url}}"></image>
+    <image src="{{iscont1.index_pic_url+isupload}}"></image>
  </view>
 </view>
 <view class="pushtitle">

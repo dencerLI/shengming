@@ -3,6 +3,32 @@ App({
   onLaunch: function () {
     // 展示本地存储能力
     var that = this;
+    const updateManager = wx.getUpdateManager();    // 获取更新管理器对象
+    updateManager.onCheckForUpdate(function (res) {
+      // console.log(res)    检测更新结果
+      if (res.hasUpdate) {
+        updateManager.onUpdateReady(function () {
+          wx.showModal({
+            title: '更新提示',
+            content: '新版本已经准备好，点击确定重新启动',
+            showCancel: false,
+            success: res => {
+              if (res.confirm) {
+                updateManager.applyUpdate();
+              }
+            }
+          })
+        })
+        updateManager.onUpdateFailed(function () {
+          wx.showModal({
+            title: '提示',
+            content: '检查到有新版本，但是下载失败，请检查网络设置',
+            showCancel: false
+          })
+        })
+      }
+    })
+    
     var logs = wx.getStorageSync('logs') || []
 
     
@@ -23,7 +49,8 @@ App({
             console.log(res)
             wx.setStorageSync('code', res.code);
             wx.request({
-              url: app.globalData.allUrl+'user/login/login',
+              url: 'http://47.105.112.194/user/login/login',
+              // url: 'https://onmylive.com/user/login/login',
               data: {
                 "code": res.code,
                 "openid":""
@@ -52,7 +79,21 @@ App({
                 //  }
 
                 //mYMaulTwPY1JBjbfyQ+dkA==
-                
+                that.globalData.employId = wx.getStorageSync('uid');
+                //由于这里是网络请求，可能会在 Page.onLoad 之后才返回
+                // 所以此处加入 callback 以防止这种情况
+                if (that.employIdCallback) {
+                  console.log(that.globalData.employId)
+                  that.employIdCallback(wx.getStorageSync('uid'));
+                }
+
+                that.globalData.op = wx.getStorageSync('openid');
+                //由于这里是网络请求，可能会在 Page.onLoad 之后才返回
+                // 所以此处加入 callback 以防止这种情况
+                if (that.opCallback) {
+                  console.log(that.globalData.op)
+                  that.opCallback(wx.getStorageSync('openid'));
+                }
               },
 
             })
@@ -87,7 +128,7 @@ App({
     aid:function(){
       if (wx.getStorageSync('uid') == "" || wx.getStorageSync('uid') == null || wx.getStorageSync('uid') == undefined) {
         wx.showToast({
-          title: '您还没有登录,马上为您跳转到登录页',
+          title: '您还没有授权,马上为您跳转到授权页',
           icon: 'none',
           duration: 1500,
           mask: true
@@ -112,6 +153,9 @@ App({
               }
 
         },
-    allUrl:'https://onmylive.com/'
+    allUrl:'http://47.105.112.194/',
+    // allUrl: 'https://onmylive.com/',
+    employId: '',
+    op:''
   }
 })

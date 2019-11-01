@@ -1,9 +1,9 @@
 <!--pages/water/water.wxml-->
 <view class="swiper-tab">
     <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">
-    <text>苏打水套餐</text>
+    <text>饮用水套餐</text>
     </view>
-    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab"> <text>功能水</text></view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab"> <text>功能水套餐</text></view>
     
   </view>
   <view class="incon" >
