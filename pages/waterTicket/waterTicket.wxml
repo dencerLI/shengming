@@ -1,28 +1,44 @@
 <!--pages/waterTicket/waterTicket.wxml-->
-
-<view class="tx">
+<view wx:if="{{isguan==0}}">
+<view class="tx" >
    <view class="txleft">
    <image src="{{appUrl+'uploads/images/ticket/ticket_hu.png'}}"></image>
      <text class="bt">可分享的水票</text>
-     <text class="jine" wx:if="{{shui.share_ticket.count!=''&&shui.share_ticket.count!=null&&shui.share_ticket.count!=undefined}}">{{shui.share_ticket.count}}</text>
-     <text class="jine" wx:else>0</text>
-     <view class="txbtn" bindtap="fenx">去分享</view>
+    
+     <view class="allcontent">
+       <view class="isflex">
+       <text class="tiname">袋装水</text>
+       </view>
+       <view class="isflex">
+        <text class="jine" wx:if="{{shui.share_ticket.count!=''&&shui.share_ticket.count!=null&&shui.share_ticket.count!=undefined}}">{{shui.share_ticket.count}}张</text>
+       <text class="jine" wx:else>0张</text>
+        </view>
+       <view class="isflex">
+       <view class="txbtn" bindtap="fenx">去分享</view>
+       </view>
+     </view>
+     <text class="tisi">该水票只可送出他人使用领水！本账号只可做分享。</text>
    </view>
    <view class="txright">
    <image src="{{appUrl+'uploads/images/share/rose.png'}}"></image>
-      <text class="bt">天然饮用水</text>
-     <text class="jine" wx:if="{{shui.user_ticket.count!=''&&shui.user_ticket.count!=null&&shui.user_ticket.count!=undefined}}">{{shui.user_ticket.count}}</text>
-     <text class="jine" wx:else>0</text>
-     <view class="txbtn" bindtap="shiy">去使用</view>
+      <text class="bt">可使用的水票</text>
+
+      <view class="allcontent">
+       <view class="isflex">
+         <text class="tiname">乐送水票</text>
+       </view>
+       <view class="isflex">
+        <text class="jine" wx:if="{{shui.user_ticket.count!=''&&shui.user_ticket.count!=null&&shui.user_ticket.count!=undefined}}">{{shui.user_ticket.count}}张</text>
+         <text class="jine" wx:else>0张</text>
+        </view>
+       <view class="isflex">
+        <view class="txbtn" bindtap="shiy">去使用</view>
+       </view>
+     </view>
+     <text class="tisi">该水票只可供本账户使用！可到生命之里共享水机扫码领水。</text>
    </view>
 </view>
-<!-- <view class="ke">
- <image src="{{appUrl+'uploads/images/ticket/ticket_yun.png'}}"></image>
-     <text class="bt" style="margin-top:60rpx;">可分享的水票</text>
-     <text class="jine" wx:if="{{shui.share_ticket.count!=''&&shui.share_ticket.count!=null&&shui.share_ticket.count!=undefined}}">{{shui.share_ticket.count}}</text>
-     <text class="jine" wx:else>0</text>
-     <view class="txbtn" bindtap="fenx">去分享</view>
-</view> -->
+
 <view class="newslist">
    <view class="news" wx:for="{{shui.share_relation}}">
        <view wx:if="{{item.type=='shared'}}">
@@ -35,9 +51,119 @@
          <text class="state" wx:elif="{{item.status==1}}">未领取</text>
        </view>
    </view>
-  
-   
 </view>
+
+</view>
+<!-- 下面是管家 -->
+<view wx:elif="{{isguan==3}}">
+<view class="tx" >
+   <view class="txleft">
+   <image src="{{appUrl+'uploads/images/ticket/ticket_hu.png'}}"></image>
+     <text class="bt">可分享的水票</text>
+    
+     <view class="allcontent">
+       <view class="isflex">
+       <text class="tiname">袋装水</text>
+       </view>
+       <view class="isflex">
+        <text class="jine" wx:if="{{shui.share_ticket.count!=''&&shui.share_ticket.count!=null&&shui.share_ticket.count!=undefined}}">{{shui.share_ticket.count}}张</text>
+       <text class="jine" wx:else>0张</text>
+        </view>
+       <view class="isflex">
+       <view class="txbtn" bindtap="fenx">去分享</view>
+       </view>
+     </view>
+     <text class="tisi">该水票只可送出他人使用领水！本账号只可做分享。</text>
+   </view>
+   <view class="txright">
+   <image src="{{appUrl+'uploads/images/share/rose.png'}}"></image>
+      <text class="bt">可使用的水票</text>
+
+      <view class="allcontent">
+       <view class="isflex">
+         <text class="tiname1">乐送水票</text>
+         <text class="tiname1">云送水票</text>
+       </view>
+       <view class="isflex">
+        <text class="jine1" wx:if="{{shui.share_ticket.share.count!=''&&shui.share_ticket.share.count!=null&&shui.share_ticket.share.count!=undefined}}">{{shui.share_ticket.share.count}}张</text>
+         <text class="jine1" wx:else>0张</text>
+
+         <text class="jine1" wx:if="{{shui.share_ticket.yun.count!=''&&shui.share_ticket.yun.count!=null&&shui.share_ticket.yun.count!=undefined}}">{{shui.share_ticket.yun.count}}张</text>
+         <text class="jine1" wx:else>0张</text>
+        </view>
+       <view class="isflex">
+        <view class="txbtn" bindtap="shiy">去使用</view>
+       </view>
+     </view>
+     <text class="tisi">该水票只可供本账户使用！可到生命之里共享水机扫码领水。</text>
+   </view>
+</view>
+<view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">
+    <text>乐送水票</text>
+    </view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab"> <text>云送水票</text></view>
+    
+  </view>
+  <view class="incon" >
+<view class = "{{currentTab == 0 ? 'show':'hidden'}}" >
+    <scroll-view>
+        <view class="newslist">
+   <view class="news" wx:for="{{shui.share_relation}}">
+       <view wx:if="{{item.type=='shared'}}">
+       <view class="isdate">来自好友（<text>{{item.nickname.nickname}}</text>）的赠送</view>
+       <text class="state">+1</text>
+       </view>
+       <view wx:else>
+         <view class="isdate">您赠送给好友（<text>{{item.nickname.nickname}}</text>）一袋水</view>
+         <text class="state state1" wx:if="{{item.status==0}}">已领取</text>
+         <text class="state" wx:elif="{{item.status==1}}">未领取</text>
+       </view>
+   </view>
+</view>
+    </scroll-view>
+  </view>
+  <!--全部-->
+   <!--待付款-->
+  <view class = "{{currentTab == 1 ? 'show':'hidden'}}" >
+    <scroll-view>
+    <view class="newslist">
+   <view class="news" wx:for="{{shui.share_relation}}">
+       <view wx:if="{{item.type=='shared'}}">
+       <view class="isdate">来自好友（<text>{{item.nickname.nickname}}</text>）的赠送</view>
+       <text class="state">+1</text>
+       </view>
+       <view wx:else>
+         <view class="isdate">您赠送给好友（<text>{{item.nickname.nickname}}</text>）一袋水</view>
+         <text class="state state1" wx:if="{{item.status==0}}">已领取</text>
+         <text class="state" wx:elif="{{item.status==1}}">未领取</text>
+       </view>
+   </view>
+</view>
+    </scroll-view>
+  </view>
+  <!--待付款-->
+</view>
+
+
+</view>
+
+
+
+
+
+
+
+<view class="hei">
+
+</view>
+
+
+
+
+
+
+
 <view class="istaost" style="display:{{indis}}">
 
    <view class="taostCon">

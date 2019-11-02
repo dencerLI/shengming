@@ -22,6 +22,17 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    quan: function () {
+      if (app.globalData.aid() == false) {
+        return;
+      }
+      wx.navigateTo({
+        url: '../Coupon/Coupon',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    },
     gowallet:function(){
       if (app.globalData.aid() == false) {
         return;
@@ -39,6 +50,17 @@ Component({
       }
       wx.navigateTo({
         url: '../Interaction/Interaction',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    },
+    jifen: function () {
+      if (app.globalData.aid() == false) {
+        return;
+      }
+      wx.navigateTo({
+        url: '../integral/integral',
         success: function (res) { },
         fail: function (res) { },
         complete: function (res) { },

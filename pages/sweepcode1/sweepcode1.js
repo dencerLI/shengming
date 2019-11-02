@@ -65,7 +65,7 @@ Component({
         success: function (res) {
           console.log(res)
           // var hi = JSON.parse(res.data);
-          that.setData({ wo: "none" })
+          
           if (res.data.status== '0') {
             wx.showToast({
               title: res.data.suc,
@@ -161,6 +161,10 @@ Component({
       var that=this;
       if (e.currentTarget.dataset.kong == "none") {
          that.setData({ wo: "block" })
+       var kml=setInterval(function(){
+          that.setData({ wo: "none" })
+          clearInterval(kml)
+         },20000)
       } else {
           return;
       }
@@ -172,7 +176,7 @@ Component({
           icon: 'none',
           duration: 2000
         })
-        that.setData({ wo: "none" })
+       
       } else if (that.data.chaxun.phone=='1'){
         wx.showToast({
           title: '请先绑定手机',
@@ -180,7 +184,7 @@ Component({
           icon: 'none',
           duration: 2000
         })
-        that.setData({ wo: "block" })
+       
         wx.navigateTo({
           url: '../sweepcode/sweepcode',
         })
@@ -258,8 +262,31 @@ Component({
 
     }
     , checkedTap3: function (e) {
+      
       var that = this;
-      if (that.data.chaxun.money != '' && that.data.chaxun.money != null && that.data.chaxun.money != undefined && that.data.yingfu1 != '' && that.data.yingfu1 != null && that.data.yingfu1 != undefined &&that.data.chaxun.money<that.data.yingfu1){
+      console.log(that.data.chaxun.money);
+      console.log(that.data.yingfu1);
+      // console.log(that.data.chaxun.money);
+      if (that.data.chaxun.money != '' && that.data.chaxun.money != null && that.data.chaxun.money != undefined && that.data.yingfu1 != '' && that.data.yingfu1 != null && that.data.yingfu1 != undefined ){
+        
+      }else{
+        wx.showToast({
+          title: '金额异常！',
+          mask: true,
+          icon: 'none',
+          duration: 2000
+        })
+        that.setData({
+
+          checked3: false,
+
+        })
+        return;
+      }
+
+      if (that.data.chaxun.money >= that.data.yingfu1){
+
+      }else{
         wx.showToast({
           title: '余额不足抵扣哦！',
           mask: true,
@@ -267,9 +294,9 @@ Component({
           duration: 2000
         })
         that.setData({
-          
+
           checked3: false,
-         
+
         })
         return;
       }

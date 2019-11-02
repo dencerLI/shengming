@@ -26,13 +26,45 @@ Component({
       height: 50,
       isno:'no'
     }],
-    appUrl: app.globalData.allUrl
+    appUrl: app.globalData.allUrl,
+    isguan:0,
+    currentTab: 0,
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    guanjia:function(){
+      var that = this;
+      wx.request({
+        url: app.globalData.allUrl + 'api/tool/get_user_type',
+        method: "POST",//指定请求方式，默认get
+        data: { 'uid': wx.getStorageSync('uid')},
+        header: {
+          //默认值'Content-Type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded' //post
+        },
+        success: function (res) {
+          console.log(res.data)
+          
+          that.setData({
+            isguan: res.data.type
+          })
+        }
+      });
+    },
+    clickTab: function (e) {
+      var that = this;
+
+      if (that.data.currentTab === e.currentTarget.dataset.current) {
+        return false;
+      } else {
+        that.setData({
+          currentTab: e.currentTarget.dataset.current,
+        })
+      }
+    },
     towater:function(){
       console.log(wx.getStorageSync('uid'))
       // app.globalData.aid();
@@ -262,6 +294,7 @@ Component({
     onShow:function(){
       this.goshouquan();
       this.towater();
+      this.guanjia();
     },
     onReady:function(){
       

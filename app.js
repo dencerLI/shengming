@@ -49,8 +49,8 @@ App({
             console.log(res)
             wx.setStorageSync('code', res.code);
             wx.request({
-              url: 'http://47.105.112.194/user/login/login',
-              // url: 'https://onmylive.com/user/login/login',
+              // url: 'http://47.105.112.194/user/login/login',
+              url: 'https://onmylive.com/user/login/login',
               data: {
                 "code": res.code,
                 "openid":""
@@ -153,8 +153,8 @@ App({
               }
 
         },
-    allUrl:'http://47.105.112.194/',
-    // allUrl: 'https://onmylive.com/',
+    // allUrl:'http://47.105.112.194/',
+    allUrl: 'https://onmylive.com/',
     employId: '',
     op:''
   }

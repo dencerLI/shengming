@@ -1,9 +1,9 @@
 /* pages/waterTicket/waterTicket.wxss */
-.tx{ height: 296rpx; margin-top: 30rpx; 
-box-shadow:0px 10px 16px 0px rgba(4,0,0,0.11);}
-.txleft{ float: left; margin-left: 30rpx; width: 330rpx; height: 260rpx;
+.tx{ height: auto;overflow: hidden;padding: 30rpx;}
+.tx1{ height: auto;overflow: hidden;padding: 30rpx;}
+.txleft{ float: left;  width: 100%; height: 260rpx;
 border-radius:2px; position: relative;}
-.txright{ float: right; margin-right: 30rpx;  width: 330rpx; height: 260rpx;
+.txright{ float: right; margin-top: 30rpx;   width:100%; height: 260rpx;
 border-radius:2px; position: relative;}
 .txright image{ position: absolute; width: 100%; height: 100%; z-index: -1;}
 .txleft image{ position: absolute; width: 100%; height: 100%; z-index: -1; }
@@ -18,11 +18,9 @@ border-radius:2px; position: relative;}
 .state1{color: #999999;}
 .bt{font-size:26rpx; margin-top: 26rpx;
 font-weight:400; display: block; width: 100%; text-align: center; height: 26rpx; line-height: 26rpx;color: #FEFEFE;}
-.jine{font-size:30rpx;
-font-weight:400; display: block; width: 100%; text-align: center; height: 30rpx; line-height: 30rpx; margin-top: 30rpx; color: #FEFEFE;}
-.txbtn{ width: 124rpx; height: 70rpx; line-height: 70rpx; font-size: 26rpx; color: #333333; text-align: center; margin: 0px auto; margin-top: 30rpx;border-radius:2px; background: #ffffff;}
 
-.bot{ position: absolute;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #ef5126; color: #fff;font-size: 34rpx; text-align: center; line-height: 100rpx;}
+
+.bot{ position: fixed;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #ef5126; color: #fff;font-size: 34rpx; text-align: center; line-height: 100rpx;}
 .bot1{ position: absolute;bottom: 0; right: 0; width: 100%; height: 100rpx; background: #ef5126; color: #fff;font-size: 34rpx; text-align: center; line-height: 100rpx;}
 .istaost{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3);}
 .taostCon{width: 590rpx; height: 960rpx; position: absolute; top: 50%; left: 50%; margin-left: -295rpx; margin-top: -520rpx;box-shadow:0px 10px 16px 0px rgba(4,0,0,0.11);
@@ -33,3 +31,64 @@ border-radius: 2rpx;}
 .taostbtn{width: 270rpx; height: 70rpx; line-height: 70rpx; text-align: center; font-size: 26rpx; margin: 0px auto; background: rgb(255, 241, 241); color: #ef5126; margin-top: 40rpx; border-radius: 70rpx;box-shadow:0px 2px 6px 0px rgba(255,241,241,0.6) }
 .ke{ display: inline-block; width: 100%; height: 262rpx;  position: relative;}
 .ke image{ position: absolute; width: 100%; height: 100%; z-index: -1; }
+.tisi{display: block; text-align: center; font-size: 22rpx; color: #fff;}
+.allcontent{ height: 140rpx; width: 100%; display: flex;}
+.tx .tiname{  font-size: 26rpx; color: #fff; float: left; margin-left: 30rpx;height: 140rpx; line-height: 140rpx; }
+.tx .jine{font-size: 26rpx;
+font-weight:400;  text-align: center; height: 140rpx; line-height: 140rpx;  color: #FEFEFE;}
+.tx .txbtn{ width: 124rpx; height: 70rpx; line-height: 70rpx; font-size: 26rpx; color: #fff; text-align: center; 
+border-radius:2px; background: #EF5126; float: right;margin-right: 30rpx; margin-top: 35rpx;}
+.isflex{ flex: 1; text-align: center;}
+
+.tiname1{  font-size: 26rpx; color: #fff; float: left; margin-left: 30rpx;height: 60rpx; line-height: 60rpx; margin-top: 5rpx; }
+.jine1{font-size: 26rpx; display: block;
+font-weight:400;  text-align: center; height: 60rpx; line-height: 60rpx;  color: #FEFEFE;margin-top: 5rpx;}
+.hei{ height: 100rpx; line-height: 100rpx; width: 100%;}
+.swiper-tab{
+    width: 100%;
+    /* border-bottom: 2rpx solid #ccc; */
+    text-align: center;
+    height: 102rpx;
+    line-height: 102rpx;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    /* border-bottom: 1px solid #e5e5e5; */
+    font-size: 16px;
+     /* position: fixed;
+     top: 0;
+     left: 0; */
+      background: #fff;
+      /* z-index: 99; */
+}
+.weikaifang{
+     text-align: center;
+     font-size: 36rpx;
+     color: #333;
+}
+.swiper-tab-item{
+    width: 50%; 
+
+     font-size: 30rpx;
+     color: #333;
+}
+.swiper-tab-item text{  padding-bottom: 8rpx; }
+.active text{
+  
+    /* border-bottom: 4rpx solid #F65959; */
+    border-bottom: 2px solid #EF5126;
+}
+.juzhong{
+  margin: 0 auto;
+}
+.domain{
+  background-color: #fff;
+  height: 100%;
+  margin:0 10px;
+}
+.show{
+  display: block;
+}
+.hidden{
+  display: none;
+}

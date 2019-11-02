@@ -4,17 +4,30 @@
 
   <map id="myMap" style="width: 100%; height: 100%;" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" show-location  include-points="{{markers}}" bindmarkertap="toaddress"></map>
 </view>
+<view wx:if="{{isnote!=''&&isnote!=null&&isnote!=undefined&&isnote.length<=0}}">
 <view class="isbt">附近的呼叫点</view>
 <view class="calllist">
   <view class="call" wx:for="{{dian}}" data-lat="{{item.lat}}" data-lon="{{item.lon}}" data-id="{{item.id}}">
     <image src="{{appUrl+'images/address1.png'}}"></image>
     <view class="context">{{item.title}}</view>
-
     <view wx:if="{{item.times>=100}}" class="gobtn">去这</view>
     <view wx:else class="gobtn" data-id="{{item.id}}" bindtap="response" >响应</view>
   </view>
- 
 </view>
+</view>
+
+<view wx:else>
+<view class="isbt">附近的水机</view>
+<view class="calllist">
+  <view class="call" wx:for="{{isnote}}" data-lat="{{item.lat}}" data-lon="{{item.lon}}" data-eid="{{item.eid}}" data-sid="{{item.sid}}">
+    <image src="{{appUrl+'images/address1.png'}}"></image>
+    <view class="context">{{item.name}}</view>
+    <view class="gobtn" data-lat="{{item.lat}}" data-lon="{{item.lon}}" data-eid="{{item.eid}}" data-sid="{{item.sid}}" bindtap="godizhi">去这</view>
+    <!-- <view wx:else class="gobtn" data-id="{{item.id}}" bindtap="response" >响应</view> -->
+  </view>
+</view>
+</view>
+
 <view class="ts" data-k="{{dian.length}}" wx:if="{{dian.length<=0}}">附近的水机距离您太远？创建您附近的水机呼叫点！</view>
 <view class="ts" wx:else>一人创建、多人响应。造福一方百姓
   <image src="{{appUrl+'images/xiao.png'}}"></image>

@@ -21,6 +21,9 @@ Component({
   methods: {
      fx:function(){
        console.log("1111")
+       if (app.globalData.aid() == false) {
+         return;
+       }
        wx.navigateTo({
          url: '../share/share'
        })

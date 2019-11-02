@@ -24,7 +24,7 @@
            <text wx:if="{{mydata!=''&&mydata!=null&&mydata!=undefined}}">{{mydata.point}}</text>
            <text wx:else>{{mydata.point}}</text>
         </view>
-        <!-- <view class="cha">兑换</view> -->
+        <view class="cha" bindtap="jifen">查看</view>
     </view>
 </view>
 
@@ -53,7 +53,7 @@
            <text wx:if="{{mydata!=''&&mydata!=null&&mydata!=undefined}}">{{mydata.new_cash}}张</text>
            <text wx:else>0张</text>
         </view>
-        <!-- <view class="cha">查看</view> -->
+        <view class="cha" bindtap="quan">查看</view>
     </view>
 </view>
 <!-- <view class="bot">充值</view> -->

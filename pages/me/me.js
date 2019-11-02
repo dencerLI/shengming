@@ -29,7 +29,7 @@ Component({
     popConfirm: function () {
       wx.showModal({
         title: '建议电脑端手机验证登录',
-        content: 'http://47.105.112.194:8002/admin.html',
+        content: 'http://47.105.112.194:8005/admin.html',
         success: function (res) {
           if (res.confirm) {
             console.log('点击确认回调')

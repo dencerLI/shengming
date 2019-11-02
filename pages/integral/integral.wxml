@@ -1,0 +1,17 @@
+<!--pages/integral/integral.wxml-->
+
+<view class="newslist">
+   <view class="news" wx:for="{{shui}}">
+       <view>
+       <view class="isdate">{{item.order_name}}   积分{{item.cost_point}}</view>
+       <text class="state">{{item.time}}</text>
+       </view>
+       <!-- <view wx:else>
+         <view class="isdate">您赠送给好友（<text>{{item.nickname.nickname}}</text>）一袋水</view>
+         <text class="state state1" wx:if="{{item.status==0}}">已领取</text>
+         <text class="state" wx:elif="{{item.status==1}}">未领取</text>
+       </view> -->
+   </view>
+  
+   
+</view>

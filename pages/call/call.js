@@ -27,13 +27,20 @@ Component({
     dian: [],
     missblock:'none',
     appUrl: app.globalData.allUrl,
-    isupload: "?" + Math.random() / 9999
+    isupload: "?" + Math.random() / 9999,
+    isnote:''
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    godizhi:function(e){
+      wx.openLocation({
+        latitude: e.currentTarget.dataset.lat,
+        longitude: e.currentTarget.dataset.lon,
+      })
+    },
     map: function() {
       var that = this;
       wx.getLocation({
@@ -49,6 +56,7 @@ Component({
           })
           that.hujiao(res.latitude, res.longitude);
           that.mak(res.latitude, res.longitude);
+          that.mak1(res.latitude, res.longitude);
         }
       })
     },
@@ -184,6 +192,7 @@ Component({
       })
     },
     mak: function(a, b) {
+      
       var that = this;
       wx.request({
         url: app.globalData.allUrl + 'api/zone/all_pub_engine',
@@ -231,6 +240,27 @@ Component({
               }]
             })
           }
+
+        }
+      });
+    },
+    mak1: function (a, b) {
+      console.log(1)
+      var that = this;
+      wx.request({
+        url: app.globalData.allUrl + 'api/zone/nearby',
+        method: "POST", //指定请求方式，默认get
+        data: {
+          lat: a,
+          lon: b
+        },
+        header: {
+          //默认值'Content-Type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded' //post
+        },
+        success: function (res) {
+          console.log(res.data)
+          that.setData({ isnote: res.data})
 
         }
       });

@@ -25,7 +25,7 @@
      <!-- <view class="txbtn">提现</view> -->
    </view>
 </view>
-<view class="isalert">冻结账户如何提现：当冻结账户资金满54.00元可转到可提现余额进行提现。</view>
+<view class="isalert">当您的粉丝购买产品满足结算条件时，冻结账户自动转入余额。</view>
 
 <view class="newslist">
    <view class="news" wx:for="{{moneydata.list}}">

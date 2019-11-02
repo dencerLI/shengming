@@ -16,7 +16,7 @@
   <scroll-view scroll-x="true">
     <view class="item-content" wx:for="{{list}}" wx:for-item="item">
     <view class="itemleft">
-        <image src="{{item.imgurl}}"></image>
+        <image src="{{item.imgurl+isupload}}"></image>
         <view class="title">{{item.title}}</view>
     </view>
       <view class="itemright">
@@ -31,7 +31,7 @@
 </view>
 
 <view class="tiaofu top30" bindtap="gotem">
-  <image src="{{imglist3}}"></image>
+  <image src="{{imglist3+isupload}}"></image>
 </view>
 
 

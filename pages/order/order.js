@@ -40,7 +40,7 @@ Component({
     jfdk:0,
     yhqdk: 0,
     yedk: 0,
-    noyes:'none',
+    noyes:'block',
     addressid:'',
     orderme:'',
     zhi:'',
@@ -697,6 +697,10 @@ Component({
       }
       if (e.currentTarget.dataset.kong == "none") {
         that.setData({ wo: "block" })
+        var kml = setInterval(function () {
+          that.setData({ wo: "none" })
+          clearInterval(kml)
+        }, 20000)
       } else {
         return;
       }
@@ -718,7 +722,7 @@ Component({
             mask: true,
             duration: 2000
           })
-          that.setData({ wo: "none" })
+          
         }
       } else {
         wx.showToast({
@@ -728,7 +732,7 @@ Component({
           mask: true //是否有透明蒙层，默认为false 
 
         })
-        that.setData({ wo: "none" })
+        
       }
       // this.setData({
       //   mou1: 'block'
