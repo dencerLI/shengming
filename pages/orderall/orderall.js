@@ -52,7 +52,8 @@ Component({
       }
     } ,
     allorder:function(type){
-      console.log(type)
+      console.log(type);
+      console.log(wx.getStorageSync("uid"))
       var that = this;
       wx.request({
         url: app.globalData.allUrl + 'api/my/my_order',

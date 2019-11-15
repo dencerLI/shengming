@@ -10,19 +10,24 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    appUrl: app.globalData.allUrl
+    appUrl: app.globalData.allUrl,
+    ko:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onLoad: function (option) {
     console.log(wx.getStorageSync('yes'))
     // if (wx.getStorageSync('yes') == 'YES'){
     //   wx.switchTab({
     //     url: '../index/index',
     //   })
     // }
+    console.log(option)
+    if (option.ko != '' && option.ko != null && option.ko != undefined){
+    this.setData({ ko: option.ko})
+    }
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -55,8 +60,9 @@ Page({
    denglu: function () {
     var that = this;
     console.log(wx.getStorageSync('code'))
+     console.log(wx.getStorageSync('openid'))
     wx.request({
-      url: 'https://onmylive.com/user/login/login',
+      url: 'https://shengmingzhili.cn/user/login/login',
       // url: 'http://47.105.112.194/user/login/login',
       data: {
         "openid": wx.getStorageSync('openid'),
@@ -75,6 +81,9 @@ Page({
         wx.setStorageSync('uid', res.data.uid);
         console.log(res.data.uid)
 
+       
+       
+        if (that.data.ko != '' && that.data.ko != null && that.data.ko != undefined){
         let pages = getCurrentPages();
         let prevPage = pages[pages.length - 2];
         // prevPage.setData({
@@ -84,6 +93,11 @@ Page({
         wx.navigateBack({
           delta: 1,
         })
+        }else{
+          wx.navigateTo({
+            url: '../package/package'
+          })
+        }
       },
 
     })
@@ -129,7 +143,7 @@ Page({
       console.log(wx.getStorageSync('yes'));
       if (wx.getStorageSync('yes') == 'NO' || wx.getStorageSync('yes') == '') {
         wx.request({
-          url: 'https://onmylive.com/api/user/add_user',
+          url: 'https://shengmingzhili.cn/api/user/add_user',
           // url:'http://47.105.112.194/api/user/add_user',
           data: {
             "openid": wx.getStorageSync('openid'),
@@ -154,11 +168,13 @@ Page({
                 duration: 5000,
                 mask: true
               })
+
               // that.setData({
               //   userInfo: e.detail.userInfo,
               //   hasUserInfo: true
               // })
               that.denglu();
+              
 
             }
             //mYMaulTwPY1JBjbfyQ+dkA==
@@ -174,7 +190,7 @@ Page({
         })
       } else {
         console.log('11');
-        that.onShow();
+        that.onLoad();
       }
 
     } else {

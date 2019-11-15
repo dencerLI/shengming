@@ -11,6 +11,9 @@
     <text class="user-motto">{{motto}}</text>
   </view>
 </view> -->
+<!-- <button bindtap="saoma" style=" width:100%; height:300rpx;">扫码</button> -->
+<view id="index">
+<view class="sc1">
  <map id="map" catchtap="gomap" longitude="{{longitude}}" latitude=" {{latitude}}" markers="{{markers}}" scale="13" show-location style="width: 100%; height: 100%; display:none;"></map>
 <view class="xtaost" style="display:{{yx}}">
    <image class="guanbi" bindtap="guanbi" src="{{appUrl+'images/guanbi.png'+isupload}}"></image>
@@ -31,7 +34,7 @@
         <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view> 
       </block> 
     </view>
-    <view class="bottom-fixed">
+    <view class="{{isfixed}}">
         <view class="botitem">
            <view bindtap="fenxiang" style="border:1px solid #fe5f88;">
               <image class="banyuan" src="{{appUrl+'images/liwu.png'+isupload}}"></image>
@@ -51,6 +54,11 @@
           </view>
         </view>
     </view>
+</view>
+</view>
+<view class="sc2">
+<view class="pushtitle" style="border-top:0px;">
+    热销活动
 </view>
 <view class="buider">
  <view class="buiderleft" data-id="{{iscont.id}}" bindtap="godetail1">
@@ -79,4 +87,6 @@
 
 <view class="golist">
     <text>更多新品 敬请期待</text>
+</view>
+</view>
 </view>

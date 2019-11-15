@@ -45,7 +45,65 @@ Page({
       height: 50
     }],
     appUrl: app.globalData.allUrl,
-    isupload: "?" + Math.random() / 9999
+    isupload: "?" + Math.random() / 9999,
+    isfixed:"bottom-fixed",
+    scrollTop:0,
+    opindex:1
+  },saoma:function(){
+    wx.scanCode({ 
+      success: (res) => {
+        console.log(res.result) 
+      } 
+   })
+  },onPageScroll: function (e) {
+    let _this = this
+    console.log(e.scrollTop)
+    // if (e.scrollTop <= 0) {
+    //   e.scrollTop = 0;
+    // } else if (e.scrollTop > wx.getSystemInfoSync().windowHeight) {
+    //   e.scrollTop = wx.getSystemInfoSync().windowHeight;
+    // }
+    if (e.scrollTop > 0){
+      _this.setData({ isfixed:'bottom-fixed1'})
+    } else{
+       e.scrollTop = 0;
+      _this.setData({ isfixed: 'bottom-fixed' })
+    }
+    // if (e.scrollTop > _this.data.scrollTop || e.scrollTop == wx.getSystemInfoSync().windowHeight) {
+    //   console.log('向下滚动');
+    //   if (e.scrollTop >= 135 && e.scrollTop < wx.getSystemInfoSync().windowHeight && _this.data.opindex==1){
+        
+    //     console.log(e.scrollTop);
+    //     _this.setData({opindex:2})
+    //     e.scrollTop = wx.getSystemInfoSync().windowHeight;
+    //     wx.pageScrollTo({
+    //       scrollTop: wx.getSystemInfoSync().windowHeight
+    //     })
+    //   }
+    // } else {
+    //   // console.log(_this.data.opindex);
+    //   console.log('向上滚动');
+    //   if (e.scrollTop >= 135&&e.scrollTop < wx.getSystemInfoSync().windowHeight  && _this.data.opindex == 2) {
+        
+    //     console.log(e.scrollTop);
+    //     _this.setData({ opindex: 1 })
+    //     e.scrollTop = 0;
+    //     wx.pageScrollTo({
+    //       scrollTop: 0
+    //     })
+    //   }
+    // }
+    // setTimeout(function () {
+    //   _this.setData({
+    //     scrollTop: e.scrollTop
+    //   })
+    // }, 0)
+    // wx.createSelectorQuery().select('#index').boundingClientRect(function (rect) {
+    //   console.log(e.scrollTop+'--'+rect.height)
+    //   if (e.scrollTop >= rect.height - 555) {
+    //     //已离底部一段距离，下面处理操作
+    //   }
+    // }).exec()
   }, map: function () {
     var that = this;
     wx.getLocation({

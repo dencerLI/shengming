@@ -1,15 +1,15 @@
 /* pages/content/content.wxss */
 .iscon{width: 100%; position: relative;}
 .iscon image{ width: 100%; display: block;}
-.leftbtn{ position: absolute; top: 898rpx;
+.leftbtn{ position: absolute; top: 1075rpx;
 height: 100rpx;
 width: 100rpx;
-left: 547rpx;
+left: 325rpx;
   }
-.rightbtn{ position: absolute; top:1256rpx;
+.rightbtn{ position: absolute; top:1726rpx;
 height: 100rpx;
 width: 100rpx;
-left: 547rpx;
+left: 325rpx;
  }
 .leftbtn1{ position: absolute; top: 2264rpx; height: 92rpx; width: 244rpx; left: 77rpx; background: #333;display: none; }
 .rightbtn1{ position: absolute; top: 2264rpx; height: 92rpx; width: 244rpx; right: 74rpx; background: #333; display: none;}

@@ -1,8 +1,8 @@
 <!--pages/content/content.wxml-->
 <view class="iscon" wx:for="{{imglist}}">
 <image src="{{item}}" mode="widthFix"></image>
-<view wx:if="{{myid==4}}" class="leftbtn" data-id="1" bindtap="gomai"></view>
-<view wx:if="{{myid==4}}" class="rightbtn" data-id="1" bindtap="gomai"></view>
+<view wx:if="{{myid==4}}" class="leftbtn" data-id="1" data-istype="699" bindtap="gomai"></view>
+<view wx:if="{{myid==4}}" class="rightbtn" data-id="1" data-istype="797" bindtap="gomai"></view>
 <!-- <view wx:if="{{myid==4}}" class="leftbtn1" data-id="1" bindtap="gomai"></view>
 <view wx:if="{{myid==4}}" class="rightbtn1" data-id="1" bindtap="gomai"></view> -->
 </view>

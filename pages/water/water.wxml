@@ -15,7 +15,7 @@
            </view>
            <view class="tcright">
               <text class="tcbt">{{item.name}}</text>
-              <text class="tcsl">数量：{{item.lable}}</text>
+              <text class="tcsl">{{item.label}}</text>
               
             <view class="cont" wx:if="{{item.normal_price>0}}">
              <text class="jian">¥{{item.price}}</text><text class="huo">活动价：¥{{item.price}}</text>

@@ -30,22 +30,21 @@
 
     <view class="cancon">
       <text class="canleft">商 品 名：{{alldata.name}}</text>
-      <text class="canright">规 格：5000毫升</text>
+      <text class="canright">规 格：{{alldata.rem}}</text>
     </view>
     <view class="cancon">
       <text class="canleft">生产厂家：{{alldata.producer}}</text>
-      <text class="canright">保质期：36个月</text>
+      <text class="canright">保质期：{{alldata.lifetimes}}</text>
     </view>
     <view class="cancon">
       <text class="canleft">生 产 地：{{alldata.place}}</text>
-      <text class="canright">类 型：{{alldata.rem}}</text>
+      <!-- <text class="canright">类 型：软包装饮用水</text> -->
     </view>
     <view class="cancon">
       <text class="canleft">标 签：{{alldata.label}}</text>
     </view>
     <view class="cancon1">
-      <text class="canleft">介      绍：取水源地在，这水怎么好怎么好，PH值为0.17，身体细胞
-能快速吸收</text>
+      <text class="canleft">介      绍：{{alldata.introduce}}</text>
     </view>
   </view>
   <view class="height30"></view>
@@ -70,8 +69,8 @@
         <view class="taoz" style="display:{{qie1}}">
           <view class="imbt">5000毫升</view>
           <view class="taotop">
-            <view class="leftbtn {{class1}}" data-zhi="{{endt[0].b_num}}" data-val="1" catchtap="shuiji">{{endt[0].name}}</view>
-            <view wx:if='{{alldata.p_type==1||alldata.p_type==2||alldata.p_type==3}}' class="rightbtn {{class2}}" data-zhi="{{endt[1].b_num}}" data-val="2" catchtap="shuiji">{{endt[1].name}}</view>
+            <view class="leftbtn {{class1}}" data-isid="{{endt[0].id}}" data-zhi="{{endt[0].b_num}}" data-val="1" catchtap="shuiji">{{endt[0].name}}</view>
+            <view wx:if='{{alldata.p_type==1||alldata.p_type==2||alldata.p_type==3}}' class="rightbtn {{class2}}" data-zhi="{{endt[1].b_num}}" data-isid="{{endt[1].id}}" data-val="2" catchtap="shuiji">{{endt[1].name}}</view>
           </view>
           <view class="taotop">
             <view class="leftbtn {{class3}}" data-zhi="天然水" data-val="3" catchtap="shuiji">天然水</view>

@@ -57,8 +57,8 @@ Component({
     },
     saveToPhone() {
       var that=this;
-      console.log(that.data.tpl[that.data.swiperIndex].pic_url)
-      var imgSrc = that.data.tpl[that.data.swiperIndex].pic_url
+      console.log(that.data.tpl[that.data.swiperIndex])
+      var imgSrc = that.data.tpl[that.data.swiperIndex]
       wx.downloadFile({
         url: imgSrc,
         success: function (res) {
@@ -105,14 +105,35 @@ Component({
         success: function (res) {
           console.log(res.data)
           that.setData({
-            tpl: res.data.tpl,
+            // tpl: res.data.tpl,
             medata: res.data.ticket
+          })
+        }
+      });
+    },
+    imgall2: function () {
+      var that = this;
+      console.log(wx.getStorageSync('uid'))
+      var uid = wx.getStorageSync('uid');
+      wx.request({
+        url: app.globalData.allUrl + 'api/tool/getshare',
+        method: "POST",//指定请求方式，默认get
+        data: { "uid": uid },
+        header: {
+          //默认值'Content-Type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded' //post
+        },
+        success: function (res) {
+          console.log(res)
+          that.setData({
+            tpl: res.data
           })
         }
       });
     },
     onLoad:function(){
       this.imgall();
+      this.imgall2();
       this.setData({
         height: wx.getSystemInfoSync().windowHeight + "px",
       

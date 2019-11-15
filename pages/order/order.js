@@ -40,7 +40,7 @@ Component({
     jfdk:0,
     yhqdk: 0,
     yedk: 0,
-    noyes:'block',
+    noyes:'none',
     addressid:'',
     orderme:'',
     zhi:'',
@@ -198,7 +198,7 @@ Component({
       })
     }, gowater: function () {
       wx.navigateTo({
-        url: '../call/call'　　// 页面 A
+        url: '../orderall/orderall'　　// 页面 A
       })
     },
     checkboxChange: function(e) {
@@ -491,7 +491,7 @@ Component({
             fail(res) {
               wx.hideLoading();
               wx.showToast({
-                title: '支付失败',
+                title: '支付失败,请再次购买',
                 icon: 'none',
                 duration: 2000
               })
@@ -509,7 +509,7 @@ Component({
       
         if (that.data.laican.ptype == 1 || that.data.laican.ptype == 2 || that.data.laican.ptype == 3 || that.data.laican.ptype == 9){
         if (hk.zhi1 =="天然水"){
-          if (hk.mval == 98) {
+          if (hk.mval == 1) {
             var type1 = 3;
           }else{
             var type1 = that.data.goods.p_type;
@@ -519,7 +519,7 @@ Component({
             'uid': wx.getStorageSync('uid'),
             'phone': '',
             'p_type': type1,
-            'p_id': that.data.laican.id,
+            'p_id': that.data.laican.tid,
             'bag_id': '',
             'bottle_id': '',
             'e_id': '',
@@ -537,7 +537,7 @@ Component({
             'price': that.data.yfk1
           }
         } else if (hk.zhi1 == "苏打水"){
-          if (hk.mval == 98) {
+          if (hk.mval == 1) {
             var type1 = 3;
           } else {
             var type1 = that.data.goods.p_type;
@@ -657,6 +657,7 @@ Component({
       }
       console.log(yodata)
       }
+      console.log(yodata)
       wx.request({
         url: app.globalData.allUrl + 'api/buys/suc_order',
         method: "POST", //指定请求方式，默认get
@@ -666,7 +667,7 @@ Component({
           'content-type': 'application/x-www-form-urlencoded' //post
         },
         success: function (res) {
-          console.log(res.data)
+          console.log(res)
           // var hi = JSON.parse(res.data);
           that.setData({ wo: "none" })
           if (res.data == true){
@@ -687,7 +688,7 @@ Component({
 
           // console.log(hi)
 
-        }
+        }, fail: function (res) { console.log(res)}
       });
     },
     payment: function(e) {
@@ -695,15 +696,15 @@ Component({
       if (app.globalData.aid() == false) {
         return;
       }
-      if (e.currentTarget.dataset.kong == "none") {
-        that.setData({ wo: "block" })
-        var kml = setInterval(function () {
-          that.setData({ wo: "none" })
-          clearInterval(kml)
-        }, 20000)
-      } else {
-        return;
-      }
+      // if (e.currentTarget.dataset.kong == "none") {
+      //   that.setData({ wo: "block" })
+      //   var kml = setInterval(function () {
+      //     that.setData({ wo: "none" })
+      //     clearInterval(kml)
+      //   }, 20000)
+      // } else {
+      //   return;
+      // }
       console.log(e.currentTarget.dataset.name)
       let name = e.currentTarget.dataset.name;
       if (name == "liang") { //去支付
@@ -762,19 +763,21 @@ Component({
       });
     },
     onLoad: function(op) {
-      console.log(op)
+      console.log(op.tid)
       let that = this;
       // that.addressselect(op);
       if (op.table != '' && op.table != null && op.table != undefined && op.table != "undefined"){
-        var xinop={"id":op.id,"num":op.num,"table":op.table,"userid":op.userid}
+        var xinop={"id":op.tid,"num":op.num,"table":op.table,"userid":op.userid}
+        console.log(xinop)
         that.setData({
           laican: op
         });
         that.addressselect(xinop);
       }else{
-        var xinop = { "id": op.id, "userid": op.userid }
+        var xinop = { "id": op.tid, "userid": op.userid }
+        console.log(xinop)
         that.setData({
-          laican: op,
+          laican: op
         });
         that.addressselect1(xinop);
       }

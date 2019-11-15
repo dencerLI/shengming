@@ -28,13 +28,32 @@ Component({
     missblock:'none',
     appUrl: app.globalData.allUrl,
     isupload: "?" + Math.random() / 9999,
-    isnote:''
+    isnote:'',
+    isnote1: '',
+    currentTab: 0,
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    clickTab: function (e) {
+      var that = this;
+      console.log(e.currentTarget.dataset.current)
+      if (that.data.currentTab === e.currentTarget.dataset.current) {
+        return false;
+      } else {
+        if (e.currentTarget.dataset.current==0){
+          that.map();
+        }
+        if (e.currentTarget.dataset.current == 1) {
+           that.map1();
+        }
+        that.setData({
+          currentTab: e.currentTarget.dataset.current,
+        })
+      }
+    },
     godizhi:function(e){
       wx.openLocation({
         latitude: e.currentTarget.dataset.lat,
@@ -57,6 +76,25 @@ Component({
           that.hujiao(res.latitude, res.longitude);
           that.mak(res.latitude, res.longitude);
           that.mak1(res.latitude, res.longitude);
+        }
+      })
+    },
+    map1: function () {
+      var that = this;
+      wx.getLocation({
+        type: "wgs84",
+        success: function (res) {
+          var latitude = res.latitude;
+          var longitude = res.longitude;
+          console.log(res);
+          that.setData({
+            latitude: res.latitude,
+            longitude: res.longitude
+
+          })
+          // that.hujiao(res.latitude, res.longitude);
+          that.qs(res.latitude, res.longitude);
+          that.qs1(res.latitude, res.longitude);
         }
       })
     },
@@ -244,6 +282,59 @@ Component({
         }
       });
     },
+    qs: function (a, b) {
+
+      var that = this;
+      wx.request({
+        url: app.globalData.allUrl + 'api/zone/all_pub_getwater',
+        method: "POST", //指定请求方式，默认get
+        data: {
+          lat: a,
+          lon: b
+        },
+        header: {
+          //默认值'Content-Type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded' //post
+        },
+        success: function (res) {
+          console.log(res.data)
+
+          if (res.data.length > 0) {
+
+            var hk = [];
+            for (var i = 0; i < res.data.length; i++) {
+              hk.push({
+                id: i,
+                eid: res.data[i].eid,
+                sid: res.data[i].sid,
+                latitude: res.data[i].lat,
+                longitude: res.data[i].lon,
+
+                callout: {
+                  content: res.data[i].name,
+                  padding: 10,
+                  display: 'ALWAYS',
+                  textAlign: 'center'
+                }
+              })
+
+            }
+            console.log(hk)
+            that.setData({
+              markers: hk
+            })
+          } else {
+            that.setData({
+              markers: [{
+                latitude: a,
+                longitude: b
+              }]
+            })
+          }
+
+        }
+      });
+    },
     mak1: function (a, b) {
       console.log(1)
       var that = this;
@@ -261,6 +352,27 @@ Component({
         success: function (res) {
           console.log(res.data)
           that.setData({ isnote: res.data})
+
+        }
+      });
+    },
+    qs1: function (a, b) {
+      console.log(1)
+      var that = this;
+      wx.request({
+        url: app.globalData.allUrl + 'api/zone/nearby_getwater',
+        method: "POST", //指定请求方式，默认get
+        data: {
+          lat: a,
+          lon: b
+        },
+        header: {
+          //默认值'Content-Type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded' //post
+        },
+        success: function (res) {
+          console.log(res.data)
+          that.setData({ isnote1: res.data })
 
         }
       });

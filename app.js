@@ -38,6 +38,7 @@ App({
     wx.checkSession({
       success() {
         //session_key 未过期，并且在本生命周期一直有效
+        console.log(wx.getStorageSync('code'))
       },
       fail() {
         // session_key 已经失效，需要重新执行登录流程
@@ -50,7 +51,7 @@ App({
             wx.setStorageSync('code', res.code);
             wx.request({
               // url: 'http://47.105.112.194/user/login/login',
-              url: 'https://onmylive.com/user/login/login',
+              url: 'https://shengmingzhili.cn/user/login/login',
               data: {
                 "code": res.code,
                 "openid":""
@@ -125,7 +126,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    aid:function(){
+    aid:function(d){
       if (wx.getStorageSync('uid') == "" || wx.getStorageSync('uid') == null || wx.getStorageSync('uid') == undefined) {
         wx.showToast({
           title: '您还没有授权,马上为您跳转到授权页',
@@ -135,7 +136,7 @@ App({
         })
         setTimeout(function () {
           wx.navigateTo({
-            url: '../myindex/myindex',
+            url: '../myindex/myindex?ko=' + d,
           })
         }, 2000)
         return false;
@@ -154,7 +155,7 @@ App({
 
         },
     // allUrl:'http://47.105.112.194/',
-    allUrl: 'https://onmylive.com/',
+    allUrl: 'https://shengmingzhili.cn/',
     employId: '',
     op:''
   }

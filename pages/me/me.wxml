@@ -35,7 +35,7 @@
     <image src="{{appUrl+'images/go2.png'}}"></image>
    </view>
 </view>
-<view class="sessionlist" bindtap="lingshui">
+<!-- <view class="sessionlist" bindtap="lingshui1">
    <view class="sessionleft">
    <image class="sp" src="{{appUrl+'images/sp.png'}}"></image>
    </view>
@@ -43,7 +43,7 @@
    <view class="btn">
     <image src="{{appUrl+'images/go2.png'}}"></image>
    </view>
-</view>
+</view> -->
 <!-- <view class="sessionlist">
     <view class="sessionleft"> 
    <image class="hy" src="{{appUrl+'images/hy.png'}}"></image>
@@ -64,5 +64,5 @@
    </view>
 </view> -->
 </view>
-<view class="bot" bindtap="popConfirm">管家管理后台链接</view>
-<text class="istext">点击按钮复制弹窗中的链接</text>
+<view wx:if="{{geren.type==2}}" class="bot" bindtap="popConfirm">管家管理后台链接</view>
+<text wx:if="{{geren.type==2}}" class="istext">点击按钮复制弹窗中的链接</text>

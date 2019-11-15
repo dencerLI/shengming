@@ -4,9 +4,9 @@ image{ width: 100%;}
    position: fixed;
    top: 955rpx; right: 20rpx;
    width: 80rpx;
-    
+    display: none;
 }
 .rightbtn image{ width: 80rpx; height: 88rpx;}
 .rightbtn text{display: block; width: 100%; text-align: center;font-size: 22rpx; color: #fff;}
 .mbtn{ height: auto;overflow: hidden; position:relative;}
-.fxbtn{ position: absolute; top: 1520rpx; right: 85rpx; width: 250rpx; height: 80rpx; }
+.fxbtn{ position: absolute; top: 1172rpx; right: 120rpx; width: 521rpx; height: 100rpx; }

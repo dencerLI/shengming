@@ -1,7 +1,8 @@
 <!--pages/guanjia/guanjia.wxml-->
 <!-- <image src="{{mydata.data.header.url}}" mode="widthFix"></image>
 <view class="shouyi">五大收益</view> -->
-
+<view class="iscont">
 <image wx:for="{{mydata.data.list}}" src="{{item.url}}" mode="widthFix"></image>
-
+<view class="isbtn" bindtap="goapp"></view>
+</view>
 <image class="xuan" src="{{appUrl+'images/chengwei.png'}}" bindtap="goapp"></image>

@@ -3,7 +3,9 @@
 <view class="newslist">
    <view class="news" wx:for="{{shui}}">
        <view>
-       <view class="isdate">{{item.order_name}}   积分{{item.cost_point}}</view>
+       <view class="isdate">{{item.order_name}}</view>
+       <view class="isdate1">{{item.cosh_point}}</view>
+      
        <text class="state">{{item.time}}</text>
        </view>
        <!-- <view wx:else>

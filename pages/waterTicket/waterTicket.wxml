@@ -7,7 +7,7 @@
     
      <view class="allcontent">
        <view class="isflex">
-       <text class="tiname">袋装水</text>
+       <text class="tiname">乐送水票</text>
        </view>
        <view class="isflex">
         <text class="jine" wx:if="{{shui.share_ticket.count!=''&&shui.share_ticket.count!=null&&shui.share_ticket.count!=undefined}}">{{shui.share_ticket.count}}张</text>
@@ -25,7 +25,7 @@
 
       <view class="allcontent">
        <view class="isflex">
-         <text class="tiname">乐送水票</text>
+         <text class="tiname">袋装水</text>
        </view>
        <view class="isflex">
         <text class="jine" wx:if="{{shui.user_ticket.count!=''&&shui.user_ticket.count!=null&&shui.user_ticket.count!=undefined}}">{{shui.user_ticket.count}}张</text>
@@ -42,11 +42,28 @@
 <view class="newslist">
    <view class="news" wx:for="{{shui.share_relation}}">
        <view wx:if="{{item.type=='shared'}}">
-       <view class="isdate">来自好友（<text>{{item.nickname.nickname}}</text>）的赠送</view>
+       <view class="isdate">来自好友（<text class="namess">{{item.nickname.nickname}}</text>）的赠送</view>
+       <view class="isdate1">{{item.time}}</view>
        <text class="state">+1</text>
        </view>
-       <view wx:else>
-         <view class="isdate">您赠送给好友（<text>{{item.nickname.nickname}}</text>）一袋水</view>
+       <view wx:elif="{{item.type=='orders'}}">
+       <view class="isdate"><text class="namess">{{item.nickname}}</text>获得</view>
+       <view class="isdate1">{{item.time}}</view>
+       <text class="state">{{item.num}}</text>
+       </view>
+       <view wx:elif="{{item.type=='used'}}">
+        <view class="isdate">在(<text class="namess">{{item.nickname}}</text>)使用水票</view>
+        <view class="isdate1">{{item.time}}</view>
+       <text class="state">{{item.num}}</text>
+       </view>
+       <view wx:elif="{{item.type=='get'}}">
+        <view class="isdate">来自（<text class="namess">{{item.nickname.nickname}}</text>）新人奖励</view>
+        <view class="isdate1">{{item.time}}</view>
+       <text class="state">{{item.num}}</text>
+       </view>
+       <view wx:elif="{{item.type=='shares'}}">
+         <view class="isdate">您赠送给好友（<text class="namess">{{item.nickname.nickname}}</text>）一袋水</view>
+         <view class="isdate1">{{item.time}}</view>
          <text class="state state1" wx:if="{{item.status==0}}">已领取</text>
          <text class="state" wx:elif="{{item.status==1}}">未领取</text>
        </view>

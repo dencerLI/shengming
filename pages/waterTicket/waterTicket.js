@@ -123,7 +123,7 @@ Component({
         })
         setTimeout(function(){
           wx.navigateTo({
-            url: '../myindex/myindex',
+            url: '../myindex/myindex?ko=1',
           })
         },2000)
         

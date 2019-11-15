@@ -55,3 +55,52 @@ font-size: 26rpx;
 .goright{ float: right; text-align: center; margin-right: 112rpx;}
 .goright image{ width: 88rpx; height: 58rpx; margin-top: 17rpx;}
 .goright text{ font-size: 26rpx; color: #F91C65; display: block; margin-top: 23rpx;}
+
+.swiper-tab{
+    width: 100%;
+    /* border-bottom: 2rpx solid #ccc; */
+    text-align: center;
+    height: 102rpx;
+    line-height: 102rpx;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    /* border-bottom: 1px solid #e5e5e5; */
+    font-size: 16px;
+     /* position: fixed;
+     top: 0;
+     left: 0; */
+      background: #fff;
+      /* z-index: 99; */
+}
+.weikaifang{
+     text-align: center;
+     font-size: 36rpx;
+     color: #333;
+}
+.swiper-tab-item{
+    width: 50%; 
+
+     font-size: 30rpx;
+     color: #333;
+}
+.swiper-tab-item text{  padding-bottom: 8rpx; }
+.active text{
+  
+    /* border-bottom: 4rpx solid #F65959; */
+    border-bottom: 2px solid #333;
+}
+.juzhong{
+  margin: 0 auto;
+}
+.domain{
+  background-color: #fff;
+  height: 100%;
+  margin:0 10px;
+}
+.show11{
+  display: block;
+}
+.hidden12{
+  display: none;
+}

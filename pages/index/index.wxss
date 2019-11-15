@@ -52,8 +52,43 @@ swiper image{ width: 100% !important; height:100% !important; }
   width: 14rpx; 
   background: #000000; 
 }
-.bottom-fixed{ width: 690rpx; height: 200rpx; border-top-left-radius: 50rpx;border-top-right-radius: 50rpx; background:rgba(255,255,255,0.85); position: absolute; bottom: 0; left: 50%; margin-left: -345rpx;  display:flex;
+.bottom-fixed{ width: 690rpx; height: 200rpx;border-top-left-radius: 50rpx;border-top-right-radius: 50rpx;  background:rgba(255,255,255,0.85); position: absolute; bottom: 0; left: 50%; margin-left: -345rpx;  display:flex;animation:mymove 1s;
+animation-timing-function:linear;
+
+/* Safari and Chrome */
+-webkit-animation:mymove 1s;
+-webkit-animation-timing-function:linear;
         text-align: center;}
+        .bottom-fixed1{ width: 100%; height: 200rpx; background:rgba(255,255,255,1); position: absolute; bottom: 0;left: 0; margin-left: 0rpx;  display:flex;animation:mymove1 1s;
+animation-timing-function:linear;
+
+/* Safari and Chrome */
+-webkit-animation:mymove1 1s;
+-webkit-animation-timing-function:linear;
+        text-align: center; border-bottom: 1px solid #e5e5e5; background: #fff1f1;}
+@keyframes mymove
+{
+from {border-top-left-radius: 0rpx;border-top-right-radius: 0rpx;width: 100%;left: 0; margin-left: 0rpx;}
+to {border-top-left-radius: 50rpx;border-top-right-radius: 50rpx;width: 690rpx;left: 50%; margin-left: -345rpx;}
+}
+
+@-webkit-keyframes mymove /*Safari and Chrome*/
+{
+from {border-top-left-radius: 0rpx;border-top-right-radius: 0rpx;width: 100%;left: 0; margin-left: 0rpx;}
+to {border-top-left-radius: 50rpx;border-top-right-radius: 50rpx;width: 690rpx;left: 50%; margin-left: -345rpx;}
+}
+
+@keyframes mymove1
+{
+from {border-top-left-radius: 50rpx;border-top-right-radius: 50rpx;width: 690rpx;left: 50%; margin-left: -345rpx; }
+to {border-top-left-radius: 0rpx;border-top-right-radius: 0rpx;width: 100%;left: 0; margin-left: 0rpx; }
+}
+
+@-webkit-keyframes mymove1 /*Safari and Chrome*/
+{
+from {border-top-left-radius: 50rpx;border-top-right-radius: 50rpx;width: 690rpx;left: 50%; margin-left: -345rpx; }
+to {border-top-left-radius: 0rpx;border-top-right-radius: 0rpx;width: 100%;left: 0; margin-left: 0rpx; }
+}
 .botitem{ flex: 1;}
 .botitem view{ width: 88rpx; border: 1px solid #333; border-radius: 88rpx; margin: 0px auto; margin-top: 15rpx; padding-bottom: 10rpx;}
 .botitem .banyuan{ width: 88rpx; height: 88rpx;}

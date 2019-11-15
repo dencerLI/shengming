@@ -35,7 +35,7 @@ Component({
         url: '../index/index'
       })
     },
-    successme: function (uid, p_type, price, bag_id, wx_order_id, cost_wx, cost_balance, ticket_type, engineid) {
+    successme: function (uid, p_type, price, bag_id, wx_order_id, cost_wx, cost_balance, ticket_type, engineid, pay_type) {
       var that = this;
       wx.hideLoading();
       // console.log(orderid);
@@ -48,14 +48,16 @@ Component({
           'wx_order_id': wx_order_id,
           'cost_wx': cost_wx,
           'cost_balance': cost_balance,
-          'ticket_type': ticket_type,
-          'engineid': engineid
+          // 'ticket_type': ticket_type,
+          'p_num': engineid,
+          'nums':1,
+          'pay_type': pay_type
           
         }
         console.log(yodata)
       // return;
       wx.request({
-        url: app.globalData.allUrl + 'api/buys/suc_engine_order',
+        url: app.globalData.allUrl + 'api/buy/pub_water_place',
         method: "POST", //指定请求方式，默认get
         data: yodata,
         header: {
@@ -145,7 +147,7 @@ Component({
                 //向后台传参
 
                 // that.successme(hi.package.split("=")[1], that.data.yingfu);
-                that.successme(wx.getStorageSync('uid'), 6, that.data.yingfu1, that.data.isdata.id, hi.package.split("=")[1], that.data.yingfu, '0', '5', that.data.sj)
+                that.successme(wx.getStorageSync('uid'), 6, that.data.yingfu1, that.data.isdata.id, hi.package.split("=")[1], that.data.yingfu, '0', '5', that.data.sj,'3')
                 //that.data.sj.m
               },
               fail(res) {
@@ -197,7 +199,7 @@ Component({
           url: '../sweepcode/sweepcode',
         })
       } else if (that.data.checked1 == true &&that.data.checked2 == false && that.data.checked3 == false){//执行水票抵扣
-        that.successme(wx.getStorageSync('uid'), '6', that.data.yingfu1, that.data.isdata.id, '', '0', '0', that.data.chaxun.type, that.data.sj)
+        that.successme(wx.getStorageSync('uid'), '6', that.data.yingfu1, that.data.isdata.id, '', '0', '0', that.data.chaxun.type, that.data.sj, '1')
       } else if (that.data.checked1 == false && that.data.checked2 == true && that.data.checked3 == false){//执行微信支付
         that.zhifu({
           'uid': wx.getStorageSync('uid'),
@@ -207,7 +209,7 @@ Component({
         })
       }else{//余额抵扣
         console.log(that.data.yingfu)
-        that.successme(wx.getStorageSync('uid'), '6', that.data.yingfu1, that.data.isdata.id, '', '0', that.data.yingfu1, that.data.chaxun.type, that.data.sj)
+        that.successme(wx.getStorageSync('uid'), '6', that.data.yingfu1, that.data.isdata.id, '', '0', that.data.yingfu1, that.data.chaxun.type, that.data.sj, '2')
       }
       
     },

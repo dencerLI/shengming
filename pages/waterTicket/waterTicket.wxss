@@ -12,7 +12,20 @@ border-radius:2px; position: relative;}
 }
 .newslist{ height: auto; overflow: hidden; margin-top: 30rpx; border-top: 1px solid #e5e5e5;}
 .news{ height: 120rpx; border-bottom: 1px solid #e5e5e5; line-height: 120rpx; box-sizing: border-box; font-size: 22rpx; color: #333;}
-.isdate{ float: left; width: 600rpx; margin-left: 30rpx;}
+.isdate{ float: left; width: 400rpx; margin-left: 30rpx;overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;}
+.isdate1{ float: left; width: 190rpx; margin-left: 10rpx;
+     overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;}
+    .namess{
+     /* display: inline-block; */
+      width: 150rpx;
+       overflow:hidden;
+       text-overflow:ellipsis;
+       white-space:nowrap;
+    }
 .money{ float: left;}
 .state{float: right; margin-right: 30rpx;}
 .state1{color: #999999;}

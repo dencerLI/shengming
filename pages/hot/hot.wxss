@@ -8,8 +8,8 @@
 .fgtname{height: 600rpx; width: 100%; margin-top: 30rpx;}
 .fgtname image{ height: 600rpx; width: 100%;}
 .statistics{ height: auto; overflow: hidden; border-top: 1px solid #e5e5e5; margin-top: 30rpx;}
-.statlist{ height: 200rpx; border-bottom: 1px solid #e5e5e5; box-sizing: border-box;}
-.statlist image{ width: 546rpx; height: 174rpx; margin: 13rpx 0 0 57rpx;}
+.statlist{ height: auto; overflow: hidden; }
+.statlist image{ width: 100%; }
 .golist{ height: 80rpx; line-height: 80rpx;}
 .gobtn{ float: right; font-size: 20rpx; color: #999; margin-right: 37rpx;}
 .gobtn image{ width: 12rpx; height: 20rpx; float: right; margin-top: 30rpx; margin-left: 8rpx;}

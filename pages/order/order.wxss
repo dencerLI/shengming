@@ -1,10 +1,12 @@
 /* pages/order/order.wxss */
 .addressgo{width: 100%; height: 120rpx; border-bottom: 1px solid #ccc;box-sizing: border-box;}
-.addressgo text{ float: left; font-size: 30rpx; color:#333;height: 120rpx; line-height: 120rpx; margin-left: 24rpx; }
+.addressgo text{ float: left; width: 500rpx; font-size: 30rpx; color:#333;height: 120rpx; line-height: 120rpx; margin-left: 24rpx;  overflow:hidden; 
+    text-overflow:ellipsis;
+    white-space:nowrap; }
 .addressgo .mark{ float: left; width: 34rpx; height: 34rpx; margin-top: 43rpx; margin-left: 30rpx;}
 .isgo{ float: right; width: 60rpx; height: 60rpx;margin-right: 10rpx; margin-top: 30rpx;}
 .contleft{ float: left; width: 246rpx; height: 260rpx;}
-.contleft image{width: 100%;height: 100%;}
+.contleft image{width: 220rpx;height: 220rpx; margin-top: 20rpx; margin-left: 26rpx;}
 .contright{ float: left; width: 504rpx; height: 260rpx;}
 .content{ border-bottom: 1px solid #ccc; box-sizing: border-box; height: auto; overflow: hidden;}
 .title{ font-size: 24rpx; color: #333;  margin-left: 12rpx; margin-top: 30rpx;}
@@ -146,12 +148,34 @@ align-items:center; font-size: 22rpx; color: #999; height: 35rpx; line-height: 3
 .showtitle{
    font-size: 34rpx; width: 100%; text-align: center; height: 34rpx; line-height: 34rpx; color: #333; margin-top: 42rpx;
 }
-.showimg{ height: auto; overflow: hidden; text-align: center; margin-top: 66rpx;}
-.showimg image{ width: 272rpx; height: 290rpx;}
+
+.showimg{ width: 100%; height: 582rpx;position: absolute; top: 0; left: 0;}
 .dd{ margin-top: 54rpx; height: auto; overflow: hidden;}
 .dd text{ margin-left: 105rpx; font-size: 22rpx; color: #666; margin-top: 30rpx; display: block; height: 22rpx; line-height: 22rpx;}
-.btnlist{ height: 55rpx; margin-top: 120rpx;}
-.qsbtn{ float: left; width: 154rpx; height: 55rpx; background: #333; color: #fff; font-size: 22rpx; text-align: center; line-height: 55rpx;margin-left: 140rpx;}
-.sybtn{ width: 154rpx; height: 55rpx; background: #fff; color: #333; font-size: 22rpx; text-align: center; line-height: 55rpx; border: 1px solid #333; box-sizing: border-box; float: right; margin-right: 140rpx;}
+/* .btnlist{ height: 55rpx; margin-top: 120rpx;} */
+.qsbtn{  width: 540rpx; height: 80rpx; background: #F91C65; color: #fff; font-size: 32rpx; text-align: center; line-height: 80rpx; margin: 0px auto; margin-top: 60rpx;border-radius: 40rpx;}
+.sybtn{ width: 540rpx; height: 80rpx; background: #fff; color: #F91C65; font-size: 32rpx; text-align: center; line-height: 76rpx; border: 2px solid #F91C65; box-sizing: border-box;  margin: 0px auto; margin-top: 60rpx;border-radius: 40rpx; }
 .hideimg{ height: 80rpx; text-align: center; margin-top: 110rpx; width: 100%;}
 .hideimg image{width: 73rpx; height: 80rpx;}
+.isfen{
+  width:100%;
+height:36rpx;
+font-size:36rpx;
+font-family:PingFang SC;
+font-weight:400;
+color:rgba(33,33,33,1);
+line-height:36rpx;
+ text-align: center;
+  margin-top: 530rpx;
+}
+.jiaoyi{font-size:28rpx;
+
+font-weight:400;
+color:rgba(255,255,255,1);
+ height: 28rpx;
+line-height:28rpx;
+opacity:0.5;
+position: absolute; top: 224rpx;
+width: 100%;
+ text-align: center;
+}

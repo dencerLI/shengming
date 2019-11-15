@@ -33,7 +33,9 @@ Component({
     mai:'hei',
     mval: 0,
     appUrl: app.globalData.allUrl,
-    isupload: "?" + Math.random() / 9999
+    isupload: "?" + Math.random() / 9999,
+    zuan:undefined,
+    tid:''
   },
 
   /**
@@ -49,7 +51,7 @@ Component({
       //  })
     },iskan:function(){
       wx.navigateTo({
-        url: '../content/content?id=3'
+        url: '../content/content?id=4'
         //  url: '../logs/logs'
       })
     }, goumai:function(e){
@@ -60,7 +62,7 @@ Component({
 
       if(val==0){
           // all.price = all.price + val;
-        that.setData({ mval: 98, mai: "hei1", yuan: all1+98})
+        that.setData({ mval: 1, mai: "hei1", yuan: all1+1})
       }else{
         that.setData({ mval: 0, mai: "hei", yuan: all1})
       }
@@ -95,6 +97,8 @@ Component({
              class2: 'hei',
              class3: heiha1,
              class4: heiha,
+            //  id: res.data.data[0].id,
+             tid: res.data.data[0].id
            })
          }
        });
@@ -102,6 +106,8 @@ Component({
     shuiji:function(e){
       let that=this;
       console.log(e.currentTarget.dataset.val)
+      console.log(e.currentTarget.dataset.isid)
+      that.setData({ tid: e.currentTarget.dataset.isid})
       let onbtn = e.currentTarget.dataset.val;
       let text = e.currentTarget.dataset.zhi;
       var isid = that.data.alldata.p_type;
@@ -169,9 +175,15 @@ Component({
       var zhi1 = that.data.zhi1;
       var mval = that.data.mval;
       var isval = that.data.yuan;
+      var tid = that.data.tid;
+      console.log(tid)
+      if (tid == undefined || tid == null || tid == ''){
+        tid=id;
+      }
       console.log(that.data)
+      console.log('../order/order?id=' + id + '&table=' + table + '&userid=' + uid + '&num=' + num + '&zhi=' + zhi + '&zhi1=' + zhi1 + '&ptype=' + that.data.alldata.p_type + '&mval=' + mval + '&isval=' + isval + '&tid=' + tid )
        wx.navigateTo({
-         url: '../order/order?id=' + id + '&table=' + table + '&userid=' + uid + '&num=' + num + '&zhi=' + zhi + '&zhi1=' + zhi1 + '&ptype=' + that.data.alldata.p_type + '&mval=' + mval + '&isval=' + isval ,
+         url: '../order/order?id=' + id + '&table=' + table + '&userid=' + uid + '&num=' + num + '&zhi=' + zhi + '&zhi1=' + zhi1 + '&ptype=' + that.data.alldata.p_type + '&mval=' + mval + '&isval=' + isval + '&tid=' + tid ,
        })
     },
     iscont: function (table,id) {
@@ -192,8 +204,23 @@ Component({
             yuan1: 0,
             id: res.data.data.id,
             table: res.data.data.table,
-            intlist: res.data.data
+            intlist: res.data.data,
+            // tid: res.data.data[0].id
           })
+          console.log(that.data.zuan)
+          var all = that.data.yuan;
+          var all1 = that.data.yuan1;
+          if (that.data.zuan == 699) {
+            that.setData({ dis: "block" });
+            that.setData({ mval: 0, mai: "hei", yuan: all1 })
+          }
+          if (that.data.zuan == 700) {
+            that.setData({ dis: "block" });
+            that.setData({ mval: 98, mai: "hei1", yuan: all1 + 98 })
+          }
+          if (that.data.zuan == undefined) {
+            // that.setData({ dis: "block" });
+          }
         }
       });
     }, iscont1: function (id) {
@@ -214,13 +241,27 @@ Component({
             yuan1: res.data.data.price,
             id: res.data.data.id,
             table: res.data.data.table,
-            intlist: res.data.data
+            intlist: res.data.data,
+            // tid: res.data.data[0].id
           })
           if (res.data.data.p_type == 1 || res.data.data.p_type == 2 || res.data.data.p_type == 3) {
             that.suda(1, 1)
           }
           if (res.data.data.p_type == 9) {
             that.suda(2, 1)
+          }
+          var all = that.data.yuan;
+          var all1 = that.data.yuan1;
+          if (that.data.zuan == 699) {
+            that.setData({ dis: "block" });
+            that.setData({ mval: 0, mai: "hei", yuan: all1 })
+          }
+          if (that.data.zuan == 700) {
+            that.setData({ dis: "block" });
+            that.setData({ mval: 1, mai: "hei1", yuan: all1 + 1 })
+          }
+          if (that.data.zuan == undefined) {
+            // that.setData({ dis: "block" });
           }
         }
       });
@@ -241,12 +282,13 @@ Component({
     },
     onLoad: function (options) {
       console.log(options.id);
-      console.log(options.nuu)
+      console.log(options.nuu);
+      console.log(options.zuan);
       let that = this;
       if(options.table==undefined){
-        that.setData({ id: options.id, nuu: options.nuu })
+        that.setData({ id: options.id, nuu: options.nuu, zuan: options.zuan})
       }else{
-        that.setData({ id: options.id, table: options.table})
+        that.setData({ id: options.id, table: options.table, zuan: options.zuan})
       }
       if (that.data.nuu != '' && that.data.nuu != null && that.data.nuu != undefined) {
         that.iscont1(that.data.id);
@@ -254,10 +296,8 @@ Component({
         that.iscont(that.data.table, that.data.id);
       }
     },
-    onShow: function () {
+    onShow: function(){
       let that = this;
-      
     }
-
   }
 })

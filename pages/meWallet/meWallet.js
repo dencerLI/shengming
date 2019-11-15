@@ -23,6 +23,37 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    yyue:function(){
+      var that = this;
+      wx.request({
+        url: app.globalData.allUrl + 'api/my/trun_balance ',
+        method: "POST",//指定请求方式，默认get
+        data: { 'uid': wx.getStorageSync('uid') },
+        header: {
+          //默认值'Content-Type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded' //post
+        },
+        success: function (res) {
+          console.log(res)
+          if(res.res=='0'){
+            wx.showToast({
+              title: '成功，'+res.msg,
+              icon: 'none',
+              duration: 5000,
+              mask: true
+            })
+            that.onShow();
+          }else{
+            wx.showToast({
+              title: '失败，' + res.msg,
+              icon: 'none',
+              duration: 5000,
+              mask: true
+            })
+          }
+        }
+      });
+    },
     iscon: function () {
       var that = this;
       wx.request({

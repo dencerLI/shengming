@@ -7,14 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [{n:1, title: "张建", shouru: 13338, imgurl:"https://onmylive.com/uploads/images/strward/headimg/head_1.png" },
-      { n: 2,title: "毛宇", shouru: 8962, imgurl: "https://onmylive.com/uploads/images/strward/headimg/head_2.png" },
-      { n: 3,title: "刘基", shouru: 7641, imgurl: "https://onmylive.com/uploads/images/strward/headimg/head_3.png" },
+    list: [{ n: 1, title: "张建", shouru: 13338, imgurl: app.globalData.allUrl +"uploads/images/strward/headimg/head_1.png" },
+      { n: 2, title: "毛宇", shouru: 8962, imgurl: app.globalData.allUrl + "uploads/images/strward/headimg/head_2.png" },
+      { n: 3, title: "刘基", shouru: 7641, imgurl: app.globalData.allUrl +"uploads/images/strward/headimg/head_3.png" },
        ],
-    imglist1:'https://onmylive.com/uploads/images/shequ/sq_3.png',
-    imglist2: 'https://onmylive.com/uploads/images/shequ/sq_4.png',
-    imglist3: 'https://onmylive.com/uploads/images/shequ/sq_1.png',
-    imglist4: 'https://onmylive.com/uploads/images/shequ/sq_2.png',
+    imglist1: app.globalData.allUrl +'uploads/images/shequ/sq_3.png',
+    imglist2: app.globalData.allUrl +'uploads/images/shequ/sq_4.png',
+    imglist3: app.globalData.allUrl +'uploads/images/shequ/sq_1.png',
+    imglist4: app.globalData.allUrl +'uploads/images/shequ/sq_2.png',
     longitude: 113.324520,
     latitude: 23.099994,
     markers: [{

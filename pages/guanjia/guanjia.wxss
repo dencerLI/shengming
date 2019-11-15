@@ -2,3 +2,5 @@
 image{ width: 100%;}
 .shouyi{ font-size: 34rpx; color: #333; text-align: center; width: 100%; margin-top: 60rpx;padding-bottom: 30rpx;}
 .xuan{ position: fixed; top: 50%; right: 0;width: 129rpx; height: 209rpx; box-shadow: 00px 0px 0px #333;}
+.iscont{ height: auto; overflow: hidden; position: relative;}
+.isbtn{ position: absolute; bottom: 145rpx; left: 247rpx; width: 270rpx; height: 70rpx;  }

@@ -52,6 +52,14 @@ Component({
         },
         success: function (res) {
           console.log(res.data)
+          if(res.data.status=='1'){
+            wx.showToast({
+              title: "请点击下方按钮添加地址",
+              icon: 'none', //如果要纯文本，不要icon，将值设为'none'
+              mask: true,
+              duration: 2000
+            })
+          }
           that.setData({
             addlist: res.data.data
            

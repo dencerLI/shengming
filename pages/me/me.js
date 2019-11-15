@@ -52,6 +52,10 @@ Component({
       wx.navigateTo({
         url: '../sweepcode1/sweepcode1',
       })
+    }, lingshui1: function () {
+      wx.navigateTo({
+        url: '../sweepcode2/sweepcode2',
+      })
     },
     xiugai: function () {
       wx.navigateTo({

@@ -9,21 +9,21 @@
 
 <view class="fgt">生命之里网络覆盖图</view>
 <view class="fgtname" >
-   <image src="{{appUrl+'images/rq/dt.png'}}"></image>
+   <image src="{{appUrl+'images/rq/dt.gif'}}"></image>
 </view>
 <view class="fgt">用户管家数据统计图</view>
 
 <view class="statistics" bindtap="shuju">
 
-  <view class="statlist">
+  <!-- <view class="statlist">
      <image src="{{appUrl+'images/rq/hb2.png'}}"></image>
-  </view>
+  </view> -->
   <view class="statlist">
-     <image src="{{appUrl+'images/rq/hb.png'}}"></image>
+     <image src="{{appUrl+'images/rq/hb.png'}}" mode="widthFix"></image>
   </view>
-  <view class="statlist">
+  <!-- <view class="statlist">
      <image src="{{appUrl+'images/rq/hb1.png'}}"></image>
-  </view>
+  </view> -->
 </view>
 
 <view class="golist">

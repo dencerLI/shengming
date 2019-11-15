@@ -237,18 +237,18 @@
 <view class="showtaost" style="display:{{noyes}}">
    <view class="showcon">
        <view class="showtitle">支付成功</view>
-       <view class="showimg">
-          <image src="{{appUrl+'images/zfcg.png'}}"></image>
-       </view>
-       <view class="dd">
+          <image class="showimg" src="{{appUrl+'images/zfcg.png'}}"></image>
+       <view class="jiaoyi">已支付¥{{yfk+yedk}}</view>
+       <view class="dd" style="display:none;">
         <text>订单编号：{{orderme}}</text>
         <text>交易金额：¥{{yfk+yedk}}</text>
         <text>交易方式：微信支付</text>
        </view>
-       <view class="btnlist">
-          <view class="qsbtn" bindtap="gowater">去取水</view>
+       <view class="isfen"></view>
+       <!-- <view class="btnlist"> -->
+          <view class="qsbtn" bindtap="gowater">查看订单</view>
            <view class="sybtn" bindtap="goindex">去首页</view>
-       </view>
+       <!-- </view> -->
        <!-- <view class="hideimg">
          <image src="https://onmylive.com/images/xia.png" bindtap="yinc"></image>
        </view> -->

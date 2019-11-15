@@ -38,6 +38,9 @@ Component({
         });
       },
       goapp:function(){
+        if (app.globalData.aid() == false) {
+          return;
+        }
           wx.navigateTo({
             url: '../Apply/Apply',
        })

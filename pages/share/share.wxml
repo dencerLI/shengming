@@ -3,7 +3,7 @@
 <swiper class='swiperClass' autoplay="{{autoplay}}" indicator-color="#a39f99" indicator-active-color="#f49641" indicator-dots="{{indicatorDots}}" interval="2000" duration="1000" previous-margin="120rpx" next-margin="120rpx" circular bindchange="bindchange" style='height: {{swiperHeight}}px'>
 <block wx:for="{{tpl}}" wx:key="{{index}}">
 <swiper-item>
-<image src="{{item.pic_url+isupload}}" class="slide-image {{swiperIndex == index ? 'active' : 'quiet'}}" mode='aspectFill'>
+<image src="{{item+isupload}}" class="slide-image {{swiperIndex == index ? 'active' : 'quiet'}}" mode='aspectFill'>
 </image>
 </swiper-item>
 </block>

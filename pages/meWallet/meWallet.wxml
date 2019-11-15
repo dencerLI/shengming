@@ -22,22 +22,18 @@
       <text class="bt">冻结账户资金</text>
      <text class="jine" wx:if="{{moneydata!=''&&moneydata!=null&&moneydata!=undefined}}">￥{{moneydata.ice_money}}</text>
      <text class="jine" wx:else>￥0</text>
-     <!-- <view class="txbtn">提现</view> -->
+     <view class="txbtn" bindtap="yyue">转到余额</view>
    </view>
 </view>
 <view class="isalert">当您的粉丝购买产品满足结算条件时，冻结账户自动转入余额。</view>
 
 <view class="newslist">
+    
    <view class="news" wx:for="{{moneydata.list}}">
        <text class="isdate">{{item.addtime}}</text>
        <text class="money">￥{{item.price}}</text>
-       <text class="state">{{item.title}}</text>
+       <text class="state">来自<text style="color:#ef5126;">{{item.nickname}}</text>{{item.title}}</text>
    </view>
-   <!-- <view class="news">
-       <text class="isdate">2019年8月20日充值</text>
-       <text class="money">￥100000</text>
-       <text class="state">已到账</text>
-   </view> -->
 </view>
 <view class="istaost" style="display:{{isno}}">
    <view class="taostCon">

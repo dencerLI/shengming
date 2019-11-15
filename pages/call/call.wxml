@@ -2,59 +2,89 @@
 <view class="ismap">
   <!-- <map id="map" longitude="{{longitude}}" latitude=" {{latitude}}" markers="{{markers}}" include-points="{{markers}}"  scale="13" show-location bindmarkertap="toaddress" style="width: 100%; height: 100%;" ></map> -->
 
-  <map id="myMap" style="width: 100%; height: 100%;" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" show-location  include-points="{{markers}}" bindmarkertap="toaddress"></map>
+  <map id="myMap" style="width: 100%; height: 100%;" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" show-location include-points="{{markers}}" bindmarkertap="toaddress"></map>
 </view>
-<view wx:if="{{isnote!=''&&isnote!=null&&isnote!=undefined&&isnote.length<=0}}">
-<view class="isbt">附近的呼叫点</view>
-<view class="calllist">
-  <view class="call" wx:for="{{dian}}" data-lat="{{item.lat}}" data-lon="{{item.lon}}" data-id="{{item.id}}">
-    <image src="{{appUrl+'images/address1.png'}}"></image>
-    <view class="context">{{item.title}}</view>
-    <view wx:if="{{item.times>=100}}" class="gobtn">去这</view>
-    <view wx:else class="gobtn" data-id="{{item.id}}" bindtap="response" >响应</view>
+<view class="swiper-tab">
+  <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">
+    <text wx:if="{{isnote!=''&&isnote!=null&&isnote!=undefined&&isnote.length<=0}}">附近呼叫点</text>
+    <text wx:else>附近的水机</text>
   </view>
-</view>
-</view>
-
-<view wx:else>
-<view class="isbt">附近的水机</view>
-<view class="calllist">
-  <view class="call" wx:for="{{isnote}}" data-lat="{{item.lat}}" data-lon="{{item.lon}}" data-eid="{{item.eid}}" data-sid="{{item.sid}}">
-    <image src="{{appUrl+'images/address1.png'}}"></image>
-    <view class="context">{{item.name}}</view>
-    <view class="gobtn" data-lat="{{item.lat}}" data-lon="{{item.lon}}" data-eid="{{item.eid}}" data-sid="{{item.sid}}" bindtap="godizhi">去这</view>
-    <!-- <view wx:else class="gobtn" data-id="{{item.id}}" bindtap="response" >响应</view> -->
+  <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">
+    <text>附近的取水点</text>
   </view>
-</view>
+
 </view>
 
-<view class="ts" data-k="{{dian.length}}" wx:if="{{dian.length<=0}}">附近的水机距离您太远？创建您附近的水机呼叫点！</view>
-<view class="ts" wx:else>一人创建、多人响应。造福一方百姓
-  <image src="{{appUrl+'images/xiao.png'}}"></image>
-</view>
-<!-- <view class="bot" wx:if="{{dian.length<=0}}" data-check="{{checked3}}" style="background:{{back}}" bindtap="applygo">创建呼叫点</view> -->
+  <view class="{{currentTab == 0 ? 'show11':'hidden12'}}">
+    <scroll-view>
+      <view wx:if="{{isnote!=''&&isnote!=null&&isnote!=undefined&&isnote.length<=0}}">
+        <!-- <view class="isbt">附近的呼叫点</view> -->
+        <view class="calllist">
+          <view class="call" wx:for="{{dian}}" data-lat="{{item.lat}}" data-lon="{{item.lon}}" data-id="{{item.id}}">
+            <image src="{{appUrl+'images/address1.png'}}"></image>
+            <view class="context">{{item.title}}</view>
+            <view wx:if="{{item.times>=100}}" class="gobtn">去这</view>
+            <view wx:else class="gobtn" data-id="{{item.id}}" bindtap="response">响应</view>
+          </view>
+        </view>
+      </view>
 
-<view class="alert" wx:if="{{dian.length<=0}}" style="display:{{missblock}}">
-  <view class="alertcon">
-    <view class="contop">
-      <image src="{{appUrl+'images/daxiao.png'+isupload}}"></image>
-    </view>
-    <view class="con">附近暂无人呼叫，您可创建呼叫点当您的呼叫点响应人数达到90人后我们将为该呼叫点安装水机。</view>
-    <view class="conbtn" bindtap="applygo">创建呼叫点</view>
-    <view class="wxts">温馨提示；创建成功后可邀请好友助力加速哦！</view>
+      <view wx:else>
+        <!-- <view class="isbt">附近的水机</view> -->
+        <view class="calllist">
+          <view class="call" wx:for="{{isnote}}" data-lat="{{item.lat}}" data-lon="{{item.lon}}" data-eid="{{item.eid}}" data-sid="{{item.sid}}">
+            <image src="{{appUrl+'images/address1.png'}}"></image>
+            <view class="context">{{item.name}}</view>
+            <view class="gobtn" data-lat="{{item.lat}}" data-lon="{{item.lon}}" data-eid="{{item.eid}}" data-sid="{{item.sid}}" bindtap="godizhi">去这</view>
+            <!-- <view wx:else class="gobtn" data-id="{{item.id}}" bindtap="response" >响应</view> -->
+          </view>
+        </view>
+      </view>
+
+      <view class="ts" data-k="{{dian.length}}" wx:if="{{dian.length<=0&&(isnote==''||isnote==null||isnote==undefined||isnote.length<=0)}}">附近的水机距离您太远？创建您附近的水机呼叫点！</view>
+      <view class="ts" wx:else>一人创建、多人响应。造福一方百姓
+        <image src="{{appUrl+'images/xiao.png'}}"></image>
+      </view>
+    </scroll-view>
   </view>
-</view>
+  <!--全部-->
+  <!--待付款-->
+  <view class="{{currentTab == 1 ? 'show11':'hidden12'}}">
+    <scroll-view>
+        <view class="calllist">
+          <view class="call" wx:for="{{isnote1}}" data-lat="{{item.lat}}" data-lon="{{item.lon}}" data-eid="{{item.eid}}" data-sid="{{item.sid}}">
+            <image src="{{appUrl+'images/address1.png'}}"></image>
+            <view class="context">{{item.name}}</view>
+            <view class="gobtn" data-lat="{{item.lat}}" data-lon="{{item.lon}}" data-eid="{{item.eid}}" data-sid="{{item.sid}}" bindtap="godizhi">去这</view>
+            <!-- <view wx:else class="gobtn" data-id="{{item.id}}" bindtap="response" >响应</view> -->
+          </view>
+        </view>
+    </scroll-view>
+  </view>
+
+      <!-- <view class="bot" wx:if="{{dian.length<=0}}" data-check="{{checked3}}" style="background:{{back}}" bindtap="applygo">创建呼叫点</view> -->
+
+      <view class="alert" wx:if="{{dian.length<=0&&(isnote==''||isnote==null||isnote==undefined||isnote.length<=0)}}" style="display:{{missblock}}">
+        <view class="alertcon">
+          <view class="contop">
+            <image src="{{appUrl+'images/daxiao.png'+isupload}}"></image>
+          </view>
+          <view class="con">附近暂无人呼叫，您可创建呼叫点当您的呼叫点响应人数达到90人后我们将为该呼叫点安装水机。</view>
+          <view class="conbtn" bindtap="applygo">创建呼叫点</view>
+          <view class="wxts">温馨提示；创建成功后可邀请好友助力加速哦！</view>
+        </view>
+      </view>
 
 
-<view class="show" style="display:{{innone}}">
-  <view class="showcon">
-    <view class="showtop">
-      <image src="{{appUrl+'images/chenggong.png'+isupload}}"></image>
+      <view class="show" style="display:{{innone}}">
+        <view class="showcon">
+          <view class="showtop">
+            <image src="{{appUrl+'images/chenggong.png'+isupload}}"></image>
 
-      <view class="showconts">呼叫成功</view>
-    </view>
+            <view class="showconts">呼叫成功</view>
+          </view>
 
-    <!-- <view class="showts">当前区域呼叫人数</view>
+          <!-- <view class="showts">当前区域呼叫人数</view>
     <view class="renshu">
       <image src="{{appUrl+'images/ren.png'}}"></image>
       <view>1人</view>
@@ -65,17 +95,17 @@
     </view>
     <view class="sl">100人</view> -->
 
-    <view class="ists">邀请好友助力可加快速度在您的呼叫点附近安装水机</view>
-    <view class="go">
-        <view class="goleft" bindtap="goindex">
-           <image src="{{appUrl+'images/goindex.png'+isupload}}"></image>
-           <text>返回首页</text>
+          <view class="ists">邀请好友助力可加快速度在您的呼叫点附近安装水机</view>
+          <view class="go">
+            <view class="goleft" bindtap="goindex">
+              <image src="{{appUrl+'images/goindex.png'+isupload}}"></image>
+              <text>返回首页</text>
+            </view>
+            <view class="goright" bindtap="goshare">
+              <image src="{{appUrl+'images/fenxiang2.png'+isupload}}"></image>
+              <text>邀请好友助力</text>
+            </view>
+          </view>
         </view>
-        <view class="goright" bindtap="goshare">
-           <image src="{{appUrl+'images/fenxiang2.png'+isupload}}"></image>
-           <text>邀请好友助力</text>
-        </view>
-    </view>
-  </view>
 
-</view>
+      </view>

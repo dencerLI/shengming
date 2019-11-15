@@ -54,9 +54,26 @@ Component({
     gomai:function(e){
       console.log(e.currentTarget.dataset.id)
       var id = e.currentTarget.dataset.id;
-      wx.navigateTo({
-        url: '../shopdetail/shopdetail?id=' + id + '&nuu=yes',
-      })
+      // wx.navigateTo({
+      //   url: '../shopdetail/shopdetail?id=' + id + '&nuu=yes',
+      // })
+      var uid = wx.getStorageSync('uid');
+      if (id==1) {
+        wx.navigateTo({
+          // url: '../shopdetail/shopdetail?id=' + id + '&nuu=yes&zuan=' + e.currentTarget.dataset.istype,
+          url: '../order/order?id=' + id + '&table=' + undefined + '&userid=' + uid + '&num=' + 1 + '&zhi=' + 15 + '&zhi1=天然水&ptype=' + 1 + '&mval=' + 0 + '&isval=' + 699 + '&tid=3'
+        })
+      } else if (id == 2){
+        wx.navigateTo({
+          // url: '../shopdetail/shopdetail?id=' + id + '&nuu=yes&zuan=' + e.currentTarget.dataset.istype,
+          url: '../order/order?id=' + id + '&table=' + undefined + '&userid=' + uid + '&num=' + 1 + '&zhi=' + 15 + '&zhi1=天然水&ptype=' + 9 + '&mval=' + 0 + '&isval=' + 99 + '&tid=5'
+        })
+      } else if (id == 3) {
+        wx.navigateTo({
+          // url: '../shopdetail/shopdetail?id=' + id + '&nuu=yes&zuan=' + e.currentTarget.dataset.istype,
+          url: '../order/order?id=' + id + '&table=' + undefined + '&userid=' + uid + '&num=' + 1 + '&zhi=' + 15 + '&zhi1=天然水&ptype=' + 1 + '&mval=' + 0 + '&isval=' + 699 + '&tid=4'
+        })
+      }
     },
     onLoad:function(){
       this.setData({

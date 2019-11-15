@@ -41,10 +41,20 @@ Component({
       });
     },gomai:function(e){
       console.log(e.currentTarget.dataset.id)
+      console.log(e.currentTarget.dataset.istype)
       let id = e.currentTarget.dataset.id;
+      var uid = wx.getStorageSync('uid');
+      if (e.currentTarget.dataset.istype==699){
       wx.navigateTo({
-        url: '../shopdetail/shopdetail?id=' + id + '&nuu=yes',
+        // url: '../shopdetail/shopdetail?id=' + id + '&nuu=yes&zuan=' + e.currentTarget.dataset.istype,
+        url: '../order/order?id=' + id + '&table=' + undefined + '&userid=' + uid + '&num=' + 1 + '&zhi=' + 15 + '&zhi1=天然水&ptype=' + 1 + '&mval=' + 0 + '&isval=' + 699 + '&tid=3'
       })
+      }else{
+        wx.navigateTo({
+          // url: '../shopdetail/shopdetail?id=' + id + '&nuu=yes&zuan=' + e.currentTarget.dataset.istype,
+          url: '../order/order?id=' + id + '&table=' + undefined + '&userid=' + uid + '&num=' + 1 + '&zhi=' + 15 + '&zhi1=天然水&ptype=' + 1 + '&mval=' + 1 + '&isval=' + 700 + '&tid=3'
+        })
+      }
     },
     onLoad: function (options) {
       console.log(options.id)
