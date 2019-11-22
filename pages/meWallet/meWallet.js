@@ -35,9 +35,9 @@ Component({
         },
         success: function (res) {
           console.log(res)
-          if(res.res=='0'){
+          if (res.data.res=='1'){
             wx.showToast({
-              title: '成功，'+res.msg,
+              title: '成功，' + res.data.msg,
               icon: 'none',
               duration: 5000,
               mask: true
@@ -45,7 +45,7 @@ Component({
             that.onShow();
           }else{
             wx.showToast({
-              title: '失败，' + res.msg,
+              title: '失败，' + res.data.msg,
               icon: 'none',
               duration: 5000,
               mask: true
@@ -108,11 +108,11 @@ Component({
         return;
       }
       
-      console.log({ 'uid': wx.getStorageSync('uid'), 'balance': isinput * 0.85  * 100 })
+      console.log({ 'uid': wx.getStorageSync('uid'), 'balance': isinput * 1 * 100 })
       wx.request({
         url: app.globalData.allUrl + 'api/buys/pull_monney',
         method: "POST",//指定请求方式，默认get
-        data: { 'uid': wx.getStorageSync('uid'), 'balance': isinput * 0.85 * 100, 'openid': wx.getStorageSync('openid') },
+        data: { 'uid': wx.getStorageSync('uid'), 'balance': isinput * 1 * 100, 'openid': wx.getStorageSync('openid') },
         header: {
           //默认值'Content-Type': 'application/json'
           'content-type': 'application/x-www-form-urlencoded' //post

@@ -35,6 +35,29 @@
     <image src="{{appUrl+'images/go2.png'}}"></image>
    </view>
 </view>
+
+<view class="sessionlist" bindtap="isbd">
+   <view class="sessionleft">
+   <image class="sp" src="{{appUrl+'images/sp.png'}}"></image>
+   </view>
+   <view class="name">绑定手机号</view>
+   <view class="btn">
+    <image src="{{appUrl+'images/go2.png'}}"></image>
+   </view>
+</view>
+
+<view class="cashAlert" bindtap="close" style="display:{{end}}">
+   <view class="cashcon" catchtap="kong">
+       <view class="myinput">
+      <input type="number" bindinput="isphone" value="{{phone}}"placeholder="输入手机号"></input>
+      </view>
+      <view class="myinput1">
+      <input type="text" placeholder="请输入验证码" value="{{yzm}}" placeholder="验证码"></input>
+      <view class="inbtn" bindtap="yzm">{{hyzm}}</view>
+      </view>
+      <view class="cashbtn" catchtap="applygo">提交</view>
+   </view>
+</view>
 <!-- <view class="sessionlist" bindtap="lingshui1">
    <view class="sessionleft">
    <image class="sp" src="{{appUrl+'images/sp.png'}}"></image>

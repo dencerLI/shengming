@@ -57,7 +57,7 @@ Page({
    })
   },onPageScroll: function (e) {
     let _this = this
-    console.log(e.scrollTop)
+    // console.log(e.scrollTop)
     // if (e.scrollTop <= 0) {
     //   e.scrollTop = 0;
     // } else if (e.scrollTop > wx.getSystemInfoSync().windowHeight) {
@@ -127,6 +127,7 @@ Page({
     })
   },
   shouquan: function (a, b) {
+    var that=this;
     //添加地址
     wx.showLoading({
       title: '上传地理位置中...'
@@ -134,7 +135,8 @@ Page({
     wx.request({
       url: app.globalData.allUrl + 'api/user/add_location',
       method: "POST",//指定请求方式，默认get
-      data: { "uid": wx.getStorageSync('uid'), "location": a + ',' + b },
+      data: { "openid": wx.getStorageSync('openid'), "location": a + ',' + b },
+      // data: { "openid": wx.getStorageSync('openid'), "location":'40.61476,109.875' },
       header: {
         //默认值'Content-Type': 'application/json'
         'content-type': 'application/x-www-form-urlencoded' //post
@@ -142,7 +144,7 @@ Page({
       success: function (res) {
         console.log(res.data)
         wx.hideLoading()
-
+        that.onLoad();
         // that.setData({
         //   addlist: res.data.data
         // })
@@ -225,7 +227,7 @@ Page({
     wx.request({
       url: app.globalData.allUrl + 'api/banner/index_left_active',
       method: "POST",//指定请求方式，默认get
-      data: '',
+      data: { "openid": wx.getStorageSync('openid')},
       header: {
         //默认值'Content-Type': 'application/json'
         'content-type': 'application/x-www-form-urlencoded' //post
@@ -243,7 +245,7 @@ Page({
     wx.request({
       url: app.globalData.allUrl + 'api/banner/index_right_active',
       method: "POST",//指定请求方式，默认get
-      data: '',
+      data: { "openid": wx.getStorageSync('openid')},
       header: {
         //默认值'Content-Type': 'application/json'
         'content-type': 'application/x-www-form-urlencoded' //post
@@ -256,49 +258,12 @@ Page({
       }
     });
   },
-  onLoad: function () {
-    //  this.getLocation();
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-    console.log(wx.getSystemInfoSync().windowHeight)
-    this.setData({
-      height: wx.getSystemInfoSync().windowHeight+"px",
-      width: wx.getSystemInfoSync().windowWidth
-    })
-  }, onShow: function () {
-
-    this.goshouquan();
-  },
   banner:function(){
     var that = this;
     wx.request({
       url: app.globalData.allUrl+'api/banner/banner',
       method: "POST",//指定请求方式，默认get
-      data: { num: 3 },
+      data: { num: 3, "openid": wx.getStorageSync('openid') },
       header: {
         //默认值'Content-Type': 'application/json'
         'content-type': 'application/x-www-form-urlencoded' //post
@@ -307,6 +272,11 @@ Page({
         console.log(res.data)
         that.setData({
           imgUrls:res.data.data
+        })
+        console.log(wx.getSystemInfoSync().windowHeight)
+        that.setData({
+          height: wx.getSystemInfoSync().windowHeight + "px",
+          width: wx.getSystemInfoSync().windowWidth
         })
       }
     });
@@ -325,7 +295,7 @@ Page({
     wx.request({
       url: app.globalData.allUrl + 'api/banner/index_goods_list',
       method: "POST",//指定请求方式，默认get
-      data:'' ,
+      data: { "openid": wx.getStorageSync('openid')},
       header: {
         //默认值'Content-Type': 'application/json'
         'content-type': 'application/x-www-form-urlencoded' //post
@@ -353,11 +323,40 @@ Page({
       hasUserInfo: true
     })
   },
-  onReady: function (){
+  onLoad: function (){
     this.banner();
     this.tslist();
     this.lesong();
     this.lesong1();
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
+    
+  },onShow:function(){
+    this.goshouquan();
   },
   godetail:function(e){
     console.log(e.currentTarget.dataset.id)

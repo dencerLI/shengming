@@ -179,7 +179,7 @@ Component({
               mask: true
             })
             that.setData({ indis: 'none' })
-            
+            that.onShow();
           }else{
             wx.showToast({
               title: res.data.msg,
@@ -188,6 +188,7 @@ Component({
               mask: true
             })
             that.setData({ indis: 'none' })
+            that.onShow();
           }
         
         }

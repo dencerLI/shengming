@@ -1,0 +1,2 @@
+/* pages/note/note.wxss */
+.isbtn{ width: 690rpx; height: 70rpx; line-height: 70rpx; text-align: center; color: #fff; font-size: 34rpx; background: #FF6406; margin: 0 auto; margin-top: 40%;}

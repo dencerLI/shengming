@@ -38,7 +38,7 @@ Component({
       wx.request({
         url: app.globalData.allUrl + 'api/banner/gets_active',
         method: "POST",//指定请求方式，默认get
-        data: {"price":k},
+        data: { "price": k, "openid": wx.getStorageSync('openid')},
         header: {
           //默认值'Content-Type': 'application/json'
           'content-type': 'application/x-www-form-urlencoded' //post
@@ -66,12 +66,23 @@ Component({
       } else if (id == 2){
         wx.navigateTo({
           // url: '../shopdetail/shopdetail?id=' + id + '&nuu=yes&zuan=' + e.currentTarget.dataset.istype,
-          url: '../order/order?id=' + id + '&table=' + undefined + '&userid=' + uid + '&num=' + 1 + '&zhi=' + 15 + '&zhi1=天然水&ptype=' + 9 + '&mval=' + 0 + '&isval=' + 99 + '&tid=5'
+          url: '../order/order?id=' + id + '&table=' + undefined + '&userid=' + uid + '&num=' + 1 + '&zhi=' + 5 + '&zhi1=天然水&ptype=' + 9 + '&mval=' + 0 + '&isval=' + 99 + '&tid=5'
         })
       } else if (id == 3) {
         wx.navigateTo({
           // url: '../shopdetail/shopdetail?id=' + id + '&nuu=yes&zuan=' + e.currentTarget.dataset.istype,
-          url: '../order/order?id=' + id + '&table=' + undefined + '&userid=' + uid + '&num=' + 1 + '&zhi=' + 15 + '&zhi1=天然水&ptype=' + 1 + '&mval=' + 0 + '&isval=' + 699 + '&tid=4'
+          url: '../order/order?id=' + id + '&table=' + undefined + '&userid=' + uid + '&num=' + 1 + '&zhi=' + 50 + '&zhi1=天然水&ptype=' + 1 + '&mval=' + 0 + '&isval=' + 699 + '&tid=4'
+        })
+      } else if (id == 4) {
+        wx.navigateTo({
+          // url: '../shopdetail/shopdetail?id=' + id + '&nuu=yes&zuan=' + e.currentTarget.dataset.istype,
+          url: '../order/order?id=' + id + '&table=' + undefined + '&userid=' + uid + '&num=' + 1 + '&zhi=' + 100 + '&zhi1=天然水&ptype=' + 10 + '&mval=' + 0 + '&isval=' + 1399 + '&tid=6'
+        })
+      }
+      else if (id == 5) {
+        wx.navigateTo({
+          // url: '../shopdetail/shopdetail?id=' + id + '&nuu=yes&zuan=' + e.currentTarget.dataset.istype,
+          url: '../order/order?id=' + id + '&table=' + undefined + '&userid=' + uid + '&num=' + 1 + '&zhi=' + 30 + '&zhi1=天然水&ptype=' + 11 + '&mval=' + 0 + '&isval=' + 2860 + '&tid=7'
         })
       }
     },

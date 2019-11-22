@@ -381,9 +381,11 @@ Component({
         }
       });
     }, onLoad: function (options){
-      var scene = decodeURIComponent(options.q)
-      console.log(scene.split('?')[1].split("x")[1].split("&")[0])
-      this.setData({ sj: scene.split('?')[1].split("x")[1].split("&")[0]})
+      console.log(options)
+      var scene = decodeURIComponent(options.scene)
+      console.log(scene)
+      console.log(scene.split('=')[1])
+      this.setData({ sj: scene.split('=')[1]})
      
     },
     onShow:function(){

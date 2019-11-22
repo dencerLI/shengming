@@ -22,3 +22,13 @@
 .shouquan{}
 .bot{ width: 690rpx; margin: 0px auto; height: 100rpx;font-size: 30rpx; text-align: center; line-height: 100rpx; background: #000; color: #fff; margin-top: 30rpx;}
 .istext{ display: block; text-align: center; font-size: 26rpx; color: #F91C65; margin-top:30rpx;}
+.inalert{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 99;}
+.cashAlert{ position: fixed; top: 0; left: 0; background: rgba(0, 0, 0, 0.5); width: 100%; height: 100%;}
+.cashcon{ width: 600rpx; height: 350rpx; position: absolute; top: 50%; left: 50%; margin-top: -125rpx; margin-left: -300rpx; background: #fff; border-radius: 10rpx;}
+.myinput{width: 500rpx; height: 60rpx;font-size: 22rpx; color: #333; margin: 0px auto; border: 1px solid #999; margin-top: 40rpx;}
+.myinput input{ margin-left: 20rpx; width: 480rpx; height: 60rpx; border: none;}
+.cashbtn{ width: 260rpx; height: 80rpx; line-height: 80rpx; font-size: 26rpx; background: #000; color: #fff; text-align: center; margin: 0px auto; margin-top: 24rpx;}
+
+.myinput1{width: 500rpx; height: 60rpx;font-size: 22rpx; color: #333; margin: 0px auto; border: 1px solid #999; margin-top: 40rpx;}
+.myinput1 input{ float: left; margin-left: 20rpx; width: 280rpx; height: 60rpx; border: none;}
+.myinput1 .inbtn{ width: 200rpx; height: 60rpx; line-height: 60rpx; text-align: center; font-size: 22rpx; background: #F91C65; color: #fff; float: right;}

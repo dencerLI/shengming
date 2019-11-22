@@ -11,7 +11,18 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     appUrl: app.globalData.allUrl,
-    ko:''
+    ko:'',
+    longitude: 113.324520,
+    latitude: 23.099994,
+    markers: [{
+      id: 0,
+      iconPath: "../../images/icon_cur_position.png",
+      latitude: 23.099994,
+      longitude: 113.324520,
+      width: 50,
+      height: 50,
+      isno: 'no'
+    }],
   },
 
   /**
@@ -137,7 +148,8 @@ Page({
         "province": e.detail.userInfo.province,
         "country": e.detail.userInfo.country,
         "gender": e.detail.userInfo.gender,
-        "avatarUrl": e.detail.userInfo.avatarUrl
+        "avatarUrl": e.detail.userInfo.avatarUrl,
+        "location": that.data.latitude + ',' + that.data.longitude
       };
       console.log(km);
       console.log(wx.getStorageSync('yes'));
@@ -153,7 +165,8 @@ Page({
             "province": e.detail.userInfo.province,
             "country": e.detail.userInfo.country,
             "gender": e.detail.userInfo.gender,
-            "avatarUrl": e.detail.userInfo.avatarUrl
+            "avatarUrl": e.detail.userInfo.avatarUrl,
+            "location": that.data.latitude + ',' + that.data.longitude
           },
           method: 'POST',
           header: {
@@ -202,6 +215,85 @@ Page({
       })
     }
   },
+  map: function () {
+    var that = this;
+    wx.getLocation({
+      type: "wgs84",
+      success: function (res) {
+        var latitude = res.latitude;
+        var longitude = res.longitude;
+        console.log(res);
+        console.log(res.longitude);
+        // that.shouquan(res.latitude, res.longitude)
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude,
+          markers: [{
+            latitude: res.latitude,
+            longitude: res.longitude
+          }]
+        })
+
+      }
+    })
+  }, goshouquan: function () {
+    var that = this;
+    wx.getSetting({
+      success: (res) => {
+        console.log(res);
+        console.log(res.authSetting['scope.userLocation']);
+        if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) {//非初始化进入该页面,且未授权
+          wx.showModal({
+            title: '是否授权当前位置',
+            content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
+            success: function (res) {
+              if (res.cancel) {
+                console.info("1授权失败返回数据");
+                wx.showToast({
+                  title: '地理位置授权失败，不能领取水票',
+                  icon: 'none',
+                  duration: 2000,
+                  mask: true
+                })
+                that.setData({ isno: 'no' })
+              } else if (res.confirm) {
+                //village_LBS(that);
+                wx.openSetting({
+                  success: function (data) {
+                    console.log(data);
+                    if (data.authSetting["scope.userLocation"] == true) {
+                      wx.showToast({
+                        title: '授权成功',
+                        icon: 'success',
+                        duration: 5000,
+                        mask: true
+                      })
+                      //再次授权，调用getLocationt的API
+                      that.map();
+                     
+                    } else {
+                      wx.showToast({
+                        title: '授权失败',
+                        icon: 'success',
+                        duration: 5000,
+                        mask: true
+                      })
+                      
+                    }
+                  }
+                })
+              }
+            }
+          })
+        } else if (res.authSetting['scope.userLocation'] == undefined) {//初始化进入
+          // village_LBS(that);
+          that.map();
+        } else {
+          that.map();
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -213,7 +305,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.goshouquan();
   },
 
   /**

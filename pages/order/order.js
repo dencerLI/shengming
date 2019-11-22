@@ -46,7 +46,8 @@ Component({
     zhi:'',
     zhi1: '',
     appUrl: app.globalData.allUrl,
-    wo: 'none'
+    wo: 'none',
+    zk:1
   },
   /**
    * 组件的方法列表
@@ -97,7 +98,7 @@ Component({
       console.log(yhq);
       if (checked == true) {//取消余额
         if (ck2==true){//如果选择的是积分
-          var yall = yfk1 - (jifen/10)
+          var yall = yfk1 - (jifen)
           
         } else if (ck3 == true){
           var yall = yfk1 - (yhq*10);
@@ -108,12 +109,12 @@ Component({
         }
         this.setData({
           "checked1": false,
-          yfk:yall
+          yfk: yall.toFixed(2)
         })
       }else{//选中余额
        
         if (this.data.checked2 == true) {//如果选择的是积分
-          var yall = yfk1 - yue- (jifen / 10);
+          var yall = yfk1 - yue- (jifen);
           
         } else if(ck3 == true){
           var yall = yfk1 - yue- (yhq * 10);
@@ -126,7 +127,7 @@ Component({
         }
         this.setData({
           "checked1":true,
-           yfk:yall
+          yfk: yall.toFixed(2)
         })
       }
 
@@ -145,9 +146,9 @@ Component({
         
       } else {
         if (this.data.checked1 == true) {//如果选择了余额
-          var yall = yfk1 - yue - (jifen / 10)
+          var yall = yfk1 - yue - (jifen)
         } else {
-          var yall = yfk1 - (jifen / 10)
+          var yall = yfk1 - (jifen)
         }
         if (yall < 0) {
           var yall = 0;
@@ -155,7 +156,7 @@ Component({
         this.setData({
           "checked2": true,
           "checked3": false,
-          yfk: yall
+          yfk: yall.toFixed(2)
         })
       }
 
@@ -184,7 +185,7 @@ Component({
         this.setData({
           "checked2": false,
           "checked3": true,
-          yfk: yall
+          yfk: yall.toFixed(2)
         })
       }
 
@@ -270,8 +271,8 @@ Component({
           that.setData({
             address: dizhi,
             goods: res.data.data.goods,
-            yfk:qian,
-            yfk1: qian,
+            yfk: qian.toFixed(2),
+            yfk1: qian.toFixed(2),
            
           })
           if (res.data.data.address != null) {
@@ -280,6 +281,7 @@ Component({
 
           }
           console.log(that.data.yfk)
+          that.jifen();
         }
       });
     }, addressselect1: function (mydata) {
@@ -312,8 +314,8 @@ Component({
           that.setData({
             address: dizhi,
             goods: res.data.data.goods,
-            yfk: qian,
-            yfk1: qian
+            yfk: qian.toFixed(2),
+            yfk1: qian.toFixed(2)
             
           })
           if(res.data.data.address!=null){
@@ -322,6 +324,7 @@ Component({
 
           }
           console.log(that.data.yfk)
+          that.jifen();
         }
       });
     },
@@ -339,14 +342,14 @@ Component({
       console.log(yfk)
       console.log(ck1 + '--' + ck2 + '--' + ck3)
       if (ck1 == true && ck2 == true && ck3 == false) {//余额加积分
-        if (yfk1 >= (jifen / 10)) {
+        if (yfk1 >= (jifen)) {
           //如果默认总价大于积分
-          if (yue >= yfk1 - (jifen / 10)) {
+          if (yue >= yfk1 - (jifen)) {
             //如果余额大于等于积分已经抵扣过的钱数
             that.setData({
               jfdk: jifen,
               yhqdk: 0,
-              yedk: yue - (yue - (yfk1 - (jifen / 10))),
+              yedk: yue - (yue - (yfk1 - (jifen))),
             })
           } else {
             that.setData({
@@ -506,8 +509,10 @@ Component({
       var that = this;
       console.log(orderid + '---' + yfk + '---' + jfdk + '---' + yhqdk + '---' +yedk);
       var hk = that.data.laican;
+      console.log('type值' + that.data.chaxun.type)
       
-        if (that.data.laican.ptype == 1 || that.data.laican.ptype == 2 || that.data.laican.ptype == 3 || that.data.laican.ptype == 9){
+      console.log("应付款打折后价格"+yfk)
+      if (that.data.laican.ptype == 1 || that.data.laican.ptype == 2 || that.data.laican.ptype == 3 || that.data.laican.ptype == 9 || that.data.laican.ptype == 10 || that.data.laican.ptype == 11){
         if (hk.zhi1 =="天然水"){
           if (hk.mval == 1) {
             var type1 = 3;
@@ -536,34 +541,7 @@ Component({
             'is_ticket': that.data.goods.ticket_type,
             'price': that.data.yfk1
           }
-        } else if (hk.zhi1 == "苏打水"){
-          if (hk.mval == 1) {
-            var type1 = 3;
-          } else {
-            var type1 = that.data.goods.p_type;
-          }
-          var yodata = {
-            'uid': wx.getStorageSync('uid'),
-            'phone': '',
-            'p_type': type1,
-            'p_id': that.data.laican.id,
-            'bag_id': '',
-            'bottle_id': '',
-            'e_id': '',
-            'wx_order_id': orderid,
-            'cost_wx': yfk,
-            'cost_balance': yedk,
-            'cost_point': jfdk,
-            'cost_cash': yhqdk,
-            'address_id': that.data.addressid,
-            'point_type': that.data.chaxun.point_type,
-            'sold_num': '',
-            'sold_soda_num': hk.zhi,
-            'nums': hk.num,
-            'is_ticket': that.data.goods.ticket_type,
-            'price': that.data.yfk1
-          }
-        }
+        } 
         } else if (that.data.goods.p_type==7){
           var yodata = {
             'uid': wx.getStorageSync('uid'),
@@ -633,7 +611,7 @@ Component({
             'price': that.data.yfk1
           }
           console.log(yodata)
-        }else{
+        } else{
       var yodata = {
         'uid': wx.getStorageSync('uid'),
         'phone': '',
@@ -753,6 +731,34 @@ Component({
         },
         success: function(res) {
           console.log(res.data)
+          if(res.data.type=='2'){
+            that.setData({
+              zk: 0.88,
+              yfk: (that.data.yfk * 0.88).toFixed(2),
+              yfk1: (that.data.yfk1 * 0.88).toFixed(2)
+            })
+          }
+          if (res.data.type == '3') {
+            that.setData({
+              zk: 0.8,
+              yfk: (that.data.yfk * 0.8).toFixed(2),
+              yfk1: (that.data.yfk1 * 0.8).toFixed(2)
+            })
+          }
+          if (res.data.type == '4') {
+            that.setData({
+              zk: 0.78,
+              yfk: (that.data.yfk * 0.78).toFixed(2),
+              yfk1: (that.data.yfk1 * 0.78).toFixed(2)
+            })
+          }
+          if (res.data.type == '5') {
+            that.setData({
+              zk: 0.75,
+              yfk: (that.data.yfk * 0.75).toFixed(2),
+              yfk1: (that.data.yfk1 * 0.75).toFixed(2)
+            })
+          }
           // var hi = JSON.parse(res.data);
           that.setData({
             chaxun: res.data
@@ -793,7 +799,7 @@ Component({
     onShow: function() {
 
       let that = this;
-      that.jifen();
+     
       console.log(that.data.laican);
       console.log(that.data.address1);
       

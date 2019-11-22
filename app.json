@@ -6,16 +6,14 @@
     "pages/call/call",
     "pages/Exhibition/Exhibition",
     "pages/Apply/Apply",
+    "pages/sweepcode2/sweepcode2",
     "pages/sweepcode1/sweepcode1",
     "pages/sweepcode/sweepcode",
-  
-    
     "pages/guanjia/guanjia",
     "pages/share/share",
     "pages/investment/investment",
     "pages/deliverWater/deliverWater",
     "pages/address/address",
-   
     "pages/session/session",
     "pages/shopdetail/shopdetail",
     "pages/water/water",
@@ -32,8 +30,8 @@
     "pages/order/order",
     "pages/content/content",
     "pages/logs/logs",
-    "pages/hotarea/hotarea"
-  
+    "pages/hotarea/hotarea",
+    "pages/note/note"
   ],
   "window": {
     "backgroundTextStyle": "light",
