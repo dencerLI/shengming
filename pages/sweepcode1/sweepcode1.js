@@ -19,11 +19,13 @@ Component({
     appUrl: app.globalData.allUrl,
     isdata:'',
     chaxun:'',
+    chaxun1:'',
     yingfu:0,
     yingfu1: 0,
     sj:'',
     wo: 'none',
-    isupload: "?" + Math.random() / 9999
+    isupload: "?" + Math.random() / 9999,
+    tapTime: '',		// 防止两次点击操作间隔太快
   },
 
   /**
@@ -67,21 +69,13 @@ Component({
           // var hi = JSON.parse(res.data);
           
           if (res.data.status== '0') {
-            
-            wx.showModal({
-              title: '',
-              content: res.data.suc,
-              success: function (res) {
-                if (res.confirm) {
-                  that.goindex();
-                } else {
-                  that.goindex();
-                }
-              }
+            wx.showToast({
+              title: res.data.suc,
+              icon: 'none', //如果要纯文本，不要icon，将值设为'none'
+              mask: true,
+              duration: 2000
             })
-
-        
-            
+            that.goindex();
           } else {
             wx.showToast({
               title: res.data.err,
@@ -145,7 +139,7 @@ Component({
                 //向后台传参
 
                 // that.successme(hi.package.split("=")[1], that.data.yingfu);
-                that.successme(wx.getStorageSync('uid'), 6, that.data.yingfu1, that.data.isdata.id, hi.package.split("=")[1], that.data.yingfu, '0', '5', that.data.sj)
+                that.successme(wx.getStorageSync('uid'), 6, that.data.yingfu1, that.data.isdata.id, hi.package.split("=")[1], that.data.yingfu, 0, 5, that.data.sj.id.split("x")[1])
                 //that.data.sj.m
               },
               fail(res) {
@@ -166,6 +160,13 @@ Component({
       if (app.globalData.aid() == false) {
         return;
       }
+      var nowTime = new Date();
+      if (nowTime - this.data.tapTime < 5000) {
+        console.log('阻断')
+        return;
+      }
+      console.log('执行')
+      this.setData({ tapTime: nowTime });
       var that=this;
       if (e.currentTarget.dataset.kong == "none") {
          that.setData({ wo: "block" })
@@ -185,7 +186,7 @@ Component({
           duration: 2000
         })
        
-      } else if (that.data.chaxun.phone=='1'){
+      } else if (that.data.chaxun1 == '1' || that.data.chaxun1 == 1){
         wx.showToast({
           title: '请先绑定手机',
           mask: true,
@@ -197,7 +198,7 @@ Component({
           url: '../sweepcode/sweepcode',
         })
       } else if (that.data.checked1 == true &&that.data.checked2 == false && that.data.checked3 == false){//执行水票抵扣
-        that.successme(wx.getStorageSync('uid'), '6', that.data.yingfu1, that.data.isdata.id, '', '0', '0', that.data.chaxun.type, that.data.sj)
+        that.successme(wx.getStorageSync('uid'), 6, that.data.yingfu1, that.data.isdata.id, '', 0, 0, that.data.chaxun.type, that.data.sj.id.split("x")[1])
       } else if (that.data.checked1 == false && that.data.checked2 == true && that.data.checked3 == false){//执行微信支付
         that.zhifu({
           'uid': wx.getStorageSync('uid'),
@@ -207,7 +208,7 @@ Component({
         })
       }else{//余额抵扣
         console.log(that.data.yingfu)
-        that.successme(wx.getStorageSync('uid'), '6', that.data.yingfu1, that.data.isdata.id, '', '0', that.data.yingfu1, that.data.chaxun.type, that.data.sj)
+        that.successme(wx.getStorageSync('uid'), 6, that.data.yingfu1, that.data.isdata.id, '', 0, that.data.yingfu1, that.data.chaxun.type, that.data.sj.id.split("x")[1])
       }
       
     },
@@ -353,6 +354,29 @@ Component({
 
         }
       });
+    }, jifen2: function () {
+      var that = this;
+      console.log(wx.getStorageSync('uid'))
+      wx.request({
+        url: app.globalData.allUrl + 'api/user/check_phone',
+        method: "POST", //指定请求方式，默认get
+        data: {
+          'uid': wx.getStorageSync('uid')
+        },
+        header: {
+          //默认值'Content-Type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded' //post
+        },
+        success: function (res) {
+          console.log(res.data)
+          // var hi = JSON.parse(res.data);
+          that.setData({
+            chaxun1: res.data
+          })
+          // console.log(hi)
+
+        }
+      });
     }, getCurrentPageUrl: function() {
       var pages = getCurrentPages() //获取加载的页面
       var currentPage = pages[pages.length - 1] //获取当前页面的对象
@@ -380,20 +404,21 @@ Component({
       });
     }, onLoad: function (options){
       var scene = decodeURIComponent(options.q)
-      console.log(scene.split('?')[1].split("x")[1].split("&")[0])
-      this.setData({ sj: scene.split('?')[1].split("x")[1].split("&")[0]})
-     
-    },
-    onShow:function(){
-      // this.getCurrentPageUrl();
-      console.log(wx.getStorageSync('uid'))
+      console.log(decodeURIComponent(options.q))
+      this.setData({ sj: scene})
+      wx.showToast({
+        title: scene.id,
+        mask: true,
+        icon: 'none',
+        duration: 2000
+      })
       if (wx.getStorageSync('uid') != '' && wx.getStorageSync('uid') != null && wx.getStorageSync('uid') != undefined) {
         console.log(wx.getStorageSync('uid'))
-      if (app.globalData.aid() == false) {
-        return;
-      }
-      this.shoplist(2);
-      this.jifen();
+        if (app.globalData.aid() == false) {
+          return;
+        }
+        this.shoplist(2);
+        this.jifen();
       } else {
         console.log(app.globalData.employId)
         // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -408,6 +433,32 @@ Component({
           }
         }
       }
+    },
+    onShow:function(){
+      // this.getCurrentPageUrl();
+      console.log(wx.getStorageSync('uid'))
+      this.jifen2();
+      // if (wx.getStorageSync('uid') != '' && wx.getStorageSync('uid') != null && wx.getStorageSync('uid') != undefined) {
+      //   console.log(wx.getStorageSync('uid'))
+      // if (app.globalData.aid() == false) {
+      //   return;
+      // }
+      // this.shoplist(2);
+      // this.jifen();
+      // } else {
+      //   console.log(app.globalData.employId)
+      //   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      //   // 所以此处加入 callback 以防止这种情况
+      //   app.employIdCallback = employId => {
+      //     if (employId != '') {
+      //       if (app.globalData.aid() == false) {
+      //         return;
+      //       }
+      //       this.shoplist(2);
+      //       this.jifen();
+      //     }
+      //   }
+      // }
     }
   }
 })

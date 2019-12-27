@@ -1,14 +1,14 @@
 <!--pages/order/order.wxml-->
 <view class="addressgo" bindtap="address">
-  <image class="mark" src="{{appUrl+'images/tan.png'}}"></image>
+  <image class="mark" src="{{appUrl+'images/tan.png'+isupload}}"></image>
   <text wx:if="{{address==null&&address1==''}}">请填写您的地址</text>
   <text wx:elif="{{address1!=''}}">{{address1}}</text>
   <text wx:else>{{address.city}}{{address.area}}{{address.detail_add}}</text>
-  <image class="isgo" src="{{appUrl+'images/go1.png'}}"></image>
+  <image class="isgo" src="{{appUrl+'images/go1.png'+isupload}}"></image>
 </view>
 <view class="content">
   <view class="contleft">
-    <image src="{{goods.index_pic_url}}"></image>
+    <image src="{{goods.index_pic_url+isupload}}"></image>
   </view>
   <view class="contright">
     <view class="title">{{goods.name}}</view>
@@ -72,7 +72,7 @@
 
 <view class="fslist">
   <image class="xin" src="{{appUrl+'images/xin.png'}}"></image>
-  <text class="textme">喜欢生命之里的理由</text>
+  <text class="textme">是否需要打折</text>
   <view class='select_box'>
     <view class='select' catchtap='selectTap'>
       <text class='select_text'>{{selectData[index]}}</text>
@@ -84,9 +84,9 @@
   </view>
 </view>
 
-<view class="tishi">
+<!-- <view class="tishi">
  <image src="{{appUrl+'images/tanhao.png'}}"></image><text>余额不足时可使用微信支付，同时可抵扣账户余额</text>
-</view>
+</view> -->
 <view class="total">
  <view wx:if="{{laican.ptype==1||laican.ptype==2||laican.ptype==3||laican.ptype==9||laican.ptype==10||laican.ptype==11}}">
     总计
@@ -113,9 +113,9 @@
     应付款
     <text >￥{{yfk}}</text>  
   </view>
-  <view wx:if="{{zk<1}}" style="color:#ff0000; font-size:24rpx; margin-top:2rpx;">
+  <view style="color:#ff0000; font-size:24rpx; margin-top:2rpx;">
     折扣
-    <text >{{zk*10}}折</text>  
+    <text >{{zk}}折</text>  
   </view>
 </view>
 <view class="istong">
@@ -131,7 +131,8 @@
     <text class="tiaoyue" bindtap="tui">退货条约</text>
   </view>
 </view>
-
+<view class="istx">本套餐不包含配送服务，如需配送请咨询当地客服</view>
+<view class="istx">客服电话：{{dianhua}}</view>
 <view class="taost" style="display:{{mou}};" bindtap="guan">
   <view class="treaty" catchtap="kong">
     <view class="istitle">退款条约</view>
@@ -243,10 +244,10 @@
    <view class="showcon">
        <view class="showtitle">支付成功</view>
           <image class="showimg" src="{{appUrl+'images/zfcg.png'}}"></image>
-       <view class="jiaoyi">已支付¥{{yfk+yedk}}</view>
+       <view class="jiaoyi">已支付¥{{chenggong}}</view>
        <view class="dd" style="display:none;">
         <text>订单编号：{{orderme}}</text>
-        <text>交易金额：¥{{yfk+yedk}}</text>
+        <text>交易金额：¥{{chenggong}}</text>
         <text>交易方式：微信支付</text>
        </view>
        <view class="isfen"></view>

@@ -3,13 +3,13 @@
     <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">
     <text>饮用水套餐</text>
     </view>
-    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab"> <text>功能水套餐</text></view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab"> <text>其它类水套餐</text></view>
     
   </view>
   <view class="incon" >
 <view class = "{{currentTab == 0 ? 'show':'hidden'}}" >
     <scroll-view>
-        <view class="tc" wx:for="{{shui}}" data-id="{{item.id}}" bindtap="gomai">
+        <view class="tc" wx:for="{{shui}}" data-id="{{item.id}}" data-price="{{item.price}}" data-isls="{{item.is_ls}}" data-bnum="{{item.b_num}}" data-ptype="{{item.p_type}}"bindtap="gomai">
            <view class="tcleft">
               <image src="{{item.index_pic}}"></image>
            </view>

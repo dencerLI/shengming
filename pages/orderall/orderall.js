@@ -19,7 +19,8 @@ Component({
     wanorder: 1,
     meorder:'',
     istype: '',
-    appUrl: app.globalData.allUrl
+    appUrl: app.globalData.allUrl,
+    tapTime: '',		// 防止两次点击操作间隔太快
   },
 
   /**
@@ -81,6 +82,13 @@ Component({
       });
     },goyes:function(e){
       console.log(e.currentTarget.dataset.id)
+      var nowTime = new Date();
+      if (nowTime - this.data.tapTime < 1000) {
+        console.log('阻断')
+        return;
+      }
+      console.log('执行')
+      this.setData({ tapTime: nowTime });
       var that = this;
       wx.request({
         url: app.globalData.allUrl + 'api/my/sure_order',

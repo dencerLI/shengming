@@ -19,17 +19,37 @@ Component({
     appUrl: app.globalData.allUrl,
     isdata:'',
     chaxun:'',
+    chaxun1: '',
     yingfu:0,
     yingfu1: 0,
     sj:'',
     wo: 'none',
-    isupload: "?" + Math.random() / 9999
+    isupload: "?" + Math.random() / 9999,
+    tapTime: '',		// 防止两次点击操作间隔太快
+    myinput:1
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    isinput: function (e) {
+      console.log(e.detail.value)
+      // if (e.detail.value<1){
+      //   // this.setData({
+      //   //   myinput: 1
+      //   // })
+      // } else if (e.detail.value == '' || e.detail.value == null || e.detail.value==undefined){
+      //   this.setData({
+      //     myinput: 1
+      //   })
+      // }else{
+      this.setData({
+        myinput: e.detail.value
+      })
+      
+      // }
+    },
     goindex:function(){
       wx.switchTab({
         url: '../index/index'
@@ -50,14 +70,15 @@ Component({
           'cost_balance': cost_balance,
           // 'ticket_type': ticket_type,
           'p_num': engineid,
-          'nums':1,
+          'nums': that.data.myinput,
           'pay_type': pay_type
           
         }
+      console.log("下面是传的值")
         console.log(yodata)
       // return;
       wx.request({
-        url: app.globalData.allUrl + 'api/buy/pub_water_place',
+        url: app.globalData.allUrl + 'api/buy/pub_waters_place',
         method: "POST", //指定请求方式，默认get
         data: yodata,
         header: {
@@ -109,7 +130,7 @@ Component({
       var ck3 = that.data.checked3;
       console.log(mydata)
       console.log("应付款为：" + that.data.yingfu )
-      mydata.price = that.data.yingfu * 100;
+      mydata.price = that.data.yingfu * 100 * that.data.myinput;
       // that.successme();
       // return;
       console.log(mydata)
@@ -147,7 +168,7 @@ Component({
                 //向后台传参
 
                 // that.successme(hi.package.split("=")[1], that.data.yingfu);
-                that.successme(wx.getStorageSync('uid'), 6, that.data.yingfu1, that.data.isdata.id, hi.package.split("=")[1], that.data.yingfu, '0', '5', that.data.sj,'3')
+                that.successme(wx.getStorageSync('uid'), 6, (that.data.yingfu1 * that.data.myinput).toFixed(1), that.data.isdata.id, hi.package.split("=")[1], (that.data.yingfu1 * that.data.myinput).toFixed(1), '0', '5', that.data.sj,'3')
                 //that.data.sj.m
               },
               fail(res) {
@@ -168,13 +189,41 @@ Component({
       if (app.globalData.aid() == false) {
         return;
       }
+      var nowTime = new Date();
+      if (nowTime - this.data.tapTime < 5000) {
+        console.log('阻断')
+        return;
+      }
+      console.log('执行')
+      this.setData({ tapTime: nowTime });
       var that=this;
+      if (that.data.myinput < 1 || that.data.myinput == '' || that.data.myinput == null || that.data.myinput == undefined){
+        wx.showToast({
+          title: '数量不正确最小数量为1',
+          mask: true,
+          icon: 'none',
+          duration: 2000
+        })
+        that.setData({myinput:1})
+        return;
+      }
+      console.log(that.data.checked3)
+      console.log((that.data.chaxun.money - (that.data.yingfu1 * that.data.myinput)).toFixed(1))
+      if ((that.data.chaxun.money - (that.data.yingfu1 * that.data.myinput)).toFixed(1) < 0 && that.data.checked3==true){
+        wx.showToast({
+          title: '余额不足以抵扣，请使用微信支付',
+          mask: true,
+          icon: 'none',
+          duration: 2000
+        })
+        return;
+      }
       if (e.currentTarget.dataset.kong == "none") {
          that.setData({ wo: "block" })
        var kml=setInterval(function(){
           that.setData({ wo: "none" })
           clearInterval(kml)
-         },20000)
+         },2000)
       } else {
           return;
       }
@@ -187,7 +236,7 @@ Component({
           duration: 2000
         })
        
-      } else if (that.data.chaxun.phone=='1'){
+      } else if (that.data.chaxun1== '1' || that.data.chaxun1==1){
         wx.showToast({
           title: '请先绑定手机',
           mask: true,
@@ -199,7 +248,7 @@ Component({
           url: '../sweepcode/sweepcode',
         })
       } else if (that.data.checked1 == true &&that.data.checked2 == false && that.data.checked3 == false){//执行水票抵扣
-        that.successme(wx.getStorageSync('uid'), '6', that.data.yingfu1, that.data.isdata.id, '', '0', '0', that.data.chaxun.type, that.data.sj, '1')
+        that.successme(wx.getStorageSync('uid'), '6', (that.data.yingfu1 * that.data.myinput).toFixed(1), that.data.isdata.id, '', '0', '0', that.data.chaxun.type, that.data.sj, '1')
       } else if (that.data.checked1 == false && that.data.checked2 == true && that.data.checked3 == false){//执行微信支付
         that.zhifu({
           'uid': wx.getStorageSync('uid'),
@@ -209,7 +258,7 @@ Component({
         })
       }else{//余额抵扣
         console.log(that.data.yingfu)
-        that.successme(wx.getStorageSync('uid'), '6', that.data.yingfu1, that.data.isdata.id, '', '0', that.data.yingfu1, that.data.chaxun.type, that.data.sj, '2')
+        that.successme(wx.getStorageSync('uid'), '6', (that.data.yingfu1 * that.data.myinput).toFixed(1), that.data.isdata.id, '', '0', (that.data.yingfu1 * that.data.myinput).toFixed(1), that.data.chaxun.type, that.data.sj, '2')
       }
       
     },
@@ -355,6 +404,29 @@ Component({
 
         }
       });
+    }, jifen2: function () {
+      var that = this;
+      console.log(wx.getStorageSync('uid'))
+      wx.request({
+        url: app.globalData.allUrl + 'api/user/check_phone',
+        method: "POST", //指定请求方式，默认get
+        data: {
+          'uid': wx.getStorageSync('uid')
+        },
+        header: {
+          //默认值'Content-Type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded' //post
+        },
+        success: function (res) {
+          console.log(res.data)
+          // var hi = JSON.parse(res.data);
+          that.setData({
+            chaxun1: res.data
+          })
+          // console.log(hi)
+
+        }
+      });
     }, getCurrentPageUrl: function() {
       var pages = getCurrentPages() //获取加载的页面
       var currentPage = pages[pages.length - 1] //获取当前页面的对象
@@ -386,18 +458,14 @@ Component({
       console.log(scene)
       console.log(scene.split('=')[1])
       this.setData({ sj: scene.split('=')[1]})
-     
-    },
-    onShow:function(){
-      // this.getCurrentPageUrl();
-      console.log(wx.getStorageSync('uid'))
+      // this.setData({ sj:59 })
       if (wx.getStorageSync('uid') != '' && wx.getStorageSync('uid') != null && wx.getStorageSync('uid') != undefined) {
         console.log(wx.getStorageSync('uid'))
-      if (app.globalData.aid() == false) {
-        return;
-      }
-      this.shoplist(2);
-      this.jifen();
+        if (app.globalData.aid() == false) {
+          return;
+        }
+        this.shoplist(2);
+        this.jifen();
       } else {
         console.log(app.globalData.employId)
         // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -412,6 +480,32 @@ Component({
           }
         }
       }
+    },
+    onShow:function(){
+      // this.getCurrentPageUrl();
+      console.log(wx.getStorageSync('uid'))
+      this.jifen2();
+      // if (wx.getStorageSync('uid') != '' && wx.getStorageSync('uid') != null && wx.getStorageSync('uid') != undefined) {
+      //   console.log(wx.getStorageSync('uid'))
+      // if (app.globalData.aid() == false) {
+      //   return;
+      // }
+      // this.shoplist(2);
+      // this.jifen();
+      // } else {
+      //   console.log(app.globalData.employId)
+      //   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      //   // 所以此处加入 callback 以防止这种情况
+      //   app.employIdCallback = employId => {
+      //     if (employId != '') {
+      //       if (app.globalData.aid() == false) {
+      //         return;
+      //       }
+      //       this.shoplist(2);
+      //       this.jifen();
+      //     }
+      //   }
+      // }
     }
   }
 })

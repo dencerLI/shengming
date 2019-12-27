@@ -6,6 +6,7 @@ const app = getApp()
 
 Page({
   data: {
+    tapTime: '',		// 防止两次点击操作间隔太快
     height:0,
     width:0,
     motto: 'Hello World',
@@ -104,6 +105,25 @@ Page({
     //     //已离底部一段距离，下面处理操作
     //   }
     // }).exec()
+  }, isdianhua: function (a,b) {
+    var that = this;
+    wx.request({
+      url: app.globalData.allUrl + 'api/tool/get_call_num',
+      method: "POST", //指定请求方式，默认get
+      data: { 'location':a+','+b},
+      header: {
+        //默认值'Content-Type': 'application/json'
+        'content-type': 'application/x-www-form-urlencoded' //post
+      },
+      success: function (res) {
+        console.log(res.data)
+        wx.setStorageSync('dianhua', res.data)
+        // that.setData({
+        //   dianhua: res.data
+        // })
+
+      }
+    });
   }, map: function () {
     var that = this;
     wx.getLocation({
@@ -113,7 +133,8 @@ Page({
         var longitude = res.longitude;
         console.log(res);
         console.log(res.longitude);
-        that.shouquan(res.latitude, res.longitude)
+        that.shouquan(res.latitude, res.longitude);
+        that.isdianhua(res.latitude, res.longitude);
         that.setData({
           latitude: res.latitude,
           longitude: res.longitude,
@@ -135,7 +156,7 @@ Page({
     wx.request({
       url: app.globalData.allUrl + 'api/user/add_location',
       method: "POST",//指定请求方式，默认get
-      data: { "openid": wx.getStorageSync('openid'), "location": a + ',' + b },
+       data: { "openid": wx.getStorageSync('openid'), "location": a + ',' + b },
       // data: { "openid": wx.getStorageSync('openid'), "location":'40.61476,109.875' },
       header: {
         //默认值'Content-Type': 'application/json'
@@ -143,7 +164,7 @@ Page({
       },
       success: function (res) {
         console.log(res.data)
-        wx.hideLoading()
+        wx.hideLoading();
         that.onLoad();
         // that.setData({
         //   addlist: res.data.data
@@ -357,8 +378,16 @@ Page({
     
   },onShow:function(){
     this.goshouquan();
+    console.log(wx.getStorageSync('openid'))
   },
   godetail:function(e){
+    var nowTime = new Date();
+    if (nowTime - this.data.tapTime < 1000) {
+      console.log('阻断')
+      return;
+    }
+    console.log('执行')
+    this.setData({ tapTime: nowTime });
     console.log(e.currentTarget.dataset.id)
     var id = e.currentTarget.dataset.id;
     var table = e.currentTarget.dataset.table;

@@ -8,7 +8,7 @@
 <text>手机号</text><input type="number" bindinput="isphone" value="{{phone}}" placeholder="请输入手机号" placeholder-class="placeclass"></input>
 </view>
 <view class="iscon1">
-<text>验证码</text><input placeholder="请输入验证码" value="{{yzm}}" placeholder-class="placeclass"></input>
+<text>验证码</text><input placeholder="请输入验证码" bindinput="isyzm" value="{{yzm}}" placeholder-class="placeclass"></input>
 <view class="yzm" style="color:{{iscolor}}" bindtap="yzm">{{hyzm}}</view>
 </view>
 

@@ -72,7 +72,7 @@ Component({
        wx.request({
          url: app.globalData.allUrl + 'api/goods/combo_detail',
          method: "POST",//指定请求方式，默认get
-         data: { "type_id": id, "b_type": type },
+         data: { "openid": wx.getStorageSync('openid'),"type_id": id, "b_type": type },
          header: {
            //默认值'Content-Type': 'application/json'
            'content-type': 'application/x-www-form-urlencoded' //post
@@ -198,6 +198,7 @@ Component({
         },
         success: function (res) {
           console.log(res.data)
+          console.log("699套餐")
           that.setData({
             alldata: res.data.data,
             yuan: 0,
@@ -235,6 +236,7 @@ Component({
         },
         success: function (res) {
           console.log(res.data)
+          console.log("99套餐")
           that.setData({
             alldata: res.data.data,
             yuan: res.data.data.price,

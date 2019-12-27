@@ -3,7 +3,7 @@
 <!-- <image src="{{item}}" mode="widthFix"></image> -->
 <image wx:if='{{alldata.p_type==1||alldata.p_type==2||alldata.p_type==3}}' src="{{endt[0].pic_arr_url[0]+isupload}}" class="logo"></image>
 <image wx:elif='{{alldata.p_type==9}}' src="{{endt[0].pic_arr_url[0]+isupload}}" class="logo"></image>
-<image src="{{alldata.detail_header}}" class="logo" wx:else></image>
+<image src="{{alldata.detail_header+isupload}}" class="logo" wx:else></image>
 <view wx:if='{{alldata.p_type==1||alldata.p_type==2||alldata.p_type==3||alldata.p_type==9}}'>
   <image class="isimgno" wx:for="{{endt[0].pic_arr_url}}" data-index="{{index}}" wx:if="{{index>0}}" src="{{item+isupload}}" mode="widthFix"></image>
   </view>

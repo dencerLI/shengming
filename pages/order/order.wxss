@@ -179,3 +179,7 @@ position: absolute; top: 224rpx;
 width: 100%;
  text-align: center;
 }
+.istx{ float: left; width: 100%; font-size: 24rpx; text-align: center; color: #F91C65; height: 24rpx; line-height: 24rpx; margin-top: 20rpx;}
+
+
+

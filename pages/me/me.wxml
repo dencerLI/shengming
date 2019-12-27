@@ -36,7 +36,7 @@
    </view>
 </view>
 
-<view class="sessionlist" bindtap="isbd">
+<view class="sessionlist" wx:if="{{geren.phone==''||geren.phone==null||geren.phone==undefined}}" bindtap="isbd">
    <view class="sessionleft">
    <image class="sp" src="{{appUrl+'images/sp.png'}}"></image>
    </view>
@@ -52,7 +52,7 @@
       <input type="number" bindinput="isphone" value="{{phone}}"placeholder="输入手机号"></input>
       </view>
       <view class="myinput1">
-      <input type="text" placeholder="请输入验证码" value="{{yzm}}" placeholder="验证码"></input>
+      <input type="text" placeholder="请输入验证码" bindinput="isyzm" value="{{yzm}}" placeholder="验证码"></input>
       <view class="inbtn" bindtap="yzm">{{hyzm}}</view>
       </view>
       <view class="cashbtn" catchtap="applygo">提交</view>
@@ -87,5 +87,5 @@
    </view>
 </view> -->
 </view>
-<view wx:if="{{geren.type==2}}" class="bot" bindtap="popConfirm">管家管理后台链接</view>
-<text wx:if="{{geren.type==2}}" class="istext">点击按钮复制弹窗中的链接</text>
+<view wx:if="{{geren.type==3}}" class="bot" bindtap="popConfirm">管家管理后台链接</view>
+<text wx:if="{{geren.type==3}}" class="istext">点击按钮复制弹窗中的链接</text>

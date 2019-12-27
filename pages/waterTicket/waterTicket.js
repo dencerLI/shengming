@@ -29,6 +29,10 @@ Component({
     appUrl: app.globalData.allUrl,
     isguan:0,
     currentTab: 0,
+    second: 30,
+    jishiqi:'',
+    ks:'',
+    tapTime: '',		// 防止两次点击操作间隔太快
   },
 
   /**
@@ -107,13 +111,28 @@ Component({
       })
     },
     shui:function(){
-      var that=this;
-      wx.showToast({
-        title: wx.getStorageSync('uid').toString(),
-        icon: 'none',
-        duration: 1500,
-        mask: true
-      })
+      var that = this;
+      var nowTime = new Date();
+      if (nowTime - this.data.tapTime < 5000) {
+        console.log('阻断')
+        return;
+      }
+      console.log('执行')
+      this.setData({ tapTime: nowTime });
+     
+      // wx.showLoading({
+      //   title: "请勿频繁点击",
+      //   mask: true,
+      //   duration: 5000,
+      // });
+    
+      // wx.showToast({
+      //   title: wx.getStorageSync('uid').toString(),
+      //   icon: 'none',
+      //   duration: 1500,
+      //   mask: true
+      // })
+      console.log("传过来的share_id"+wx.getStorageSync('share_id'));
       if (wx.getStorageSync('uid') == '' || wx.getStorageSync('uid') == null || wx.getStorageSync('uid') == undefined ){
         wx.showToast({
           title: '您还没有登录,马上为您跳转到登录页',
@@ -139,7 +158,8 @@ Component({
         }
         wx.showLoading({
           title: '领取中...',
-          mask: true
+          mask: true,
+          duration: 5000,
         });
         var hkl = {
           "user_id": wx.getStorageSync('uid'),
@@ -278,7 +298,8 @@ Component({
     ,
     onLoad:function(op){
       var that=this;
-      console.log(op)
+      console.log(op) 
+      if (op.uid != '' && op.uid != null && op.uid != undefined && op.uid != "null" && op.uid != "undefined"){
       if (JSON.stringify(op) == "{}"){
         console.log(222)
         // this.towater();
@@ -291,11 +312,27 @@ Component({
         console.log(111)
         // this.towater();
       }
+      }else{
+        var scene = decodeURIComponent(op.scene)
+        console.log("scene"+scene)
+        if (scene != '' && scene != null && scene != "null" && scene != undefined && scene != "undefined"){
+        console.log(scene)
+        console.log(scene.split('=')[1])
+        that.setData({ share_id: scene.split('=')[1], indis: 'block'})
+          wx.setStorageSync('share_id', scene.split('=')[1]);
+          // console.log(wx.getStorageSync('share_id'));
+        console.log(555)
+        }else{
+
+        }
+      }
     },
     onShow:function(){
+      var that=this;
       this.goshouquan();
       this.towater();
       this.guanjia();
+     
     },
     onReady:function(){
       

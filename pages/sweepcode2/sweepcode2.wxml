@@ -8,7 +8,8 @@
   <text class="price">¥{{isdata.normal_price}}</text>
 </view>
 <view class="btnlist">
-  <!-- <view class="leftbtn">天然苏打水</view> -->
+  <!-- <view class="leftbtn"></view> -->
+  <view class="leftbtn"><text>数量：</text><input type="number" bindinput="isinput" value="{{myinput}}"></input></view>
   <view class="rightbtn">天然水</view>
 </view>
 

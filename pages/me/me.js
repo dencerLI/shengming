@@ -1,4 +1,4 @@
-// pages/me/me.js
+ // pages/me/me.js
 const app = getApp()
 Component({
   /**
@@ -24,7 +24,8 @@ Component({
     secondR: 60,
     hyzm: '获取验证码',
     myonoff: 'on',
-    end: 'none'
+    end: 'none',
+    tapTime: '',		// 防止两次点击操作间隔太快
   },
 
   /**
@@ -83,7 +84,7 @@ Component({
         })
         return false;
       }
-      var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+      var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(16[0-9]{1})|(19[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
       if (!myreg.test(mobile)) {
         wx.showToast({
           title: '手机号有误！',
@@ -169,6 +170,13 @@ Component({
         return;
       }
       var that = this;
+      var nowTime = new Date();
+      if (nowTime - this.data.tapTime < 1000) {
+        console.log('阻断')
+        return;
+      }
+      console.log('执行')
+      this.setData({ tapTime: nowTime });
       var phone = that.data.phone;
       var yzm = that.data.yzm;
 

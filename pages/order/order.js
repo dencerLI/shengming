@@ -13,7 +13,7 @@ Component({
    */
   data: {
     selectShow: false, //控制下拉列表的显示隐藏，false隐藏、true显示
-    selectData: ['干净，健康', '包装精美', '方便，新颖'], //下拉列表的数据
+    selectData: ['打折不包邮', '不打折包邮'], //下拉列表的数据
     index: 0, //选择的下拉列表下标
     items: [{
       name: 'yes',
@@ -47,12 +47,18 @@ Component({
     zhi1: '',
     appUrl: app.globalData.allUrl,
     wo: 'none',
-    zk:1
+    zk:1,
+    chenggong:0,
+    isupload: "?" + Math.random() / 9999,
+    dianhua: '',
+    tapTime: '',		// 防止两次点击操作间隔太快
+    yuanjia:''
   },
   /**
    * 组件的方法列表
    */
   methods: {
+  
     selectTap() {
       this.setData({
         selectShow: !this.data.selectShow
@@ -61,10 +67,12 @@ Component({
     // 点击下拉列表
     optionTap(e) {
       let Index = e.currentTarget.dataset.index; //获取点击的下拉列表的下标
+      console.log(Index)
       this.setData({
         index: Index,
         selectShow: !this.data.selectShow
       });
+      this.jifen(Index);
     },
     checkedTap: function(e) {
       var checked = this.data.checked;
@@ -273,7 +281,7 @@ Component({
             goods: res.data.data.goods,
             yfk: qian.toFixed(2),
             yfk1: qian.toFixed(2),
-           
+            yuanjia: qian.toFixed(2)
           })
           if (res.data.data.address != null) {
             that.setData({ addressid: res.data.data.address.id })
@@ -281,7 +289,7 @@ Component({
 
           }
           console.log(that.data.yfk)
-          that.jifen();
+          that.jifen(0);
         }
       });
     }, addressselect1: function (mydata) {
@@ -315,8 +323,8 @@ Component({
             address: dizhi,
             goods: res.data.data.goods,
             yfk: qian.toFixed(2),
-            yfk1: qian.toFixed(2)
-            
+            yfk1: qian.toFixed(2),
+            yuanjia: qian.toFixed(2)
           })
           if(res.data.data.address!=null){
             that.setData({ addressid: res.data.data.address.id})
@@ -324,7 +332,7 @@ Component({
 
           }
           console.log(that.data.yfk)
-          that.jifen();
+          that.jifen(0);
         }
       });
     },
@@ -444,7 +452,13 @@ Component({
         }
       }
       console.log("应付款为：" + that.data.yfk + "积分抵扣" + that.data.jfdk + "优惠券抵扣" + that.data.yhqdk + "余额抵扣" + that.data.yedk)
-      mydata.price = that.data.yfk*100;
+      if (that.data.yedk != '' && that.data.yedk != null && that.data.yedk!=undefined){
+      that.setData({ chenggong: parseFloat(that.data.yfk) + parseFloat(that.data.yedk)})
+      }else{
+        that.setData({ chenggong: parseFloat(that.data.yfk)})
+      }
+      mydata.price = Math.round(that.data.yfk*100);
+      console.log(mydata.price)
       if (that.data.yfk==0){
         that.successme('', that.data.yfk, that.data.jfdk, that.data.yhqdk, that.data.yedk);
       }else{
@@ -674,6 +688,13 @@ Component({
       if (app.globalData.aid() == false) {
         return;
       }
+        var nowTime = new Date();
+      if (nowTime - this.data.tapTime < 1000) {
+        console.log('阻断')
+        return;
+      }
+      console.log('执行')
+      this.setData({ tapTime: nowTime });
       // if (e.currentTarget.dataset.kong == "none") {
       //   that.setData({ wo: "block" })
       //   var kml = setInterval(function () {
@@ -684,7 +705,7 @@ Component({
       //   return;
       // }
       console.log(e.currentTarget.dataset.name)
-      let name = e.currentTarget.dataset.name;
+      var name = e.currentTarget.dataset.name;
       if (name == "liang") { //去支付
         if (that.data.address != '' && that.data.address != null && that.data.address != undefined || that.data.address1 != '' && that.data.address1 != null && that.data.address1 != undefined) {
           //price=that.data.laican.num*that.data.goods.sale_price
@@ -717,7 +738,7 @@ Component({
       //   mou1: 'block'
       // })
     },
-    jifen: function() {
+    jifen: function(r) {
       var that = this;
       wx.request({
         url: app.globalData.allUrl + 'api/buys/my_res',
@@ -731,34 +752,53 @@ Component({
         },
         success: function(res) {
           console.log(res.data)
+          console.log(that.data.laican.ptype)
+          if(r==0){
+          if (that.data.laican.ptype!=9){
           if(res.data.type=='2'){
             that.setData({
-              zk: 0.88,
-              yfk: (that.data.yfk * 0.88).toFixed(2),
-              yfk1: (that.data.yfk1 * 0.88).toFixed(2)
+              zk: (0.88 * 10).toFixed(1),
+              yfk: (that.data.yuanjia * 0.88).toFixed(2),
+              yfk1: (that.data.yuanjia * 0.88).toFixed(2)
             })
           }
           if (res.data.type == '3') {
             that.setData({
-              zk: 0.8,
-              yfk: (that.data.yfk * 0.8).toFixed(2),
-              yfk1: (that.data.yfk1 * 0.8).toFixed(2)
+              zk: (0.8 * 10).toFixed(1),
+              yfk: (that.data.yuanjia * 0.8).toFixed(2),
+              yfk1: (that.data.yuanjia * 0.8).toFixed(2)
             })
           }
           if (res.data.type == '4') {
             that.setData({
-              zk: 0.78,
-              yfk: (that.data.yfk * 0.78).toFixed(2),
-              yfk1: (that.data.yfk1 * 0.78).toFixed(2)
+              zk: (0.78 * 10).toFixed(1),
+              yfk: (that.data.yuanjia * 0.78).toFixed(2),
+              yfk1: (that.data.yuanjia * 0.78).toFixed(2)
             })
           }
           if (res.data.type == '5') {
             that.setData({
-              zk: 0.75,
-              yfk: (that.data.yfk * 0.75).toFixed(2),
-              yfk1: (that.data.yfk1 * 0.75).toFixed(2)
+              zk: (0.75 * 10).toFixed(1),
+              yfk: (that.data.yuanjia * 0.75).toFixed(2),
+              yfk1: (that.data.yuanjia * 0.75).toFixed(2)
             })
           }
+          }
+          }else{
+            console.log(that.data.yfk);
+            console.log(that.data.yfk1);
+            console.log(that.data.yuanjia);
+            that.setData({
+              zk: 1,
+              yfk: that.data.yuanjia,
+              yfk1: that.data.yuanjia
+            })
+            console.log(that.data.checked1);
+            console.log(that.data.checked2);
+            console.log(that.data.checked3);
+            
+          }
+          that.dazhe();
           // var hi = JSON.parse(res.data);
           that.setData({
             chaxun: res.data
@@ -767,10 +807,77 @@ Component({
 
         }
       });
+    },dazhe:function(){
+      var that=this;
+      if (that.data.checked1 == true && that.data.checked2 == false && that.data.checked3 == false) {//选择余额抵扣
+        var yue = that.data.chaxun.balance;
+        var jifen = that.data.chaxun.point;
+        var yhq = that.data.chaxun.new_cash;
+        var yfk1 = that.data.yfk1;
+        if ((yfk1 - yue) <= 0) {
+          that.setData({ yfk: 0 })
+        } else {
+          that.setData({ yfk: (yfk1 - yue).toFixed(2) })
+        }
+
+      }
+      if (that.data.checked1 == false && that.data.checked2 == true && that.data.checked3 == false) {//选择积分抵扣
+        var yue = that.data.chaxun.balance;
+        var jifen = that.data.chaxun.point;
+        var yhq = that.data.chaxun.new_cash;
+        var yfk1 = that.data.yfk1;
+        if ((yfk1 - jifen) <= 0) {
+          that.setData({ yfk: 0 })
+        } else {
+          that.setData({ yfk: (yfk1 - jifen).toFixed(2) })
+        }
+      }
+      if (that.data.checked1 == false && that.data.checked2 == false && that.data.checked3 == true) {//选择优惠券抵扣
+        var yue = that.data.chaxun.balance;
+        var jifen = that.data.chaxun.point;
+        var yhq = that.data.chaxun.new_cash;
+        var yfk1 = that.data.yfk1;
+        if ((yfk1 - (yhq * 10)) <= 0) {
+          that.setData({ yfk: 0 })
+        } else {
+          that.setData({ yfk: (yfk1 - (yhq * 10)).toFixed(2) })
+        }
+      }
+      if (that.data.checked1 == true && that.data.checked2 == true && that.data.checked3 == false) {//选择余额加积分抵扣
+        var yue = that.data.chaxun.balance;
+        var jifen = that.data.chaxun.point;
+        var yhq = that.data.chaxun.new_cash;
+        var yfk1 = that.data.yfk1;
+        if ((yfk1 - yue) <= 0) {
+          that.setData({ yfk: 0 })
+        } else {
+          if (((yfk1 - yue) - jifen) <= 0) {
+            that.setData({ yfk: 0 })
+          } else {
+            that.setData({ yfk: ((yfk1 - yue) - jifen).toFixed(2) })
+          }
+          // that.setData({ yfk: yfk1 - yue })
+        }
+      }
+      if (that.data.checked1 == true && that.data.checked2 == false && that.data.checked3 == true) {//选择余额加优惠券抵扣
+        var yue = that.data.chaxun.balance;
+        var jifen = that.data.chaxun.point;
+        var yhq = that.data.chaxun.new_cash;
+        var yfk1 = that.data.yfk1;
+        if ((yfk1 - yue) <= 0) {
+          that.setData({ yfk: 0 })
+        } else {
+          if (((yfk1 - yue) - (yhq * 10)) <= 0) {
+            that.setData({ yfk: 0 })
+          } else {
+            that.setData({ yfk: ((yfk1 - yue) - (yhq * 10)).toFixed(2) })
+          }
+        }
+      }
     },
     onLoad: function(op) {
       console.log(op.tid)
-      let that = this;
+      var that = this;
       // that.addressselect(op);
       if (op.table != '' && op.table != null && op.table != undefined && op.table != "undefined"){
         var xinop={"id":op.tid,"num":op.num,"table":op.table,"userid":op.userid}
@@ -799,10 +906,10 @@ Component({
     onShow: function() {
 
       let that = this;
-     
+      console.log(wx.getStorageSync('dianhua'))
       console.log(that.data.laican);
       console.log(that.data.address1);
-      
+      that.setData({ dianhua: wx.getStorageSync('dianhua')})
     }
   }
 })

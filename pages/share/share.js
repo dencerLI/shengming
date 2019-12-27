@@ -22,7 +22,8 @@ Component({
     autoplay: false,
     medata: '',
     appUrl: app.globalData.allUrl,
-    isupload:"?"+ Math.random() / 9999
+    isupload:"?"+ Math.random() / 9999,
+    isnone:'block'
   },
 
   /**
@@ -89,6 +90,34 @@ Component({
         }
       })
 
+    },goshare:function(){
+      var that = this;
+      console.log(wx.getStorageSync('uid'))
+      var uid = wx.getStorageSync('uid');
+      wx.request({
+        url: app.globalData.allUrl + 'api/share/ajax_is_share',
+        method: "POST",//指定请求方式，默认get
+        data: { "uid": uid },
+        header: {
+          //默认值'Content-Type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded' //post
+        },
+        success: function (res) {
+          console.log(res)
+          if(res.data==0||res.data=="0"){
+            that.setData({ isnone: 'none' });
+            wx.showToast({
+              title: '您的分享暂时被锁，成交1位用户后解锁',
+              icon: 'none',
+              duration: 1500,
+              mask: true
+            })
+            
+          }else{
+            that.setData({ isnone: 'block' })
+          }
+        }
+      });
     },
     imgall:function(){
       var that = this;
@@ -118,7 +147,7 @@ Component({
       wx.request({
         url: app.globalData.allUrl + 'api/tool/getshare',
         method: "POST",//指定请求方式，默认get
-        data: { "uid": uid },
+        data: { "uid": uid ,'openid':wx.getStorageSync('openid')},
         header: {
           //默认值'Content-Type': 'application/json'
           'content-type': 'application/x-www-form-urlencoded' //post
@@ -141,7 +170,7 @@ Component({
     },onShow:function(){
       var that=this;
       that.setData({ isShowToast: 'none' });
-      
+      that.goshare();
     }
    
   }

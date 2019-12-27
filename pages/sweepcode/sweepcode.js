@@ -68,7 +68,8 @@ Component({
         })
         return false;
       }
-      var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+      // var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+      var myreg = /^(((13[0-9]{1})|(14[0-9]{1})|(16[0-9]{1})|(19[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
       if (!myreg.test(mobile)) {
         wx.showToast({
           title: '手机号有误！',
@@ -192,7 +193,7 @@ Component({
           success: function (res) {
             console.log(res)
             wx.hideLoading()
-            if (res.data.update.status == '0') { //验证码校验成功执行
+            if (res.data.update.status == '0'||res.data.update.status == 0) { //验证码校验成功执行
               wx.showToast({
                 title: res.data.update.msg,
                 icon: 'none',
